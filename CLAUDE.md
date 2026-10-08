@@ -223,6 +223,19 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - Vitesse de lecture réglable (surtout pour les textes).
 - Ordre : séquentiel ou aléatoire.
 
+### 7.5 Mise en œuvre (étape 2)
+
+- **Motifs** : `src/lib/player/patterns.ts`. Gabarits `{champ}`, `{a.b}`, `{a|b}` (premier champ présent). Une étape dont un champ manque (ex. `example` absent) est sautée avec la pause qui la suit. `each` répète sur une liste (`sentences`, `examples`) ; `segment` fait de chaque élément un segment.
+- **Segment** = unité de navigation (suivant / précédent) et de fin de minuteur : un mot, un verbe, une règle, une phrase de texte (le titre d'un texte est son propre segment).
+- **Fin du minuteur** : on termine le segment en cours, sans ses pauses restantes, puis arrêt net.
+- **Le minuteur compte le temps d'écoute** : il s'arrête quand l'utilisateur met en pause.
+- **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte.
+- **Moteur** (`player.ts`) : sans dépendance au navigateur (voix, attente, horloge injectées), testé avec une horloge virtuelle.
+- **Son silencieux en boucle** (`src/lib/speech/keep-alive.ts`) pendant la session : sans élément média actif, Chrome n'affiche pas les contrôles Media Session et Android suspend plus facilement la page.
+- `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
+- Préférences d'écoute (contenu, motif, durée, ordre, vitesse, pauses) mémorisées en localStorage.
+- Route : `/listen`.
+
 ## 8. Mode Étudier
 
 - Navigation par thème, verbes, règles, textes.
