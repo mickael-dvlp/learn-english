@@ -27,7 +27,7 @@ Ton de l'appli : chaleureux, fonctionnel, simple.
 | Voix (phase 2) | Fichiers audio générés, référencés par un champ `audio` |
 | Minuteur | Minuteur de durée de session (5/10/30 min, valeur libre possible) avec arrêt net. **Pas de fade-out.** |
 | Développement | Intégralement sur ordinateur (Chrome/Edge desktop). Pas de test sur téléphone avant le déploiement. |
-| Déploiement | **Vercel**, une fois l'appli terminée. Le test écran verrouillé sur Android (§6) aura lieu à ce moment-là. |
+| Déploiement | **Vercel**, branché sur le dépôt GitHub (redéploiement à chaque push). Déployé après l'étape 3, avant le travail de style. Le test écran verrouillé sur Android (§6) a lieu au premier déploiement. |
 
 ## 3. Deux modes, un seul contenu
 
@@ -268,12 +268,15 @@ Mise en œuvre (étape 3) :
 
 ## 11. Feuille de route
 
-1. **Fondations** : projet Next.js + TS + Tailwind, schémas de types, validation du contenu, quelques fichiers d'exemple (2 thèmes, 10 verbes, 2 règles, 1 texte).
-2. **Lecteur** : abstraction `speak()`, motifs, pauses, minuteur de session, Media Session. Tests sur ordinateur (le test écran verrouillé se fera au déploiement).
-3. **Mode Étudier** : listes, fiches, suivi vu/écouté.
-4. **PWA et hors-ligne** : manifest, service worker, cache des données.
-5. **Audio généré** : script de génération, champ `audio`, packs téléchargeables par thème.
-6. **Confort** : quiz, réglages, statistiques d'écoute.
+1. ✅ **Fondations** : projet Next.js + TS + Tailwind, schémas de types, validation du contenu, quelques fichiers d'exemple (2 thèmes, 10 verbes, 2 règles, 1 texte).
+2. ✅ **Lecteur** : abstraction `speak()`, motifs, pauses, minuteur de session, Media Session. Tests sur ordinateur.
+3. ✅ **Mode Étudier** : listes, fiches, suivi vu/écouté.
+4. **Déploiement** : dépôt GitHub + Vercel. Test sur téléphone, dont une session écran verrouillé.
+5. **Style** : refonte visuelle.
+6. **Compléter l'application** :
+   - PWA et hors-ligne : manifest, service worker, cache des données.
+   - Audio généré : script de génération, champ `audio`, packs téléchargeables par thème (prioritaire si la voix native se coupe écran verrouillé).
+   - Confort : quiz, réglages, statistiques d'écoute.
 
 Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 
