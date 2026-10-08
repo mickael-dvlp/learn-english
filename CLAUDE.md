@@ -180,7 +180,7 @@ Logique interne :
 
 **Génération** : `npm run audio` (`scripts/generate-audio.ts`, Edge TTS via `msedge-tts`, voix `en-GB-SoniaNeural` et `fr-FR-DeniseNeural`). Le script liste tous les textes prononcés (motifs du lecteur + exemples lus en mode Étudier) et ne génère que les fichiers manquants. `--dry-run` compte, `--prune` supprime les fichiers devenus inutiles. Les fichiers sont commités ; Vercel les sert tels quels. **Après tout ajout de contenu : `npm run audio`, puis commit.**
 
-Conséquence : un contenu sans audio généré reste jouable en voix native, l'appli fonctionne pareil.
+Conséquence : un contenu sans audio généré reste utilisable en mode Étudier (voix native), mais il est muet en mode Écouter.
 
 **Écran verrouillé (Android, testé sur le téléphone)** :
 - La voix native se met en pause dès le verrouillage : inutilisable pour l'écoute du soir.
