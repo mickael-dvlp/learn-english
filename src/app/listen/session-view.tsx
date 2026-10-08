@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { bindMediaSession } from "@/lib/player/media-session";
 import type { Player } from "@/lib/player/player";
-import { startKeepAlive, stopKeepAlive } from "@/lib/speech/keep-alive";
+import { debugLog } from "@/lib/debug/log";
 
 type Props = { player: Player; title: string; onClose: () => void };
 
@@ -17,17 +17,21 @@ export function SessionView({ player, title, onClose }: Props) {
     // Leaving the screen stops the session. Deferred so that React's dev double mount does not stop it.
     clearTimeout(pendingStop.current);
     const unbindMediaSession = bindMediaSession(player, title);
-    const syncKeepAlive = () => (player.getSnapshot().status === "playing" ? startKeepAlive() : stopKeepAlive());
-    const unsubscribe = player.subscribe(syncKeepAlive);
+    let lastStatus = player.getSnapshot().status;
+    const logStatus = () => {
+      const { status } = player.getSnapshot();
+      if (status !== lastStatus) debugLog(`lecteur : ${(lastStatus = status)}`);
+    };
+    const logVisibility = () => debugLog(`écran : ${document.visibilityState === "hidden" ? "verrouillé / caché" : "visible"}`);
+    const unsubscribe = player.subscribe(logStatus);
+    document.addEventListener("visibilitychange", logVisibility);
     const timer = setInterval(() => setRemainingMs(player.remainingMs()), 500);
     return () => {
       clearInterval(timer);
       unsubscribe();
+      document.removeEventListener("visibilitychange", logVisibility);
       unbindMediaSession();
-      pendingStop.current = setTimeout(() => {
-        player.stop();
-        stopKeepAlive();
-      }, 0);
+      pendingStop.current = setTimeout(player.stop, 0);
     };
   }, [player, title]);
 

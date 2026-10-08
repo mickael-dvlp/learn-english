@@ -7,7 +7,6 @@ import { createBrowserPlayer } from "@/lib/player/browser";
 import { lapFactory } from "@/lib/player/compile";
 import { patternsFor } from "@/lib/player/patterns";
 import type { Player } from "@/lib/player/player";
-import { startKeepAlive } from "@/lib/speech/keep-alive";
 import { preloadVoices } from "@/lib/speech/speak";
 import { useLocalStore } from "@/lib/storage/local-store";
 import { preferencesStore, setPreferences } from "@/lib/storage/preferences";
@@ -45,7 +44,6 @@ export function ListenScreen({ sources }: { sources: Collection[] }) {
       onSegmentEnd: (segment) => markListened(segment.itemId),
     });
     // Started from the click itself: browsers only allow audio after a user gesture.
-    startKeepAlive();
     player.play();
     setSession({ player, title: source.label });
   };

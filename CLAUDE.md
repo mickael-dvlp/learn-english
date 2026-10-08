@@ -226,7 +226,8 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - **Le minuteur compte le temps d'écoute** : il s'arrête quand l'utilisateur met en pause.
 - **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte. Chaque élément passe une fois par tour, et au changement de tour la moitié des autres éléments passe avant qu'un élément de fin de tour ne revienne (`shuffleAfter`).
 - **Moteur** (`player.ts`) : sans dépendance au navigateur (voix, attente, horloge injectées), testé avec une horloge virtuelle.
-- **Son silencieux en boucle** (`src/lib/speech/keep-alive.ts`) pendant la session : sans élément média actif, Chrome n'affiche pas les contrôles Media Session et Android suspend plus facilement la page.
+- **Un seul élément `<audio>` qui ne s'arrête jamais pendant une session** : les mots (fichiers générés) et les pauses (silence WAV généré en mémoire, `src/lib/speech/silence.ts`) passent tous par lui, et chaque étape démarre sur l'événement `ended` de la précédente, jamais sur un minuteur. Raison (testé sur Android) : écran verrouillé, une pause gérée par `setTimeout` pendant que l'audio est à l'arrêt laisse Android geler la page, et la lecture ne reprend pas.
+- **Diagnostic** : le lecteur écrit un journal court en localStorage (`src/lib/debug/log.ts`), lisible sur le téléphone à `/debug` (page non liée dans l'interface).
 - `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix native (repli) : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
 - Préférences d'écoute (contenu, motif, durée, ordre, vitesse, pauses) mémorisées en localStorage.
 - Route : `/listen`.

@@ -1,5 +1,7 @@
+import { debugLog } from "@/lib/debug/log";
 import type { Lang, PlayableUnit } from "@/lib/player/types";
 import { audioPath, spokenText } from "./audio-files";
+import { silenceUrl } from "./silence";
 
 /**
  * The only door to the voice. The player calls `speak()` and never the Web Speech API directly:
@@ -12,6 +14,17 @@ export function speak(unit: PlayableUnit, lang: Lang, rate = 1): Promise<void> {
   const text = unit[lang];
   if (!text) return Promise.resolve();
   return playFile(`/${audioPath(lang, text)}`, rate, () => speakNative(text, lang, rate));
+}
+
+/**
+ * A pause, played as silence through the same audio element as the voice.
+ * The element never stops during a session: Android keeps the page running with the screen locked,
+ * and the next step starts from the media "ended" event rather than from a timer (timers get frozen).
+ */
+export function waitSilently(ms: number): Promise<void> {
+  stopCurrent?.();
+  if (ms <= 0) return Promise.resolve();
+  return playFile(silenceUrl(ms), 1, () => new Promise((resolve) => setTimeout(resolve, ms)));
 }
 
 /** Interrupts whatever is being said; the pending `speak()` promise resolves. */
@@ -31,6 +44,7 @@ let voiceAudio: HTMLAudioElement | undefined;
 
 function playFile(src: string, rate: number, fallback: () => Promise<void>): Promise<void> {
   if (missingFiles.has(src) || typeof Audio === "undefined") return fallback();
+  const name = src.startsWith("blob:") ? "silence" : src;
 
   return new Promise((resolve) => {
     const audio = (voiceAudio ??= new Audio());
@@ -46,23 +60,29 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
       audio.pause();
       if (settle()) resolve();
     };
-    const fallBackToNative = () => {
+    const fallBack = (reason: string) => {
+      debugLog(`✗ ${name} : ${reason}, repli`);
       if (settle()) void fallback().then(resolve);
     };
 
-    audio.onended = () => settle() && resolve();
-    // Missing or unreadable file: remember it and fall back to the native voice.
+    audio.onended = () => {
+      debugLog(`fin ${name}`);
+      if (settle()) resolve();
+    };
+    // Missing or unreadable file: remember it and use the fallback (native voice for speech).
     audio.onerror = () => {
-      missingFiles.add(src);
-      fallBackToNative();
+      if (!src.startsWith("blob:")) missingFiles.add(src);
+      fallBack("fichier illisible");
     };
     stopCurrent = stop;
     audio.src = src;
     audio.defaultPlaybackRate = rate;
     audio.playbackRate = rate;
+    debugLog(`lecture ${name}`);
     audio.play().catch((error: unknown) => {
       // AbortError: interrupted by pause() or a new source, already handled by `stop`.
-      if (!(error instanceof DOMException && error.name === "AbortError")) fallBackToNative();
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      fallBack(`lecture refusée (${error instanceof Error ? error.name : String(error)})`);
     });
   });
 }
@@ -74,6 +94,7 @@ function speakNative(text: string, lang: Lang, rate: number): Promise<void> {
   const synth = typeof window === "undefined" ? undefined : window.speechSynthesis;
   if (!synth) return Promise.resolve();
 
+  debugLog(`voix native : ${text}`);
   return new Promise((resolve) => {
     const utterance = new SpeechSynthesisUtterance(spokenText(text));
     utterance.lang = LOCALES[lang];
