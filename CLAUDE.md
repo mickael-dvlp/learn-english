@@ -283,6 +283,19 @@ Mise en œuvre (étape 3) :
 
 Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 
+### Tâches à faire (liste de l'utilisateur, 8 octobre 2026)
+
+À reprendre à la prochaine session, dans cet ordre sauf avis contraire :
+
+1. **Modification du visuel** (étape 5). Demander d'abord l'ambiance souhaitée, ce qui gêne aujourd'hui et l'écran prioritaire.
+2. **Logo et favicon** : fichiers fournis dans `public/image/` (`logo-mouton.svg`, `favicon.ico`). Les intégrer (onglet, accueil, Media Session, futur manifest PWA). Le favicon d'origine de Next.js est encore dans `src/app/favicon.ico`.
+3. **Nouveaux thèmes de mots** : nourriture, animaux, fruits, légumes, objets du quotidien, vêtements, transports, politesse… (un fichier `content/words/<theme>.json` par thème + entrée dans `themes.json`).
+4. **Autres verbes** (`content/verbs/irregular.json`, `regular.json`).
+5. **Mots de coordination** (and, but, or, so, because…). À décider : un thème de mots dédié, ou une nouvelle valeur de `pos` (`conjunction`), ce qui touche au schéma.
+6. **Règle : comment construire une phrase interrogative** (`content/rules/special.json` ou `conjugation.json` : do/does/did, inversion avec be/can, mots interrogatifs).
+
+Pour tout ajout de contenu : `npm run validate`, puis `npm run audio`, puis commit.
+
 ## 12. Conventions de code
 
 - TypeScript strict, pas de `any`.
