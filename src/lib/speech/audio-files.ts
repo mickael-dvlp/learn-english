@@ -17,9 +17,19 @@ export function spokenText(text: string): string {
   return text.replace(/\s*\/\s*/g, ", ").replace(/\s+/g, " ").trim();
 }
 
-/** Path under /public, e.g. `audio/en/1x2y3z.mp3`. */
-export function audioPath(lang: Lang, text: string): string {
-  return `audio/${lang}/${hash(`${VOICES[lang]}\n${spokenText(text)}`)}.mp3`;
+/**
+ * Path under /public, e.g. `audio/en/1x2y3z.mp3`.
+ * `rate` < 1 is a slower recording (generated slower, which sounds better than slowing down playback).
+ */
+export function audioPath(lang: Lang, text: string, rate = 1): string {
+  const speed = rate === 1 ? "" : `@${rate}\n`;
+  return `audio/${lang}/${hash(`${VOICES[lang]}\n${speed}${spokenText(text)}`)}.mp3`;
+}
+
+/** Edge TTS prosody rate, e.g. 0.85 → "-15%". */
+export function prosodyRate(rate: number): string {
+  const percent = Math.round((rate - 1) * 100);
+  return `${percent >= 0 ? "+" : ""}${percent}%`;
 }
 
 /** cyrb53: small, fast, deterministic 53-bit string hash (not cryptographic, collisions negligible here). */

@@ -182,7 +182,12 @@ Logique interne :
 
 Conséquence : un contenu sans audio généré reste jouable en voix native, l'appli fonctionne pareil.
 
-**Écran verrouillé (Android, testé au premier déploiement)** : la voix native se met en pause dès le verrouillage et reprend au déverrouillage ; elle ne permet donc pas l'écoute du soir. Les fichiers audio via `<audio>` + Media Session continuent. Les contrôles Media Session fonctionnent.
+**Écran verrouillé (Android, testé sur le téléphone)** :
+- La voix native se met en pause dès le verrouillage : inutilisable pour l'écoute du soir.
+- Une suite de **sons courts** (un fichier par mot, même enchaînés sans minuteur) est mise en pause par le système environ 6 s après le verrouillage (journal `/debug`). Chrome Android ne traite comme une vraie lecture que les médias longs.
+- D'où le lecteur par **pistes assemblées** (section 7.5) : une session est jouée comme des pistes d'une à deux minutes, comme un podcast.
+
+Le mode Écouter n'utilise donc pas `speak()` : il joue les mêmes fichiers générés, assemblés. `speak()` reste l'unique accès à la voix pour les boutons 🔊 du mode Étudier. Un texte sans audio généré est sauté en mode Écouter (journal + avertissement de `npm run validate`).
 
 ## 7. Mode Écouter : le lecteur
 
@@ -225,8 +230,10 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - **Fin du minuteur** : on termine le segment en cours, sans ses pauses restantes, puis arrêt net.
 - **Le minuteur compte le temps d'écoute** : il s'arrête quand l'utilisateur met en pause.
 - **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte. Chaque élément passe une fois par tour, et au changement de tour la moitié des autres éléments passe avant qu'un élément de fin de tour ne revienne (`shuffleAfter`).
-- **Moteur** (`player.ts`) : sans dépendance au navigateur (voix, attente, horloge injectées), testé avec une horloge virtuelle.
-- **Un seul élément `<audio>` qui ne s'arrête jamais pendant une session** : les mots (fichiers générés) et les pauses (silence WAV généré en mémoire, `src/lib/speech/silence.ts`) passent tous par lui, et chaque étape démarre sur l'événement `ended` de la précédente, jamais sur un minuteur. Raison (testé sur Android) : écran verrouillé, une pause gérée par `setTimeout` pendant que l'audio est à l'arrêt laisse Android geler la page, et la lecture ne reprend pas.
+- **Moteur** (`player.ts`) : sans dépendance au navigateur (chargement des sons, sortie audio, horloge injectés), testé avec une sortie factice.
+- **Pistes assemblées** (`timeline.ts`, `browser.ts`) : le lecteur décode les MP3 générés (Web Audio, 24 kHz), retire leurs silences de début et de fin, et assemble des segments entiers avec les pauses (silence) en une piste WAV : 15 s pour démarrer vite, puis environ 90 s. La piste suivante est préparée pendant que la courante joue, et s'enchaîne sur `ended`. Un seul élément `<audio>`.
+- **Vitesse** : réglage utilisateur = `playbackRate` de l'élément (hauteur de voix conservée) ; les silences sont ajustés pour garder leur durée réelle. Les phrases lentes des textes (`rate: 0.85` dans le motif) sont des fichiers **générés lentement** (Edge TTS `-15%`), pas ralentis à la lecture.
+- **Interruption par le système** (pause non demandée) : le lecteur passe en pause, minuteur arrêté ; ▶ reprend au même endroit.
 - **Diagnostic** : le lecteur écrit un journal court en localStorage (`src/lib/debug/log.ts`), lisible sur le téléphone à `/debug` (page non liée dans l'interface).
 - `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix native (repli) : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
 - Préférences d'écoute (contenu, motif, durée, ordre, vitesse, pauses) mémorisées en localStorage.

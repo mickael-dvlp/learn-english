@@ -1,12 +1,10 @@
-import { debugLog } from "@/lib/debug/log";
 import type { Lang, PlayableUnit } from "@/lib/player/types";
 import { audioPath, spokenText } from "./audio-files";
-import { silenceUrl } from "./silence";
 
 /**
- * The only door to the voice. The player calls `speak()` and never the Web Speech API directly:
+ * Says one text on demand (study mode buttons). Nothing calls the Web Speech API directly:
  * the generated audio file for this text is played when it exists, the native voice otherwise.
- * Audio files keep playing with the screen locked; the native voice does not (Android pauses it).
+ * Listening sessions do not use this: they play assembled tracks (see player/timeline.ts).
  * Always resolves (end, error or `cancelSpeech()`), never rejects.
  */
 export function speak(unit: PlayableUnit, lang: Lang, rate = 1): Promise<void> {
@@ -15,27 +13,6 @@ export function speak(unit: PlayableUnit, lang: Lang, rate = 1): Promise<void> {
   if (!text) return Promise.resolve();
   return playFile(`/${audioPath(lang, text)}`, rate, () => speakNative(text, lang, rate));
 }
-
-/**
- * A pause, played as silence through the same audio element as the voice.
- * The element never stops during a session: Android keeps the page running with the screen locked,
- * and the next step starts from the media "ended" event rather than from a timer (timers get frozen).
- */
-export function waitSilently(ms: number): Promise<void> {
-  stopCurrent?.();
-  if (ms <= 0) return Promise.resolve();
-  return playFile(silenceUrl(ms), 1, () => new Promise((resolve) => setTimeout(resolve, ms)));
-}
-
-/**
- * Called when the system pauses the audio by itself (screen locked, another app takes the audio…),
- * so the player can switch to "paused" instead of waiting forever for the end of the sound.
- */
-export function setInterruptionHandler(handler: (() => void) | undefined): void {
-  onInterrupted = handler;
-}
-
-let onInterrupted: (() => void) | undefined;
 
 /** Interrupts whatever is being said; the pending `speak()` promise resolves. */
 export function cancelSpeech(): void {
@@ -49,20 +26,19 @@ let stopCurrent: (() => void) | undefined;
 /** Files known to be missing (not generated yet): go straight to the native voice next time. */
 const missingFiles = new Set<string>();
 
-/** A single element, reused: once allowed to play by a tap, it keeps that permission in the background. */
+/** A single element, reused. */
 let voiceAudio: HTMLAudioElement | undefined;
 
 function playFile(src: string, rate: number, fallback: () => Promise<void>): Promise<void> {
   if (missingFiles.has(src) || typeof Audio === "undefined") return fallback();
-  const name = src.startsWith("blob:") ? "silence" : src;
 
   return new Promise((resolve) => {
-    const audio = (voiceAudio ??= createVoiceAudio());
+    const audio = (voiceAudio ??= new Audio());
     let settled = false;
     const settle = () => {
       if (settled) return false;
       settled = true;
-      audio.onended = audio.onerror = audio.onpause = null;
+      audio.onended = audio.onerror = null;
       if (stopCurrent === stop) stopCurrent = undefined;
       return true;
     };
@@ -70,46 +46,26 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
       audio.pause();
       if (settle()) resolve();
     };
-    const fallBack = (reason: string) => {
-      debugLog(`✗ ${name} : ${reason}, repli`);
+    const fallBack = () => {
       if (settle()) void fallback().then(resolve);
     };
 
-    audio.onended = () => {
-      debugLog(`fin ${name}`);
-      if (settle()) resolve();
-    };
-    // "pause" also fires right before "ended": only a pause we did not ask for is an interruption.
-    audio.onpause = () => {
-      if (audio.ended || !settle()) return;
-      debugLog(`⏸ ${name} : mis en pause par le système`);
-      onInterrupted?.();
-      resolve();
-    };
-    // Missing or unreadable file: remember it and use the fallback (native voice for speech).
+    audio.onended = () => settle() && resolve();
+    // Missing or unreadable file: remember it and fall back to the native voice.
     audio.onerror = () => {
-      if (!src.startsWith("blob:")) missingFiles.add(src);
-      fallBack("fichier illisible");
+      missingFiles.add(src);
+      fallBack();
     };
     stopCurrent = stop;
     audio.src = src;
     audio.defaultPlaybackRate = rate;
     audio.playbackRate = rate;
-    debugLog(`lecture ${name}`);
     audio.play().catch((error: unknown) => {
       // AbortError: interrupted by pause() or a new source, already handled by `stop`.
       if (error instanceof DOMException && error.name === "AbortError") return;
-      fallBack(`lecture refusée (${error instanceof Error ? error.name : String(error)})`);
+      fallBack();
     });
   });
-}
-
-function createVoiceAudio(): HTMLAudioElement {
-  const audio = new Audio();
-  for (const event of ["waiting", "stalled", "suspend", "emptied"] as const) {
-    audio.addEventListener(event, () => debugLog(`(audio : ${event})`));
-  }
-  return audio;
 }
 
 // Keeps a reference to the utterance: some Chrome versions garbage-collect it and never fire `onend`.
@@ -119,7 +75,6 @@ function speakNative(text: string, lang: Lang, rate: number): Promise<void> {
   const synth = typeof window === "undefined" ? undefined : window.speechSynthesis;
   if (!synth) return Promise.resolve();
 
-  debugLog(`voix native : ${text}`);
   return new Promise((resolve) => {
     const utterance = new SpeechSynthesisUtterance(spokenText(text));
     utterance.lang = LOCALES[lang];

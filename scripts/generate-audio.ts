@@ -12,7 +12,7 @@ import path from "node:path";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 import { loadContent } from "../src/lib/content/load";
 import type { Lang } from "../src/lib/player/types";
-import { VOICES, spokenText } from "../src/lib/speech/audio-files";
+import { VOICES, prosodyRate, spokenText } from "../src/lib/speech/audio-files";
 import { listSpokenTexts, type SpokenText } from "../src/lib/speech/spoken-texts";
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
@@ -53,7 +53,8 @@ async function main() {
       for (const entry of batch) {
         await generate(entry);
         done++;
-        console.log(`[${done}/${missing.length}] ${entry.lang} · ${entry.text}`);
+        const speed = entry.rate === 1 ? "" : ` (${prosodyRate(entry.rate)})`;
+        console.log(`[${done}/${missing.length}] ${entry.lang}${speed} · ${entry.text}`);
       }
     }
   } finally {
@@ -65,7 +66,7 @@ async function main() {
 async function generate(entry: SpokenText) {
   for (let attempt = 1; ; attempt++) {
     try {
-      const { audioStream } = tts.toStream(escapeXml(spokenText(entry.text)));
+      const { audioStream } = tts.toStream(escapeXml(spokenText(entry.text)), { rate: prosodyRate(entry.rate) });
       const chunks: Buffer[] = [];
       for await (const chunk of audioStream) chunks.push(chunk as Buffer);
       const audio = Buffer.concat(chunks);

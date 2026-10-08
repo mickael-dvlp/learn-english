@@ -1,13 +1,32 @@
-import { pauseMs } from "./pause";
-import type { Lang, ListenSettings, PlayableUnit, Segment, Step } from "./types";
+import { buildChunk, type Chunk, type ClipLoader, type Position } from "./timeline";
+import type { ListenSettings, Segment, Step } from "./types";
 
-/** Everything that touches the outside world, injected so the player runs (and is tested) without a browser. */
+/** First track short so that playback starts quickly, then longer ones. */
+export const FIRST_CHUNK_MS = 15_000;
+export const NEXT_CHUNK_MS = 90_000;
+
+/** The audio element, seen by the player. Injected so that the player is tested without a browser. */
+export type AudioOutput = {
+  /** Replaces the current track (does not start playback). */
+  load(chunk: Chunk): void;
+  play(): void;
+  pause(): void;
+  setRate(rate: number): void;
+  /** Media time in the current track, in ms. */
+  positionMs(): number;
+  listen(handlers: {
+    /** Playback progressed. */
+    time: () => void;
+    /** The track played to its end. */
+    ended: () => void;
+    /** The system paused or refused playback (screen locked, other app…). */
+    interrupted: () => void;
+  }): void;
+};
+
 export type PlayerDeps = {
-  /** Must always resolve, including when interrupted by `cancel()`. */
-  speak(unit: PlayableUnit, lang: Lang, rate: number): Promise<void>;
-  /** Stops the current speech immediately. */
-  cancel(): void;
-  wait(ms: number): Promise<void>;
+  loadClip: ClipLoader;
+  output: AudioOutput;
   now(): number;
 };
 
@@ -31,15 +50,20 @@ export type PlayerSnapshot = {
 };
 
 export class Player {
-  private lap: Segment[];
-  private segmentIndex = 0;
-  private stepIndex = 0;
   private status: PlayerStatus = "idle";
-  private settings: ListenSettings;
+  /** Where playback (re)starts when there is no track yet. */
+  private position: Position;
+  private chunk: Chunk | undefined;
+  /** Listening time left when the current track started (real ms). */
+  private chunkBudgetMs = 0;
+  private nextChunk: Promise<Chunk> | undefined;
+  private entryIndex = 0;
+  /** Index of the next entry whose segment end has not been reported yet. */
+  private reportedUpTo = 0;
+  /** Incremented when tracks being built become obsolete (navigation, stop). */
+  private buildId = 0;
   private elapsedBeforeMs = 0;
   private playingSince: number | undefined;
-  /** Incremented on every interruption: a run loop whose id is stale stops. */
-  private runId = 0;
   private listeners = new Set<() => void>();
   private snapshot: PlayerSnapshot;
 
@@ -47,18 +71,23 @@ export class Player {
     private readonly options: PlayerOptions,
     private readonly deps: PlayerDeps,
   ) {
-    this.settings = options.settings;
-    this.lap = options.createLap();
+    this.position = { lap: options.createLap(), segmentIndex: 0 };
+    deps.output.listen({
+      time: () => this.syncPosition(),
+      ended: () => void this.onTrackEnded(),
+      interrupted: () => this.pause(),
+    });
     this.snapshot = this.buildSnapshot();
   }
 
   play = () => {
     if (this.status === "playing" || this.status === "ended") return;
-    if (this.lap.length === 0) return this.finish();
+    if (this.position.lap.length === 0) return this.finish();
     this.status = "playing";
     this.playingSince = this.deps.now();
     this.notify();
-    void this.run(++this.runId);
+    if (this.chunk) this.deps.output.play();
+    else void this.startFrom(this.position);
   };
 
   pause = () => {
@@ -66,25 +95,19 @@ export class Player {
     this.elapsedBeforeMs = this.elapsedMs();
     this.playingSince = undefined;
     this.status = "paused";
-    this.interrupt();
+    this.deps.output.pause();
     this.notify();
   };
 
   toggle = () => (this.status === "playing" ? this.pause() : this.play());
 
-  next = () => this.jumpTo(this.segmentIndex + 1);
+  next = () => this.jump(1);
 
-  previous = () => this.jumpTo(Math.max(0, this.segmentIndex - 1));
+  previous = () => this.jump(-1);
 
   stop = () => {
     if (this.status === "ended") return;
-    this.interrupt();
     this.finish();
-  };
-
-  /** Applied from the next step on. */
-  setSettings = (settings: ListenSettings) => {
-    this.settings = settings;
   };
 
   elapsedMs = (): number =>
@@ -101,70 +124,114 @@ export class Player {
 
   getSnapshot = (): PlayerSnapshot => this.snapshot;
 
-  private async run(id: number) {
-    while (id === this.runId) {
-      const segment = this.lap[this.segmentIndex];
-      const step = segment.steps[this.stepIndex];
+  private async startFrom(position: Position) {
+    const id = ++this.buildId;
+    const budget = this.remainingMs();
+    const chunk = await this.build(position, budget, FIRST_CHUNK_MS);
+    if (id !== this.buildId) return;
+    this.loadTrack(chunk, budget);
+  }
 
-      if (step === undefined) {
-        this.options.onSegmentEnd?.(segment);
-        if (this.isTimeUp()) return this.finish();
-        this.advance(this.segmentIndex + 1);
-        this.notify();
-        continue;
-      }
+  private loadTrack(chunk: Chunk, budgetMs: number) {
+    const { output } = this.deps;
+    this.chunk = chunk;
+    this.chunkBudgetMs = budgetMs;
+    this.entryIndex = 0;
+    this.reportedUpTo = 0;
+    output.load(chunk);
+    output.setRate(this.options.settings.rate);
+    if (this.status === "playing") output.play();
+    this.notify();
 
-      if (step.kind === "speak") {
-        await this.deps.speak(step.unit, step.lang, step.rate * this.settings.rate);
-      } else if (!this.isTimeUp()) {
-        // Once time is up, pauses are skipped: the current segment ends right after its last words.
-        await this.deps.wait(pauseMs(step, this.settings));
-      }
-      if (id !== this.runId) return;
+    // Prepare the following track while this one plays.
+    const nextBudget = budgetMs - chunk.durationMs / this.options.settings.rate;
+    this.nextChunk = chunk.endsSession ? undefined : this.build(chunk.next, nextBudget, NEXT_CHUNK_MS);
+  }
 
-      this.stepIndex++;
+  private build(from: Position, remainingMs: number, targetMs: number): Promise<Chunk> {
+    return buildChunk({
+      from,
+      nextLap: this.options.createLap,
+      loadClip: this.deps.loadClip,
+      settings: this.options.settings,
+      remainingMs,
+      targetMs,
+    });
+  }
+
+  private async onTrackEnded() {
+    const chunk = this.chunk;
+    if (!chunk || this.status === "ended") return;
+    this.reportSegmentEnds(chunk.entries.length);
+    if (chunk.endsSession || !this.nextChunk) return this.finish();
+
+    const id = this.buildId;
+    const budget = this.chunkBudgetMs - chunk.durationMs / this.options.settings.rate;
+    const next = await this.nextChunk;
+    if (id !== this.buildId) return; // Navigation or stop meanwhile (stop also changes buildId).
+    this.loadTrack(next, budget);
+  }
+
+  /** Follows playback: current entry for the screen, listened segments. */
+  private syncPosition() {
+    const chunk = this.chunk;
+    if (!chunk || chunk.entries.length === 0) return;
+    const position = this.deps.output.positionMs();
+    const playing = chunk.entries.findIndex((entry) => position < entry.endMs);
+    this.reportSegmentEnds(playing === -1 ? chunk.entries.length : playing);
+    const index = playing === -1 ? chunk.entries.length - 1 : playing;
+    if (index !== this.entryIndex) {
+      this.entryIndex = index;
       this.notify();
     }
   }
 
-  private jumpTo(index: number) {
-    if (this.status === "ended") return;
-    this.interrupt();
-    this.advance(index);
-    this.notify();
-    if (this.status === "playing") void this.run(++this.runId);
-  }
-
-  /** Moves to a segment, starting a new lap past the end. */
-  private advance(index: number) {
-    if (index >= this.lap.length) {
-      this.lap = this.options.createLap();
-      index = 0;
+  /** Reports the segments whose last entry is before `upTo` (exclusive). */
+  private reportSegmentEnds(upTo: number) {
+    const chunk = this.chunk;
+    if (!chunk) return;
+    for (; this.reportedUpTo < upTo; this.reportedUpTo++) {
+      const entry = chunk.entries[this.reportedUpTo];
+      if (entry.endsSegment) this.options.onSegmentEnd?.(entry.segment);
     }
-    this.segmentIndex = index;
-    this.stepIndex = 0;
   }
 
-  private interrupt() {
-    this.runId++;
-    this.deps.cancel();
+  /** Moves by one segment from the current one, and plays from there. */
+  private jump(delta: number) {
+    if (this.status === "ended") return;
+    const { lap, segmentIndex } = this.currentPosition();
+    let target: Position;
+    if (segmentIndex + delta >= lap.length) target = { lap: this.options.createLap(), segmentIndex: 0 };
+    else target = { lap, segmentIndex: Math.max(0, segmentIndex + delta) };
+
+    this.buildId++;
+    this.deps.output.pause();
+    this.chunk = undefined;
+    this.nextChunk = undefined;
+    this.position = target;
+    this.notify();
+    if (this.status === "playing") void this.startFrom(target);
+  }
+
+  private currentPosition(): Position {
+    const entry = this.chunk?.entries[this.entryIndex];
+    return entry ? { lap: entry.lap, segmentIndex: entry.segmentIndex } : this.position;
   }
 
   private finish() {
     this.elapsedBeforeMs = this.elapsedMs();
     this.playingSince = undefined;
-    this.runId++;
+    this.buildId++;
     this.status = "ended";
+    this.deps.output.pause();
     this.notify();
   }
 
-  private isTimeUp() {
-    return this.elapsedMs() >= this.options.durationMs;
-  }
-
   private buildSnapshot(): PlayerSnapshot {
-    const segment = this.lap[this.segmentIndex];
-    return { status: this.status, segment, step: segment?.steps[this.stepIndex] };
+    const entry = this.chunk?.entries[this.entryIndex];
+    if (entry) return { status: this.status, segment: entry.segment, step: entry.step };
+    const { lap, segmentIndex } = this.position;
+    return { status: this.status, segment: lap[segmentIndex], step: undefined };
   }
 
   private notify() {
