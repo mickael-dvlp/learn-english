@@ -1,6 +1,6 @@
 import type { ListenSettings, Step } from "./types";
 
-export const PAUSE_BASE_MS = 1500;
+export const PAUSE_BASE_MS = 500;
 export const PAUSE_PER_WORD_MS = 350;
 
 export const DEFAULT_SETTINGS: ListenSettings = { rate: 0.9, pauseFactor: 1 };
