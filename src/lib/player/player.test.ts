@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { PAUSE_BASE_MS } from "./pause";
 import { Player, type PlayerDeps } from "./player";
 import type { Segment, Step } from "./types";
 
@@ -58,12 +59,12 @@ test("plays every step in order and loops until time is up", async () => {
   const { deps, log } = fakeDeps();
   let laps = 0;
   const player = new Player(
-    { durationMs: 6000, settings, createLap: () => (laps++, [segment("a"), segment("b")]) },
+    { durationMs: 3 * SPEAK_MS + 2 * PAUSE_BASE_MS, settings, createLap: () => (laps++, [segment("a"), segment("b")]) },
     deps,
   );
   player.play();
   await untilEnded(player);
-  // a(1s) + pause(1.5s) + b(1s) + pause(1.5s) = 5s, then a new lap; "c" would exceed 6s.
+  // a, pause, b, pause, then a new lap: time runs out while "a" plays, so its pause is skipped.
   assert.deepEqual(log, ["a", "…", "b", "…", "a"]);
   assert.equal(laps, 2);
 });
