@@ -1,0 +1,35 @@
+[
+  {
+    "id": "verb-work",
+    "type": "verb",
+    "base": "work",
+    "past": "worked",
+    "pastParticiple": "worked",
+    "fr": "travailler",
+    "regular": true,
+    "example": { "en": "He worked on the farm all summer.", "fr": "Il a travaillé à la ferme tout l'été." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-cook",
+    "type": "verb",
+    "base": "cook",
+    "past": "cooked",
+    "pastParticiple": "cooked",
+    "fr": "cuisiner",
+    "regular": true,
+    "example": { "en": "We cooked pasta tonight.", "fr": "Nous avons cuisiné des pâtes ce soir." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-listen",
+    "type": "verb",
+    "base": "listen",
+    "past": "listened",
+    "pastParticiple": "listened",
+    "fr": "écouter",
+    "regular": true,
+    "example": { "en": "I listened to the rain.", "fr": "J'ai écouté la pluie." },
+    "level": "A1"
+  }
+]

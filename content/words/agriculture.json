@@ -1,0 +1,92 @@
+[
+  {
+    "id": "word-tractor",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "tractor",
+    "fr": "tracteur",
+    "pos": "noun",
+    "example": { "en": "The farmer drives a red tractor.", "fr": "Le fermier conduit un tracteur rouge." },
+    "level": "A1"
+  },
+  {
+    "id": "word-farm",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "farm",
+    "fr": "ferme",
+    "pos": "noun",
+    "example": { "en": "They live on a small farm.", "fr": "Ils vivent dans une petite ferme." },
+    "level": "A1"
+  },
+  {
+    "id": "word-farmer",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "farmer",
+    "fr": "agriculteur",
+    "pos": "noun",
+    "example": { "en": "The farmer wakes up early.", "fr": "L'agriculteur se lève tôt." },
+    "level": "A1"
+  },
+  {
+    "id": "word-field",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "field",
+    "fr": "champ",
+    "pos": "noun",
+    "example": { "en": "The cows are in the field.", "fr": "Les vaches sont dans le champ." },
+    "level": "A1"
+  },
+  {
+    "id": "word-barn",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "barn",
+    "fr": "grange",
+    "pos": "noun",
+    "example": { "en": "The hay is in the barn.", "fr": "Le foin est dans la grange." },
+    "level": "A2"
+  },
+  {
+    "id": "word-wheat",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "wheat",
+    "fr": "blé",
+    "pos": "noun",
+    "example": { "en": "Bread is made from wheat.", "fr": "Le pain est fait avec du blé." },
+    "level": "A2"
+  },
+  {
+    "id": "word-harvest",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "harvest",
+    "fr": "récolte",
+    "pos": "noun",
+    "example": { "en": "The harvest was good this year.", "fr": "La récolte a été bonne cette année." },
+    "level": "B1"
+  },
+  {
+    "id": "word-to-grow",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "to grow",
+    "fr": "cultiver",
+    "pos": "verb",
+    "example": { "en": "We grow potatoes in the garden.", "fr": "Nous cultivons des pommes de terre dans le jardin." },
+    "level": "A2"
+  },
+  {
+    "id": "word-rural",
+    "type": "word",
+    "theme": "agriculture",
+    "en": "rural",
+    "fr": "rural",
+    "pos": "adjective",
+    "example": { "en": "She grew up in a rural area.", "fr": "Elle a grandi dans une région rurale." },
+    "level": "B1"
+  }
+]

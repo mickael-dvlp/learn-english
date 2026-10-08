@@ -160,6 +160,13 @@ Règles :
 - **Valider le contenu au build** (schéma Zod ou équivalent) : id unique, champs requis, niveau valide, thème existant. Le build échoue si le contenu est invalide.
 - Ne jamais renommer un `id` existant (casse la progression et l'audio).
 
+Mise en œuvre :
+- Schémas Zod dans `src/lib/content/schema.ts` ; les types TS sont **inférés** des schémas (une seule source). Objets stricts : un champ inconnu (faute de frappe) est une erreur.
+- `src/lib/content/validate.ts` : validation pure (testable sans disque). `load.ts` : lecture de `/content` (synchrone, côté serveur, au build).
+- `npm run validate` vérifie le contenu ; il est lancé automatiquement par `prebuild`.
+- Tests : `npm test` (runner natif `node:test` via `tsx`, pas de framework de test). Fichiers `*.test.ts` à côté du code.
+- Autres commandes : `npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`.
+
 ## 6. Voix et audio : abstraction obligatoire
 
 Le lecteur ne parle **jamais** directement à la Web Speech API. Il appelle une seule fonction :

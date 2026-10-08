@@ -1,0 +1,79 @@
+[
+  {
+    "id": "verb-be",
+    "type": "verb",
+    "base": "be",
+    "past": "was / were",
+    "pastParticiple": "been",
+    "fr": "être",
+    "regular": false,
+    "example": { "en": "I was tired yesterday.", "fr": "J'étais fatigué hier." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-have",
+    "type": "verb",
+    "base": "have",
+    "past": "had",
+    "pastParticiple": "had",
+    "fr": "avoir",
+    "regular": false,
+    "example": { "en": "We had a nice dinner.", "fr": "Nous avons fait un bon dîner." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-go",
+    "type": "verb",
+    "base": "go",
+    "past": "went",
+    "pastParticiple": "gone",
+    "fr": "aller",
+    "regular": false,
+    "example": { "en": "She went to the market.", "fr": "Elle est allée au marché." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-eat",
+    "type": "verb",
+    "base": "eat",
+    "past": "ate",
+    "pastParticiple": "eaten",
+    "fr": "manger",
+    "regular": false,
+    "example": { "en": "I have already eaten.", "fr": "J'ai déjà mangé." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-drink",
+    "type": "verb",
+    "base": "drink",
+    "past": "drank",
+    "pastParticiple": "drunk",
+    "fr": "boire",
+    "regular": false,
+    "example": { "en": "He drank a glass of milk.", "fr": "Il a bu un verre de lait." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-see",
+    "type": "verb",
+    "base": "see",
+    "past": "saw",
+    "pastParticiple": "seen",
+    "fr": "voir",
+    "regular": false,
+    "example": { "en": "I saw a fox in the field.", "fr": "J'ai vu un renard dans le champ." },
+    "level": "A1"
+  },
+  {
+    "id": "verb-sleep",
+    "type": "verb",
+    "base": "sleep",
+    "past": "slept",
+    "pastParticiple": "slept",
+    "fr": "dormir",
+    "regular": false,
+    "example": { "en": "I slept very well last night.", "fr": "J'ai très bien dormi cette nuit." },
+    "level": "A1"
+  }
+]

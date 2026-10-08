@@ -1,0 +1,4 @@
+[
+  { "id": "agriculture", "name": { "en": "Farming", "fr": "Agriculture" }, "emoji": "🚜" },
+  { "id": "cuisine", "name": { "en": "Cooking", "fr": "Cuisine" }, "emoji": "🍳" }
+]

@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
+/* Warm palette: soft cream by day, warm dark brown by night. Never pure white or black. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #f7f1e8;
+  --surface: #efe5d6;
+  --foreground: #3b2f25;
+  --muted: #7a6a5a;
+  --accent: #c2703d;
+  --accent-foreground: #fff8f0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1c1713;
+    --surface: #2a221c;
+    --foreground: #e9dccb;
+    --muted: #a8977f;
+    --accent: #d08a55;
+    --accent-foreground: #1c1713;
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

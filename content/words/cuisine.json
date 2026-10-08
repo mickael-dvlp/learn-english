@@ -1,0 +1,92 @@
+[
+  {
+    "id": "word-kitchen",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "kitchen",
+    "fr": "cuisine",
+    "pos": "noun",
+    "example": { "en": "My mother is in the kitchen.", "fr": "Ma mère est dans la cuisine." },
+    "level": "A1"
+  },
+  {
+    "id": "word-knife",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "knife",
+    "fr": "couteau",
+    "pos": "noun",
+    "example": { "en": "Be careful, the knife is sharp.", "fr": "Attention, le couteau est aiguisé." },
+    "level": "A1"
+  },
+  {
+    "id": "word-pan",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "pan",
+    "fr": "poêle",
+    "pos": "noun",
+    "example": { "en": "Put some oil in the pan.", "fr": "Mets un peu d'huile dans la poêle." },
+    "level": "A2"
+  },
+  {
+    "id": "word-oven",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "oven",
+    "fr": "four",
+    "pos": "noun",
+    "example": { "en": "The cake is in the oven.", "fr": "Le gâteau est dans le four." },
+    "level": "A1"
+  },
+  {
+    "id": "word-recipe",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "recipe",
+    "fr": "recette",
+    "pos": "noun",
+    "example": { "en": "This is my grandmother's recipe.", "fr": "C'est la recette de ma grand-mère." },
+    "level": "A2"
+  },
+  {
+    "id": "word-to-boil",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "to boil",
+    "fr": "faire bouillir",
+    "pos": "verb",
+    "example": { "en": "Boil the water for the pasta.", "fr": "Fais bouillir l'eau pour les pâtes." },
+    "level": "A2"
+  },
+  {
+    "id": "word-to-chop",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "to chop",
+    "fr": "hacher",
+    "pos": "verb",
+    "example": { "en": "Chop the onions finely.", "fr": "Hache finement les oignons." },
+    "level": "B1"
+  },
+  {
+    "id": "word-tasty",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "tasty",
+    "fr": "savoureux",
+    "pos": "adjective",
+    "example": { "en": "This soup is really tasty.", "fr": "Cette soupe est vraiment savoureuse." },
+    "level": "A2"
+  },
+  {
+    "id": "word-spicy",
+    "type": "word",
+    "theme": "cuisine",
+    "en": "spicy",
+    "fr": "épicé",
+    "pos": "adjective",
+    "example": { "en": "I don't like spicy food.", "fr": "Je n'aime pas la nourriture épicée." },
+    "level": "A2"
+  }
+]

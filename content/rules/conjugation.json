@@ -1,0 +1,16 @@
+[
+  {
+    "id": "rule-present-continuous",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "present",
+    "title": { "en": "Present continuous", "fr": "Le présent continu" },
+    "explanation": "On l'utilise pour une action en train de se passer maintenant. On le forme avec le verbe « be » conjugué, suivi du verbe avec « -ing ».",
+    "examples": [
+      { "en": "I am reading a book.", "fr": "Je suis en train de lire un livre." },
+      { "en": "She is cooking dinner.", "fr": "Elle prépare le dîner." },
+      { "en": "They are working in the field.", "fr": "Ils travaillent dans le champ." }
+    ],
+    "level": "A1"
+  }
+]

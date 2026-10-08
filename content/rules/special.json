@@ -1,0 +1,14 @@
+[
+  {
+    "id": "rule-there-is-there-are",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "There is / there are", "fr": "Il y a" },
+    "explanation": "« Il y a » se dit « there is » devant un nom au singulier, et « there are » devant un nom au pluriel.",
+    "examples": [
+      { "en": "There is a cat on the bed.", "fr": "Il y a un chat sur le lit." },
+      { "en": "There are three cows in the field.", "fr": "Il y a trois vaches dans le champ." }
+    ],
+    "level": "A1"
+  }
+]
