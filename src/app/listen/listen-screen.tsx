@@ -4,7 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { PageHeader } from "@/components/page-header";
 import { COLLECTION_GROUPS, type Collection } from "@/lib/content/collections";
 import { createBrowserPlayer } from "@/lib/player/browser";
-import { buildPlaylist } from "@/lib/player/compile";
+import { lapFactory } from "@/lib/player/compile";
 import { patternsFor } from "@/lib/player/patterns";
 import type { Player } from "@/lib/player/player";
 import { startKeepAlive } from "@/lib/speech/keep-alive";
@@ -41,7 +41,7 @@ export function ListenScreen({ sources }: { sources: Collection[] }) {
     const player = createBrowserPlayer({
       durationMs: prefs.durationMinutes * 60_000,
       settings,
-      createLap: () => buildPlaylist(source.items, pattern, prefs.order),
+      createLap: lapFactory(source.items, pattern, prefs.order),
       onSegmentEnd: (segment) => markListened(segment.itemId),
     });
     // Started from the click itself: browsers only allow audio after a user gesture.

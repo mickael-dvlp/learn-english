@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { loadContent } from "@/lib/content/load";
 import type { Rule, TextItem, Word } from "@/lib/content/schema";
-import { buildPlaylist, compileItem, fillTemplate } from "./compile";
+import { compileItem, fillTemplate, lapFactory, shuffleAfter } from "./compile";
 import { PATTERNS, findPattern, patternsFor, type Pattern } from "./patterns";
 import { DEFAULT_SETTINGS, pauseMs } from "./pause";
 import type { Step } from "./types";
@@ -120,10 +120,27 @@ test("pauses grow with the number of words and the user factor", () => {
 
 test("random order shuffles items but keeps the sentences of a text in order", () => {
   const words = ["a", "b", "c", "d"].map((en) => ({ ...word, id: `word-${en}`, en }));
-  const sequential = buildPlaylist(words, pattern("en-only-loop"), "sequential");
-  const random = buildPlaylist(words, pattern("en-only-loop"), "random", () => 0);
+  const sequential = lapFactory(words, pattern("en-only-loop"), "sequential")();
+  const random = lapFactory(words, pattern("en-only-loop"), "random", () => 0)();
   assert.deepEqual(sequential.map((s) => s.label), ["a", "b", "c", "d"]);
   assert.deepEqual(random.map((s) => s.label), ["b", "c", "d", "a"]);
+});
+
+test("random laps: every item once per lap, and never back soon after the lap change", () => {
+  for (let size = 1; size <= 12; size++) {
+    const items = Array.from({ length: size }, (_, i) => i);
+    const gap = Math.floor(size / 2);
+    let previous: number[] = shuffleAfter(items, []);
+    for (let lap = 0; lap < 300; lap++) {
+      const next = shuffleAfter(items, previous);
+      assert.deepEqual([...next].sort((a, b) => a - b), items, "each item exactly once");
+      for (const item of items) {
+        const between = size - 1 - previous.indexOf(item) + next.indexOf(item);
+        assert.ok(between >= gap, `size ${size}: item ${item} back after ${between} items`);
+      }
+      previous = next;
+    }
+  }
 });
 
 test("every pattern produces something for every applicable item of /content", () => {

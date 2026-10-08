@@ -27,7 +27,7 @@ Ton de l'appli : chaleureux, fonctionnel, simple.
 | Voix (phase 2) | Fichiers audio générés, référencés par un champ `audio` |
 | Minuteur | Minuteur de durée de session (5/10/30 min, valeur libre possible) avec arrêt net. **Pas de fade-out.** |
 | Développement | Intégralement sur ordinateur (Chrome/Edge desktop). Pas de test sur téléphone avant le déploiement. |
-| Déploiement | **Vercel**, branché sur le dépôt GitHub (redéploiement à chaque push). Déployé après l'étape 3, avant le travail de style. Le test écran verrouillé sur Android (§6) a lieu au premier déploiement. |
+| Déploiement | **Vercel**, branché sur le dépôt GitHub (redéploiement à chaque push). Déployé après l'étape 3, avant le travail de style. Adresse : https://learn-english-blush-seven.vercel.app/ (dépôt : https://github.com/mickael-dvlp/learn-english). |
 
 ## 3. Deux modes, un seul contenu
 
@@ -187,7 +187,7 @@ type AudioRefs = { en?: string; fr?: string };  // chemins relatifs sous /public
 
 Conséquence : on peut avoir 200 éléments avec audio généré et 500 en voix native, l'appli fonctionne pareil. Le passage aux audios générés se fera plus tard par un **script** (`/scripts/generate-audio`) qui ne traite que les éléments sans audio.
 
-Point d'attention connu : la voix native (Web Speech API) peut se couper écran verrouillé sur Android. Une session écran verrouillé sera testée **au déploiement** (voir §2) ; si la voix se coupe, la génération audio (étape 5) devient prioritaire, sans toucher au lecteur grâce à `speak()`. Les fichiers audio via `<audio>` + Media Session API n'ont pas ce problème.
+Point d'attention connu : la voix native (Web Speech API) peut se couper écran verrouillé sur Android. **Testé au premier déploiement (étape 4) : la voix native continue écran verrouillé, les contrôles Media Session fonctionnent, les voix conviennent.** L'audio généré n'est donc pas prioritaire. Les fichiers audio via `<audio>` + Media Session API n'ont pas ce problème.
 
 ## 7. Mode Écouter : le lecteur
 
@@ -229,7 +229,7 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - **Segment** = unité de navigation (suivant / précédent) et de fin de minuteur : un mot, un verbe, une règle, une phrase de texte (le titre d'un texte est son propre segment).
 - **Fin du minuteur** : on termine le segment en cours, sans ses pauses restantes, puis arrêt net.
 - **Le minuteur compte le temps d'écoute** : il s'arrête quand l'utilisateur met en pause.
-- **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte.
+- **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte. Chaque élément passe une fois par tour, et au changement de tour la moitié des autres éléments passe avant qu'un élément de fin de tour ne revienne (`shuffleAfter`).
 - **Moteur** (`player.ts`) : sans dépendance au navigateur (voix, attente, horloge injectées), testé avec une horloge virtuelle.
 - **Son silencieux en boucle** (`src/lib/speech/keep-alive.ts`) pendant la session : sans élément média actif, Chrome n'affiche pas les contrôles Media Session et Android suspend plus facilement la page.
 - `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
@@ -271,11 +271,11 @@ Mise en œuvre (étape 3) :
 1. ✅ **Fondations** : projet Next.js + TS + Tailwind, schémas de types, validation du contenu, quelques fichiers d'exemple (2 thèmes, 10 verbes, 2 règles, 1 texte).
 2. ✅ **Lecteur** : abstraction `speak()`, motifs, pauses, minuteur de session, Media Session. Tests sur ordinateur.
 3. ✅ **Mode Étudier** : listes, fiches, suivi vu/écouté.
-4. **Déploiement** : dépôt GitHub + Vercel. Test sur téléphone, dont une session écran verrouillé.
+4. ✅ **Déploiement** : dépôt GitHub + Vercel. Test sur téléphone, dont une session écran verrouillé.
 5. **Style** : refonte visuelle.
 6. **Compléter l'application** :
    - PWA et hors-ligne : manifest, service worker, cache des données.
-   - Audio généré : script de génération, champ `audio`, packs téléchargeables par thème (prioritaire si la voix native se coupe écran verrouillé).
+   - Audio généré : script de génération, champ `audio`, packs téléchargeables par thème (pas prioritaire : la voix native tient écran verrouillé).
    - Confort : quiz, réglages, statistiques d'écoute.
 
 Avancer **une étape à la fois**, la valider avant de passer à la suivante.

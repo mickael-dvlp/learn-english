@@ -99,13 +99,41 @@ export function shuffle<T>(list: readonly T[], random: () => number = Math.rando
   return result;
 }
 
-/** One pass over the items. Random order shuffles items, never the sentences inside a text. */
-export function buildPlaylist(
+/**
+ * Shuffles a new lap so that the items played at the end of the previous lap
+ * (the last half) cannot come back at its start: at least half of the other items play in between.
+ */
+export function shuffleAfter<T>(
+  items: readonly T[],
+  previous: readonly T[],
+  random: () => number = Math.random,
+): T[] {
+  if (previous.length === 0) return shuffle(items, random);
+  const gap = Math.floor(items.length / 2);
+  const recent = new Set(previous.slice(previous.length - gap));
+  const others = shuffle(
+    items.filter((item) => !recent.has(item)),
+    random,
+  );
+  const head = others.slice(0, gap);
+  const tail = shuffle([...others.slice(gap), ...items.filter((item) => recent.has(item))], random);
+  return [...head, ...tail];
+}
+
+/**
+ * Returns the `createLap` of a session: each call is one pass over all the items.
+ * Random order shuffles items (never the sentences inside a text), each item once per lap.
+ */
+export function lapFactory(
   items: readonly ContentItem[],
   pattern: Pattern,
   order: PlayOrder,
-  random?: () => number,
-): Segment[] {
-  const ordered = order === "random" ? shuffle(items, random) : items;
-  return ordered.flatMap((item) => compileItem(item, pattern));
+  random: () => number = Math.random,
+): () => Segment[] {
+  let previous: readonly ContentItem[] = [];
+  return () => {
+    const ordered = order === "random" ? shuffleAfter(items, previous, random) : items;
+    previous = ordered;
+    return ordered.flatMap((item) => compileItem(item, pattern));
+  };
 }
