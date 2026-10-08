@@ -185,7 +185,7 @@ Conséquence : un contenu sans audio généré reste utilisable en mode Étudier
 **Écran verrouillé (Android, testé sur le téléphone)** :
 - La voix native se met en pause dès le verrouillage : inutilisable pour l'écoute du soir.
 - Une suite de **sons courts** (un fichier par mot, même enchaînés sans minuteur) est mise en pause par le système environ 6 s après le verrouillage (journal `/debug`). Chrome Android ne traite comme une vraie lecture que les médias longs.
-- D'où le lecteur par **pistes assemblées** (section 7.5) : une session est jouée comme des pistes d'une à deux minutes, comme un podcast.
+- D'où le lecteur par **pistes assemblées** (section 7.5) : une session est jouée comme des pistes d'une à deux minutes, comme un podcast. **Validé sur le téléphone : la lecture continue écran verrouillé, avec les contrôles de lecture (comme pour la musique) sur l'écran de verrouillage.**
 
 Le mode Écouter n'utilise donc pas `speak()` : il joue les mêmes fichiers générés, assemblés. `speak()` reste l'unique accès à la voix pour les boutons 🔊 du mode Étudier. Un texte sans audio généré est sauté en mode Écouter (journal + avertissement de `npm run validate`).
 
