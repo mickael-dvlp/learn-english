@@ -1,14 +1,13 @@
 "use client";
 
-import type { AudioRefs } from "@/lib/content/schema";
 import type { Lang } from "@/lib/player/types";
 import { cancelSpeech, speak } from "@/lib/speech/speak";
 import { preferencesStore } from "@/lib/storage/preferences";
 
-type Props = { text: string; lang?: Lang; audio?: AudioRefs; className?: string };
+type Props = { text: string; lang?: Lang; className?: string };
 
 /** Says a text on tap, at the speed chosen in the listening settings. */
-export function SpeakButton({ text, lang = "en", audio, className = "" }: Props) {
+export function SpeakButton({ text, lang = "en", className = "" }: Props) {
   return (
     <button
       type="button"
@@ -16,7 +15,7 @@ export function SpeakButton({ text, lang = "en", audio, className = "" }: Props)
       onClick={(event) => {
         event.stopPropagation();
         cancelSpeech();
-        void speak({ id: "study", [lang]: text, audio }, lang, preferencesStore.get().rate);
+        void speak({ id: "study", [lang]: text }, lang, preferencesStore.get().rate);
       }}
       className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface text-xl ${className}`}
     >

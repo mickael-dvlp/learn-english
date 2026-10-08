@@ -9,8 +9,8 @@ import type { Lang } from "./types";
  * If a placeholder is missing (optional field), the step is skipped, along with the pause after it.
  */
 export type StepTemplate =
-  /** Say a text. `audio: true` uses the item's audio file for that language when it exists. */
-  | { say: string; lang: Lang; rate?: number; audio?: boolean }
+  /** Say a text. */
+  | { say: string; lang: Lang; rate?: number }
   /** Pause proportional to the last spoken text; the number scales it (1 = normal). */
   | { pause: number }
   /** Repeat steps for each element of a list field (`examples`, `sentences`…). */
@@ -39,11 +39,11 @@ export const PATTERNS: Pattern[] = [
     appliesTo: ["word"],
     display: "{en} — {fr}",
     steps: [
-      { say: "{speakEn|en}", lang: "en", audio: true },
+      { say: "{speakEn|en}", lang: "en" },
       { pause: 1 },
-      { say: "{fr}", lang: "fr", audio: true },
+      { say: "{fr}", lang: "fr" },
       { pause: 1 },
-      { say: "{speakEn|en}", lang: "en", audio: true },
+      { say: "{speakEn|en}", lang: "en" },
       { pause: 1.5 },
     ],
   },
@@ -54,7 +54,7 @@ export const PATTERNS: Pattern[] = [
     appliesTo: ["word"],
     display: "{en}",
     steps: [
-      { say: "{speakEn|en}", lang: "en", audio: true },
+      { say: "{speakEn|en}", lang: "en" },
       { pause: 1.5 },
     ],
   },
@@ -65,9 +65,9 @@ export const PATTERNS: Pattern[] = [
     appliesTo: ["verb"],
     display: "{base} – {past} – {pastParticiple}",
     steps: [
-      { say: "{base}, {past}, {pastParticiple}", lang: "en", audio: true },
+      { say: "{base}, {past}, {pastParticiple}", lang: "en" },
       { pause: 1 },
-      { say: "{fr}", lang: "fr", audio: true },
+      { say: "{fr}", lang: "fr" },
       { pause: 1.5 },
     ],
   },

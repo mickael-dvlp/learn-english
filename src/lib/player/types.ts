@@ -1,13 +1,10 @@
-import type { AudioRefs } from "@/lib/content/schema";
-
 export type Lang = "en" | "fr";
 
-/** What `speak()` receives: the text to say in one or both languages, plus optional audio files. */
+/** What `speak()` receives: the text to say, in one or both languages. */
 export type PlayableUnit = {
   id: string;
   en?: string;
   fr?: string;
-  audio?: AudioRefs;
 };
 
 export type Step =

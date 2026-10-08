@@ -23,16 +23,9 @@ const itemId = (type: string) =>
 
 export const BilingualSchema = z.strictObject({ en: nonEmpty, fr: nonEmpty });
 
-/** Paths relative to /public/audio. */
-export const AudioRefsSchema = z.strictObject({
-  en: nonEmpty.optional(),
-  fr: nonEmpty.optional(),
-});
-
 const common = {
   level: LevelSchema,
   tags: z.array(nonEmpty).optional(),
-  audio: AudioRefsSchema.optional(),
 };
 
 export const ThemeSchema = z.strictObject({
@@ -92,7 +85,6 @@ export const TextItemSchema = z.strictObject({
 
 export type Level = z.infer<typeof LevelSchema>;
 export type Bilingual = z.infer<typeof BilingualSchema>;
-export type AudioRefs = z.infer<typeof AudioRefsSchema>;
 export type Theme = z.infer<typeof ThemeSchema>;
 export type Word = z.infer<typeof WordSchema>;
 export type Verb = z.infer<typeof VerbSchema>;

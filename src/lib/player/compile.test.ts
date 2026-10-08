@@ -23,7 +23,6 @@ const word: Word = {
   en: "tractor",
   fr: "tracteur",
   level: "A1",
-  audio: { en: "agriculture/word-tractor.en.mp3" },
 };
 
 test("fillTemplate resolves paths and fallbacks, fails on missing fields", () => {
@@ -33,7 +32,7 @@ test("fillTemplate resolves paths and fallbacks, fails on missing fields", () =>
   assert.equal(fillTemplate("{example.en}", scope), undefined);
 });
 
-test("en-fr-en: EN, pause, FR, pause, EN, with audio only where available", () => {
+test("en-fr-en: EN, pause, FR, pause, EN", () => {
   const [segment] = compileItem({ ...word, speakEn: "trac-tor" }, pattern("en-fr-en"));
   assert.equal(segment.label, "tractor — tracteur");
   assert.deepEqual(said(segment.steps), [
@@ -44,11 +43,6 @@ test("en-fr-en: EN, pause, FR, pause, EN, with audio only where available", () =
     "en:trac-tor",
     "pause×1.5",
   ]);
-  const first = segment.steps[0];
-  const second = segment.steps[2];
-  assert.ok(first.kind === "speak" && second.kind === "speak");
-  assert.deepEqual(first.unit.audio, { en: "agriculture/word-tractor.en.mp3" });
-  assert.equal(second.unit.audio, undefined);
 });
 
 test("a step on a missing optional field is skipped with its pause", () => {

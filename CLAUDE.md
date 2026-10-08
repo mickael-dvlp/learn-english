@@ -24,7 +24,7 @@ Ton de l'appli : chaleureux, fonctionnel, simple.
 | Progression utilisateur | Stockée localement (IndexedDB, ou localStorage si suffisant). Jamais dans le repo. |
 | Hors-ligne | Service worker. Données en cache à l'installation. Audio en packs téléchargeables par thème. |
 | Voix (phase 1) | Web Speech API (voix native) |
-| Voix (phase 2) | Fichiers audio générés, référencés par un champ `audio` |
+| Voix (phase 2) | Fichiers audio générés avec **Edge TTS**, liés **automatiquement** au texte prononcé (pas de champ dans les JSON), voir section 6 |
 | Minuteur | Minuteur de durée de session (5/10/30 min, valeur libre possible) avec arrêt net. **Pas de fade-out.** |
 | Développement | Intégralement sur ordinateur (Chrome/Edge desktop). Pas de test sur téléphone avant le déploiement. |
 | Déploiement | **Vercel**, branché sur le dépôt GitHub (redéploiement à chaque push). Déployé après l'étape 3, avant le travail de style. Adresse : https://learn-english-blush-seven.vercel.app/ (dépôt : https://github.com/mickael-dvlp/learn-english). |
@@ -42,10 +42,9 @@ Un élément ajouté dans les données apparaît automatiquement dans les deux m
 
 Quatre types. Champs communs à tous :
 
-- `id` : string stable, jamais modifié après création (sert aussi de nom de fichier audio). Format `<type>-<slug>` ex. `word-tractor`, `verb-go`.
+- `id` : string stable, jamais modifié après création (sert aussi au suivi de progression). Format `<type>-<slug>` ex. `word-tractor`, `verb-go`.
 - `level` : `"A1" | "A2" | "B1" | "B2" | "C1"`
 - `tags` : string[] (optionnel), transversal aux thèmes
-- `audio` : objet optionnel, voir section 6
 
 ### 4.1 Mot (`word`)
 
@@ -61,7 +60,6 @@ type Word = {
   speakEn?: string;      // texte lu si différent de en (ajustement de prononciation)
   level: Level;
   tags?: string[];
-  audio?: AudioRefs;
 };
 ```
 
@@ -79,7 +77,6 @@ type Verb = {
   example?: { en: string; fr: string };
   level: Level;
   tags?: string[];
-  audio?: AudioRefs;
 };
 ```
 
@@ -98,7 +95,6 @@ type Rule = {
   tense?: "present" | "past" | "future" | "other"; // pour kind = "conjugation"
   level: Level;
   tags?: string[];
-  audio?: AudioRefs;
 };
 ```
 
@@ -115,7 +111,6 @@ type TextItem = {
   sentences: { en: string; fr: string }[];
   level: Level;
   tags?: string[];
-  audio?: AudioRefs;     // audio global optionnel ; sinon par phrase
 };
 ```
 
@@ -148,7 +143,7 @@ Thèmes prévus au départ : vêtements, cuisine, agriculture, fruits, légumes,
   /texts
     at-the-farm.json          // un fichier par texte
 /public
-  /audio                      // packs audio, voir section 6
+  /audio/<lang>/<hash>.mp3    // audio généré, voir section 6
 /src
   /lib/content                // chargement et validation du contenu
   /lib/player                 // lecteur, motifs, minuteur
@@ -160,7 +155,7 @@ Thèmes prévus au départ : vêtements, cuisine, agriculture, fruits, légumes,
 Règles :
 - Un fichier = une collection cohérente. Ajouter du contenu = éditer ou créer un JSON.
 - **Valider le contenu au build** (schéma Zod ou équivalent) : id unique, champs requis, niveau valide, thème existant. Le build échoue si le contenu est invalide.
-- Ne jamais renommer un `id` existant (casse la progression et l'audio).
+- Ne jamais renommer un `id` existant (casse la progression).
 
 Mise en œuvre :
 - Schémas Zod dans `src/lib/content/schema.ts` ; les types TS sont **inférés** des schémas (une seule source). Objets stricts : un champ inconnu (faute de frappe) est une erreur.
@@ -178,16 +173,16 @@ speak(item: PlayableUnit, lang: "en" | "fr"): Promise<void>
 ```
 
 Logique interne :
-1. Si l'unité a un fichier audio pour cette langue → jouer le fichier (`<audio>`).
-2. Sinon → voix native (Web Speech API).
+1. Si le fichier audio généré pour ce texte existe → le jouer (`<audio>`).
+2. Sinon (pas encore généré, introuvable) → voix native (Web Speech API).
 
-```ts
-type AudioRefs = { en?: string; fr?: string };  // chemins relatifs sous /public/audio
-```
+**Liaison automatique** (`src/lib/speech/audio-files.ts`) : un fichier par texte prononcé, `public/audio/<lang>/<hash>.mp3`, où le hash porte sur la voix et le texte dit. L'appli et le script calculent le même chemin : rien à écrire dans les JSON. Corriger un texte ou changer de voix donne un nouveau nom de fichier.
 
-Conséquence : on peut avoir 200 éléments avec audio généré et 500 en voix native, l'appli fonctionne pareil. Le passage aux audios générés se fera plus tard par un **script** (`/scripts/generate-audio`) qui ne traite que les éléments sans audio.
+**Génération** : `npm run audio` (`scripts/generate-audio.ts`, Edge TTS via `msedge-tts`, voix `en-GB-SoniaNeural` et `fr-FR-DeniseNeural`). Le script liste tous les textes prononcés (motifs du lecteur + exemples lus en mode Étudier) et ne génère que les fichiers manquants. `--dry-run` compte, `--prune` supprime les fichiers devenus inutiles. Les fichiers sont commités ; Vercel les sert tels quels. **Après tout ajout de contenu : `npm run audio`, puis commit.**
 
-Point d'attention connu : la voix native (Web Speech API) peut se couper écran verrouillé sur Android. **Testé au premier déploiement (étape 4) : la voix native continue écran verrouillé, les contrôles Media Session fonctionnent, les voix conviennent.** L'audio généré n'est donc pas prioritaire. Les fichiers audio via `<audio>` + Media Session API n'ont pas ce problème.
+Conséquence : un contenu sans audio généré reste jouable en voix native, l'appli fonctionne pareil.
+
+**Écran verrouillé (Android, testé au premier déploiement)** : la voix native se met en pause dès le verrouillage et reprend au déverrouillage ; elle ne permet donc pas l'écoute du soir. Les fichiers audio via `<audio>` + Media Session continuent. Les contrôles Media Session fonctionnent.
 
 ## 7. Mode Écouter : le lecteur
 
@@ -232,7 +227,7 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - **Boucle** : quand le contenu est épuisé avant la fin du minuteur, il reprend du début (remélangé si ordre aléatoire). L'aléatoire mélange les éléments, jamais les phrases d'un texte. Chaque élément passe une fois par tour, et au changement de tour la moitié des autres éléments passe avant qu'un élément de fin de tour ne revienne (`shuffleAfter`).
 - **Moteur** (`player.ts`) : sans dépendance au navigateur (voix, attente, horloge injectées), testé avec une horloge virtuelle.
 - **Son silencieux en boucle** (`src/lib/speech/keep-alive.ts`) pendant la session : sans élément média actif, Chrome n'affiche pas les contrôles Media Session et Android suspend plus facilement la page.
-- `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
+- `speak()` remplace « / » par une virgule pour la voix (« was / were »). Voix native (repli) : on préfère celles installées sur l'appareil (fonctionnent hors ligne).
 - Préférences d'écoute (contenu, motif, durée, ordre, vitesse, pauses) mémorisées en localStorage.
 - Route : `/listen`.
 
@@ -275,7 +270,7 @@ Mise en œuvre (étape 3) :
 5. **Style** : refonte visuelle.
 6. **Compléter l'application** :
    - PWA et hors-ligne : manifest, service worker, cache des données.
-   - Audio généré : script de génération, champ `audio`, packs téléchargeables par thème (pas prioritaire : la voix native tient écran verrouillé).
+   - Audio généré : ✅ script et liaison automatique (avancé, car la voix native se coupe écran verrouillé). Reste : packs téléchargeables par thème (hors-ligne).
    - Confort : quiz, réglages, statistiques d'écoute.
 
 Avancer **une étape à la fois**, la valider avant de passer à la suivante.

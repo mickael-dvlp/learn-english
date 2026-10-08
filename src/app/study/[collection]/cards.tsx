@@ -26,7 +26,7 @@ function WordCard({ word }: { word: Word }) {
       </Badges>
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-4xl font-semibold">{word.en}</h2>
-        <SpeakButton text={word.speakEn ?? word.en} audio={word.audio} />
+        <SpeakButton text={word.speakEn ?? word.en} />
       </div>
       <p className="text-2xl text-muted">{word.fr}</p>
       {word.example && <Example example={word.example} />}
@@ -55,7 +55,7 @@ function VerbCard({ verb }: { verb: Verb }) {
             </div>
           ))}
         </dl>
-        <SpeakButton text={`${verb.base}, ${verb.past}, ${verb.pastParticiple}`} audio={verb.audio} />
+        <SpeakButton text={`${verb.base}, ${verb.past}, ${verb.pastParticiple}`} />
       </div>
       <p className="text-2xl text-muted">{verb.fr}</p>
       {verb.example && <Example example={verb.example} />}

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "validate": "tsx scripts/validate-content.ts",
+    "audio": "tsx scripts/generate-audio.ts",
     "prebuild": "npm run validate",
     "build": "next build",
     "start": "next start",
@@ -25,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
+    "msedge-tts": "^2.0.9",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5"

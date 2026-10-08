@@ -1,16 +1,17 @@
 import type { Lang, PlayableUnit } from "@/lib/player/types";
+import { audioPath, spokenText } from "./audio-files";
 
 /**
  * The only door to the voice. The player calls `speak()` and never the Web Speech API directly:
- * an audio file is played when the unit has one for this language, the native voice otherwise.
+ * the generated audio file for this text is played when it exists, the native voice otherwise.
+ * Audio files keep playing with the screen locked; the native voice does not (Android pauses it).
  * Always resolves (end, error or `cancelSpeech()`), never rejects.
  */
 export function speak(unit: PlayableUnit, lang: Lang, rate = 1): Promise<void> {
+  stopCurrent?.();
   const text = unit[lang];
-  const file = unit.audio?.[lang];
-  if (file) return playFile(file, rate, () => (text ? speakNative(text, lang, rate) : Promise.resolve()));
-  if (text) return speakNative(text, lang, rate);
-  return Promise.resolve();
+  if (!text) return Promise.resolve();
+  return playFile(`/${audioPath(lang, text)}`, rate, () => speakNative(text, lang, rate));
 }
 
 /** Interrupts whatever is being said; the pending `speak()` promise resolves. */
@@ -22,10 +23,17 @@ const LOCALES: Record<Lang, string> = { en: "en-GB", fr: "fr-FR" };
 
 let stopCurrent: (() => void) | undefined;
 
-function playFile(file: string, rate: number, fallback: () => Promise<void>): Promise<void> {
+/** Files known to be missing (not generated yet): go straight to the native voice next time. */
+const missingFiles = new Set<string>();
+
+/** A single element, reused: once allowed to play by a tap, it keeps that permission in the background. */
+let voiceAudio: HTMLAudioElement | undefined;
+
+function playFile(src: string, rate: number, fallback: () => Promise<void>): Promise<void> {
+  if (missingFiles.has(src) || typeof Audio === "undefined") return fallback();
+
   return new Promise((resolve) => {
-    const audio = new Audio(`/audio/${file}`);
-    audio.playbackRate = rate;
+    const audio = (voiceAudio ??= new Audio());
     let settled = false;
     const settle = () => {
       if (settled) return false;
@@ -38,14 +46,24 @@ function playFile(file: string, rate: number, fallback: () => Promise<void>): Pr
       audio.pause();
       if (settle()) resolve();
     };
-    // Missing or unreadable file: fall back to the native voice rather than staying silent.
-    const fail = () => {
+    const fallBackToNative = () => {
       if (settle()) void fallback().then(resolve);
     };
+
     audio.onended = () => settle() && resolve();
-    audio.onerror = fail;
+    // Missing or unreadable file: remember it and fall back to the native voice.
+    audio.onerror = () => {
+      missingFiles.add(src);
+      fallBackToNative();
+    };
     stopCurrent = stop;
-    audio.play().catch(fail);
+    audio.src = src;
+    audio.defaultPlaybackRate = rate;
+    audio.playbackRate = rate;
+    audio.play().catch((error: unknown) => {
+      // AbortError: interrupted by pause() or a new source, already handled by `stop`.
+      if (!(error instanceof DOMException && error.name === "AbortError")) fallBackToNative();
+    });
   });
 }
 
@@ -57,7 +75,7 @@ function speakNative(text: string, lang: Lang, rate: number): Promise<void> {
   if (!synth) return Promise.resolve();
 
   return new Promise((resolve) => {
-    const utterance = new SpeechSynthesisUtterance(normalize(text));
+    const utterance = new SpeechSynthesisUtterance(spokenText(text));
     utterance.lang = LOCALES[lang];
     utterance.rate = rate;
     const voice = pickVoice(synth, lang);
@@ -85,11 +103,6 @@ function speakNative(text: string, lang: Lang, rate: number): Promise<void> {
     stopCurrent = stop;
     synth.speak(utterance);
   });
-}
-
-/** "was / were" would be read "was slash were". */
-function normalize(text: string): string {
-  return text.replace(/\s*\/\s*/g, ", ");
 }
 
 /** Prefers voices installed on the device: they also work offline. */

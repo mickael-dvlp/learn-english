@@ -47,14 +47,9 @@ export function compileItem(item: ContentItem, pattern: Pattern): Segment[] {
           lastWords = undefined;
           continue;
         }
-        const file = template.audio ? item.audio?.[template.lang] : undefined;
         current.steps.push({
           kind: "speak",
-          unit: {
-            id: `${item.id}:${unitCount++}`,
-            [template.lang]: text,
-            ...(file ? { audio: { [template.lang]: file } } : {}),
-          },
+          unit: { id: `${item.id}:${unitCount++}`, [template.lang]: text },
           lang: template.lang,
           rate: template.rate ?? 1,
         });
