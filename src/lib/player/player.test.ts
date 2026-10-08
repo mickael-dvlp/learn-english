@@ -117,6 +117,33 @@ test("next and previous jump between segments", async () => {
   assert.deepEqual(log, ["a", "(cancel)", "b", "(cancel)", "a", "(cancel)"]);
 });
 
+test("reports segments played to their end, not skipped ones", async () => {
+  const { deps } = fakeDeps();
+  const ended: string[] = [];
+  const player = new Player(
+    {
+      durationMs: 60_000,
+      settings,
+      createLap: () => [segment("a"), segment("b"), segment("c")],
+      onSegmentEnd: (s) => ended.push(s.label),
+    },
+    deps,
+  );
+  deps.hold = true;
+  player.play();
+  await flush();
+  player.next(); // "a" skipped
+  deps.hold = false;
+  player.stop();
+  const replay = new Player(
+    { durationMs: 1, settings, createLap: () => [segment("x")], onSegmentEnd: (s) => ended.push(s.label) },
+    fakeDeps().deps,
+  );
+  replay.play();
+  await untilEnded(replay);
+  assert.deepEqual(ended, ["x"]);
+});
+
 test("an empty playlist ends immediately", () => {
   const { deps } = fakeDeps();
   const player = new Player({ durationMs: 60_000, settings, createLap: () => [] }, deps);

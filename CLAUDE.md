@@ -244,6 +244,13 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - Suivi minimal : « vu / écouté » par `id`, stocké localement.
 - Répétition espacée : **hors périmètre pour l'instant**.
 
+Mise en œuvre (étape 3) :
+- **Collections** (`src/lib/content/collections.ts`) : partagées par Écouter et Étudier (un thème, verbes tous / irréguliers / réguliers, règles, un texte). Dérivées du contenu ; leur `id` sert de slug d'URL.
+- Routes : `/study` (collections avec progression) et `/study/[collection]` (une page statique par collection). La fiche ouverte est dans le hash (`#word-tractor`) : le bouton retour du téléphone ramène à la liste.
+- Fiches avec boutons 🔊 (même `speak()` et même vitesse que le mode Écouter). Un texte s'affiche en entier, traduction masquable.
+- **Suivi** (`src/lib/storage/progress.ts`, localStorage) : par `id`, date du premier « vu » (fiche ou texte ouvert) et du premier « écouté » (segment joué jusqu'au bout dans le lecteur, pas s'il est sauté).
+- `createLocalStore` (`src/lib/storage/local-store.ts`) : valeur localStorage validée par Zod, exposée à React via `useSyncExternalStore`.
+
 ## 9. Hors-ligne
 
 - Service worker : met en cache l'app et **toutes les données JSON** à l'installation (légères).

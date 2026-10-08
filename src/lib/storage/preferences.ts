@@ -1,12 +1,8 @@
 import { z } from "zod";
 import { DEFAULT_SETTINGS } from "@/lib/player/pause";
+import { createLocalStore } from "./local-store";
 
-/**
- * Listening preferences, remembered in localStorage.
- * Exposed as a tiny external store (subscribe / get) for React's useSyncExternalStore.
- */
-
-const KEY = "listen-preferences";
+/** Listening preferences (also used for the voice speed in study mode). */
 
 const PreferencesSchema = z.object({
   sourceId: z.string().optional(),
@@ -21,41 +17,8 @@ export type ListenPreferences = z.infer<typeof PreferencesSchema>;
 
 export const DEFAULT_PREFERENCES: ListenPreferences = PreferencesSchema.parse({});
 
-let cache: ListenPreferences | undefined;
-const listeners = new Set<() => void>();
-
-function read(): ListenPreferences {
-  try {
-    const stored = window.localStorage.getItem(KEY);
-    const result = PreferencesSchema.safeParse(stored ? JSON.parse(stored) : {});
-    return result.success ? result.data : DEFAULT_PREFERENCES;
-  } catch {
-    return DEFAULT_PREFERENCES;
-  }
-}
-
-export function getPreferences(): ListenPreferences {
-  cache ??= read();
-  return cache;
-}
-
-export function getServerPreferences(): ListenPreferences {
-  return DEFAULT_PREFERENCES;
-}
+export const preferencesStore = createLocalStore("listen-preferences", PreferencesSchema, DEFAULT_PREFERENCES);
 
 export function setPreferences(patch: Partial<ListenPreferences>): void {
-  cache = { ...getPreferences(), ...patch };
-  try {
-    window.localStorage.setItem(KEY, JSON.stringify(cache));
-  } catch {
-    // Storage unavailable (private mode…): preferences only last for this visit.
-  }
-  for (const listener of listeners) listener();
-}
-
-export function subscribePreferences(listener: () => void): () => void {
-  listeners.add(listener);
-  return () => {
-    listeners.delete(listener);
-  };
+  preferencesStore.set({ ...preferencesStore.get(), ...patch });
 }

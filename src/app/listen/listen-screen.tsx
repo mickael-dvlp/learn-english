@@ -1,36 +1,25 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
-import type { ContentType } from "@/lib/content/schema";
+import { useEffect, useState, type ReactNode } from "react";
+import { PageHeader } from "@/components/page-header";
+import { COLLECTION_GROUPS, type Collection } from "@/lib/content/collections";
 import { createBrowserPlayer } from "@/lib/player/browser";
 import { buildPlaylist } from "@/lib/player/compile";
 import { patternsFor } from "@/lib/player/patterns";
 import type { Player } from "@/lib/player/player";
-import type { ListenSource } from "@/lib/player/sources";
 import { startKeepAlive } from "@/lib/speech/keep-alive";
 import { preloadVoices } from "@/lib/speech/speak";
-import {
-  getPreferences,
-  getServerPreferences,
-  setPreferences,
-  subscribePreferences,
-} from "@/lib/storage/preferences";
+import { useLocalStore } from "@/lib/storage/local-store";
+import { preferencesStore, setPreferences } from "@/lib/storage/preferences";
+import { markListened } from "@/lib/storage/progress";
 import { SessionView } from "./session-view";
-
-const GROUPS: { type: ContentType; label: string }[] = [
-  { type: "word", label: "Mots" },
-  { type: "verb", label: "Verbes" },
-  { type: "rule", label: "Règles" },
-  { type: "text", label: "Textes" },
-];
 
 const DURATIONS = [5, 10, 30];
 
 type Session = { player: Player; title: string };
 
-export function ListenScreen({ sources }: { sources: ListenSource[] }) {
-  const prefs = useSyncExternalStore(subscribePreferences, getPreferences, getServerPreferences);
+export function ListenScreen({ sources }: { sources: Collection[] }) {
+  const prefs = useLocalStore(preferencesStore);
   const [session, setSession] = useState<Session | null>(null);
 
   useEffect(preloadVoices, []);
@@ -53,6 +42,7 @@ export function ListenScreen({ sources }: { sources: ListenSource[] }) {
       durationMs: prefs.durationMinutes * 60_000,
       settings,
       createLap: () => buildPlaylist(source.items, pattern, prefs.order),
+      onSegmentEnd: (segment) => markListened(segment.itemId),
     });
     // Started from the click itself: browsers only allow audio after a user gesture.
     startKeepAlive();
@@ -62,15 +52,10 @@ export function ListenScreen({ sources }: { sources: ListenSource[] }) {
 
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col gap-7 px-5 pb-32 pt-6">
-      <header className="flex items-center gap-3">
-        <Link href="/" className="-ml-2 rounded-full px-3 py-2 text-2xl" aria-label="Retour à l'accueil">
-          ←
-        </Link>
-        <h1 className="text-2xl font-semibold">Écouter</h1>
-      </header>
+      <PageHeader title="Écouter" backHref="/" backLabel="Retour à l'accueil" />
 
       <Section title="Quoi écouter ?">
-        {GROUPS.map((group) => {
+        {COLLECTION_GROUPS.map((group) => {
           const groupSources = sources.filter((s) => s.type === group.type);
           if (groupSources.length === 0) return null;
           return (

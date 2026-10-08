@@ -17,6 +17,8 @@ export type PlayerOptions = {
   settings: ListenSettings;
   /** Builds one pass over the content. Called again each time the content loops. */
   createLap: () => Segment[];
+  /** Called when a segment has been played to its end (not when skipped). */
+  onSegmentEnd?: (segment: Segment) => void;
 };
 
 export type PlayerStatus = "idle" | "playing" | "paused" | "ended";
@@ -105,6 +107,7 @@ export class Player {
       const step = segment.steps[this.stepIndex];
 
       if (step === undefined) {
+        this.options.onSegmentEnd?.(segment);
         if (this.isTimeUp()) return this.finish();
         this.advance(this.segmentIndex + 1);
         this.notify();

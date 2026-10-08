@@ -5,7 +5,6 @@ import { plural } from "@/lib/format";
 const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl px-6 py-4 text-left";
 
 const comingSoon = [
-  { label: "Étudier", hint: "Fiches et révisions" },
   { label: "Continuer où j'en étais", hint: "Reprendre la dernière session" },
 ];
 
@@ -19,6 +18,11 @@ export default function Home() {
       <Link href="/listen" className={`${cardClass} bg-accent text-accent-foreground`}>
         <span className="text-xl font-semibold">Écouter</span>
         <span className="text-sm opacity-80">Mots, verbes, textes… les yeux fermés</span>
+      </Link>
+
+      <Link href="/study" className={`${cardClass} bg-surface`}>
+        <span className="text-xl font-semibold">Étudier</span>
+        <span className="text-sm opacity-80">Fiches, verbes, règles et textes</span>
       </Link>
 
       {comingSoon.map((action) => (
