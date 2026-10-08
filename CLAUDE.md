@@ -26,6 +26,8 @@ Ton de l'appli : chaleureux, fonctionnel, simple.
 | Voix (phase 1) | Web Speech API (voix native) |
 | Voix (phase 2) | Fichiers audio générés, référencés par un champ `audio` |
 | Minuteur | Minuteur de durée de session (5/10/30 min, valeur libre possible) avec arrêt net. **Pas de fade-out.** |
+| Développement | Intégralement sur ordinateur (Chrome/Edge desktop). Pas de test sur téléphone avant le déploiement. |
+| Déploiement | **Vercel**, une fois l'appli terminée. Le test écran verrouillé sur Android (§6) aura lieu à ce moment-là. |
 
 ## 3. Deux modes, un seul contenu
 
@@ -185,7 +187,7 @@ type AudioRefs = { en?: string; fr?: string };  // chemins relatifs sous /public
 
 Conséquence : on peut avoir 200 éléments avec audio généré et 500 en voix native, l'appli fonctionne pareil. Le passage aux audios générés se fera plus tard par un **script** (`/scripts/generate-audio`) qui ne traite que les éléments sans audio.
 
-Point d'attention connu : la voix native (Web Speech API) peut se couper écran verrouillé sur Android. **Tester tôt** une session écran verrouillé. Les fichiers audio via `<audio>` + Media Session API n'ont pas ce problème.
+Point d'attention connu : la voix native (Web Speech API) peut se couper écran verrouillé sur Android. Une session écran verrouillé sera testée **au déploiement** (voir §2) ; si la voix se coupe, la génération audio (étape 5) devient prioritaire, sans toucher au lecteur grâce à `speak()`. Les fichiers audio via `<audio>` + Media Session API n'ont pas ce problème.
 
 ## 7. Mode Écouter : le lecteur
 
@@ -247,7 +249,7 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 ## 11. Feuille de route
 
 1. **Fondations** : projet Next.js + TS + Tailwind, schémas de types, validation du contenu, quelques fichiers d'exemple (2 thèmes, 10 verbes, 2 règles, 1 texte).
-2. **Lecteur** : abstraction `speak()`, motifs, pauses, minuteur de session, Media Session. Test écran verrouillé.
+2. **Lecteur** : abstraction `speak()`, motifs, pauses, minuteur de session, Media Session. Tests sur ordinateur (le test écran verrouillé se fera au déploiement).
 3. **Mode Étudier** : listes, fiches, suivi vu/écouté.
 4. **PWA et hors-ligne** : manifest, service worker, cache des données.
 5. **Audio généré** : script de génération, champ `audio`, packs téléchargeables par thème.
