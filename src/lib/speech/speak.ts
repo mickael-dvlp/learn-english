@@ -27,6 +27,16 @@ export function waitSilently(ms: number): Promise<void> {
   return playFile(silenceUrl(ms), 1, () => new Promise((resolve) => setTimeout(resolve, ms)));
 }
 
+/**
+ * Called when the system pauses the audio by itself (screen locked, another app takes the audio…),
+ * so the player can switch to "paused" instead of waiting forever for the end of the sound.
+ */
+export function setInterruptionHandler(handler: (() => void) | undefined): void {
+  onInterrupted = handler;
+}
+
+let onInterrupted: (() => void) | undefined;
+
 /** Interrupts whatever is being said; the pending `speak()` promise resolves. */
 export function cancelSpeech(): void {
   stopCurrent?.();
@@ -47,12 +57,12 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
   const name = src.startsWith("blob:") ? "silence" : src;
 
   return new Promise((resolve) => {
-    const audio = (voiceAudio ??= new Audio());
+    const audio = (voiceAudio ??= createVoiceAudio());
     let settled = false;
     const settle = () => {
       if (settled) return false;
       settled = true;
-      audio.onended = audio.onerror = null;
+      audio.onended = audio.onerror = audio.onpause = null;
       if (stopCurrent === stop) stopCurrent = undefined;
       return true;
     };
@@ -68,6 +78,13 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
     audio.onended = () => {
       debugLog(`fin ${name}`);
       if (settle()) resolve();
+    };
+    // "pause" also fires right before "ended": only a pause we did not ask for is an interruption.
+    audio.onpause = () => {
+      if (audio.ended || !settle()) return;
+      debugLog(`⏸ ${name} : mis en pause par le système`);
+      onInterrupted?.();
+      resolve();
     };
     // Missing or unreadable file: remember it and use the fallback (native voice for speech).
     audio.onerror = () => {
@@ -85,6 +102,14 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
       fallBack(`lecture refusée (${error instanceof Error ? error.name : String(error)})`);
     });
   });
+}
+
+function createVoiceAudio(): HTMLAudioElement {
+  const audio = new Audio();
+  for (const event of ["waiting", "stalled", "suspend", "emptied"] as const) {
+    audio.addEventListener(event, () => debugLog(`(audio : ${event})`));
+  }
+  return audio;
 }
 
 // Keeps a reference to the utterance: some Chrome versions garbage-collect it and never fire `onend`.
