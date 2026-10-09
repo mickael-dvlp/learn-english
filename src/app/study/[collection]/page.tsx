@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { listCollections } from "@/lib/content/collections";
 import { getContent } from "@/lib/content/load";
 import { CollectionView } from "./collection-view";
@@ -18,7 +19,19 @@ export async function generateMetadata({ params }: PageProps<"/study/[collection
   return { title: `${collection?.label ?? "Étudier"} · Anglais` };
 }
 
-export default async function CollectionPage({ params }: PageProps<"/study/[collection]">) {
+/**
+ * The page shell is shared by every collection; what depends on the URL (params) is read
+ * behind Suspense so that navigation shows the shell instantly (Partial Prefetching).
+ */
+export default function CollectionPage({ params }: PageProps<"/study/[collection]">) {
+  return (
+    <Suspense fallback={<main className="flex-1" />}>
+      <CollectionContent params={params} />
+    </Suspense>
+  );
+}
+
+async function CollectionContent({ params }: Pick<PageProps<"/study/[collection]">, "params">) {
   const collection = findCollection((await params).collection);
   if (!collection) notFound();
 
