@@ -10,5 +10,53 @@
       { "en": "There are three cows in the field.", "fr": "Il y a trois vaches dans le champ." }
     ],
     "level": "A1"
+  },
+  {
+    "id": "rule-questions-do-does-did",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Questions with do, does, did", "fr": "Poser une question avec do, does, did" },
+    "explanation": "Pour poser une question au présent ou au passé simple, on place un auxiliaire devant le sujet : « do » avec I, you, we, they ; « does » avec he, she, it ; « did » au passé, pour tout le monde. Le verbe reste alors à sa forme de base : pas de « s », pas de « ed ».",
+    "examples": [
+      { "en": "Do you like coffee?", "fr": "Est-ce que tu aimes le café ?" },
+      { "en": "Does she work on a farm?", "fr": "Est-ce qu'elle travaille dans une ferme ?" },
+      { "en": "Did they cook dinner?", "fr": "Est-ce qu'ils ont préparé le dîner ?" },
+      { "en": "Did you sleep well?", "fr": "Est-ce que tu as bien dormi ?" }
+    ],
+    "level": "A1",
+    "tags": ["questions"]
+  },
+  {
+    "id": "rule-questions-inversion",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Questions with be, can, will, have", "fr": "Poser une question par inversion" },
+    "explanation": "Avec le verbe « be », et avec les auxiliaires comme « can », « will » ou « have », on n'utilise pas « do » : on inverse simplement le sujet et le verbe, comme en français dans « es-tu » ou « peux-tu ».",
+    "examples": [
+      { "en": "Are you tired?", "fr": "Es-tu fatigué ?" },
+      { "en": "Is it cold outside?", "fr": "Est-ce qu'il fait froid dehors ?" },
+      { "en": "Can you help me?", "fr": "Peux-tu m'aider ?" },
+      { "en": "Will they come tomorrow?", "fr": "Est-ce qu'ils viendront demain ?" },
+      { "en": "Have you eaten?", "fr": "As-tu mangé ?" }
+    ],
+    "level": "A1",
+    "tags": ["questions"]
+  },
+  {
+    "id": "rule-question-words",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Question words", "fr": "Les mots interrogatifs" },
+    "explanation": "Le mot interrogatif se met en tête de la question : what (quoi), where (où), when (quand), who (qui), why (pourquoi), how (comment). Ensuite, on suit la règle habituelle : auxiliaire, sujet, verbe. Exception : quand « who » ou « what » est le sujet de la phrase, on n'ajoute pas « do ».",
+    "examples": [
+      { "en": "What is your name?", "fr": "Comment tu t'appelles ?" },
+      { "en": "Where do you live?", "fr": "Où est-ce que tu habites ?" },
+      { "en": "When does the film start?", "fr": "Quand est-ce que le film commence ?" },
+      { "en": "Why are you sad?", "fr": "Pourquoi es-tu triste ?" },
+      { "en": "How old are you?", "fr": "Quel âge as-tu ?" },
+      { "en": "Who wants some tea?", "fr": "Qui veut du thé ?" }
+    ],
+    "level": "A1",
+    "tags": ["questions"]
   }
 ]

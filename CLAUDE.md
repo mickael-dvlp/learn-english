@@ -292,7 +292,7 @@ Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 3. **Nouveaux thèmes de mots** : nourriture, animaux, fruits, légumes, objets du quotidien, vêtements, transports, politesse… (un fichier `content/words/<theme>.json` par thème + entrée dans `themes.json`).
 4. **Autres verbes** (`content/verbs/irregular.json`, `regular.json`).
 5. **Mots de coordination** (and, but, or, so, because…). À décider : un thème de mots dédié, ou une nouvelle valeur de `pos` (`conjunction`), ce qui touche au schéma.
-6. **Règle : comment construire une phrase interrogative** (`content/rules/special.json` ou `conjugation.json` : do/does/did, inversion avec be/can, mots interrogatifs).
+6. ✅ **Phrases interrogatives** (9 octobre) : trois règles dans `content/rules/special.json`, tag `questions` (do/does/did, inversion avec be/can/will/have, mots interrogatifs).
 
 Pour tout ajout de contenu : `npm run validate`, puis `npm run audio`, puis commit.
 
