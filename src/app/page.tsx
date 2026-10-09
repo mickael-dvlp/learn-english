@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content/load";
 import { plural } from "@/lib/format";
@@ -13,7 +14,10 @@ export default function Home() {
 
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-end gap-4 px-5 pb-10 pt-16">
-      <h1 className="mb-auto text-3xl font-semibold">Bonsoir 👋</h1>
+      <header className="mb-auto flex items-center gap-4">
+        <Image src="/image/logo-mouton.svg" alt="" width={64} height={64} priority className="rounded-2xl" />
+        <h1 className="text-3xl font-semibold">Bonsoir 👋</h1>
+      </header>
 
       <Link href="/listen" className={`${cardClass} bg-accent text-accent-foreground`}>
         <span className="text-xl font-semibold">Écouter</span>

@@ -288,7 +288,7 @@ Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 À reprendre à la prochaine session, dans cet ordre sauf avis contraire :
 
 1. **Modification du visuel** (étape 5). Demander d'abord l'ambiance souhaitée, ce qui gêne aujourd'hui et l'écran prioritaire.
-2. **Logo et favicon** : fichiers fournis dans `public/image/` (`logo-mouton.svg`, `favicon.ico`). Les intégrer (onglet, accueil, Media Session, futur manifest PWA). Le favicon d'origine de Next.js est encore dans `src/app/favicon.ico`.
+2. ✅ **Logo et favicon** (9 octobre) : `public/image/logo-mouton.svg` est l'icône principale (favicon SVG), `favicon.ico` en secours, logo sur l'accueil. `logo-192.png` et `logo-512.png` sont des rendus du SVG (image de l'écran de verrouillage, icône Apple, futur manifest) : les refaire si le SVG change.
 3. **Nouveaux thèmes de mots** : nourriture, animaux, fruits, légumes, objets du quotidien, vêtements, transports, politesse… (un fichier `content/words/<theme>.json` par thème + entrée dans `themes.json`).
 4. **Autres verbes** (`content/verbs/irregular.json`, `regular.json`).
 5. **Mots de coordination** (and, but, or, so, because…). À décider : un thème de mots dédié, ou une nouvelle valeur de `pos` (`conjunction`), ce qui touche au schéma.

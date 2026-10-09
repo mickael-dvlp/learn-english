@@ -4,6 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Anglais",
   description: "Écouter et étudier l'anglais, même avant de dormir.",
+  icons: {
+    icon: [
+      { url: "/image/logo-mouton.svg", type: "image/svg+xml" },
+      { url: "/image/favicon.ico", sizes: "16x16" },
+    ],
+    apple: { url: "/image/logo-192.png", sizes: "192x192" },
+  },
 };
 
 export const viewport: Viewport = {
