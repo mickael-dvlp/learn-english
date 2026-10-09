@@ -1,0 +1,19 @@
+[
+  { "id": "word-vegetable", "type": "word", "theme": "legumes", "en": "vegetable", "fr": "légume", "pos": "noun", "example": { "en": "Children should eat more vegetables.", "fr": "Les enfants devraient manger plus de légumes." }, "level": "A1" },
+  { "id": "word-carrot", "type": "word", "theme": "legumes", "en": "carrot", "fr": "carotte", "pos": "noun", "example": { "en": "Rabbits love carrots.", "fr": "Les lapins adorent les carottes." }, "level": "A1" },
+  { "id": "word-potato", "type": "word", "theme": "legumes", "en": "potato", "fr": "pomme de terre", "pos": "noun", "example": { "en": "I'm cooking potatoes for dinner.", "fr": "Je fais cuire des pommes de terre pour le dîner." }, "level": "A1" },
+  { "id": "word-tomato", "type": "word", "theme": "legumes", "en": "tomato", "fr": "tomate", "pos": "noun", "example": { "en": "Cut the tomatoes into small pieces.", "fr": "Coupe les tomates en petits morceaux." }, "level": "A1" },
+  { "id": "word-onion", "type": "word", "theme": "legumes", "en": "onion", "fr": "oignon", "pos": "noun", "example": { "en": "Onions make me cry.", "fr": "Les oignons me font pleurer." }, "level": "A1" },
+  { "id": "word-lettuce", "type": "word", "theme": "legumes", "en": "lettuce", "fr": "laitue", "pos": "noun", "example": { "en": "Wash the lettuce for the salad.", "fr": "Lave la laitue pour la salade." }, "level": "A2" },
+  { "id": "word-cucumber", "type": "word", "theme": "legumes", "en": "cucumber", "fr": "concombre", "pos": "noun", "example": { "en": "A cucumber is long and green.", "fr": "Un concombre est long et vert." }, "level": "A2" },
+  { "id": "word-pepper", "type": "word", "theme": "legumes", "en": "pepper", "fr": "poivron", "pos": "noun", "example": { "en": "I prefer red peppers.", "fr": "Je préfère les poivrons rouges." }, "level": "A2" },
+  { "id": "word-garlic", "type": "word", "theme": "legumes", "en": "garlic", "fr": "ail", "pos": "noun", "example": { "en": "This soup has a lot of garlic.", "fr": "Cette soupe contient beaucoup d'ail." }, "level": "A2" },
+  { "id": "word-mushroom", "type": "word", "theme": "legumes", "en": "mushroom", "fr": "champignon", "pos": "noun", "example": { "en": "We picked mushrooms in the forest.", "fr": "Nous avons cueilli des champignons dans la forêt." }, "level": "A2" },
+  { "id": "word-peas", "type": "word", "theme": "legumes", "en": "peas", "fr": "petits pois", "pos": "noun", "example": { "en": "Peas are small and round.", "fr": "Les petits pois sont petits et ronds." }, "level": "A2" },
+  { "id": "word-beans", "type": "word", "theme": "legumes", "en": "beans", "fr": "haricots", "pos": "noun", "example": { "en": "Green beans are good for you.", "fr": "Les haricots verts sont bons pour la santé." }, "level": "A2" },
+  { "id": "word-cabbage", "type": "word", "theme": "legumes", "en": "cabbage", "fr": "chou", "pos": "noun", "example": { "en": "My grandfather grows cabbages.", "fr": "Mon grand-père cultive des choux." }, "level": "A2" },
+  { "id": "word-courgette", "type": "word", "theme": "legumes", "en": "courgette", "fr": "courgette", "pos": "noun", "example": { "en": "Courgettes grow fast in summer.", "fr": "Les courgettes poussent vite en été." }, "level": "A2" },
+  { "id": "word-pumpkin", "type": "word", "theme": "legumes", "en": "pumpkin", "fr": "citrouille", "pos": "noun", "example": { "en": "We make pumpkin soup in autumn.", "fr": "Nous faisons de la soupe à la citrouille en automne." }, "level": "A2" },
+  { "id": "word-leek", "type": "word", "theme": "legumes", "en": "leek", "fr": "poireau", "pos": "noun", "example": { "en": "Leek soup is perfect in winter.", "fr": "La soupe aux poireaux est parfaite en hiver." }, "level": "B1" },
+  { "id": "word-spinach", "type": "word", "theme": "legumes", "en": "spinach", "fr": "épinards", "pos": "noun", "example": { "en": "Spinach is full of iron.", "fr": "Les épinards sont pleins de fer." }, "level": "B1" }
+]

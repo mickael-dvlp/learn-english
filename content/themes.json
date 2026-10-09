@@ -1,4 +1,25 @@
 [
+  { "id": "vetements", "name": { "en": "Clothes", "fr": "Vêtements" }, "emoji": "👕" },
+  { "id": "cuisine", "name": { "en": "Cooking", "fr": "Cuisine" }, "emoji": "🍳" },
   { "id": "agriculture", "name": { "en": "Farming", "fr": "Agriculture" }, "emoji": "🚜" },
-  { "id": "cuisine", "name": { "en": "Cooking", "fr": "Cuisine" }, "emoji": "🍳" }
+  { "id": "fruits", "name": { "en": "Fruit", "fr": "Fruits" }, "emoji": "🍎" },
+  { "id": "legumes", "name": { "en": "Vegetables", "fr": "Légumes" }, "emoji": "🥕" },
+  { "id": "animaux", "name": { "en": "Animals", "fr": "Animaux" }, "emoji": "🐶" },
+  { "id": "maison", "name": { "en": "House", "fr": "Maison" }, "emoji": "🏠" },
+  { "id": "emotions", "name": { "en": "Emotions", "fr": "Émotions" }, "emoji": "😊" },
+
+  { "id": "nombres", "name": { "en": "Numbers", "fr": "Nombres" }, "emoji": "🔢" },
+  { "id": "jours-mois-saisons", "name": { "en": "Days, months and seasons", "fr": "Jours, mois et saisons" }, "emoji": "📅" },
+  { "id": "couleurs", "name": { "en": "Colours", "fr": "Couleurs" }, "emoji": "🎨" },
+  { "id": "famille", "name": { "en": "Family", "fr": "Famille" }, "emoji": "👪" },
+  { "id": "corps", "name": { "en": "Body", "fr": "Corps" }, "emoji": "🧍" },
+  { "id": "meteo", "name": { "en": "Weather", "fr": "Météo" }, "emoji": "🌦️" },
+  { "id": "salutations", "name": { "en": "Greetings", "fr": "Salutations" }, "emoji": "👋" },
+
+  { "id": "courses", "name": { "en": "Shopping", "fr": "Courses" }, "emoji": "🛒" },
+  { "id": "restaurant", "name": { "en": "Restaurant", "fr": "Restaurant" }, "emoji": "🍽️" },
+  { "id": "transports", "name": { "en": "Transport", "fr": "Transports" }, "emoji": "🚌" },
+  { "id": "sante", "name": { "en": "Health", "fr": "Santé" }, "emoji": "🩺" },
+  { "id": "argent", "name": { "en": "Money", "fr": "Argent" }, "emoji": "💶" },
+  { "id": "telephone-internet", "name": { "en": "Phone and internet", "fr": "Téléphone et internet" }, "emoji": "📱" }
 ]

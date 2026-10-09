@@ -1,0 +1,21 @@
+[
+  { "id": "word-shop", "type": "word", "theme": "courses", "en": "shop", "fr": "magasin", "pos": "noun", "example": { "en": "The shop closes at seven.", "fr": "Le magasin ferme à sept heures." }, "level": "A1" },
+  { "id": "word-supermarket", "type": "word", "theme": "courses", "en": "supermarket", "fr": "supermarché", "pos": "noun", "example": { "en": "I go to the supermarket on Saturday.", "fr": "Je vais au supermarché le samedi." }, "level": "A1" },
+  { "id": "word-market", "type": "word", "theme": "courses", "en": "market", "fr": "marché", "pos": "noun", "example": { "en": "The vegetables are fresh at the market.", "fr": "Les légumes sont frais au marché." }, "level": "A1" },
+  { "id": "word-bakery", "type": "word", "theme": "courses", "en": "bakery", "fr": "boulangerie", "pos": "noun", "example": { "en": "The bakery smells good.", "fr": "La boulangerie sent bon." }, "level": "A2" },
+  { "id": "word-butchers", "type": "word", "theme": "courses", "en": "butcher's", "fr": "boucherie", "pos": "noun", "example": { "en": "I buy meat at the butcher's.", "fr": "J'achète la viande à la boucherie." }, "level": "A2" },
+  { "id": "word-bread", "type": "word", "theme": "courses", "en": "bread", "fr": "pain", "pos": "noun", "example": { "en": "Can you buy some bread?", "fr": "Tu peux acheter du pain ?" }, "level": "A1" },
+  { "id": "word-milk", "type": "word", "theme": "courses", "en": "milk", "fr": "lait", "pos": "noun", "example": { "en": "We need milk for breakfast.", "fr": "Il nous faut du lait pour le petit-déjeuner." }, "level": "A1" },
+  { "id": "word-eggs", "type": "word", "theme": "courses", "en": "eggs", "fr": "œufs", "pos": "noun", "example": { "en": "A box of six eggs, please.", "fr": "Une boîte de six œufs, s'il vous plaît." }, "level": "A1" },
+  { "id": "word-shopping-list", "type": "word", "theme": "courses", "en": "shopping list", "fr": "liste de courses", "pos": "noun", "example": { "en": "I forgot my shopping list.", "fr": "J'ai oublié ma liste de courses." }, "level": "A2" },
+  { "id": "word-basket", "type": "word", "theme": "courses", "en": "basket", "fr": "panier", "pos": "noun", "example": { "en": "Put the apples in the basket.", "fr": "Mets les pommes dans le panier." }, "level": "A2" },
+  { "id": "word-trolley", "type": "word", "theme": "courses", "en": "trolley", "fr": "chariot", "pos": "noun", "example": { "en": "Our trolley is full.", "fr": "Notre chariot est plein." }, "level": "A2" },
+  { "id": "word-bag", "type": "word", "theme": "courses", "en": "bag", "fr": "sac", "pos": "noun", "example": { "en": "Do you need a bag?", "fr": "Vous avez besoin d'un sac ?" }, "level": "A1" },
+  { "id": "word-price", "type": "word", "theme": "courses", "en": "price", "fr": "prix", "pos": "noun", "example": { "en": "The price is on the label.", "fr": "Le prix est sur l'étiquette." }, "level": "A1" },
+  { "id": "word-cheap", "type": "word", "theme": "courses", "en": "cheap", "fr": "bon marché", "pos": "adjective", "example": { "en": "Fruit is cheap in summer.", "fr": "Les fruits sont bon marché en été." }, "level": "A1" },
+  { "id": "word-expensive", "type": "word", "theme": "courses", "en": "expensive", "fr": "cher", "pos": "adjective", "example": { "en": "This shop is too expensive.", "fr": "Ce magasin est trop cher." }, "level": "A1" },
+  { "id": "word-checkout", "type": "word", "theme": "courses", "en": "checkout", "fr": "caisse", "pos": "noun", "example": { "en": "There is a long queue at the checkout.", "fr": "Il y a une longue file à la caisse." }, "level": "A2" },
+  { "id": "word-receipt", "type": "word", "theme": "courses", "en": "receipt", "fr": "ticket de caisse", "pos": "noun", "example": { "en": "Keep the receipt, please.", "fr": "Gardez le ticket de caisse, s'il vous plaît." }, "level": "A2" },
+  { "id": "word-to-buy", "type": "word", "theme": "courses", "en": "to buy", "fr": "acheter", "pos": "verb", "example": { "en": "I want to buy a new phone.", "fr": "Je veux acheter un nouveau téléphone." }, "level": "A1" },
+  { "id": "word-to-pay", "type": "word", "theme": "courses", "en": "to pay", "fr": "payer", "pos": "verb", "example": { "en": "Can I pay by card?", "fr": "Je peux payer par carte ?" }, "level": "A1" }
+]

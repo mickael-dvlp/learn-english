@@ -1,0 +1,21 @@
+[
+  { "id": "word-happy", "type": "word", "theme": "emotions", "en": "happy", "fr": "heureux", "pos": "adjective", "example": { "en": "I'm happy to see you.", "fr": "Je suis heureux de te voir." }, "level": "A1" },
+  { "id": "word-sad", "type": "word", "theme": "emotions", "en": "sad", "fr": "triste", "pos": "adjective", "example": { "en": "She is sad because her cat is ill.", "fr": "Elle est triste parce que son chat est malade." }, "level": "A1" },
+  { "id": "word-angry", "type": "word", "theme": "emotions", "en": "angry", "fr": "en colère", "pos": "adjective", "example": { "en": "Dad is angry with me.", "fr": "Papa est en colère contre moi." }, "level": "A1" },
+  { "id": "word-tired", "type": "word", "theme": "emotions", "en": "tired", "fr": "fatigué", "pos": "adjective", "example": { "en": "I'm too tired to go out.", "fr": "Je suis trop fatigué pour sortir." }, "level": "A1" },
+  { "id": "word-scared", "type": "word", "theme": "emotions", "en": "scared", "fr": "effrayé", "pos": "adjective", "example": { "en": "The little boy is scared of the dark.", "fr": "Le petit garçon a peur du noir." }, "level": "A1" },
+  { "id": "word-bored", "type": "word", "theme": "emotions", "en": "bored", "fr": "qui s'ennuie", "pos": "adjective", "example": { "en": "I'm bored, let's play a game.", "fr": "Je m'ennuie, jouons à un jeu." }, "level": "A2" },
+  { "id": "word-surprised", "type": "word", "theme": "emotions", "en": "surprised", "fr": "surpris", "pos": "adjective", "example": { "en": "We were surprised by the news.", "fr": "Nous avons été surpris par la nouvelle." }, "level": "A2" },
+  { "id": "word-worried", "type": "word", "theme": "emotions", "en": "worried", "fr": "inquiet", "pos": "adjective", "example": { "en": "Don't be worried, everything is fine.", "fr": "Ne t'inquiète pas, tout va bien." }, "level": "A2" },
+  { "id": "word-excited", "type": "word", "theme": "emotions", "en": "excited", "fr": "enthousiaste", "pos": "adjective", "example": { "en": "The children are excited about the holidays.", "fr": "Les enfants sont impatients d'être en vacances." }, "level": "A2" },
+  { "id": "word-calm", "type": "word", "theme": "emotions", "en": "calm", "fr": "calme", "pos": "adjective", "example": { "en": "Stay calm and breathe slowly.", "fr": "Reste calme et respire lentement." }, "level": "A2" },
+  { "id": "word-relaxed", "type": "word", "theme": "emotions", "en": "relaxed", "fr": "détendu", "pos": "adjective", "example": { "en": "I feel relaxed after a bath.", "fr": "Je me sens détendu après un bain." }, "level": "A2" },
+  { "id": "word-nervous", "type": "word", "theme": "emotions", "en": "nervous", "fr": "nerveux", "pos": "adjective", "example": { "en": "He is nervous before the exam.", "fr": "Il est nerveux avant l'examen." }, "level": "A2" },
+  { "id": "word-proud", "type": "word", "theme": "emotions", "en": "proud", "fr": "fier", "pos": "adjective", "example": { "en": "I'm proud of you.", "fr": "Je suis fier de toi." }, "level": "A2" },
+  { "id": "word-lonely", "type": "word", "theme": "emotions", "en": "lonely", "fr": "seul (qui se sent seul)", "pos": "adjective", "example": { "en": "She feels lonely in the big city.", "fr": "Elle se sent seule dans la grande ville." }, "level": "B1" },
+  { "id": "word-jealous", "type": "word", "theme": "emotions", "en": "jealous", "fr": "jaloux", "pos": "adjective", "example": { "en": "My brother is jealous of my new bike.", "fr": "Mon frère est jaloux de mon nouveau vélo." }, "level": "B1" },
+  { "id": "word-embarrassed", "type": "word", "theme": "emotions", "en": "embarrassed", "fr": "gêné", "pos": "adjective", "example": { "en": "I was embarrassed when I fell.", "fr": "J'étais gêné quand je suis tombé." }, "level": "B1" },
+  { "id": "word-to-feel", "type": "word", "theme": "emotions", "en": "to feel", "fr": "se sentir", "pos": "verb", "example": { "en": "How do you feel today?", "fr": "Comment te sens-tu aujourd'hui ?" }, "level": "A2" },
+  { "id": "word-to-cry", "type": "word", "theme": "emotions", "en": "to cry", "fr": "pleurer", "pos": "verb", "example": { "en": "The baby is crying.", "fr": "Le bébé pleure." }, "level": "A2" },
+  { "id": "word-to-laugh", "type": "word", "theme": "emotions", "en": "to laugh", "fr": "rire", "pos": "verb", "example": { "en": "His jokes make me laugh.", "fr": "Ses blagues me font rire." }, "level": "A2" }
+]

@@ -1,0 +1,19 @@
+[
+  { "id": "word-fruit", "type": "word", "theme": "fruits", "en": "fruit", "fr": "fruit", "pos": "noun", "example": { "en": "I eat fruit every morning.", "fr": "Je mange des fruits tous les matins." }, "level": "A1" },
+  { "id": "word-apple", "type": "word", "theme": "fruits", "en": "apple", "fr": "pomme", "pos": "noun", "example": { "en": "This apple is sweet.", "fr": "Cette pomme est sucrée." }, "level": "A1" },
+  { "id": "word-banana", "type": "word", "theme": "fruits", "en": "banana", "fr": "banane", "pos": "noun", "example": { "en": "The monkey is eating a banana.", "fr": "Le singe mange une banane." }, "level": "A1" },
+  { "id": "word-orange", "type": "word", "theme": "fruits", "en": "orange", "fr": "orange", "pos": "noun", "example": { "en": "I drink orange juice for breakfast.", "fr": "Je bois du jus d'orange au petit-déjeuner." }, "level": "A1" },
+  { "id": "word-pear", "type": "word", "theme": "fruits", "en": "pear", "fr": "poire", "pos": "noun", "example": { "en": "There is a pear in my bag.", "fr": "Il y a une poire dans mon sac." }, "level": "A1" },
+  { "id": "word-strawberry", "type": "word", "theme": "fruits", "en": "strawberry", "fr": "fraise", "pos": "noun", "example": { "en": "I love strawberries with cream.", "fr": "J'adore les fraises à la crème." }, "level": "A1" },
+  { "id": "word-grapes", "type": "word", "theme": "fruits", "en": "grapes", "fr": "raisin", "pos": "noun", "example": { "en": "These grapes come from Spain.", "fr": "Ce raisin vient d'Espagne." }, "level": "A1" },
+  { "id": "word-lemon", "type": "word", "theme": "fruits", "en": "lemon", "fr": "citron", "pos": "noun", "example": { "en": "Add some lemon to the fish.", "fr": "Ajoute un peu de citron sur le poisson." }, "level": "A1" },
+  { "id": "word-cherry", "type": "word", "theme": "fruits", "en": "cherry", "fr": "cerise", "pos": "noun", "example": { "en": "The cherries are red in June.", "fr": "Les cerises sont rouges en juin." }, "level": "A2" },
+  { "id": "word-peach", "type": "word", "theme": "fruits", "en": "peach", "fr": "pêche", "pos": "noun", "example": { "en": "This peach is very juicy.", "fr": "Cette pêche est très juteuse." }, "level": "A2" },
+  { "id": "word-pineapple", "type": "word", "theme": "fruits", "en": "pineapple", "fr": "ananas", "pos": "noun", "example": { "en": "Do you like pineapple on pizza?", "fr": "Tu aimes l'ananas sur la pizza ?" }, "level": "A2" },
+  { "id": "word-watermelon", "type": "word", "theme": "fruits", "en": "watermelon", "fr": "pastèque", "pos": "noun", "example": { "en": "We eat watermelon in summer.", "fr": "On mange de la pastèque en été." }, "level": "A2" },
+  { "id": "word-raspberry", "type": "word", "theme": "fruits", "en": "raspberry", "fr": "framboise", "pos": "noun", "example": { "en": "She makes raspberry jam.", "fr": "Elle fait de la confiture de framboises." }, "level": "A2" },
+  { "id": "word-plum", "type": "word", "theme": "fruits", "en": "plum", "fr": "prune", "pos": "noun", "example": { "en": "There are plums on the tree.", "fr": "Il y a des prunes sur l'arbre." }, "level": "A2" },
+  { "id": "word-apricot", "type": "word", "theme": "fruits", "en": "apricot", "fr": "abricot", "pos": "noun", "example": { "en": "Apricots are orange and soft.", "fr": "Les abricots sont orange et tendres." }, "level": "B1" },
+  { "id": "word-ripe", "type": "word", "theme": "fruits", "en": "ripe", "fr": "mûr", "pos": "adjective", "example": { "en": "The bananas are not ripe yet.", "fr": "Les bananes ne sont pas encore mûres." }, "level": "B1" },
+  { "id": "word-juicy", "type": "word", "theme": "fruits", "en": "juicy", "fr": "juteux", "pos": "adjective", "example": { "en": "I want a juicy orange.", "fr": "Je veux une orange juteuse." }, "level": "B1" }
+]

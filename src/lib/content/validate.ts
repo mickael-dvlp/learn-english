@@ -46,7 +46,22 @@ export function validateContent(raw: RawContent): ValidationResult {
   const themes = raw.themes
     ? parseArray(raw.themes, ThemeSchema, errors)
     : (errors.push("themes.json est introuvable"), []);
-  const words = raw.words.flatMap((file) => parseArray(file, WordSchema, errors));
+  const themeIds = new Set(themes.map((theme) => theme.id));
+
+  // words/<theme>.json: the file name is a theme of themes.json, and its words belong to that theme.
+  const words = raw.words.flatMap((file) => {
+    const fileTheme = file.path.replace(/^.*\//, "").replace(/\.json$/, "");
+    if (!themeIds.has(fileTheme)) {
+      errors.push(`${file.path} : le thème "${fileTheme}" n'existe pas dans themes.json`);
+    }
+    const fileWords = parseArray(file, WordSchema, errors);
+    for (const word of fileWords) {
+      if (word.theme !== fileTheme) {
+        errors.push(`${file.path} › ${word.id} : thème "${word.theme}", attendu "${fileTheme}" (nom du fichier)`);
+      }
+    }
+    return fileWords;
+  });
   const verbs = raw.verbs.flatMap((file) => parseArray(file, VerbSchema, errors));
   const rules = raw.rules.flatMap((file) => parseArray(file, RuleSchema, errors));
   const texts = raw.texts.flatMap((file) => parseOne(file, TextItemSchema, errors));
@@ -54,7 +69,6 @@ export function validateContent(raw: RawContent): ValidationResult {
   checkUniqueIds("de thème", themes, errors);
   checkUniqueIds("d'élément", [...words, ...verbs, ...rules, ...texts], errors);
 
-  const themeIds = new Set(themes.map((theme) => theme.id));
   for (const item of [...words, ...texts]) {
     if (item.theme !== undefined && !themeIds.has(item.theme)) {
       errors.push(`${item.id} : le thème "${item.theme}" n'existe pas dans themes.json`);

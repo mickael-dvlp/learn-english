@@ -51,9 +51,13 @@ export function loadContent(root?: string): { library: ContentLibrary; errors: s
 
 let cached: ContentLibrary | undefined;
 
-/** Validated library for the app. Throws if the content is invalid, which fails the build. */
+/**
+ * Validated library for the app. Throws if the content is invalid, which fails the build.
+ * Kept in memory in production (content is fixed at build time); re-read on every request
+ * in development, so that edited JSON files show up without restarting `npm run dev`.
+ */
 export function getContent(): ContentLibrary {
-  if (cached) return cached;
+  if (cached && process.env.NODE_ENV === "production") return cached;
   const { library, errors } = loadContent();
   if (errors.length > 0) {
     throw new Error(`Contenu invalide :\n- ${errors.join("\n- ")}`);

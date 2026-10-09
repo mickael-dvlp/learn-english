@@ -1,0 +1,20 @@
+[
+  { "id": "word-menu", "type": "word", "theme": "restaurant", "en": "menu", "fr": "carte (menu)", "pos": "noun", "example": { "en": "Can I see the menu, please?", "fr": "Je peux voir la carte, s'il vous plaît ?" }, "level": "A1" },
+  { "id": "word-waiter", "type": "word", "theme": "restaurant", "en": "waiter", "fr": "serveur", "pos": "noun", "example": { "en": "The waiter brings the drinks.", "fr": "Le serveur apporte les boissons." }, "level": "A1" },
+  { "id": "word-bill", "type": "word", "theme": "restaurant", "en": "bill", "fr": "addition", "pos": "noun", "example": { "en": "Can we have the bill, please?", "fr": "L'addition, s'il vous plaît." }, "level": "A2" },
+  { "id": "word-tip", "type": "word", "theme": "restaurant", "en": "tip", "fr": "pourboire", "pos": "noun", "example": { "en": "We left a tip for the waiter.", "fr": "Nous avons laissé un pourboire au serveur." }, "level": "A2" },
+  { "id": "word-starter", "type": "word", "theme": "restaurant", "en": "starter", "fr": "entrée", "pos": "noun", "example": { "en": "I'll have soup as a starter.", "fr": "Je prendrai une soupe en entrée." }, "level": "A2" },
+  { "id": "word-main-course", "type": "word", "theme": "restaurant", "en": "main course", "fr": "plat principal", "pos": "noun", "example": { "en": "What would you like for your main course?", "fr": "Que voulez-vous comme plat principal ?" }, "level": "A2" },
+  { "id": "word-dessert", "type": "word", "theme": "restaurant", "en": "dessert", "fr": "dessert", "pos": "noun", "example": { "en": "There's chocolate cake for dessert.", "fr": "Il y a un gâteau au chocolat en dessert." }, "level": "A1" },
+  { "id": "word-drink", "type": "word", "theme": "restaurant", "en": "drink", "fr": "boisson", "pos": "noun", "example": { "en": "Would you like a drink?", "fr": "Voulez-vous une boisson ?" }, "level": "A1" },
+  { "id": "word-water", "type": "word", "theme": "restaurant", "en": "water", "fr": "eau", "pos": "noun", "example": { "en": "A glass of water, please.", "fr": "Un verre d'eau, s'il vous plaît." }, "level": "A1" },
+  { "id": "word-wine", "type": "word", "theme": "restaurant", "en": "wine", "fr": "vin", "pos": "noun", "example": { "en": "Red wine or white wine?", "fr": "Vin rouge ou vin blanc ?" }, "level": "A1" },
+  { "id": "word-glass", "type": "word", "theme": "restaurant", "en": "glass", "fr": "verre", "pos": "noun", "example": { "en": "My glass is empty.", "fr": "Mon verre est vide." }, "level": "A1" },
+  { "id": "word-plate", "type": "word", "theme": "restaurant", "en": "plate", "fr": "assiette", "pos": "noun", "example": { "en": "The plate is very hot.", "fr": "L'assiette est très chaude." }, "level": "A1" },
+  { "id": "word-fork", "type": "word", "theme": "restaurant", "en": "fork", "fr": "fourchette", "pos": "noun", "example": { "en": "Could I have another fork?", "fr": "Pourrais-je avoir une autre fourchette ?" }, "level": "A1" },
+  { "id": "word-spoon", "type": "word", "theme": "restaurant", "en": "spoon", "fr": "cuillère", "pos": "noun", "example": { "en": "You need a spoon for the soup.", "fr": "Il te faut une cuillère pour la soupe." }, "level": "A1" },
+  { "id": "word-meat", "type": "word", "theme": "restaurant", "en": "meat", "fr": "viande", "pos": "noun", "example": { "en": "I don't eat meat.", "fr": "Je ne mange pas de viande." }, "level": "A1" },
+  { "id": "word-cheese", "type": "word", "theme": "restaurant", "en": "cheese", "fr": "fromage", "pos": "noun", "example": { "en": "France has hundreds of cheeses.", "fr": "La France a des centaines de fromages." }, "level": "A1" },
+  { "id": "word-delicious", "type": "word", "theme": "restaurant", "en": "delicious", "fr": "délicieux", "pos": "adjective", "example": { "en": "This cake is delicious!", "fr": "Ce gâteau est délicieux !" }, "level": "A1" },
+  { "id": "word-to-order", "type": "word", "theme": "restaurant", "en": "to order", "fr": "commander", "pos": "verb", "example": { "en": "Are you ready to order?", "fr": "Vous êtes prêts à commander ?" }, "level": "A2" }
+]

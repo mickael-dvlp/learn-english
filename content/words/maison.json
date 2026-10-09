@@ -1,0 +1,20 @@
+[
+  { "id": "word-house", "type": "word", "theme": "maison", "en": "house", "fr": "maison", "pos": "noun", "example": { "en": "Their house is near the sea.", "fr": "Leur maison est près de la mer." }, "level": "A1" },
+  { "id": "word-room", "type": "word", "theme": "maison", "en": "room", "fr": "pièce", "pos": "noun", "example": { "en": "Our flat has four rooms.", "fr": "Notre appartement a quatre pièces." }, "level": "A1" },
+  { "id": "word-bedroom", "type": "word", "theme": "maison", "en": "bedroom", "fr": "chambre", "pos": "noun", "example": { "en": "My bedroom is upstairs.", "fr": "Ma chambre est à l'étage." }, "level": "A1" },
+  { "id": "word-bathroom", "type": "word", "theme": "maison", "en": "bathroom", "fr": "salle de bains", "pos": "noun", "example": { "en": "The bathroom is next to my room.", "fr": "La salle de bains est à côté de ma chambre." }, "level": "A1" },
+  { "id": "word-living-room", "type": "word", "theme": "maison", "en": "living room", "fr": "salon", "pos": "noun", "example": { "en": "We watch TV in the living room.", "fr": "Nous regardons la télé dans le salon." }, "level": "A1" },
+  { "id": "word-door", "type": "word", "theme": "maison", "en": "door", "fr": "porte", "pos": "noun", "example": { "en": "Close the door, please.", "fr": "Ferme la porte, s'il te plaît." }, "level": "A1" },
+  { "id": "word-window", "type": "word", "theme": "maison", "en": "window", "fr": "fenêtre", "pos": "noun", "example": { "en": "Open the window, it's hot.", "fr": "Ouvre la fenêtre, il fait chaud." }, "level": "A1" },
+  { "id": "word-table", "type": "word", "theme": "maison", "en": "table", "fr": "table", "pos": "noun", "example": { "en": "Dinner is on the table.", "fr": "Le dîner est sur la table." }, "level": "A1" },
+  { "id": "word-chair", "type": "word", "theme": "maison", "en": "chair", "fr": "chaise", "pos": "noun", "example": { "en": "Sit on this chair.", "fr": "Assieds-toi sur cette chaise." }, "level": "A1" },
+  { "id": "word-bed", "type": "word", "theme": "maison", "en": "bed", "fr": "lit", "pos": "noun", "example": { "en": "It's time to go to bed.", "fr": "C'est l'heure d'aller au lit." }, "level": "A1" },
+  { "id": "word-sofa", "type": "word", "theme": "maison", "en": "sofa", "fr": "canapé", "pos": "noun", "example": { "en": "The dog is sleeping on the sofa.", "fr": "Le chien dort sur le canapé." }, "level": "A1" },
+  { "id": "word-lamp", "type": "word", "theme": "maison", "en": "lamp", "fr": "lampe", "pos": "noun", "example": { "en": "Turn off the lamp.", "fr": "Éteins la lampe." }, "level": "A1" },
+  { "id": "word-stairs", "type": "word", "theme": "maison", "en": "stairs", "fr": "escalier", "pos": "noun", "example": { "en": "Be careful on the stairs.", "fr": "Fais attention dans l'escalier." }, "level": "A1" },
+  { "id": "word-wall", "type": "word", "theme": "maison", "en": "wall", "fr": "mur", "pos": "noun", "example": { "en": "There is a painting on the wall.", "fr": "Il y a un tableau sur le mur." }, "level": "A1" },
+  { "id": "word-roof", "type": "word", "theme": "maison", "en": "roof", "fr": "toit", "pos": "noun", "example": { "en": "A cat is walking on the roof.", "fr": "Un chat marche sur le toit." }, "level": "A2" },
+  { "id": "word-garden", "type": "word", "theme": "maison", "en": "garden", "fr": "jardin", "pos": "noun", "example": { "en": "The children play in the garden.", "fr": "Les enfants jouent dans le jardin." }, "level": "A1" },
+  { "id": "word-key", "type": "word", "theme": "maison", "en": "key", "fr": "clé", "pos": "noun", "example": { "en": "Where are my keys?", "fr": "Où sont mes clés ?" }, "level": "A1" },
+  { "id": "word-fridge", "type": "word", "theme": "maison", "en": "fridge", "fr": "réfrigérateur", "pos": "noun", "example": { "en": "Put the milk in the fridge.", "fr": "Mets le lait au réfrigérateur." }, "level": "A1" }
+]

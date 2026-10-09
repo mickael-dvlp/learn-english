@@ -22,7 +22,14 @@ export function StudyHub({ collections }: { collections: CollectionSummary[] }) 
         if (groupCollections.length === 0) return null;
         return (
           <section key={group.type} className="flex flex-col gap-3">
-            <h2 className="text-lg font-semibold">{group.label}</h2>
+            <div className="flex items-baseline justify-between">
+              <h2 className="text-lg font-semibold">{group.label}</h2>
+              {group.type === "word" && (
+                <Link href="/study/themes" className="rounded-xl px-2 py-1 text-sm text-accent">
+                  Tous les thèmes →
+                </Link>
+              )}
+            </div>
             {groupCollections.map((collection) => (
               <Link
                 key={collection.id}

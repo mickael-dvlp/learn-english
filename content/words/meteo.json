@@ -1,0 +1,20 @@
+[
+  { "id": "word-weather", "type": "word", "theme": "meteo", "en": "weather", "fr": "temps (météo)", "pos": "noun", "example": { "en": "What's the weather like today?", "fr": "Quel temps fait-il aujourd'hui ?" }, "level": "A1" },
+  { "id": "word-sun", "type": "word", "theme": "meteo", "en": "sun", "fr": "soleil", "pos": "noun", "example": { "en": "The sun is shining.", "fr": "Le soleil brille." }, "level": "A1" },
+  { "id": "word-rain", "type": "word", "theme": "meteo", "en": "rain", "fr": "pluie", "pos": "noun", "example": { "en": "I like the sound of the rain.", "fr": "J'aime le bruit de la pluie." }, "level": "A1" },
+  { "id": "word-snow", "type": "word", "theme": "meteo", "en": "snow", "fr": "neige", "pos": "noun", "example": { "en": "The children are playing in the snow.", "fr": "Les enfants jouent dans la neige." }, "level": "A1" },
+  { "id": "word-wind", "type": "word", "theme": "meteo", "en": "wind", "fr": "vent", "pos": "noun", "example": { "en": "The wind is very strong tonight.", "fr": "Le vent est très fort ce soir." }, "level": "A1" },
+  { "id": "word-cloud", "type": "word", "theme": "meteo", "en": "cloud", "fr": "nuage", "pos": "noun", "example": { "en": "There isn't a cloud in the sky.", "fr": "Il n'y a pas un nuage dans le ciel." }, "level": "A1" },
+  { "id": "word-storm", "type": "word", "theme": "meteo", "en": "storm", "fr": "orage", "pos": "noun", "example": { "en": "A storm is coming.", "fr": "Un orage arrive." }, "level": "A2" },
+  { "id": "word-fog", "type": "word", "theme": "meteo", "en": "fog", "fr": "brouillard", "pos": "noun", "example": { "en": "Drive slowly in the fog.", "fr": "Roule lentement dans le brouillard." }, "level": "A2" },
+  { "id": "word-sunny", "type": "word", "theme": "meteo", "en": "sunny", "fr": "ensoleillé", "pos": "adjective", "example": { "en": "It will be sunny tomorrow.", "fr": "Il fera beau demain." }, "level": "A1" },
+  { "id": "word-rainy", "type": "word", "theme": "meteo", "en": "rainy", "fr": "pluvieux", "pos": "adjective", "example": { "en": "It's a rainy day.", "fr": "C'est un jour de pluie." }, "level": "A2" },
+  { "id": "word-cloudy", "type": "word", "theme": "meteo", "en": "cloudy", "fr": "nuageux", "pos": "adjective", "example": { "en": "The sky is cloudy this afternoon.", "fr": "Le ciel est nuageux cet après-midi." }, "level": "A2" },
+  { "id": "word-windy", "type": "word", "theme": "meteo", "en": "windy", "fr": "venteux", "pos": "adjective", "example": { "en": "It's windy at the beach.", "fr": "Il y a du vent à la plage." }, "level": "A2" },
+  { "id": "word-hot", "type": "word", "theme": "meteo", "en": "hot", "fr": "chaud", "pos": "adjective", "example": { "en": "It's very hot in August.", "fr": "Il fait très chaud en août." }, "level": "A1" },
+  { "id": "word-cold", "type": "word", "theme": "meteo", "en": "cold", "fr": "froid", "pos": "adjective", "example": { "en": "It's cold outside, take a coat.", "fr": "Il fait froid dehors, prends un manteau." }, "level": "A1" },
+  { "id": "word-warm", "type": "word", "theme": "meteo", "en": "warm", "fr": "doux (température)", "pos": "adjective", "example": { "en": "It's warm for October.", "fr": "Il fait doux pour un mois d'octobre." }, "level": "A2" },
+  { "id": "word-temperature", "type": "word", "theme": "meteo", "en": "temperature", "fr": "température", "pos": "noun", "example": { "en": "The temperature is falling.", "fr": "La température baisse." }, "level": "A2" },
+  { "id": "word-umbrella", "type": "word", "theme": "meteo", "en": "umbrella", "fr": "parapluie", "pos": "noun", "example": { "en": "Don't forget your umbrella.", "fr": "N'oublie pas ton parapluie." }, "level": "A1" },
+  { "id": "word-to-rain", "type": "word", "theme": "meteo", "en": "to rain", "fr": "pleuvoir", "pos": "verb", "example": { "en": "It's raining again.", "fr": "Il pleut encore." }, "level": "A1" }
+]

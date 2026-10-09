@@ -31,20 +31,53 @@ test("accepts valid content", () => {
   assert.equal(library.texts[0].id, "text-dinner");
 });
 
+const house = { id: "maison", name: { en: "House", fr: "Maison" } };
+
 test("rejects duplicate ids across files", () => {
   const { errors } = validateContent(
-    raw({ words: [{ path: "words/a.json", data: [word] }, { path: "words/b.json", data: [word] }] }),
+    raw({
+      themes: { path: "themes.json", data: [theme, house] },
+      words: [
+        { path: "words/cuisine.json", data: [word] },
+        { path: "words/maison.json", data: [{ ...word, theme: "maison" }] },
+      ],
+    }),
   );
   assert.equal(errors.length, 1);
   assert.match(errors[0], /double.*word-pan/);
 });
 
-test("rejects unknown theme", () => {
-  const { errors } = validateContent(
-    raw({ words: [{ path: "words/x.json", data: [{ ...word, theme: "garage" }] }] }),
+test("accepts empty word files", () => {
+  const { library, errors } = validateContent(
+    raw({
+      themes: { path: "themes.json", data: [theme, house] },
+      words: [
+        { path: "words/cuisine.json", data: [] },
+        { path: "words/maison.json", data: [] },
+      ],
+    }),
   );
-  assert.equal(errors.length, 1);
-  assert.match(errors[0], /garage/);
+  assert.deepEqual(errors, []);
+  assert.equal(library.words.length, 0);
+});
+
+test("rejects a word file named after a theme missing from themes.json, even empty", () => {
+  const { errors } = validateContent(raw({ words: [{ path: "words/garage.json", data: [] }] }));
+  assert.deepEqual(errors, [`words/garage.json : le thème "garage" n'existe pas dans themes.json`]);
+});
+
+test("rejects a word whose theme does not exist or differs from its file", () => {
+  const { errors } = validateContent(
+    raw({ words: [{ path: "words/cuisine.json", data: [{ ...word, theme: "garage" }] }] }),
+  );
+  assert.equal(errors.length, 2);
+  assert.match(errors[0], /word-pan : thème "garage", attendu "cuisine"/);
+  assert.match(errors[1], /le thème "garage" n'existe pas/);
+});
+
+test("rejects duplicate theme ids", () => {
+  const { errors } = validateContent(raw({ themes: { path: "themes.json", data: [theme, theme] } }));
+  assert.deepEqual(errors, [`id de thème en double : "cuisine"`]);
 });
 
 test("rejects invalid level, missing field and badly formatted id", () => {

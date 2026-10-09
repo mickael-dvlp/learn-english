@@ -124,7 +124,12 @@ type Theme = {
 };
 ```
 
-Thèmes prévus au départ : vêtements, cuisine, agriculture, fruits, légumes, animaux, maison, émotions. En ajouter librement.
+Thèmes en place (21, `content/themes.json`, `id` en minuscules sans accent) :
+- Départ : `vetements`, `cuisine`, `agriculture`, `fruits`, `legumes`, `animaux`, `maison`, `emotions`
+- Bases : `nombres`, `jours-mois-saisons`, `couleurs`, `famille`, `corps`, `meteo`, `salutations`
+- Vie quotidienne : `courses`, `restaurant`, `transports`, `sante`, `argent`, `telephone-internet`
+
+En ajouter librement : une entrée dans `themes.json` + un fichier `content/words/<id>.json` (un tableau, éventuellement vide `[]`).
 
 ## 5. Organisation des fichiers
 
@@ -154,13 +159,15 @@ Thèmes prévus au départ : vêtements, cuisine, agriculture, fruits, légumes,
 
 Règles :
 - Un fichier = une collection cohérente. Ajouter du contenu = éditer ou créer un JSON.
-- **Valider le contenu au build** (schéma Zod ou équivalent) : id unique, champs requis, niveau valide, thème existant. Le build échoue si le contenu est invalide.
+- **Valider le contenu au build** (schéma Zod ou équivalent) : id unique (éléments et thèmes), champs requis, niveau valide, thème existant. Le build échoue si le contenu est invalide.
+- **Fichiers de mots** : `content/words/<id>.json` porte le nom d'un thème de `themes.json` (même vide : sinon erreur), et chaque mot du fichier a ce `theme`. Un fichier vide `[]` est accepté ; le thème n'apparaît alors ni dans les collections d'Écouter/Étudier ni ailleurs, sauf sur `/study/themes` (« 0 mot »).
 - Ne jamais renommer un `id` existant (casse la progression).
 
 Mise en œuvre :
 - Schémas Zod dans `src/lib/content/schema.ts` ; les types TS sont **inférés** des schémas (une seule source). Objets stricts : un champ inconnu (faute de frappe) est une erreur.
 - `src/lib/content/validate.ts` : validation pure (testable sans disque). `load.ts` : lecture de `/content` (synchrone, côté serveur, au build).
 - `npm run validate` vérifie le contenu ; il est lancé automatiquement par `prebuild`.
+- `getContent()` garde le contenu en mémoire en production ; en développement il relit les JSON à chaque requête (modifications visibles sans redémarrer `npm run dev`).
 - Tests : `npm test` (runner natif `node:test` via `tsx`, pas de framework de test). Fichiers `*.test.ts` à côté du code.
 - Autres commandes : `npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`.
 
@@ -249,7 +256,7 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 
 Mise en œuvre (étape 3) :
 - **Collections** (`src/lib/content/collections.ts`) : partagées par Écouter et Étudier (un thème, verbes tous / irréguliers / réguliers, règles, un texte). Dérivées du contenu ; leur `id` sert de slug d'URL.
-- Routes : `/study` (collections avec progression) et `/study/[collection]` (une page statique par collection). La fiche ouverte est dans le hash (`#word-tractor`) : le bouton retour du téléphone ramène à la liste.
+- Routes : `/study` (collections avec progression, lien « Tous les thèmes »), `/study/themes` (les 21 thèmes avec emoji et nombre de mots, vides compris) et `/study/[collection]` (une page statique par collection). La fiche ouverte est dans le hash (`#word-tractor`) : le bouton retour du téléphone ramène à la liste.
 - Fiches avec boutons 🔊 (même `speak()` et même vitesse que le mode Écouter). Un texte s'affiche en entier, traduction masquable.
 - **Suivi** (`src/lib/storage/progress.ts`, localStorage) : par `id`, date du premier « vu » (fiche ou texte ouvert) et du premier « écouté » (segment joué jusqu'au bout dans le lecteur, pas s'il est sauté).
 - `createLocalStore` (`src/lib/storage/local-store.ts`) : valeur localStorage validée par Zod, exposée à React via `useSyncExternalStore`.
@@ -289,7 +296,7 @@ Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 
 1. **Modification du visuel** (étape 5). Demander d'abord l'ambiance souhaitée, ce qui gêne aujourd'hui et l'écran prioritaire.
 2. ✅ **Logo et favicon** (9 octobre) : `public/image/logo-mouton.svg` est l'icône principale (favicon SVG), `favicon.ico` en secours, logo sur l'accueil. `logo-192.png` et `logo-512.png` sont des rendus du SVG (image de l'écran de verrouillage, icône Apple, futur manifest) : les refaire si le SVG change.
-3. **Nouveaux thèmes de mots** : nourriture, animaux, fruits, légumes, objets du quotidien, vêtements, transports, politesse… (un fichier `content/words/<theme>.json` par thème + entrée dans `themes.json`).
+3. ✅ **Nouveaux thèmes de mots** (9 octobre) : 21 thèmes, 380 mots (17 à 20 par thème, 31 pour jours-mois-saisons), audio généré. La politesse est dans `salutations` ; la nourriture est répartie entre `fruits`, `legumes`, `courses`, `restaurant` et `cuisine`. Pas encore de thème « objets du quotidien » (à ajouter si souhaité).
 4. **Autres verbes** (`content/verbs/irregular.json`, `regular.json`).
 5. **Mots de coordination** (and, but, or, so, because…). À décider : un thème de mots dédié, ou une nouvelle valeur de `pos` (`conjunction`), ce qui touche au schéma.
 6. ✅ **Phrases interrogatives** (9 octobre) : trois règles dans `content/rules/special.json`, tag `questions` (do/does/did, inversion avec be/can/will/have, mots interrogatifs).

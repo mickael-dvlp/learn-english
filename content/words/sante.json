@@ -1,0 +1,20 @@
+[
+  { "id": "word-health", "type": "word", "theme": "sante", "en": "health", "fr": "santé", "pos": "noun", "example": { "en": "Sleep is important for your health.", "fr": "Le sommeil est important pour la santé." }, "level": "A2" },
+  { "id": "word-doctor", "type": "word", "theme": "sante", "en": "doctor", "fr": "médecin", "pos": "noun", "example": { "en": "You should see a doctor.", "fr": "Tu devrais voir un médecin." }, "level": "A1" },
+  { "id": "word-nurse", "type": "word", "theme": "sante", "en": "nurse", "fr": "infirmier, infirmière", "pos": "noun", "example": { "en": "The nurse is very kind.", "fr": "L'infirmière est très gentille." }, "level": "A1" },
+  { "id": "word-dentist", "type": "word", "theme": "sante", "en": "dentist", "fr": "dentiste", "pos": "noun", "example": { "en": "I'm going to the dentist tomorrow.", "fr": "Je vais chez le dentiste demain." }, "level": "A1" },
+  { "id": "word-hospital", "type": "word", "theme": "sante", "en": "hospital", "fr": "hôpital", "pos": "noun", "example": { "en": "My grandfather is in hospital.", "fr": "Mon grand-père est à l'hôpital." }, "level": "A1" },
+  { "id": "word-pharmacy", "type": "word", "theme": "sante", "en": "pharmacy", "fr": "pharmacie", "pos": "noun", "example": { "en": "Is there a pharmacy near here?", "fr": "Il y a une pharmacie près d'ici ?" }, "level": "A2" },
+  { "id": "word-medicine", "type": "word", "theme": "sante", "en": "medicine", "fr": "médicament", "pos": "noun", "example": { "en": "Take this medicine twice a day.", "fr": "Prends ce médicament deux fois par jour." }, "level": "A2" },
+  { "id": "word-appointment", "type": "word", "theme": "sante", "en": "appointment", "fr": "rendez-vous", "pos": "noun", "example": { "en": "I have an appointment at ten.", "fr": "J'ai rendez-vous à dix heures." }, "level": "A2" },
+  { "id": "word-ill", "type": "word", "theme": "sante", "en": "ill", "fr": "malade", "pos": "adjective", "example": { "en": "She is ill today.", "fr": "Elle est malade aujourd'hui." }, "level": "A1" },
+  { "id": "word-healthy", "type": "word", "theme": "sante", "en": "healthy", "fr": "en bonne santé", "pos": "adjective", "example": { "en": "My dog is old but healthy.", "fr": "Mon chien est vieux mais en bonne santé." }, "level": "A2" },
+  { "id": "word-pain", "type": "word", "theme": "sante", "en": "pain", "fr": "douleur", "pos": "noun", "example": { "en": "I have a pain in my back.", "fr": "J'ai une douleur dans le dos." }, "level": "A2" },
+  { "id": "word-headache", "type": "word", "theme": "sante", "en": "headache", "fr": "mal de tête", "pos": "noun", "example": { "en": "I have a terrible headache.", "fr": "J'ai un terrible mal de tête." }, "level": "A2" },
+  { "id": "word-fever", "type": "word", "theme": "sante", "en": "fever", "fr": "fièvre", "pos": "noun", "example": { "en": "The child has a fever.", "fr": "L'enfant a de la fièvre." }, "level": "A2" },
+  { "id": "word-a-cold", "type": "word", "theme": "sante", "en": "a cold", "fr": "un rhume", "pos": "noun", "example": { "en": "I've got a cold.", "fr": "J'ai un rhume." }, "level": "A2" },
+  { "id": "word-cough", "type": "word", "theme": "sante", "en": "cough", "fr": "toux", "pos": "noun", "example": { "en": "This cough won't go away.", "fr": "Cette toux ne veut pas partir." }, "level": "A2" },
+  { "id": "word-injury", "type": "word", "theme": "sante", "en": "injury", "fr": "blessure", "pos": "noun", "example": { "en": "It's only a small injury.", "fr": "Ce n'est qu'une petite blessure." }, "level": "B1" },
+  { "id": "word-to-hurt", "type": "word", "theme": "sante", "en": "to hurt", "fr": "faire mal", "pos": "verb", "example": { "en": "My foot hurts.", "fr": "J'ai mal au pied." }, "level": "A2" },
+  { "id": "word-to-rest", "type": "word", "theme": "sante", "en": "to rest", "fr": "se reposer", "pos": "verb", "example": { "en": "You need to rest for a few days.", "fr": "Tu dois te reposer quelques jours." }, "level": "A2" }
+]
