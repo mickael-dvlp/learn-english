@@ -1,0 +1,26 @@
+{
+  "id": "text-saturday-at-the-market",
+  "type": "text",
+  "kind": "story",
+  "title": { "en": "Saturday morning at the market", "fr": "Samedi matin au marché" },
+  "theme": "courses",
+  "sentences": [
+    { "en": "Every Saturday, Anna goes to the market in the town square.", "fr": "Tous les samedis, Anna va au marché, sur la place." },
+    { "en": "She takes a big basket and walks slowly.", "fr": "Elle prend un grand panier et marche tranquillement." },
+    { "en": "The market smells of fresh bread and flowers.", "fr": "Le marché sent le pain frais et les fleurs." },
+    { "en": "First, she stops at the fruit and vegetable stall.", "fr": "D'abord, elle s'arrête au stand de fruits et légumes." },
+    { "en": "Good morning! A kilo of apples, please.", "fr": "Bonjour ! Un kilo de pommes, s'il vous plaît." },
+    { "en": "The farmer smiles and gives her a pear to try.", "fr": "Le producteur sourit et lui donne une poire à goûter." },
+    { "en": "Then she buys some cheese and a loaf of bread.", "fr": "Ensuite, elle achète du fromage et un pain." },
+    { "en": "At the flower stall, she chooses some yellow tulips.", "fr": "Au stand de fleurs, elle choisit des tulipes jaunes." },
+    { "en": "She meets her neighbour, and they chat for a few minutes.", "fr": "Elle croise sa voisine, et elles bavardent quelques minutes." },
+    { "en": "Then they have a coffee together at the little café.", "fr": "Puis elles prennent un café ensemble au petit café." },
+    { "en": "The sun is warm, and nobody is in a hurry.", "fr": "Le soleil est chaud, et personne n'est pressé." },
+    { "en": "Anna walks home with a full basket and a happy heart.", "fr": "Anna rentre chez elle avec un panier plein et le cœur léger." }
+  ],
+  "expressions": [
+    { "en": "A kilo of apples, please.", "fr": "Un kilo de pommes, s'il vous plaît." },
+    { "en": "They chat for a few minutes.", "fr": "Elles bavardent quelques minutes." },
+    { "en": "Nobody is in a hurry.", "fr": "Personne n'est pressé." }
+  ]
+}

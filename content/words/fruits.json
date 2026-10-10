@@ -26,5 +26,5 @@
   { "id": "word-lime", "type": "word", "theme": "fruits", "en": "lime", "fr": "citron vert", "pos": "noun", "example": { "en": "Add a slice of lime to your drink.", "fr": "Ajoute une rondelle de citron vert dans ta boisson." } },
   { "id": "word-tangerine", "type": "word", "theme": "fruits", "en": "tangerine", "fr": "mandarine", "pos": "noun", "example": { "en": "The children eat tangerines at Christmas.", "fr": "Les enfants mangent des mandarines à Noël." } },
   { "id": "word-coconut", "type": "word", "theme": "fruits", "en": "coconut", "fr": "noix de coco", "pos": "noun", "example": { "en": "Coconut water is very refreshing.", "fr": "L'eau de coco est très rafraîchissante." } },
-  { "id": "word-avocado", "type": "word", "theme": "fruits", "en": "avocado", "fr": "avocat (fruit)", "pos": "noun", "example": { "en": "I like avocado on toast.", "fr": "J'aime l'avocat sur du pain grillé." } }
+  { "id": "word-avocado", "type": "word", "theme": "fruits", "en": "avocado", "fr": "avocat", "note": "fruit", "pos": "noun", "example": { "en": "I like avocado on toast.", "fr": "J'aime l'avocat sur du pain grillé." } }
 ]

@@ -66,6 +66,8 @@ export const WordSchema = z.strictObject({
   example: BilingualSchema.optional(),
   pos: z.enum(["noun", "verb", "adjective", "adverb", "other"]).optional(),
   speakEn: nonEmpty.optional(),
+  /** Usage note shown on the card, never read aloud (« familier », « devant un adjectif »…). */
+  note: nonEmpty.optional(),
   /** Sub-theme id, among the groups of its theme. */
   group: nonEmpty.optional(),
   ...common,
@@ -79,6 +81,10 @@ export const VerbSchema = z.strictObject({
   pastParticiple: nonEmpty,
   fr: nonEmpty,
   regular: z.boolean(),
+  /** Usage note shown on the card, never read aloud. */
+  note: nonEmpty.optional(),
+  /** What is said instead of the three written forms, when they read differently (« read, red, red »). */
+  speak: nonEmpty.optional(),
   example: BilingualSchema.optional(),
   /** Sub-theme id, among content/verb-groups.json. */
   group: nonEmpty.optional(),

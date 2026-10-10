@@ -4,7 +4,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "How modal verbs work", "fr": "Comment marchent les modaux" },
-    "meaning": "Les règles communes à can, must, should, will…",
+    "meaning": "les règles communes à tous les modaux",
     "explanation": "Pas de -s avec he, she, it (she can). Le modal est suivi du verbe à la base, sans to (I must go), sauf les semi-modaux : have to, need to, ought to, be able to, used to. Pour la question, on inverse simplement (Can you… ?). La négation se place juste après le modal (can't, mustn't, won't).",
     "structure": "sujet + modal + verbe (base)",
     "forms": [
@@ -24,7 +24,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "can / can't (ability)", "fr": "can : capacité" },
-    "meaning": "pouvoir, savoir (faire), au présent",
+    "meaning": "pouvoir, savoir faire, au présent",
     "explanation": "Pour dire ce qu'on sait faire ou ce qu'on peut faire maintenant. À l'oral, la négation est presque toujours can't.",
     "structure": "sujet + can / can't + base",
     "forms": [
@@ -83,7 +83,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "can (permission)", "fr": "can : permission" },
-    "meaning": "pouvoir, avoir le droit (courant, familier)",
+    "meaning": "pouvoir, avoir le droit, de façon courante",
     "explanation": "La façon la plus courante de demander ou de donner une permission. can't : ce n'est pas permis. Could I… ? est un peu plus poli.",
     "structure": "Can I + base ? · You can / can't + base",
     "forms": [
@@ -102,7 +102,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "may (permission)", "fr": "may : permission polie" },
-    "meaning": "pouvoir (formel, très poli)",
+    "meaning": "pouvoir, de façon formelle et très polie",
     "explanation": "Plus formel que can : on l'entend dans les magasins, au travail, dans les règlements. On répond souvent « Of course » ou « Certainly ».",
     "structure": "May I + base ? · You may (not) + base",
     "forms": [
@@ -200,7 +200,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "Shall I…? / Shall we…?", "fr": "shall : proposer" },
-    "meaning": "Je… ? / On… ? (pour proposer)",
+    "meaning": "proposer de faire quelque chose",
     "explanation": "En anglais britannique, Shall I… ? propose de faire quelque chose pour quelqu'un ; Shall we… ? propose de faire quelque chose ensemble. On ne l'emploie presque qu'en question.",
     "structure": "Shall I / we + base ?",
     "examples": [
@@ -292,7 +292,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "mustn't or don't have to?", "fr": "mustn't ou don't have to ?" },
-    "meaning": "interdit ≠ pas obligatoire",
+    "meaning": "c'est interdit, ou ce n'est pas obligatoire",
     "explanation": "La différence essentielle : mustn't, c'est interdit, il ne faut pas. don't have to, ce n'est pas obligatoire, on a le choix.",
     "structure": "mustn't = interdit · don't have to = pas obligé",
     "examples": [
@@ -329,7 +329,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "ought to", "fr": "ought to : ce qu'il faudrait faire" },
-    "meaning": "devrait (comme should, un peu plus formel)",
+    "meaning": "devrait, de façon un peu plus formelle",
     "explanation": "Même sens que should, un peu plus formel et moins fréquent à l'oral. La négation et la question sont rares : on utilise plutôt should.",
     "structure": "sujet + ought to + base",
     "examples": [
@@ -451,7 +451,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "will / won't", "fr": "will : futur, décision, promesse" },
-    "meaning": "futur ; décision prise sur le moment ; promesse",
+    "meaning": "futur, décision prise sur le moment, promesse",
     "explanation": "Décision prise sur le moment, promesse, offre, prédiction. À l'oral : I'll, you'll… ; au négatif : won't.",
     "structure": "sujet + will ('ll) / won't + base",
     "forms": [
@@ -491,7 +491,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "would (past habit)", "fr": "would : habitude passée" },
-    "meaning": "faisait (actions répétées, souvenirs)",
+    "meaning": "actions répétées dans le passé, souvenirs",
     "explanation": "Pour raconter des actions répétées dans le passé, souvent dans des souvenirs. Seulement pour des actions, pas pour des états : pour un état, on dit used to.",
     "structure": "sujet + would + base (action répétée)",
     "examples": [
@@ -506,7 +506,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "used to / didn't use to", "fr": "used to : c'était comme ça avant" },
-    "meaning": "avant, je… (ce n'est plus le cas)",
+    "meaning": "avant, je… ce n'est plus le cas",
     "explanation": "Pour une habitude ou une situation passée qui a changé. Négation : didn't use to ; question : Did you use to… ? (sans d).",
     "structure": "used to + base · didn't use to + base · Did you use to + base ?",
     "forms": [
@@ -526,7 +526,7 @@
     "type": "rule",
     "kind": "modal",
     "title": { "en": "be used to doing", "fr": "be used to : être habitué à" },
-    "meaning": "être habitué à (aujourd'hui)",
+    "meaning": "être habitué à, aujourd'hui",
     "explanation": "Ce n'est pas une habitude passée : c'est être habitué, maintenant. Suivi d'un nom ou d'un verbe en -ing.",
     "structure": "be used to + nom / verbe-ing",
     "forms": [

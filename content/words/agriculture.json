@@ -1,83 +1,29 @@
 [
-  {
-    "id": "word-tractor",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "tractor",
-    "fr": "tracteur",
-    "pos": "noun",
-    "example": { "en": "The farmer drives a red tractor.", "fr": "Le fermier conduit un tracteur rouge." }
-  },
-  {
-    "id": "word-farm",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "farm",
-    "fr": "ferme",
-    "pos": "noun",
-    "example": { "en": "They live on a small farm.", "fr": "Ils vivent dans une petite ferme." }
-  },
-  {
-    "id": "word-farmer",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "farmer",
-    "fr": "agriculteur",
-    "pos": "noun",
-    "example": { "en": "The farmer wakes up early.", "fr": "L'agriculteur se lève tôt." }
-  },
-  {
-    "id": "word-field",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "field",
-    "fr": "champ",
-    "pos": "noun",
-    "example": { "en": "The cows are in the field.", "fr": "Les vaches sont dans le champ." }
-  },
-  {
-    "id": "word-barn",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "barn",
-    "fr": "grange",
-    "pos": "noun",
-    "example": { "en": "The hay is in the barn.", "fr": "Le foin est dans la grange." }
-  },
-  {
-    "id": "word-wheat",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "wheat",
-    "fr": "blé",
-    "pos": "noun",
-    "example": { "en": "Bread is made from wheat.", "fr": "Le pain est fait avec du blé." }
-  },
-  {
-    "id": "word-harvest",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "harvest",
-    "fr": "récolte",
-    "pos": "noun",
-    "example": { "en": "The harvest was good this year.", "fr": "La récolte a été bonne cette année." }
-  },
-  {
-    "id": "word-to-grow",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "to grow",
-    "fr": "cultiver",
-    "pos": "verb",
-    "example": { "en": "We grow potatoes in the garden.", "fr": "Nous cultivons des pommes de terre dans le jardin." }
-  },
-  {
-    "id": "word-rural",
-    "type": "word",
-    "theme": "agriculture",
-    "en": "rural",
-    "fr": "rural",
-    "pos": "adjective",
-    "example": { "en": "She grew up in a rural area.", "fr": "Elle a grandi dans une région rurale." }
-  }
+  { "id": "word-tractor", "type": "word", "theme": "agriculture", "en": "tractor", "fr": "tracteur", "pos": "noun", "example": { "en": "The farmer drives a red tractor.", "fr": "Le fermier conduit un tracteur rouge." } },
+  { "id": "word-farm", "type": "word", "theme": "agriculture", "en": "farm", "fr": "ferme", "pos": "noun", "example": { "en": "They live on a small farm.", "fr": "Ils vivent dans une petite ferme." } },
+  { "id": "word-farmer", "type": "word", "theme": "agriculture", "en": "farmer", "fr": "agriculteur", "pos": "noun", "example": { "en": "The farmer wakes up early.", "fr": "L'agriculteur se lève tôt." } },
+  { "id": "word-field", "type": "word", "theme": "agriculture", "en": "field", "fr": "champ", "pos": "noun", "example": { "en": "The cows are in the field.", "fr": "Les vaches sont dans le champ." } },
+  { "id": "word-barn", "type": "word", "theme": "agriculture", "en": "barn", "fr": "grange", "pos": "noun", "example": { "en": "The hay is in the barn.", "fr": "Le foin est dans la grange." } },
+  { "id": "word-wheat", "type": "word", "theme": "agriculture", "en": "wheat", "fr": "blé", "pos": "noun", "example": { "en": "Bread is made from wheat.", "fr": "Le pain est fait avec du blé." } },
+  { "id": "word-harvest", "type": "word", "theme": "agriculture", "en": "harvest", "fr": "récolte", "pos": "noun", "example": { "en": "The harvest was good this year.", "fr": "La récolte a été bonne cette année." } },
+  { "id": "word-to-grow", "type": "word", "theme": "agriculture", "en": "to grow", "fr": "cultiver", "pos": "verb", "example": { "en": "We grow potatoes in the garden.", "fr": "Nous cultivons des pommes de terre dans le jardin." } },
+  { "id": "word-rural", "type": "word", "theme": "agriculture", "en": "rural", "fr": "rural", "pos": "adjective", "example": { "en": "She grew up in a rural area.", "fr": "Elle a grandi dans une région rurale." } },
+  { "id": "word-crop", "type": "word", "theme": "agriculture", "en": "crop", "fr": "culture, récolte", "pos": "noun", "example": { "en": "Rain is good for the crops.", "fr": "La pluie est bonne pour les cultures." } },
+  { "id": "word-orchard", "type": "word", "theme": "agriculture", "en": "orchard", "fr": "verger", "pos": "noun", "example": { "en": "There are apple trees in the orchard.", "fr": "Il y a des pommiers dans le verger." } },
+  { "id": "word-vegetable-patch", "type": "word", "theme": "agriculture", "en": "vegetable patch", "fr": "potager", "pos": "noun", "example": { "en": "We grow tomatoes in our vegetable patch.", "fr": "Nous faisons pousser des tomates dans notre potager." } },
+  { "id": "word-greenhouse", "type": "word", "theme": "agriculture", "en": "greenhouse", "fr": "serre", "pos": "noun", "example": { "en": "The peppers grow in the greenhouse.", "fr": "Les poivrons poussent dans la serre." } },
+  { "id": "word-seed", "type": "word", "theme": "agriculture", "en": "seed", "fr": "graine", "pos": "noun", "example": { "en": "Plant the seeds in spring.", "fr": "Plante les graines au printemps." } },
+  { "id": "word-soil", "type": "word", "theme": "agriculture", "en": "soil", "fr": "terre, sol", "pos": "noun", "example": { "en": "The soil here is very rich.", "fr": "La terre est très riche ici." } },
+  { "id": "word-hay", "type": "word", "theme": "agriculture", "en": "hay", "fr": "foin", "pos": "noun", "example": { "en": "The horses eat hay in winter.", "fr": "Les chevaux mangent du foin en hiver." } },
+  { "id": "word-straw", "type": "word", "theme": "agriculture", "en": "straw", "fr": "paille", "pos": "noun", "example": { "en": "The animals sleep on straw.", "fr": "Les animaux dorment sur de la paille." } },
+  { "id": "word-hedge", "type": "word", "theme": "agriculture", "en": "hedge", "fr": "haie", "pos": "noun", "example": { "en": "There's a hedge between the two fields.", "fr": "Il y a une haie entre les deux champs." } },
+  { "id": "word-fence", "type": "word", "theme": "agriculture", "en": "fence", "fr": "clôture", "pos": "noun", "example": { "en": "The sheep can't get through the fence.", "fr": "Les moutons ne peuvent pas passer la clôture." } },
+  { "id": "word-gate-farm", "type": "word", "theme": "agriculture", "en": "gate", "fr": "barrière, portail", "pos": "noun", "example": { "en": "Please close the gate behind you.", "fr": "Fermez la barrière derrière vous, s'il vous plaît." } },
+  { "id": "word-organic", "type": "word", "theme": "agriculture", "en": "organic", "fr": "bio", "pos": "adjective", "example": { "en": "They only grow organic vegetables.", "fr": "Ils ne cultivent que des légumes bio." } },
+  { "id": "word-vineyard", "type": "word", "theme": "agriculture", "en": "vineyard", "fr": "vignoble", "pos": "noun", "example": { "en": "We visited a vineyard in Kent.", "fr": "Nous avons visité un vignoble dans le Kent." } },
+  { "id": "word-to-plant", "type": "word", "theme": "agriculture", "en": "to plant", "fr": "planter", "pos": "verb", "example": { "en": "We planted three trees last year.", "fr": "Nous avons planté trois arbres l'année dernière." } },
+  { "id": "word-to-pick", "type": "word", "theme": "agriculture", "en": "to pick", "fr": "cueillir", "pos": "verb", "example": { "en": "Let's pick some strawberries.", "fr": "Allons cueillir des fraises." } },
+  { "id": "word-to-water", "type": "word", "theme": "agriculture", "en": "to water", "fr": "arroser", "pos": "verb", "example": { "en": "Don't forget to water the garden.", "fr": "N'oublie pas d'arroser le jardin." } },
+  { "id": "word-to-feed", "type": "word", "theme": "agriculture", "en": "to feed", "fr": "nourrir", "pos": "verb", "example": { "en": "The farmer feeds the chickens every morning.", "fr": "Le fermier nourrit les poules tous les matins." } },
+  { "id": "word-to-milk", "type": "word", "theme": "agriculture", "en": "to milk", "fr": "traire", "pos": "verb", "example": { "en": "They milk the cows twice a day.", "fr": "Ils traient les vaches deux fois par jour." } }
 ]

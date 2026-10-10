@@ -60,7 +60,7 @@ export function compileItem(item: ContentItem, pattern: Pattern): Segment[] {
   const walk = (templates: StepTemplate[], scope: Scope) => {
     for (const template of templates) {
       if ("say" in template) {
-        const text = fillTemplate(template.say, scope);
+        const text = (template.prefer && fillTemplate(template.prefer, scope)) || fillTemplate(template.say, scope);
         if (text === undefined) {
           lastWords = undefined;
           continue;

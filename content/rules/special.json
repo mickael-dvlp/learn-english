@@ -4,6 +4,7 @@
     "type": "rule",
     "kind": "special",
     "title": { "en": "Questions with do, does, did", "fr": "Poser une question avec do, does, did" },
+    "meaning": "poser une question avec un auxiliaire",
     "explanation": "Pour poser une question au présent ou au passé simple, on place un auxiliaire devant le sujet : « do » avec I, you, we, they ; « does » avec he, she, it ; « did » au passé, pour tout le monde. Le verbe reste alors à sa forme de base : pas de « s », pas de « ed ».",
     "structure": "(mot interrogatif) + do / does / did + sujet + verbe (base) ?",
     "examples": [
@@ -77,6 +78,7 @@
     "type": "rule",
     "kind": "special",
     "title": { "en": "Articles: a, an, the", "fr": "Les articles : a, an, the" },
+    "meaning": "un, une, le, la, ou pas d'article",
     "explanation": "a devant un son consonne, an devant un son voyelle (an hour, a university) : une chose parmi d'autres. the : une chose précise, déjà connue. Pas d'article pour parler en général (I love music) et dans des expressions comme go to bed, at home, by train. Avec un métier, on garde a / an.",
     "structure": "a / an + nom singulier · the + chose précise · rien + sens général",
     "examples": [

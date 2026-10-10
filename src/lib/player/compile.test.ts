@@ -82,6 +82,7 @@ const modal: Rule = {
   type: "rule",
   kind: "modal",
   title: { en: "can", fr: "can : capacité" },
+  meaning: "pouvoir, savoir faire",
   explanation: "Une longue explication en français.",
   forms: [
     { kind: "affirmative", en: "I can swim.", fr: "Je sais nager." },
@@ -97,7 +98,8 @@ const modal: Rule = {
 test("rule: its name, then each form and example as a segment, never the explanation", () => {
   const segments = compileItem(modal, pattern("rule"));
   assert.equal(segments[0].intro, true);
-  assert.deepEqual(said(segments[0].steps), ["fr:can : capacité", "pause×1"]);
+  // English name, then the meaning in French: never English read by the French voice.
+  assert.deepEqual(said(segments[0].steps), ["en:can", "pause×0.5", "fr:pouvoir, savoir faire", "pause×1"]);
   const parts = segments.slice(1);
   assert.deepEqual(parts.map((s) => s.label), ["I can swim.", "I can't swim.", "Can you swim?", "She can drive.", "We can't come."]);
   assert.deepEqual(parts.map((s) => s.part?.index), [0, 1, 2, 3, 4], "numbered across forms and examples");
@@ -243,4 +245,13 @@ test("choosePattern keeps the chosen mode across types when it exists (same name
   assert.equal(choosePattern("word", "text-en-only").id, "en-only-loop");
   assert.equal(choosePattern("pair", "en-fr-en").id, "pair-once");
   assert.equal(choosePattern("verb", undefined).id, "verb-forms");
+});
+
+test("a verb whose forms read differently is said as written in `speak`", () => {
+  const verb = { id: "verb-read", type: "verb", base: "read", past: "read", pastParticiple: "read", fr: "lire", regular: false } as const;
+  const [plain] = compileItem(verb, pattern("verb-forms"));
+  assert.equal(said(plain.steps)[0], "en:read, read, read");
+  const [spoken] = compileItem({ ...verb, speak: "read, red, red" }, pattern("verb-forms"));
+  assert.equal(said(spoken.steps)[0], "en:read, red, red");
+  assert.equal(spoken.label, "read – read – read", "the written forms stay on screen");
 });

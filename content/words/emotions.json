@@ -12,7 +12,7 @@
   { "id": "word-relaxed", "type": "word", "theme": "emotions", "en": "relaxed", "fr": "détendu", "pos": "adjective", "example": { "en": "I feel relaxed after a bath.", "fr": "Je me sens détendu après un bain." } },
   { "id": "word-nervous", "type": "word", "theme": "emotions", "en": "nervous", "fr": "nerveux", "pos": "adjective", "example": { "en": "He is nervous before the exam.", "fr": "Il est nerveux avant l'examen." } },
   { "id": "word-proud", "type": "word", "theme": "emotions", "en": "proud", "fr": "fier", "pos": "adjective", "example": { "en": "I'm proud of you.", "fr": "Je suis fier de toi." } },
-  { "id": "word-lonely", "type": "word", "theme": "emotions", "en": "lonely", "fr": "seul (qui se sent seul)", "pos": "adjective", "example": { "en": "She feels lonely in the big city.", "fr": "Elle se sent seule dans la grande ville." } },
+  { "id": "word-lonely", "type": "word", "theme": "emotions", "en": "lonely", "fr": "seul", "note": "qui se sent seul", "pos": "adjective", "example": { "en": "She feels lonely in the big city.", "fr": "Elle se sent seule dans la grande ville." } },
   { "id": "word-jealous", "type": "word", "theme": "emotions", "en": "jealous", "fr": "jaloux", "pos": "adjective", "example": { "en": "My brother is jealous of my new bike.", "fr": "Mon frère est jaloux de mon nouveau vélo." } },
   { "id": "word-embarrassed", "type": "word", "theme": "emotions", "en": "embarrassed", "fr": "gêné", "pos": "adjective", "example": { "en": "I was embarrassed when I fell.", "fr": "J'étais gêné quand je suis tombé." } },
   { "id": "word-to-feel", "type": "word", "theme": "emotions", "en": "to feel", "fr": "se sentir", "pos": "verb", "example": { "en": "How do you feel today?", "fr": "Comment te sens-tu aujourd'hui ?" } },

@@ -500,7 +500,7 @@
     "base": "like",
     "past": "liked",
     "pastParticiple": "liked",
-    "fr": "aimer (bien)",
+    "fr": "aimer bien",
     "regular": true,
     "example": { "en": "Do you like Indian food?", "fr": "Tu aimes la cuisine indienne ?" },
     "group": "besoins"

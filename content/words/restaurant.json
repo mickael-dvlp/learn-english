@@ -1,5 +1,5 @@
 [
-  { "id": "word-menu", "type": "word", "theme": "restaurant", "en": "menu", "fr": "carte (menu)", "pos": "noun", "example": { "en": "Can I see the menu, please?", "fr": "Je peux voir la carte, s'il vous plaît ?" } },
+  { "id": "word-menu", "type": "word", "theme": "restaurant", "en": "menu", "fr": "carte", "note": "menu", "pos": "noun", "example": { "en": "Can I see the menu, please?", "fr": "Je peux voir la carte, s'il vous plaît ?" } },
   { "id": "word-waiter", "type": "word", "theme": "restaurant", "en": "waiter", "fr": "serveur", "pos": "noun", "example": { "en": "The waiter brings the drinks.", "fr": "Le serveur apporte les boissons." } },
   { "id": "word-bill", "type": "word", "theme": "restaurant", "en": "bill", "fr": "addition", "pos": "noun", "example": { "en": "Can we have the bill, please?", "fr": "L'addition, s'il vous plaît." } },
   { "id": "word-tip", "type": "word", "theme": "restaurant", "en": "tip", "fr": "pourboire", "pos": "noun", "example": { "en": "We left a tip for the waiter.", "fr": "Nous avons laissé un pourboire au serveur." } },

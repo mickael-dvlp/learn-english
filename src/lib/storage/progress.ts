@@ -11,7 +11,7 @@ const EntrySchema = z.object({
   parts: z.array(z.number()).optional(),
 });
 
-const ProgressSchema = z.record(z.string(), EntrySchema);
+export const ProgressSchema = z.record(z.string(), EntrySchema);
 
 export type Progress = z.infer<typeof ProgressSchema>;
 

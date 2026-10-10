@@ -14,7 +14,14 @@ export type StepTemplate =
    * Say a text. `voiceFrom` names a field (`speaker`) whose values alternate between the usual
    * voice and the second one, in order of appearance: two speakers, two voices.
    */
-  | { say: string; lang: Lang; rate?: number; voiceFrom?: string }
+  | {
+      say: string;
+      lang: Lang;
+      rate?: number;
+      voiceFrom?: string;
+      /** Said instead of `say` when it resolves (a verb whose forms read differently: « read, red, red »). */
+      prefer?: string;
+    }
   /** Pause proportional to the last spoken text; the number scales it (1 = normal). */
   | { pause: number }
   /** Repeat steps for each element of a list field (`examples`, `sentences`…). */
@@ -84,7 +91,7 @@ export const PATTERNS: Pattern[] = [
     appliesTo: ["verb"],
     display: "{base} – {past} – {pastParticiple}",
     steps: [
-      { say: "{base}, {past}, {pastParticiple}", lang: "en" },
+      { say: "{base}, {past}, {pastParticiple}", prefer: "{speak}", lang: "en" },
       { pause: 1 },
       { say: "{fr}", lang: "fr" },
       { pause: 1.5 },
@@ -161,12 +168,15 @@ export const PATTERNS: Pattern[] = [
     // Rules are heard through their sentences: the name of the rule, never its explanation.
     id: "rule",
     name: "Anglais → français → anglais",
-    description: "Le nom de la règle, puis chaque phrase : anglais, français, anglais.",
+    description: "Le nom de la règle et son sens, puis chaque phrase : anglais, français, anglais.",
     appliesTo: ["rule"],
     display: "{title.fr}",
     listenedRatio: 0.6,
     steps: [
-      { say: "{title.fr}", lang: "fr" },
+      // English name, then what it is for in French (`meaning`, French only).
+      { say: "{title.en}", lang: "en" },
+      { pause: 0.5 },
+      { say: "{meaning|title.fr}", lang: "fr" },
       { pause: 1 },
       { each: "forms", segment: { label: "{en}" }, steps: EN_FR_EN },
       { each: "examples", segment: { label: "{en}" }, steps: EN_FR_EN },

@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { PersistStorage } from "@/components/persist-storage";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Anglais",
   description: "Écouter et étudier l'anglais, même avant de dormir.",
+  // Personal app: kept out of search engines.
+  robots: { index: false, follow: false },
   icons: {
     icon: [
       { url: "/image/logo-mouton.svg", type: "image/svg+xml" },
@@ -23,7 +26,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <PersistStorage />
+        {children}
+      </body>
     </html>
   );
 }

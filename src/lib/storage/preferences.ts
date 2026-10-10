@@ -4,7 +4,7 @@ import { createLocalStore } from "./local-store";
 
 /** Listening preferences (also used for the voice speed in study mode). */
 
-const PreferencesSchema = z.object({
+export const PreferencesSchema = z.object({
   sourceId: z.string().optional(),
   /** Sub-theme of the source; all of it when absent. */
   groupId: z.string().optional(),

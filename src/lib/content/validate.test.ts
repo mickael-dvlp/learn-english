@@ -301,3 +301,13 @@ test("rules: sub-themes from rule-groups.json, forms and a frequent mistake", ()
   assert.match(errors.join(), /forms\.0\.kind/);
   assert.match(errors.join(), /sous-thème manquant/);
 });
+
+test("a usage note on a word or a verb is shown, a verb can say its forms differently", () => {
+  const verb = { id: "verb-read", type: "verb", base: "read", past: "read", pastParticiple: "read", fr: "lire", regular: false, note: "« red »", speak: "read, red, red" };
+  const { library, errors } = validateContent(
+    raw({ words: [{ path: "words/cuisine.json", data: [{ ...word, note: "familier" }] }], verbs: [{ path: "verbs/irregular.json", data: [verb] }] }),
+  );
+  assert.deepEqual(errors, []);
+  assert.equal(library.words[0].note, "familier");
+  assert.equal(library.verbs[0].speak, "read, red, red");
+});

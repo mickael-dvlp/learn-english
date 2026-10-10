@@ -1,0 +1,27 @@
+{
+  "id": "text-the-night-train",
+  "type": "text",
+  "kind": "story",
+  "title": { "en": "The night train to Scotland", "fr": "Le train de nuit pour l'Écosse" },
+  "theme": "transports",
+  "sentences": [
+    { "en": "It is late, and the station is almost empty.", "fr": "Il est tard, et la gare est presque vide." },
+    { "en": "Sam gets on the night train to Edinburgh.", "fr": "Sam monte dans le train de nuit pour Édimbourg." },
+    { "en": "His cabin is small but very comfortable.", "fr": "Sa cabine est petite mais très confortable." },
+    { "en": "He puts his bag under the bed and looks out of the window.", "fr": "Il pose son sac sous le lit et regarde par la fenêtre." },
+    { "en": "Slowly, the train leaves London.", "fr": "Lentement, le train quitte Londres." },
+    { "en": "The lights of the city get smaller and smaller.", "fr": "Les lumières de la ville deviennent de plus en plus petites." },
+    { "en": "Soon there are only dark fields and a few small villages.", "fr": "Bientôt, il n'y a plus que des champs sombres et quelques petits villages." },
+    { "en": "A man brings him a cup of hot chocolate.", "fr": "Un homme lui apporte une tasse de chocolat chaud." },
+    { "en": "Sam drinks it slowly and listens to the sound of the train.", "fr": "Sam la boit lentement et écoute le bruit du train." },
+    { "en": "The train moves gently, like a boat on a calm sea.", "fr": "Le train avance doucement, comme un bateau sur une mer calme." },
+    { "en": "He lies down and closes his eyes.", "fr": "Il s'allonge et ferme les yeux." },
+    { "en": "Tomorrow morning, he will wake up in Scotland.", "fr": "Demain matin, il se réveillera en Écosse." },
+    { "en": "But tonight, there is only the gentle rhythm of the train.", "fr": "Mais ce soir, il n'y a que le rythme doux du train." }
+  ],
+  "expressions": [
+    { "en": "He gets on the train.", "fr": "Il monte dans le train." },
+    { "en": "smaller and smaller", "fr": "de plus en plus petit" },
+    { "en": "Tomorrow morning, he will wake up in Scotland.", "fr": "Demain matin, il se réveillera en Écosse." }
+  ]
+}

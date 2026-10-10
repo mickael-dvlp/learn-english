@@ -1,0 +1,26 @@
+{
+  "id": "text-snow-in-the-village",
+  "type": "text",
+  "kind": "story",
+  "title": { "en": "Snow in the village", "fr": "La neige au village" },
+  "theme": "meteo",
+  "sentences": [
+    { "en": "When Lucy wakes up, everything is white.", "fr": "Quand Lucy se réveille, tout est blanc." },
+    { "en": "It snowed all night.", "fr": "Il a neigé toute la nuit." },
+    { "en": "The garden, the trees and the roofs are covered in snow.", "fr": "Le jardin, les arbres et les toits sont couverts de neige." },
+    { "en": "There are no cars in the street, and everything is silent.", "fr": "Il n'y a pas de voitures dans la rue, et tout est silencieux." },
+    { "en": "Lucy puts on her warm coat, her scarf and her boots.", "fr": "Lucy met son manteau chaud, son écharpe et ses bottes." },
+    { "en": "Outside, the snow is soft under her feet.", "fr": "Dehors, la neige est douce sous ses pieds." },
+    { "en": "Some children are building a snowman in the park.", "fr": "Des enfants font un bonhomme de neige dans le parc." },
+    { "en": "Lucy walks slowly to the bakery at the end of the street.", "fr": "Lucy marche lentement jusqu'à la boulangerie au bout de la rue." },
+    { "en": "The baker smiles and says it's lovely weather for a walk.", "fr": "Le boulanger sourit et dit qu'il fait un temps idéal pour se promener." },
+    { "en": "She buys two warm croissants and goes back home.", "fr": "Elle achète deux croissants chauds et rentre à la maison." },
+    { "en": "By the window, she watches the snow falling again.", "fr": "Près de la fenêtre, elle regarde la neige tomber de nouveau." },
+    { "en": "It is a perfect day to stay inside.", "fr": "C'est une journée parfaite pour rester à l'intérieur." }
+  ],
+  "expressions": [
+    { "en": "It snowed all night.", "fr": "Il a neigé toute la nuit." },
+    { "en": "covered in snow", "fr": "couvert de neige" },
+    { "en": "a perfect day to stay inside", "fr": "une journée parfaite pour rester à l'intérieur" }
+  ]
+}

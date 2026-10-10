@@ -7,7 +7,7 @@
   { "id": "word-overweight", "type": "word", "theme": "description", "en": "overweight", "fr": "en surpoids", "pos": "adjective", "example": { "en": "The doctor says I'm a bit overweight.", "fr": "Le médecin dit que je suis un peu en surpoids." } },
   { "id": "word-beautiful", "type": "word", "theme": "description", "en": "beautiful", "fr": "beau, belle", "pos": "adjective", "example": { "en": "What a beautiful baby!", "fr": "Quel beau bébé !" } },
   { "id": "word-pretty", "type": "word", "theme": "description", "en": "pretty", "fr": "joli", "pos": "adjective", "example": { "en": "She has a pretty smile.", "fr": "Elle a un joli sourire." } },
-  { "id": "word-handsome", "type": "word", "theme": "description", "en": "handsome", "fr": "beau (pour un homme)", "pos": "adjective", "example": { "en": "Her husband is very handsome.", "fr": "Son mari est très beau." } },
+  { "id": "word-handsome", "type": "word", "theme": "description", "en": "handsome", "fr": "beau", "note": "pour un homme", "pos": "adjective", "example": { "en": "Her husband is very handsome.", "fr": "Son mari est très beau." } },
   { "id": "word-blond", "type": "word", "theme": "description", "en": "blond", "fr": "blond", "pos": "adjective", "example": { "en": "He has blond hair and blue eyes.", "fr": "Il a les cheveux blonds et les yeux bleus." } },
   { "id": "word-curly", "type": "word", "theme": "description", "en": "curly", "fr": "bouclé, frisé", "pos": "adjective", "example": { "en": "My daughter has curly hair.", "fr": "Ma fille a les cheveux bouclés." } },
   { "id": "word-beard", "type": "word", "theme": "description", "en": "beard", "fr": "barbe", "pos": "noun", "example": { "en": "My father has a grey beard.", "fr": "Mon père a une barbe grise." } },

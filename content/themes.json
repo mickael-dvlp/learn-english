@@ -1,6 +1,19 @@
 [
   { "id": "salutations", "family": "fondations", "name": { "en": "Greetings", "fr": "Salutations" }, "emoji": "👋" },
-  { "id": "nombres", "family": "fondations", "name": { "en": "Numbers", "fr": "Nombres" }, "emoji": "🔢" },
+  { "id": "nombres", "family": "fondations", "name": { "en": "Numbers", "fr": "Nombres" }, "emoji": "🔢",
+    "groups": [
+      { "id": "base", "name": { "en": "Zero to twenty", "fr": "De zéro à vingt" } },
+      { "id": "dizaines", "name": { "en": "Tens and big numbers", "fr": "Dizaines et grands nombres" } },
+      { "id": "ordinaux", "name": { "en": "Ordinal numbers", "fr": "Ordinaux" } },
+      { "id": "usages", "name": { "en": "Prices, dates, years and phone numbers", "fr": "Prix, dates, années et téléphone" }, "also": ["word-double-letter", "word-percent"] }
+    ]
+  },
+  { "id": "alphabet", "family": "fondations", "name": { "en": "The alphabet and spelling", "fr": "L'alphabet et l'épellation" }, "emoji": "🔤", "groups": [{ "id": "lettres", "name": { "en": "The letters", "fr": "Les lettres" } }, { "id": "epeler", "name": { "en": "Spelling a name or an address", "fr": "Épeler un nom, une adresse" }, "also": ["word-how-do-you-spell"] }],
+    "groups": [
+      { "id": "lettres", "name": { "en": "The letters", "fr": "Les lettres" } },
+      { "id": "epeler", "name": { "en": "Spelling a name or an address", "fr": "Épeler un nom, une adresse" }, "also": ["word-how-do-you-spell"] }
+    ]
+  },
   { "id": "quantites", "family": "fondations", "name": { "en": "Quantities and measurements", "fr": "Quantités et mesures" }, "emoji": "⚖️",
     "groups": [
       { "id": "generales", "name": { "en": "General quantities", "fr": "Quantités générales" }, "also": ["word-more"] },

@@ -1,5 +1,5 @@
 [
-  { "id": "word-weather", "type": "word", "theme": "meteo", "en": "weather", "fr": "temps (météo)", "pos": "noun", "example": { "en": "What's the weather like today?", "fr": "Quel temps fait-il aujourd'hui ?" } },
+  { "id": "word-weather", "type": "word", "theme": "meteo", "en": "weather", "fr": "temps", "note": "météo", "pos": "noun", "example": { "en": "What's the weather like today?", "fr": "Quel temps fait-il aujourd'hui ?" } },
   { "id": "word-sun", "type": "word", "theme": "meteo", "en": "sun", "fr": "soleil", "pos": "noun", "example": { "en": "The sun is shining.", "fr": "Le soleil brille." } },
   { "id": "word-rain", "type": "word", "theme": "meteo", "en": "rain", "fr": "pluie", "pos": "noun", "example": { "en": "I like the sound of the rain.", "fr": "J'aime le bruit de la pluie." } },
   { "id": "word-snow", "type": "word", "theme": "meteo", "en": "snow", "fr": "neige", "pos": "noun", "example": { "en": "The children are playing in the snow.", "fr": "Les enfants jouent dans la neige." } },
@@ -13,7 +13,7 @@
   { "id": "word-windy", "type": "word", "theme": "meteo", "en": "windy", "fr": "venteux", "pos": "adjective", "example": { "en": "It's windy at the beach.", "fr": "Il y a du vent à la plage." } },
   { "id": "word-hot", "type": "word", "theme": "meteo", "en": "hot", "fr": "chaud", "pos": "adjective", "example": { "en": "It's very hot in August.", "fr": "Il fait très chaud en août." } },
   { "id": "word-cold", "type": "word", "theme": "meteo", "en": "cold", "fr": "froid", "pos": "adjective", "example": { "en": "It's cold outside, take a coat.", "fr": "Il fait froid dehors, prends un manteau." } },
-  { "id": "word-warm", "type": "word", "theme": "meteo", "en": "warm", "fr": "doux (température)", "pos": "adjective", "example": { "en": "It's warm for October.", "fr": "Il fait doux pour un mois d'octobre." } },
+  { "id": "word-warm", "type": "word", "theme": "meteo", "en": "warm", "fr": "doux", "note": "température", "pos": "adjective", "example": { "en": "It's warm for October.", "fr": "Il fait doux pour un mois d'octobre." } },
   { "id": "word-temperature", "type": "word", "theme": "meteo", "en": "temperature", "fr": "température", "pos": "noun", "example": { "en": "The temperature is falling.", "fr": "La température baisse." } },
   { "id": "word-umbrella", "type": "word", "theme": "meteo", "en": "umbrella", "fr": "parapluie", "pos": "noun", "example": { "en": "Don't forget your umbrella.", "fr": "N'oublie pas ton parapluie." } },
   { "id": "word-to-rain", "type": "word", "theme": "meteo", "en": "to rain", "fr": "pleuvoir", "pos": "verb", "example": { "en": "It's raining again.", "fr": "Il pleut encore." } }

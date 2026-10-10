@@ -108,6 +108,7 @@
     "kind": "conjugation",
     "tense": "other",
     "title": { "en": "Present perfect", "fr": "Le present perfect" },
+    "meaning": "relier le passé au présent",
     "explanation": "Il relie le passé au présent : une expérience (ever, never), un résultat visible maintenant (already, yet, just), une situation commencée dans le passé et toujours vraie (since, for). Avec un moment passé précis (yesterday, in 2010), on utilise le passé simple.",
     "structure": "sujet + have / has + participe passé",
     "forms": [

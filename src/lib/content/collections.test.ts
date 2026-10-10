@@ -125,7 +125,19 @@ test("family counts: all the dialogues is not counted, texts and dialogues are t
   const texts = real.families.find((f) => f.id === "textes");
   const phrases = real.families.find((f) => f.id === "phrases");
   assert.ok(texts && phrases);
-  assert.equal(familyCountLabel(texts, collections.filter((c) => c.familyId === "textes")), "1 texte · 12 dialogues");
+  assert.equal(familyCountLabel(texts, collections.filter((c) => c.familyId === "textes")), "6 textes · 12 dialogues");
   assert.equal(familyCountLabel(phrases, [{}, {}, {}]), "3 rubriques");
   assert.equal(familyCountLabel(real.families[0], [{}]), "1 thème");
+});
+
+test("numbers and alphabet by sub-theme, the evening stories with the texts", () => {
+  const { library: real } = loadContent();
+  const collections = listCollections(real);
+  const byId = (id: string) => collections.find((c) => c.id === id);
+  assert.deepEqual(byId("theme-nombres")?.groups?.map((g) => g.id), ["base", "dizaines", "ordinaux", "usages"]);
+  assert.equal(byId("theme-alphabet")?.groups?.find((g) => g.id === "lettres")?.itemIds.length, 26);
+  const stories = collections.filter((c) => c.familyId === "textes" && c.textKind === "story");
+  assert.ok(stories.length >= 6);
+  // Translations read aloud: no usage note, no English hint, no symbol.
+  for (const w of real.words) assert.doesNotMatch(w.fr, /[+;=≠]|\((familier|devant|après|avec)/, w.id);
 });

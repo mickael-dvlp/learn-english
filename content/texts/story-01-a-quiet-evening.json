@@ -1,0 +1,27 @@
+{
+  "id": "text-a-quiet-evening",
+  "type": "text",
+  "kind": "story",
+  "title": { "en": "A quiet evening at home", "fr": "Une soirée tranquille à la maison" },
+  "theme": "maison",
+  "sentences": [
+    { "en": "It is Sunday evening, and the house is quiet.", "fr": "C'est dimanche soir, et la maison est calme." },
+    { "en": "Emma closes the curtains and turns on a small lamp.", "fr": "Emma ferme les rideaux et allume une petite lampe." },
+    { "en": "Outside, it is raining softly.", "fr": "Dehors, il pleut doucement." },
+    { "en": "She makes a cup of tea and sits on the sofa.", "fr": "Elle se prépare une tasse de thé et s'assoit sur le canapé." },
+    { "en": "Her cat jumps up and lies down next to her.", "fr": "Son chat saute sur le canapé et s'allonge à côté d'elle." },
+    { "en": "Emma opens a book, but she doesn't read very much.", "fr": "Emma ouvre un livre, mais elle ne lit pas beaucoup." },
+    { "en": "She listens to the rain on the window.", "fr": "Elle écoute la pluie sur la fenêtre." },
+    { "en": "She thinks about the week ahead.", "fr": "Elle pense à la semaine qui arrive." },
+    { "en": "There is nothing to worry about tonight.", "fr": "Ce soir, il n'y a rien à craindre." },
+    { "en": "The tea is warm, and the cat is purring.", "fr": "Le thé est chaud, et le chat ronronne." },
+    { "en": "Slowly, her eyes begin to close.", "fr": "Lentement, ses yeux commencent à se fermer." },
+    { "en": "At ten o'clock, she turns off the lamp and goes to bed.", "fr": "À dix heures, elle éteint la lampe et va se coucher." },
+    { "en": "The house is dark and peaceful.", "fr": "La maison est sombre et paisible." }
+  ],
+  "expressions": [
+    { "en": "She makes a cup of tea.", "fr": "Elle se prépare une tasse de thé." },
+    { "en": "There is nothing to worry about.", "fr": "Il n'y a rien à craindre." },
+    { "en": "She turns off the lamp and goes to bed.", "fr": "Elle éteint la lampe et va se coucher." }
+  ]
+}

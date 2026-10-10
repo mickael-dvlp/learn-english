@@ -1,83 +1,36 @@
 [
-  {
-    "id": "word-kitchen",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "kitchen",
-    "fr": "cuisine",
-    "pos": "noun",
-    "example": { "en": "My mother is in the kitchen.", "fr": "Ma mère est dans la cuisine." }
-  },
-  {
-    "id": "word-knife",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "knife",
-    "fr": "couteau",
-    "pos": "noun",
-    "example": { "en": "Be careful, the knife is sharp.", "fr": "Attention, le couteau est aiguisé." }
-  },
-  {
-    "id": "word-pan",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "pan",
-    "fr": "poêle",
-    "pos": "noun",
-    "example": { "en": "Put some oil in the pan.", "fr": "Mets un peu d'huile dans la poêle." }
-  },
-  {
-    "id": "word-oven",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "oven",
-    "fr": "four",
-    "pos": "noun",
-    "example": { "en": "The cake is in the oven.", "fr": "Le gâteau est dans le four." }
-  },
-  {
-    "id": "word-recipe",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "recipe",
-    "fr": "recette",
-    "pos": "noun",
-    "example": { "en": "This is my grandmother's recipe.", "fr": "C'est la recette de ma grand-mère." }
-  },
-  {
-    "id": "word-to-boil",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "to boil",
-    "fr": "faire bouillir",
-    "pos": "verb",
-    "example": { "en": "Boil the water for the pasta.", "fr": "Fais bouillir l'eau pour les pâtes." }
-  },
-  {
-    "id": "word-to-chop",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "to chop",
-    "fr": "hacher",
-    "pos": "verb",
-    "example": { "en": "Chop the onions finely.", "fr": "Hache finement les oignons." }
-  },
-  {
-    "id": "word-tasty",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "tasty",
-    "fr": "savoureux",
-    "pos": "adjective",
-    "example": { "en": "This soup is really tasty.", "fr": "Cette soupe est vraiment savoureuse." }
-  },
-  {
-    "id": "word-spicy",
-    "type": "word",
-    "theme": "cuisine",
-    "en": "spicy",
-    "fr": "épicé",
-    "pos": "adjective",
-    "example": { "en": "I don't like spicy food.", "fr": "Je n'aime pas la nourriture épicée." }
-  }
+  { "id": "word-kitchen", "type": "word", "theme": "cuisine", "en": "kitchen", "fr": "cuisine", "pos": "noun", "example": { "en": "My mother is in the kitchen.", "fr": "Ma mère est dans la cuisine." } },
+  { "id": "word-knife", "type": "word", "theme": "cuisine", "en": "knife", "fr": "couteau", "pos": "noun", "example": { "en": "Be careful, the knife is sharp.", "fr": "Attention, le couteau est aiguisé." } },
+  { "id": "word-pan", "type": "word", "theme": "cuisine", "en": "pan", "fr": "poêle", "pos": "noun", "example": { "en": "Put some oil in the pan.", "fr": "Mets un peu d'huile dans la poêle." } },
+  { "id": "word-oven", "type": "word", "theme": "cuisine", "en": "oven", "fr": "four", "pos": "noun", "example": { "en": "The cake is in the oven.", "fr": "Le gâteau est dans le four." } },
+  { "id": "word-recipe", "type": "word", "theme": "cuisine", "en": "recipe", "fr": "recette", "pos": "noun", "example": { "en": "This is my grandmother's recipe.", "fr": "C'est la recette de ma grand-mère." } },
+  { "id": "word-to-boil", "type": "word", "theme": "cuisine", "en": "to boil", "fr": "faire bouillir", "pos": "verb", "example": { "en": "Boil the water for the pasta.", "fr": "Fais bouillir l'eau pour les pâtes." } },
+  { "id": "word-to-chop", "type": "word", "theme": "cuisine", "en": "to chop", "fr": "hacher", "pos": "verb", "example": { "en": "Chop the onions finely.", "fr": "Hache finement les oignons." } },
+  { "id": "word-tasty", "type": "word", "theme": "cuisine", "en": "tasty", "fr": "savoureux", "pos": "adjective", "example": { "en": "This soup is really tasty.", "fr": "Cette soupe est vraiment savoureuse." } },
+  { "id": "word-spicy", "type": "word", "theme": "cuisine", "en": "spicy", "fr": "épicé", "pos": "adjective", "example": { "en": "I don't like spicy food.", "fr": "Je n'aime pas la nourriture épicée." } },
+  { "id": "word-saucepan", "type": "word", "theme": "cuisine", "en": "saucepan", "fr": "casserole", "pos": "noun", "example": { "en": "Put the potatoes in a saucepan of water.", "fr": "Mets les pommes de terre dans une casserole d'eau." } },
+  { "id": "word-cooker", "type": "word", "theme": "cuisine", "en": "cooker", "fr": "cuisinière", "pos": "noun", "example": { "en": "The soup is on the cooker.", "fr": "La soupe est sur la cuisinière." } },
+  { "id": "word-microwave", "type": "word", "theme": "cuisine", "en": "microwave", "fr": "micro-ondes", "pos": "noun", "example": { "en": "Heat it up in the microwave for two minutes.", "fr": "Fais-le réchauffer deux minutes au micro-ondes." } },
+  { "id": "word-kettle", "type": "word", "theme": "cuisine", "en": "kettle", "fr": "bouilloire", "pos": "noun", "example": { "en": "I'll put the kettle on.", "fr": "Je mets l'eau à chauffer." } },
+  { "id": "word-toaster", "type": "word", "theme": "cuisine", "en": "toaster", "fr": "grille-pain", "pos": "noun", "example": { "en": "The toaster isn't working.", "fr": "Le grille-pain ne marche pas." } },
+  { "id": "word-chopping-board", "type": "word", "theme": "cuisine", "en": "chopping board", "fr": "planche à découper", "pos": "noun", "example": { "en": "Use the wooden chopping board.", "fr": "Utilise la planche à découper en bois." } },
+  { "id": "word-bowl", "type": "word", "theme": "cuisine", "en": "bowl", "fr": "saladier, bol", "pos": "noun", "example": { "en": "Mix everything in a big bowl.", "fr": "Mélange tout dans un grand saladier." } },
+  { "id": "word-ingredient", "type": "word", "theme": "cuisine", "en": "ingredient", "fr": "ingrédient", "pos": "noun", "example": { "en": "We've got all the ingredients for a cake.", "fr": "Nous avons tous les ingrédients pour un gâteau." } },
+  { "id": "word-to-fry", "type": "word", "theme": "cuisine", "en": "to fry", "fr": "faire frire, faire revenir", "pos": "verb", "example": { "en": "Fry the onions for five minutes.", "fr": "Fais revenir les oignons cinq minutes." } },
+  { "id": "word-to-bake", "type": "word", "theme": "cuisine", "en": "to bake", "fr": "faire cuire au four", "pos": "verb", "example": { "en": "My mum bakes bread every Sunday.", "fr": "Ma mère fait du pain tous les dimanches." } },
+  { "id": "word-to-roast", "type": "word", "theme": "cuisine", "en": "to roast", "fr": "rôtir", "pos": "verb", "example": { "en": "We're roasting a chicken for lunch.", "fr": "Nous faisons rôtir un poulet pour le déjeuner." } },
+  { "id": "word-to-heat", "type": "word", "theme": "cuisine", "en": "to heat", "fr": "faire chauffer", "pos": "verb", "example": { "en": "Heat the milk, but don't boil it.", "fr": "Fais chauffer le lait, mais sans le faire bouillir." } },
+  { "id": "word-to-stir", "type": "word", "theme": "cuisine", "en": "to stir", "fr": "remuer", "pos": "verb", "example": { "en": "Stir the sauce from time to time.", "fr": "Remue la sauce de temps en temps." } },
+  { "id": "word-to-mix", "type": "word", "theme": "cuisine", "en": "to mix", "fr": "mélanger", "pos": "verb", "example": { "en": "Mix the flour and the eggs.", "fr": "Mélange la farine et les œufs." } },
+  { "id": "word-to-add", "type": "word", "theme": "cuisine", "en": "to add", "fr": "ajouter", "pos": "verb", "example": { "en": "Add a little salt.", "fr": "Ajoute un peu de sel." } },
+  { "id": "word-to-peel", "type": "word", "theme": "cuisine", "en": "to peel", "fr": "éplucher", "pos": "verb", "example": { "en": "Can you peel the carrots?", "fr": "Tu peux éplucher les carottes ?" } },
+  { "id": "word-to-slice", "type": "word", "theme": "cuisine", "en": "to slice", "fr": "couper en tranches", "pos": "verb", "example": { "en": "Slice the tomatoes thinly.", "fr": "Coupe les tomates en fines tranches." } },
+  { "id": "word-to-grate", "type": "word", "theme": "cuisine", "en": "to grate", "fr": "râper", "pos": "verb", "example": { "en": "Grate some cheese on top.", "fr": "Râpe un peu de fromage par-dessus." } },
+  { "id": "word-to-taste", "type": "word", "theme": "cuisine", "en": "to taste", "fr": "goûter", "pos": "verb", "example": { "en": "Taste the soup. Does it need salt?", "fr": "Goûte la soupe. Il faut du sel ?" } },
+  { "id": "word-sweet", "type": "word", "theme": "cuisine", "en": "sweet", "fr": "sucré", "pos": "adjective", "example": { "en": "This cake is too sweet for me.", "fr": "Ce gâteau est trop sucré pour moi." } },
+  { "id": "word-salty", "type": "word", "theme": "cuisine", "en": "salty", "fr": "salé", "pos": "adjective", "example": { "en": "The chips are very salty.", "fr": "Les frites sont très salées." } },
+  { "id": "word-bitter", "type": "word", "theme": "cuisine", "en": "bitter", "fr": "amer", "pos": "adjective", "example": { "en": "This coffee is quite bitter.", "fr": "Ce café est assez amer." } },
+  { "id": "word-raw", "type": "word", "theme": "cuisine", "en": "raw", "fr": "cru", "pos": "adjective", "example": { "en": "Don't eat the chicken raw.", "fr": "Ne mange pas le poulet cru." } },
+  { "id": "word-burnt", "type": "word", "theme": "cuisine", "en": "burnt", "fr": "brûlé", "pos": "adjective", "example": { "en": "Oh no, the toast is burnt!", "fr": "Oh non, le pain grillé est brûlé !" } },
+  { "id": "word-homemade", "type": "word", "theme": "cuisine", "en": "homemade", "fr": "fait maison", "pos": "adjective", "example": { "en": "Is this jam homemade?", "fr": "Cette confiture est faite maison ?" } }
 ]

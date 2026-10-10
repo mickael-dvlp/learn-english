@@ -58,6 +58,7 @@ type Word = {
   example?: { en: string; fr: string };
   pos?: "noun" | "verb" | "adjective" | "adverb" | "other"; // nature du mot
   speakEn?: string;      // texte lu si différent de en (ajustement de prononciation)
+  note?: string;         // remarque d'usage affichée, jamais lue (« familier », « devant un adjectif »)
   group?: string;        // sous-thème, parmi les groups du thème (obligatoire si le thème en a)
   tags?: string[];
 };
@@ -74,6 +75,8 @@ type Verb = {
   pastParticiple: string;// "gone"
   fr: string;            // "aller"
   regular: boolean;      // "learnt / learned" (forme britannique irrégulière) : false
+  note?: string;         // remarque affichée, jamais lue
+  speak?: string;        // dit à la place des trois formes quand elles se lisent autrement (« read, red, red »)
   example?: { en: string; fr: string };
   group?: string;        // sous-thème, parmi content/verb-groups.json (obligatoire s’il existe)
   tags?: string[];
@@ -166,15 +169,17 @@ type Family = {          // content/families.json : regroupement affiché dans �
 ```
 
 Familles et thèmes en place (46 thèmes, ordre d'affichage = ordre des fichiers) :
-1. **Fondations** `fondations` : salutations, nombres, quantites, jours-mois-saisons, heure-rendez-vous, couleurs, questions-frequentes
+1. **Fondations** `fondations` : salutations, nombres (de zéro à vingt, dizaines, ordinaux, prix / dates / années / téléphone), alphabet (lettres, épeler), quantites, jours-mois-saisons, heure-rendez-vous, couleurs, questions-frequentes
 2. **Vie quotidienne** `vie-quotidienne` : vetements, maison, fruits, legumes, alimentation, cuisine, courses, restaurant, routine, hygiene
 3. **Personnes, travail et loisirs** `personnes` : famille, corps, emotions, sante, description, travail, ecole, loisirs
 4. **Déplacements, voyages et services** `deplacements` : ville, directions, transports, voyage, hotel, aeroport, meteo, argent, services-publics, urgences
 5. **Nature et technologie** `nature-technologie` : animaux, agriculture, nature, telephone-internet
 6. **Construire ses phrases** `phrases` : sections verbes et règles (`includes`), puis connecteurs, prepositions, expressions, conversation, adverbes, verbes-particule, prononciation (paires)
-7. **Textes et dialogues** `textes` : section textes (`includes`) : le texte « À la ferme », « Tous les dialogues » (`dialogues-all`) puis chaque dialogue
+7. **Textes et dialogues** `textes` : section textes (`includes`) : les histoires (« À la ferme » et 5 histoires calmes du soir, `story-NN-<slug>.json`), « Tous les dialogues » (`dialogues-all`) puis chaque dialogue
 
 **Sous-thèmes** (`groups`) : conversation (commencer, réagir, opinion, accord, hésiter, préciser, clarification, terminer), quantites (générales, petites, questions, unités, contenants), adverbes (fréquence, intensité, manière, probabilité, temps, lieu), verbes-particule (quotidien, recherche, objets, relations, travail, déplacement), prononciation (nombres, voyelles, sons, consonnes, finales, -ed, -s, accent, faibles), verbes (`content/verb-groups.json` : base, quotidien, mouvement, communication, perception, travail, besoins). Jamais un troisième niveau d'accordéon : ce sont des filtres dans la collection. Un élément qui existe déjà ailleurs est repris par `also` (ex. always, usually… de routine dans les adverbes de fréquence) plutôt que recopié.
+
+**Traductions lues à voix haute** : `fr` est lu par la voix française en mode Écouter. Il ne contient donc que la traduction : une remarque d'usage va dans `note` (affichée, jamais lue), jamais d'anglais ni de symbole (+, ;, :). Un complément qui se lit naturellement peut rester entre parenthèses (« porter (un vêtement) »). Pour une règle, l'introduction lit le titre anglais puis `meaning` (ou `title.fr`), en français seulement.
 
 **Registre** (Conversation naturelle) : une expression dont la traduction change entre tu et vous affiche les deux (« Comment vas-tu ? / Comment allez-vous ? ») ; les exemples d'un même sous-thème gardent un seul registre (tu partout, vous dans « Demander une clarification »). Les dialogues suivent la situation. **Forme** : une phrase s'écrit comme une phrase (« How are you? », « See you later. », « Actually… ») ; un mot isolé, un verbe (« to hurry up ») ou un connecteur reste en minuscules. Numéros de téléphone : uniquement la plage fictive britannique 07700 900xxx.
 
@@ -341,6 +346,13 @@ Mise en œuvre (étape 3) :
 - **Dialogue** (`text-reader.tsx`) : situation, « Écouter le dialogue complet » (lecture enchaînée avec les deux voix, réplique en cours soulignée), traduction masquable, répliques décalées selon l'interlocuteur, 🔊 par réplique, expressions importantes à la fin. Lecture enchaînée : `src/lib/speech/sequence.ts` (une seule à la fois, un bouton 🔊 l'arrête).
 - `createLocalStore` (`src/lib/storage/local-store.ts`) : valeur localStorage validée par Zod, exposée à React via `useSyncExternalStore`.
 
+## 8 bis. Sauvegarde et sécurité
+
+- **Sauvegarde** (`/backup`, lien discret sous les chiffres de l'accueil) : export de la progression et des préférences d'écoute dans un fichier JSON (`anglais-progression-AAAA-MM-JJ.json`), import qui **fusionne** sans rien effacer (dates les plus anciennes, toutes les répliques entendues). Fichier relu et validé champ par champ (Zod), taille limitée. Date de la dernière sauvegarde affichée (`backup-last-export`).
+- **Stockage persistant** : `navigator.storage.persist()` demandé à chaque visite (`PersistStorage` dans le layout) ; état affiché sur `/backup`. Chrome l'accorde plus volontiers à l'appli installée.
+- **En-têtes** (`next.config.ts`) : Content-Security-Policy (tout vient de l'origine ; `unsafe-inline` requis par Next.js pour les pages statiques ; `blob:` pour les pistes du lecteur ; `unsafe-eval` et websocket en développement seulement), `X-Content-Type-Options`, `X-Frame-Options: DENY`, `frame-ancestors 'none'`, `Referrer-Policy: no-referrer`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`. Appli personnelle : `noindex` (en-tête et métadonnées).
+- **Cache de l'audio** : `/audio/*` en `max-age` d'un an, `immutable` (le nom d'un fichier change avec son texte ou sa voix).
+
 ## 9. Hors-ligne
 
 - Service worker : met en cache l'app et **toutes les données JSON** à l'installation (légères).
@@ -380,6 +392,9 @@ Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 4. ✅ **Autres verbes** (10 octobre) : 96 verbes en 7 sous-thèmes (`verb-groups.json`).
 7. ✅ **Conversation, quantités, adverbes, verbes à particule, prononciation, dialogues** (10 octobre) : 5 thèmes à sous-thèmes, 45 paires, 12 dialogues. Pas de thème séparé sur les contractions (à faire si souhaité).
 8. ✅ **Corrections éditoriales, modaux et règles orales** (10 octobre) : 30 fiches de modaux et semi-modaux, 12 nouvelles règles (17 au total), compteurs corrigés.
+9. ✅ **Analyse, points 1 à 5** (10 octobre) : sauvegarde et stockage persistant, traductions propres à l'écoute (`note`), nombres complets et alphabet, en-têtes de sécurité et cache de l'audio, 5 histoires du soir, Cuisine et Agriculture enrichies.
+
+Pistes restantes de l'analyse (10 octobre) : catégories (`tags`) sur plus de mots pour le futur quiz ; deux exemples en double (tea / a cup of, take off / shoes) ; balisage `lang="en"` des phrases anglaises ; surveiller la taille du dépôt (audio) et `msedge-tts` (service non officiel) ; vulnérabilités `npm audit` limitées à l'outillage de lint.
 5. ✅ **Mots de coordination** (9 octobre) : thème `connecteurs` (71 entrées, catégories en `tags`), sans changement de schéma.
 6. ✅ **Phrases interrogatives** (9 octobre) : trois règles dans `content/rules/special.json`, tag `questions` (do/does/did, inversion avec be/can/will/have, mots interrogatifs).
 

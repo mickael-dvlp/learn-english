@@ -9,7 +9,7 @@
   { "id": "word-mark", "type": "word", "theme": "ecole", "en": "mark", "fr": "note", "pos": "noun", "example": { "en": "She got a good mark in maths.", "fr": "Elle a eu une bonne note en maths." } },
   { "id": "word-subject", "type": "word", "theme": "ecole", "en": "subject", "fr": "matière", "pos": "noun", "example": { "en": "What's your favourite subject?", "fr": "Quelle est ta matière préférée ?" } },
   { "id": "word-maths", "type": "word", "theme": "ecole", "en": "maths", "fr": "mathématiques", "pos": "noun", "example": { "en": "Maths is my favourite subject.", "fr": "Les maths, c'est ma matière préférée." } },
-  { "id": "word-history", "type": "word", "theme": "ecole", "en": "history", "fr": "histoire (matière)", "pos": "noun", "example": { "en": "We're learning about the Romans in history.", "fr": "En histoire, nous étudions les Romains." } },
+  { "id": "word-history", "type": "word", "theme": "ecole", "en": "history", "fr": "histoire", "note": "matière", "pos": "noun", "example": { "en": "We're learning about the Romans in history.", "fr": "En histoire, nous étudions les Romains." } },
   { "id": "word-science", "type": "word", "theme": "ecole", "en": "science", "fr": "sciences", "pos": "noun", "example": { "en": "We did an experiment in science today.", "fr": "Nous avons fait une expérience en sciences aujourd'hui." } },
   { "id": "word-question", "type": "word", "theme": "ecole", "en": "question", "fr": "question", "pos": "noun", "example": { "en": "Can I ask a question?", "fr": "Je peux poser une question ?" } },
   { "id": "word-answer", "type": "word", "theme": "ecole", "en": "answer", "fr": "réponse", "pos": "noun", "example": { "en": "I don't know the answer.", "fr": "Je ne connais pas la réponse." } },

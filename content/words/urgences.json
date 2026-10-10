@@ -15,8 +15,8 @@
   { "id": "word-first-aid", "type": "word", "theme": "urgences", "en": "first aid", "fr": "premiers secours", "pos": "noun", "example": { "en": "Do you know first aid?", "fr": "Tu connais les gestes de premiers secours ?" } },
   { "id": "word-danger", "type": "word", "theme": "urgences", "en": "danger", "fr": "danger", "pos": "noun", "example": { "en": "Danger! Keep out!", "fr": "Danger ! Entrée interdite !" } },
   { "id": "word-dangerous", "type": "word", "theme": "urgences", "en": "dangerous", "fr": "dangereux", "pos": "adjective", "example": { "en": "This road is dangerous at night.", "fr": "Cette route est dangereuse la nuit." } },
-  { "id": "word-be-careful", "type": "word", "theme": "urgences", "en": "Be careful!", "fr": "Attention ! (fais attention)", "pos": "other", "example": { "en": "Be careful, the floor is wet!", "fr": "Attention, le sol est mouillé !" } },
+  { "id": "word-be-careful", "type": "word", "theme": "urgences", "en": "Be careful!", "fr": "Attention !", "note": "fais attention", "pos": "other", "example": { "en": "Be careful, the floor is wet!", "fr": "Attention, le sol est mouillé !" } },
   { "id": "word-thief", "type": "word", "theme": "urgences", "en": "thief", "fr": "voleur", "pos": "noun", "example": { "en": "A thief took my bag.", "fr": "Un voleur a pris mon sac." } },
-  { "id": "word-to-steal", "type": "word", "theme": "urgences", "en": "to steal", "fr": "voler (dérober)", "pos": "verb", "example": { "en": "Someone stole my bike.", "fr": "Quelqu'un m'a volé mon vélo." } },
+  { "id": "word-to-steal", "type": "word", "theme": "urgences", "en": "to steal", "fr": "voler", "note": "dérober", "pos": "verb", "example": { "en": "Someone stole my bike.", "fr": "Quelqu'un m'a volé mon vélo." } },
   { "id": "word-to-lose", "type": "word", "theme": "urgences", "en": "to lose", "fr": "perdre (un objet)", "pos": "verb", "example": { "en": "I've lost my passport.", "fr": "J'ai perdu mon passeport." } }
 ]

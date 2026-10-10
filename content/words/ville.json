@@ -12,7 +12,7 @@
   { "id": "word-museum", "type": "word", "theme": "ville", "en": "museum", "fr": "musée", "pos": "noun", "example": { "en": "The museum is free on Sundays.", "fr": "Le musée est gratuit le dimanche." } },
   { "id": "word-library", "type": "word", "theme": "ville", "en": "library", "fr": "bibliothèque", "pos": "noun", "example": { "en": "I borrow books from the library.", "fr": "J'emprunte des livres à la bibliothèque." } },
   { "id": "word-theatre", "type": "word", "theme": "ville", "en": "theatre", "fr": "théâtre", "pos": "noun", "example": { "en": "We're going to the theatre tonight.", "fr": "Nous allons au théâtre ce soir." } },
-  { "id": "word-cafe", "type": "word", "theme": "ville", "en": "café", "fr": "café (lieu)", "pos": "noun", "example": { "en": "There's a nice café on the corner.", "fr": "Il y a un café sympa au coin de la rue." } },
+  { "id": "word-cafe", "type": "word", "theme": "ville", "en": "café", "fr": "café", "note": "lieu", "pos": "noun", "example": { "en": "There's a nice café on the corner.", "fr": "Il y a un café sympa au coin de la rue." } },
   { "id": "word-shopping-centre", "type": "word", "theme": "ville", "en": "shopping centre", "fr": "centre commercial", "pos": "noun", "example": { "en": "The shopping centre is open on Sundays.", "fr": "Le centre commercial est ouvert le dimanche." } },
   { "id": "word-swimming-pool", "type": "word", "theme": "ville", "en": "swimming pool", "fr": "piscine", "pos": "noun", "example": { "en": "The swimming pool is closed today.", "fr": "La piscine est fermée aujourd'hui." } },
   { "id": "word-bus-stop", "type": "word", "theme": "ville", "en": "bus stop", "fr": "arrêt de bus", "pos": "noun", "example": { "en": "Wait for me at the bus stop.", "fr": "Attends-moi à l'arrêt de bus." } },

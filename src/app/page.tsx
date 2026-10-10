@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content/load";
+import { focusRing } from "@/components/ui";
 import { plural } from "@/lib/format";
 
 const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl px-6 py-4 text-left";
@@ -55,6 +56,9 @@ export default function Home() {
           plural(dialogues.length, "dialogue"),
         ].join(" · ")}
       </p>
+      <Link href="/backup" className={`self-center rounded-xl px-3 py-2 text-sm text-accent ${focusRing}`}>
+        Sauvegarder ma progression
+      </Link>
     </main>
   );
 }

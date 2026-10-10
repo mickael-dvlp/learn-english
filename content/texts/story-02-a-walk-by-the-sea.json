@@ -1,0 +1,28 @@
+{
+  "id": "text-a-walk-by-the-sea",
+  "type": "text",
+  "kind": "story",
+  "title": { "en": "A walk by the sea", "fr": "Une promenade au bord de la mer" },
+  "theme": "nature",
+  "sentences": [
+    { "en": "Early in the morning, Tom walks down to the beach.", "fr": "Tôt le matin, Tom descend jusqu'à la plage." },
+    { "en": "The sky is grey and pink, and the air is fresh.", "fr": "Le ciel est gris et rose, et l'air est frais." },
+    { "en": "There is nobody else on the beach.", "fr": "Il n'y a personne d'autre sur la plage." },
+    { "en": "He takes off his shoes and walks on the cold sand.", "fr": "Il enlève ses chaussures et marche sur le sable froid." },
+    { "en": "Small waves come and go, again and again.", "fr": "De petites vagues vont et viennent, encore et encore." },
+    { "en": "A few seagulls are flying above the water.", "fr": "Quelques mouettes volent au-dessus de l'eau." },
+    { "en": "Tom stops and looks at the horizon.", "fr": "Tom s'arrête et regarde l'horizon." },
+    { "en": "Far away, a little boat is going out to sea.", "fr": "Au loin, un petit bateau part en mer." },
+    { "en": "He breathes slowly and listens to the sound of the waves.", "fr": "Il respire lentement et écoute le bruit des vagues." },
+    { "en": "Little by little, the sun rises over the sea.", "fr": "Peu à peu, le soleil se lève sur la mer." },
+    { "en": "The water turns gold and silver.", "fr": "L'eau devient dorée et argentée." },
+    { "en": "Tom smiles. It is going to be a beautiful day.", "fr": "Tom sourit. La journée va être belle." },
+    { "en": "He walks slowly back home for breakfast.", "fr": "Il rentre tranquillement à la maison pour le petit-déjeuner." }
+  ],
+  "expressions": [
+    { "en": "There is nobody else.", "fr": "Il n'y a personne d'autre." },
+    { "en": "again and again", "fr": "encore et encore" },
+    { "en": "little by little", "fr": "peu à peu" },
+    { "en": "It is going to be a beautiful day.", "fr": "La journée va être belle." }
+  ]
+}

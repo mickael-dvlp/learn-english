@@ -82,6 +82,7 @@ function WordCard({ word }: { word: Word }) {
         <SpeakButton text={word.speakEn ?? word.en} />
       </div>
       <p className="text-2xl text-muted">{word.fr}</p>
+      {word.note && <Note>{word.note}</Note>}
       {word.example && <Example example={word.example} />}
     </article>
   );
@@ -107,9 +108,10 @@ function VerbCard({ verb }: { verb: Verb }) {
             </div>
           ))}
         </dl>
-        <SpeakButton text={`${verb.base}, ${verb.past}, ${verb.pastParticiple}`} />
+        <SpeakButton text={verb.speak ?? `${verb.base}, ${verb.past}, ${verb.pastParticiple}`} />
       </div>
       <p className="text-2xl text-muted">{verb.fr}</p>
+      {verb.note && <Note>{verb.note}</Note>}
       {verb.example && <Example example={verb.example} />}
     </article>
   );
@@ -206,6 +208,16 @@ function Example({ example, label }: { example: Bilingual; label?: string }) {
       </div>
       <SpeakButton text={example.en} className="bg-background" />
     </div>
+  );
+}
+
+/** A usage note: shown, never read aloud. */
+function Note({ children }: { children: ReactNode }) {
+  return (
+    <p className="-mt-3 text-sm text-muted">
+      <span aria-hidden>ⓘ </span>
+      {children}
+    </p>
   );
 }
 

@@ -9,7 +9,7 @@
   { "id": "word-wallet", "type": "word", "theme": "argent", "en": "wallet", "fr": "portefeuille", "pos": "noun", "example": { "en": "My wallet is in my bag.", "fr": "Mon portefeuille est dans mon sac." } },
   { "id": "word-purse", "type": "word", "theme": "argent", "en": "purse", "fr": "porte-monnaie", "pos": "noun", "example": { "en": "She keeps her coins in a purse.", "fr": "Elle garde ses pièces dans un porte-monnaie." } },
   { "id": "word-euro", "type": "word", "theme": "argent", "en": "euro", "fr": "euro", "pos": "noun", "example": { "en": "It costs ten euros.", "fr": "Ça coûte dix euros." } },
-  { "id": "word-pound", "type": "word", "theme": "argent", "en": "pound", "fr": "livre (sterling)", "pos": "noun", "example": { "en": "In England, you pay in pounds.", "fr": "En Angleterre, on paie en livres." } },
+  { "id": "word-pound", "type": "word", "theme": "argent", "en": "pound", "fr": "livre sterling", "pos": "noun", "example": { "en": "In England, you pay in pounds.", "fr": "En Angleterre, on paie en livres." } },
   { "id": "word-rich", "type": "word", "theme": "argent", "en": "rich", "fr": "riche", "pos": "adjective", "example": { "en": "He is rich but not happy.", "fr": "Il est riche mais pas heureux." } },
   { "id": "word-poor", "type": "word", "theme": "argent", "en": "poor", "fr": "pauvre", "pos": "adjective", "example": { "en": "They were poor when they were young.", "fr": "Ils étaient pauvres quand ils étaient jeunes." } },
   { "id": "word-to-cost", "type": "word", "theme": "argent", "en": "to cost", "fr": "coûter", "pos": "verb", "example": { "en": "How much does it cost?", "fr": "Combien ça coûte ?" } },

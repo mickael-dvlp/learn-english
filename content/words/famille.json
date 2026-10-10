@@ -12,7 +12,7 @@
   { "id": "word-grandmother", "type": "word", "theme": "famille", "en": "grandmother", "fr": "grand-mère", "pos": "noun", "example": { "en": "My grandmother tells great stories.", "fr": "Ma grand-mère raconte de belles histoires." } },
   { "id": "word-grandfather", "type": "word", "theme": "famille", "en": "grandfather", "fr": "grand-père", "pos": "noun", "example": { "en": "My grandfather was a farmer.", "fr": "Mon grand-père était agriculteur." } },
   { "id": "word-husband", "type": "word", "theme": "famille", "en": "husband", "fr": "mari", "pos": "noun", "example": { "en": "Her husband works at night.", "fr": "Son mari travaille la nuit." } },
-  { "id": "word-wife", "type": "word", "theme": "famille", "en": "wife", "fr": "femme (épouse)", "pos": "noun", "example": { "en": "His wife is from Italy.", "fr": "Sa femme vient d'Italie." } },
+  { "id": "word-wife", "type": "word", "theme": "famille", "en": "wife", "fr": "femme", "note": "épouse", "pos": "noun", "example": { "en": "His wife is from Italy.", "fr": "Sa femme vient d'Italie." } },
   { "id": "word-uncle", "type": "word", "theme": "famille", "en": "uncle", "fr": "oncle", "pos": "noun", "example": { "en": "My uncle has a boat.", "fr": "Mon oncle a un bateau." } },
   { "id": "word-aunt", "type": "word", "theme": "famille", "en": "aunt", "fr": "tante", "pos": "noun", "example": { "en": "My aunt lives near us.", "fr": "Ma tante habite près de chez nous." } },
   { "id": "word-cousin", "type": "word", "theme": "famille", "en": "cousin", "fr": "cousin", "pos": "noun", "example": { "en": "I play football with my cousins.", "fr": "Je joue au football avec mes cousins." } },

@@ -346,7 +346,9 @@
     "base": "read",
     "past": "read",
     "pastParticiple": "read",
-    "fr": "lire (prétérit et participe se disent « red »)",
+    "fr": "lire",
+    "note": "prétérit et participe passé se disent « red »",
+    "speak": "read, red, red",
     "regular": false,
     "example": { "en": "I read a good book last week.", "fr": "J'ai lu un bon livre la semaine dernière." },
     "group": "communication"
