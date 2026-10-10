@@ -13,9 +13,9 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `✓ Contenu valide : ${plural(library.themes.length, "thème")}, ${plural(library.words.length, "mot")}, ` +
-    `${plural(library.verbs.length, "verbe")}, ${plural(library.rules.length, "règle")}, ` +
-    `${plural(library.texts.length, "texte")}`,
+  `✓ Contenu valide : ${plural(library.themes.length, "thème")}, ${library.words.length} mots et expressions, ` +
+    `${plural(library.verbs.length, "verbe")}, ${plural(library.rules.length, "règle")} (modaux compris), ` +
+    `${plural(library.texts.length, "texte")}, ${library.pairs.length} exercices de prononciation`,
 );
 
 // Not an error (the content stays usable in study mode), but listening needs the audio files.

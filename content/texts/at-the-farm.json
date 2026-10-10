@@ -3,7 +3,6 @@
   "type": "text",
   "title": { "en": "At the farm", "fr": "À la ferme" },
   "theme": "agriculture",
-  "level": "A1",
   "sentences": [
     { "en": "It is early in the morning.", "fr": "Il est tôt le matin." },
     { "en": "The farmer opens the door of the barn.", "fr": "Le fermier ouvre la porte de la grange." },

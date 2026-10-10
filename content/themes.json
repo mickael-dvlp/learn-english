@@ -1,25 +1,102 @@
 [
-  { "id": "vetements", "name": { "en": "Clothes", "fr": "Vêtements" }, "emoji": "👕" },
-  { "id": "cuisine", "name": { "en": "Cooking", "fr": "Cuisine" }, "emoji": "🍳" },
-  { "id": "agriculture", "name": { "en": "Farming", "fr": "Agriculture" }, "emoji": "🚜" },
-  { "id": "fruits", "name": { "en": "Fruit", "fr": "Fruits" }, "emoji": "🍎" },
-  { "id": "legumes", "name": { "en": "Vegetables", "fr": "Légumes" }, "emoji": "🥕" },
-  { "id": "animaux", "name": { "en": "Animals", "fr": "Animaux" }, "emoji": "🐶" },
-  { "id": "maison", "name": { "en": "House", "fr": "Maison" }, "emoji": "🏠" },
-  { "id": "emotions", "name": { "en": "Emotions", "fr": "Émotions" }, "emoji": "😊" },
+  { "id": "salutations", "family": "fondations", "name": { "en": "Greetings", "fr": "Salutations" }, "emoji": "👋" },
+  { "id": "nombres", "family": "fondations", "name": { "en": "Numbers", "fr": "Nombres" }, "emoji": "🔢" },
+  { "id": "quantites", "family": "fondations", "name": { "en": "Quantities and measurements", "fr": "Quantités et mesures" }, "emoji": "⚖️",
+    "groups": [
+      { "id": "generales", "name": { "en": "General quantities", "fr": "Quantités générales" }, "also": ["word-more"] },
+      { "id": "petites", "name": { "en": "Small quantities", "fr": "Petites quantités" } },
+      { "id": "questions", "name": { "en": "Asking about quantities", "fr": "Questions sur les quantités" } },
+      { "id": "unites", "name": { "en": "Units and measurements", "fr": "Unités et mesures" }, "also": ["word-half"] },
+      { "id": "contenants", "name": { "en": "Containers and portions", "fr": "Contenants et portions" } }
+    ]
+  },
+  { "id": "jours-mois-saisons", "family": "fondations", "name": { "en": "Days, months and seasons", "fr": "Jours, mois et saisons" }, "emoji": "📅" },
+  { "id": "heure-rendez-vous", "family": "fondations", "name": { "en": "Time and appointments", "fr": "L'heure et les rendez-vous" }, "emoji": "🕒" },
+  { "id": "couleurs", "family": "fondations", "name": { "en": "Colours", "fr": "Couleurs" }, "emoji": "🎨" },
+  { "id": "questions-frequentes", "family": "fondations", "name": { "en": "Common questions and phrases", "fr": "Questions et expressions fréquentes" }, "emoji": "❓" },
 
-  { "id": "nombres", "name": { "en": "Numbers", "fr": "Nombres" }, "emoji": "🔢" },
-  { "id": "jours-mois-saisons", "name": { "en": "Days, months and seasons", "fr": "Jours, mois et saisons" }, "emoji": "📅" },
-  { "id": "couleurs", "name": { "en": "Colours", "fr": "Couleurs" }, "emoji": "🎨" },
-  { "id": "famille", "name": { "en": "Family", "fr": "Famille" }, "emoji": "👪" },
-  { "id": "corps", "name": { "en": "Body", "fr": "Corps" }, "emoji": "🧍" },
-  { "id": "meteo", "name": { "en": "Weather", "fr": "Météo" }, "emoji": "🌦️" },
-  { "id": "salutations", "name": { "en": "Greetings", "fr": "Salutations" }, "emoji": "👋" },
+  { "id": "vetements", "family": "vie-quotidienne", "name": { "en": "Clothes", "fr": "Vêtements" }, "emoji": "👕" },
+  { "id": "maison", "family": "vie-quotidienne", "name": { "en": "House", "fr": "Maison" }, "emoji": "🏠" },
+  { "id": "fruits", "family": "vie-quotidienne", "name": { "en": "Fruit", "fr": "Fruits" }, "emoji": "🍎" },
+  { "id": "legumes", "family": "vie-quotidienne", "name": { "en": "Vegetables", "fr": "Légumes" }, "emoji": "🥕" },
+  { "id": "alimentation", "family": "vie-quotidienne", "name": { "en": "Food and drink", "fr": "Alimentation et boissons" }, "emoji": "🥖" },
+  { "id": "cuisine", "family": "vie-quotidienne", "name": { "en": "Cooking", "fr": "Cuisine" }, "emoji": "🍳" },
+  { "id": "courses", "family": "vie-quotidienne", "name": { "en": "Shopping", "fr": "Courses" }, "emoji": "🛒" },
+  { "id": "restaurant", "family": "vie-quotidienne", "name": { "en": "Restaurant", "fr": "Restaurant" }, "emoji": "🍽️" },
+  { "id": "routine", "family": "vie-quotidienne", "name": { "en": "Daily routine", "fr": "Routine quotidienne" }, "emoji": "⏰" },
+  { "id": "hygiene", "family": "vie-quotidienne", "name": { "en": "Hygiene and personal care", "fr": "Hygiène et soins personnels" }, "emoji": "🧼" },
 
-  { "id": "courses", "name": { "en": "Shopping", "fr": "Courses" }, "emoji": "🛒" },
-  { "id": "restaurant", "name": { "en": "Restaurant", "fr": "Restaurant" }, "emoji": "🍽️" },
-  { "id": "transports", "name": { "en": "Transport", "fr": "Transports" }, "emoji": "🚌" },
-  { "id": "sante", "name": { "en": "Health", "fr": "Santé" }, "emoji": "🩺" },
-  { "id": "argent", "name": { "en": "Money", "fr": "Argent" }, "emoji": "💶" },
-  { "id": "telephone-internet", "name": { "en": "Phone and internet", "fr": "Téléphone et internet" }, "emoji": "📱" }
+  { "id": "famille", "family": "personnes", "name": { "en": "Family", "fr": "Famille" }, "emoji": "👪" },
+  { "id": "corps", "family": "personnes", "name": { "en": "Body", "fr": "Corps" }, "emoji": "🧍" },
+  { "id": "emotions", "family": "personnes", "name": { "en": "Emotions", "fr": "Émotions" }, "emoji": "😊" },
+  { "id": "sante", "family": "personnes", "name": { "en": "Health", "fr": "Santé" }, "emoji": "🩺" },
+  { "id": "description", "family": "personnes", "name": { "en": "Appearance and personality", "fr": "Description physique et personnalité" }, "emoji": "🧑" },
+  { "id": "travail", "family": "personnes", "name": { "en": "Work and jobs", "fr": "Travail et métiers" }, "emoji": "💼" },
+  { "id": "ecole", "family": "personnes", "name": { "en": "School and studies", "fr": "École et études" }, "emoji": "🎒" },
+  { "id": "loisirs", "family": "personnes", "name": { "en": "Hobbies and sport", "fr": "Loisirs et sport" }, "emoji": "⚽" },
+
+  { "id": "ville", "family": "deplacements", "name": { "en": "Town and public places", "fr": "Ville et lieux publics" }, "emoji": "🏙️" },
+  { "id": "directions", "family": "deplacements", "name": { "en": "Directions and location", "fr": "Directions et localisation" }, "emoji": "🧭" },
+  { "id": "transports", "family": "deplacements", "name": { "en": "Transport", "fr": "Transports" }, "emoji": "🚌" },
+  { "id": "voyage", "family": "deplacements", "name": { "en": "Travel", "fr": "Voyage" }, "emoji": "🧳" },
+  { "id": "hotel", "family": "deplacements", "name": { "en": "Hotel", "fr": "Hôtel" }, "emoji": "🏨" },
+  { "id": "aeroport", "family": "deplacements", "name": { "en": "Airport", "fr": "Aéroport" }, "emoji": "✈️" },
+  { "id": "meteo", "family": "deplacements", "name": { "en": "Weather", "fr": "Météo" }, "emoji": "🌦️" },
+  { "id": "argent", "family": "deplacements", "name": { "en": "Money and payments", "fr": "Argent et paiements" }, "emoji": "💶" },
+  { "id": "services-publics", "family": "deplacements", "name": { "en": "Public services and paperwork", "fr": "Services publics et démarches courantes" }, "emoji": "🏛️" },
+  { "id": "urgences", "family": "deplacements", "name": { "en": "Emergencies and asking for help", "fr": "Urgences et demandes d'aide" }, "emoji": "🚨" },
+
+  { "id": "animaux", "family": "nature-technologie", "name": { "en": "Animals", "fr": "Animaux" }, "emoji": "🐶" },
+  { "id": "agriculture", "family": "nature-technologie", "name": { "en": "Farming", "fr": "Agriculture" }, "emoji": "🚜" },
+  { "id": "nature", "family": "nature-technologie", "name": { "en": "Nature and environment", "fr": "Nature et environnement" }, "emoji": "🌳" },
+  { "id": "telephone-internet", "family": "nature-technologie", "name": { "en": "Phone and internet", "fr": "Téléphone et internet" }, "emoji": "📱" },
+
+  { "id": "connecteurs", "family": "phrases", "name": { "en": "Linking words", "fr": "Connecteurs et mots de liaison" }, "emoji": "🔗" },
+  { "id": "prepositions", "family": "phrases", "name": { "en": "Useful prepositions", "fr": "Prépositions utiles" }, "emoji": "📍" },
+  { "id": "expressions", "family": "phrases", "name": { "en": "Everyday expressions", "fr": "Expressions courantes" }, "emoji": "💬" },
+  { "id": "conversation", "family": "phrases", "name": { "en": "Natural conversation", "fr": "Conversation naturelle" }, "emoji": "🗣️",
+    "groups": [
+      { "id": "commencer", "name": { "en": "Starting a conversation", "fr": "Commencer une conversation" }, "also": ["word-how-are-you", "word-nice-to-meet-you"] },
+      { "id": "reagir", "name": { "en": "Reacting naturally", "fr": "Réagir naturellement" }, "also": ["word-what-a-pity", "word-sorry-to-hear-that", "word-thats-right"] },
+      { "id": "opinion", "name": { "en": "Giving your opinion", "fr": "Donner son opinion" }, "also": ["word-what-do-you-think", "word-to-be-honest"] },
+      { "id": "accord", "name": { "en": "Agreeing and disagreeing", "fr": "Être d'accord ou en désaccord" }, "also": ["word-i-agree", "word-exactly", "word-absolutely", "word-i-dont-think-so", "word-it-depends"] },
+      { "id": "hesiter", "name": { "en": "Hesitating and gaining time", "fr": "Hésiter et gagner du temps" }, "also": ["word-let-me-think", "word-im-not-sure"] },
+      { "id": "preciser", "name": { "en": "Correcting and clarifying", "fr": "Corriger ou préciser" }, "also": ["word-actually", "word-in-other-words"] },
+      { "id": "clarification", "name": { "en": "Asking for clarification", "fr": "Demander une clarification" }, "also": ["word-can-you-repeat", "word-speak-more-slowly", "word-how-do-you-spell", "word-what-does-it-mean"] },
+      { "id": "terminer", "name": { "en": "Ending a conversation", "fr": "Terminer une conversation" }, "also": ["word-see-you-later", "word-take-care"] }
+    ]
+  },
+  { "id": "adverbes", "family": "phrases", "name": { "en": "Useful adverbs", "fr": "Adverbes utiles" }, "emoji": "📊",
+    "groups": [
+      { "id": "frequence", "name": { "en": "Frequency", "fr": "Fréquence" }, "also": ["word-always", "word-usually", "word-often", "word-sometimes", "word-rarely", "word-never"] },
+      { "id": "intensite", "name": { "en": "Degree", "fr": "Intensité" }, "also": ["word-really", "word-quite", "word-rather"] },
+      { "id": "maniere", "name": { "en": "Manner", "fr": "Manière" } },
+      { "id": "probabilite", "name": { "en": "Probability and certainty", "fr": "Probabilité et certitude" }, "also": ["word-maybe", "word-perhaps", "word-probably", "word-definitely", "word-of-course"] },
+      { "id": "temps", "name": { "en": "Time", "fr": "Temps" }, "also": ["word-soon", "word-already", "word-still", "word-yet-time", "word-again"] },
+      { "id": "lieu", "name": { "en": "Place and direction", "fr": "Position et direction" }, "also": ["word-here", "word-there", "word-inside", "word-outside", "word-abroad"] }
+    ]
+  },
+  { "id": "verbes-particule", "family": "phrases", "name": { "en": "Phrasal verbs", "fr": "Verbes à particule" }, "emoji": "🧩",
+    "groups": [
+      { "id": "quotidien", "name": { "en": "Daily life", "fr": "Vie quotidienne" }, "also": ["word-to-wake-up", "word-to-get-up", "word-to-put-on", "word-to-go-out"] },
+      { "id": "recherche", "name": { "en": "Searching and finding out", "fr": "Recherche et découverte" } },
+      { "id": "objets", "name": { "en": "Devices and objects", "fr": "Appareils et objets" } },
+      { "id": "relations", "name": { "en": "Relationships and communication", "fr": "Relations et communication" } },
+      { "id": "travail", "name": { "en": "Work and learning", "fr": "Travail et apprentissage" }, "also": ["word-to-fill-in"] },
+      { "id": "deplacement", "name": { "en": "Getting around", "fr": "Déplacement" }, "also": ["word-to-check-in", "word-to-check-out", "word-to-take-off"] }
+    ]
+  },
+  { "id": "prononciation", "family": "phrases", "name": { "en": "Pronunciation and listening", "fr": "Prononciation et distinctions auditives" }, "emoji": "👂",
+    "groups": [
+      { "id": "nombres", "name": { "en": "Numbers that sound alike", "fr": "Nombres difficiles à distinguer" } },
+      { "id": "voyelles", "name": { "en": "Short and long vowels", "fr": "Voyelles courtes et longues" } },
+      { "id": "sons", "name": { "en": "Similar vowel sounds", "fr": "Sons proches" } },
+      { "id": "consonnes", "name": { "en": "Difficult consonants", "fr": "Consonnes difficiles" } },
+      { "id": "finales", "name": { "en": "Final consonants", "fr": "Consonnes finales" } },
+      { "id": "ed", "name": { "en": "-ed endings", "fr": "Terminaisons en -ed" } },
+      { "id": "s", "name": { "en": "-s endings", "fr": "Terminaisons en -s" } },
+      { "id": "accent", "name": { "en": "Word stress", "fr": "Accent tonique" } },
+      { "id": "faibles", "name": { "en": "Weak forms", "fr": "Mots faibles dans la phrase" } }
+    ]
+  }
 ]

@@ -6,6 +6,10 @@ import { createLocalStore } from "./local-store";
 
 const PreferencesSchema = z.object({
   sourceId: z.string().optional(),
+  /** Sub-theme of the source; all of it when absent. */
+  groupId: z.string().optional(),
+  /** One item of the source (a single rule); all of them when absent. */
+  itemId: z.string().optional(),
   patternId: z.string().optional(),
   durationMinutes: z.number().positive().max(600).catch(10),
   order: z.enum(["sequential", "random"]).catch("sequential"),

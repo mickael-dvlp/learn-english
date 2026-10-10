@@ -1,0 +1,30 @@
+{
+  "id": "text-meeting-someone-new",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Meeting someone new", "fr": "Rencontrer une nouvelle personne" },
+  "situation": "Deux voisins se rencontrent pour la première fois dans l'escalier de leur immeuble.",
+  "theme": "salutations",
+  "sentences": [
+    { "speaker": "Emma", "en": "Hi! Are you the new neighbour?", "fr": "Bonjour ! Vous êtes le nouveau voisin ?" },
+    { "speaker": "Tom", "en": "Yes, I moved in last week. I'm Tom.", "fr": "Oui, j'ai emménagé la semaine dernière. Je m'appelle Tom." },
+    { "speaker": "Emma", "en": "Nice to meet you, Tom. I'm Emma, from the second floor.", "fr": "Enchantée, Tom. Moi, c'est Emma, du deuxième étage." },
+    { "speaker": "Tom", "en": "Nice to meet you too. Have you lived here long?", "fr": "Enchanté. Vous habitez ici depuis longtemps ?" },
+    { "speaker": "Emma", "en": "About three years. It's a really nice building.", "fr": "Environ trois ans. C'est un immeuble vraiment agréable." },
+    { "speaker": "Tom", "en": "That's good to hear. I don't know anyone in the area yet.", "fr": "Ça fait plaisir à entendre. Je ne connais encore personne dans le quartier." },
+    { "speaker": "Emma", "en": "Where are you from originally?", "fr": "Vous venez d'où, à l'origine ?" },
+    { "speaker": "Tom", "en": "I'm from Leeds, but I've got a new job here in Bristol.", "fr": "Je viens de Leeds, mais j'ai un nouveau travail ici, à Bristol." },
+    { "speaker": "Emma", "en": "Oh, lovely. If you need anything, just knock on my door.", "fr": "Oh, super. Si vous avez besoin de quoi que ce soit, frappez à ma porte." },
+    { "speaker": "Tom", "en": "Thanks, that's very kind of you.", "fr": "Merci, c'est très gentil de votre part." },
+    { "speaker": "Emma", "en": "No problem. See you around!", "fr": "Avec plaisir. À bientôt !" },
+    { "speaker": "Tom", "en": "See you!", "fr": "À bientôt !" }
+  ],
+  "expressions": [
+    { "en": "I moved in last week.", "fr": "J'ai emménagé la semaine dernière." },
+    { "en": "Have you lived here long?", "fr": "Vous habitez ici depuis longtemps ?" },
+    { "en": "Where are you from originally?", "fr": "Vous venez d'où, à l'origine ?" },
+    { "en": "If you need anything, just knock on my door.", "fr": "Si vous avez besoin de quoi que ce soit, frappez à ma porte." },
+    { "en": "That's very kind of you.", "fr": "C'est très gentil de votre part." },
+    { "en": "See you around!", "fr": "À bientôt ! (on se croisera)" }
+  ]
+}

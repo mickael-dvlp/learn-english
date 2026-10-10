@@ -1,0 +1,562 @@
+[
+  {
+    "id": "rule-modal-basics",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "How modal verbs work", "fr": "Comment marchent les modaux" },
+    "meaning": "Les règles communes à can, must, should, will…",
+    "explanation": "Pas de -s avec he, she, it (she can). Le modal est suivi du verbe à la base, sans to (I must go), sauf les semi-modaux : have to, need to, ought to, be able to, used to. Pour la question, on inverse simplement (Can you… ?). La négation se place juste après le modal (can't, mustn't, won't).",
+    "structure": "sujet + modal + verbe (base)",
+    "forms": [
+      { "kind": "affirmative", "en": "She can swim.", "fr": "Elle sait nager." },
+      { "kind": "negative", "en": "You shouldn't worry.", "fr": "Tu ne devrais pas t'inquiéter." },
+      { "kind": "question", "en": "Will you be here tomorrow?", "fr": "Seras-tu là demain ?" }
+    ],
+    "examples": [
+      { "en": "He must be tired.", "fr": "Il doit être fatigué." },
+      { "en": "I have to work on Saturday.", "fr": "Je dois travailler samedi." }
+    ],
+    "mistake": { "wrong": "She can to swim.", "right": "She can swim.", "note": "Pas de to et pas de -s après un modal." },
+    "group": "rappel"
+  },
+  {
+    "id": "rule-modal-can-ability",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "can / can't (ability)", "fr": "can : capacité" },
+    "meaning": "pouvoir, savoir (faire), au présent",
+    "explanation": "Pour dire ce qu'on sait faire ou ce qu'on peut faire maintenant. À l'oral, la négation est presque toujours can't.",
+    "structure": "sujet + can / can't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I can speak a little Spanish.", "fr": "Je parle un peu espagnol." },
+      { "kind": "negative", "en": "I can't hear you.", "fr": "Je ne t'entends pas." },
+      { "kind": "question", "en": "Can you swim?", "fr": "Tu sais nager ?" }
+    ],
+    "examples": [
+      { "en": "She can play the piano.", "fr": "Elle sait jouer du piano." },
+      { "en": "We can't come on Friday.", "fr": "Nous ne pouvons pas venir vendredi." }
+    ],
+    "mistake": { "wrong": "I can to drive.", "right": "I can drive.", "note": "Pas de to après can." },
+    "group": "capacite"
+  },
+  {
+    "id": "rule-modal-could-ability",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "could / couldn't (past ability)", "fr": "could : capacité passée" },
+    "meaning": "savoir, pouvoir, dans le passé",
+    "explanation": "Pour une capacité générale dans le passé. Pour une réussite précise, une seule fois, on dit plutôt was / were able to. Au négatif, couldn't convient dans tous les cas.",
+    "structure": "sujet + could / couldn't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I could read when I was four.", "fr": "Je savais lire à quatre ans." },
+      { "kind": "negative", "en": "I couldn't sleep last night.", "fr": "Je n'ai pas pu dormir cette nuit." },
+      { "kind": "question", "en": "Could you swim when you were a child?", "fr": "Savais-tu nager quand tu étais enfant ?" }
+    ],
+    "examples": [
+      { "en": "My grandmother could speak three languages.", "fr": "Ma grand-mère parlait trois langues." }
+    ],
+    "mistake": { "wrong": "The fire was big, but we could escape.", "right": "The fire was big, but we were able to escape.", "note": "Une réussite précise dans le passé : was / were able to." },
+    "group": "capacite"
+  },
+  {
+    "id": "rule-modal-be-able-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "be able to", "fr": "be able to : être capable de" },
+    "meaning": "pouvoir, être capable de, à tous les temps",
+    "explanation": "Remplace can là où can n'existe pas : au futur (will be able to), au present perfect (have been able to), après un autre verbe. was / were able to : réussir à faire quelque chose, une fois.",
+    "structure": "be able to + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I'll be able to help you tomorrow.", "fr": "Je pourrai t'aider demain." },
+      { "kind": "negative", "en": "I haven't been able to call her.", "fr": "Je n'ai pas pu l'appeler." },
+      { "kind": "question", "en": "Were you able to find the hotel?", "fr": "Avez-vous réussi à trouver l'hôtel ?" }
+    ],
+    "examples": [
+      { "en": "After a few lessons, she was able to swim.", "fr": "Après quelques leçons, elle a réussi à nager." },
+      { "en": "I'd like to be able to speak English fluently.", "fr": "J'aimerais pouvoir parler anglais couramment." }
+    ],
+    "mistake": { "wrong": "I will can help you.", "right": "I'll be able to help you.", "note": "Deux modaux ne se suivent pas : will be able to." },
+    "group": "capacite"
+  },
+  {
+    "id": "rule-modal-can-permission",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "can (permission)", "fr": "can : permission" },
+    "meaning": "pouvoir, avoir le droit (courant, familier)",
+    "explanation": "La façon la plus courante de demander ou de donner une permission. can't : ce n'est pas permis. Could I… ? est un peu plus poli.",
+    "structure": "Can I + base ? · You can / can't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "You can park here after six.", "fr": "Vous pouvez vous garer ici après dix-huit heures." },
+      { "kind": "negative", "en": "You can't smoke in here.", "fr": "Vous ne pouvez pas fumer ici." },
+      { "kind": "question", "en": "Can I open the window?", "fr": "Je peux ouvrir la fenêtre ?" }
+    ],
+    "examples": [
+      { "en": "Could I use your phone, please?", "fr": "Pourrais-je utiliser votre téléphone, s'il vous plaît ?" }
+    ],
+    "mistake": { "wrong": "Can I to sit here?", "right": "Can I sit here?", "note": "Pas de to après can." },
+    "group": "permission"
+  },
+  {
+    "id": "rule-modal-may-permission",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "may (permission)", "fr": "may : permission polie" },
+    "meaning": "pouvoir (formel, très poli)",
+    "explanation": "Plus formel que can : on l'entend dans les magasins, au travail, dans les règlements. On répond souvent « Of course » ou « Certainly ».",
+    "structure": "May I + base ? · You may (not) + base",
+    "forms": [
+      { "kind": "affirmative", "en": "You may sit down.", "fr": "Vous pouvez vous asseoir." },
+      { "kind": "negative", "en": "You may not use your phone during the exam.", "fr": "Vous ne pouvez pas utiliser votre téléphone pendant l'examen." },
+      { "kind": "question", "en": "May I come in?", "fr": "Puis-je entrer ?" }
+    ],
+    "examples": [
+      { "en": "May I help you?", "fr": "Puis-je vous aider ?" }
+    ],
+    "mistake": { "wrong": "May you help me?", "right": "Could you help me?", "note": "may sert à demander pour soi (May I… ?), pas à demander un service." },
+    "group": "permission"
+  },
+  {
+    "id": "rule-modal-be-allowed-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "be allowed to", "fr": "be allowed to : avoir le droit" },
+    "meaning": "avoir le droit de, être autorisé à",
+    "explanation": "Pour parler d'une règle ou d'une autorisation donnée par quelqu'un d'autre. Se conjugue à tous les temps.",
+    "structure": "be allowed to + base",
+    "forms": [
+      { "kind": "affirmative", "en": "We're allowed to bring our own food.", "fr": "Nous avons le droit d'apporter notre nourriture." },
+      { "kind": "negative", "en": "You aren't allowed to take photos in the museum.", "fr": "Il est interdit de prendre des photos dans le musée." },
+      { "kind": "question", "en": "Am I allowed to park here?", "fr": "Ai-je le droit de me garer ici ?" }
+    ],
+    "examples": [
+      { "en": "When I was a child, I wasn't allowed to stay up late.", "fr": "Quand j'étais enfant, je n'avais pas le droit de veiller tard." }
+    ],
+    "mistake": { "wrong": "I'm not allow to park here.", "right": "I'm not allowed to park here.", "note": "allowed, avec -ed." },
+    "group": "permission"
+  },
+  {
+    "id": "rule-modal-can-could-you",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "Can you…? / Could you…?", "fr": "Demander à quelqu'un de faire quelque chose" },
+    "meaning": "Tu peux… ? / Pourriez-vous… ?",
+    "explanation": "Can you… ? est direct et amical ; Could you… ? est plus poli, idéal avec des inconnus. Ajouter please rend la demande encore plus aimable.",
+    "structure": "Can / Could you + base (+ please) ?",
+    "forms": [
+      { "kind": "affirmative", "en": "Of course I can.", "fr": "Bien sûr." },
+      { "kind": "negative", "en": "Sorry, I can't right now.", "fr": "Désolé, je ne peux pas pour l'instant." },
+      { "kind": "question", "en": "Could you help me with my suitcase?", "fr": "Pourriez-vous m'aider avec ma valise ?" }
+    ],
+    "examples": [
+      { "en": "Can you pass the salt, please?", "fr": "Tu peux me passer le sel, s'il te plaît ?" },
+      { "en": "Could you tell me where the station is?", "fr": "Pourriez-vous me dire où est la gare ?" }
+    ],
+    "mistake": { "wrong": "Could you to help me?", "right": "Could you help me?", "note": "Pas de to après could." },
+    "group": "demandes"
+  },
+  {
+    "id": "rule-modal-would-you",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "Would you…? / Would you like…?", "fr": "would : demander et proposer poliment" },
+    "meaning": "Voudriez-vous… ? / Voulez-vous… ?",
+    "explanation": "Would you… ? fait une demande très polie. Would you like… ? sert à proposer ; I'd like… (I would like) à demander poliment pour soi.",
+    "structure": "Would you + base ? · Would you like + nom / to + base ?",
+    "forms": [
+      { "kind": "affirmative", "en": "I'd like a glass of water, please.", "fr": "Je voudrais un verre d'eau, s'il vous plaît." },
+      { "kind": "negative", "en": "I wouldn't like to live there.", "fr": "Je n'aimerais pas vivre là-bas." },
+      { "kind": "question", "en": "Would you like some tea?", "fr": "Voulez-vous du thé ?" }
+    ],
+    "examples": [
+      { "en": "Would you close the door, please?", "fr": "Pourriez-vous fermer la porte, s'il vous plaît ?" },
+      { "en": "Would you like to join us?", "fr": "Voulez-vous vous joindre à nous ?" }
+    ],
+    "mistake": { "wrong": "Do you like a coffee?", "right": "Would you like a coffee?", "note": "Pour proposer : would you like. Do you like demande si on aime en général." },
+    "group": "demandes"
+  },
+  {
+    "id": "rule-modal-would-you-mind",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "Would you mind…?", "fr": "Would you mind… ? : très poli" },
+    "meaning": "Ça vous dérangerait de… ?",
+    "explanation": "Très poli, suivi de -ing. Attention à la réponse : « No, not at all » veut dire « non, ça ne me dérange pas », donc oui !",
+    "structure": "Would you mind + verbe-ing ?",
+    "forms": [
+      { "kind": "affirmative", "en": "I don't mind waiting.", "fr": "Ça ne me dérange pas d'attendre." },
+      { "kind": "negative", "en": "No, not at all.", "fr": "Non, pas du tout (avec plaisir)." },
+      { "kind": "question", "en": "Would you mind opening the window?", "fr": "Ça vous dérangerait d'ouvrir la fenêtre ?" }
+    ],
+    "examples": [
+      { "en": "Would you mind waiting a moment?", "fr": "Ça vous dérangerait de patienter un instant ?" },
+      { "en": "Would you mind if I opened the window?", "fr": "Ça vous dérange si j'ouvre la fenêtre ?" }
+    ],
+    "mistake": { "wrong": "Would you mind to wait?", "right": "Would you mind waiting?", "note": "Après mind, toujours -ing." },
+    "group": "demandes"
+  },
+  {
+    "id": "rule-modal-shall",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "Shall I…? / Shall we…?", "fr": "shall : proposer" },
+    "meaning": "Je… ? / On… ? (pour proposer)",
+    "explanation": "En anglais britannique, Shall I… ? propose de faire quelque chose pour quelqu'un ; Shall we… ? propose de faire quelque chose ensemble. On ne l'emploie presque qu'en question.",
+    "structure": "Shall I / we + base ?",
+    "examples": [
+      { "en": "Shall I carry your bag?", "fr": "Je porte ton sac ?" },
+      { "en": "Shall we meet at seven?", "fr": "On se retrouve à sept heures ?" },
+      { "en": "What shall we do this evening?", "fr": "Qu'est-ce qu'on fait ce soir ?" }
+    ],
+    "mistake": { "wrong": "Shall I to help you?", "right": "Shall I help you?", "note": "Pas de to après shall." },
+    "group": "demandes"
+  },
+  {
+    "id": "rule-modal-can-could-i",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "Can I…? / Could I…?", "fr": "Demander quelque chose pour soi" },
+    "meaning": "Je peux… ? / Pourrais-je… ?",
+    "explanation": "Pour demander un objet, un service ou une permission pour soi. Could I… ? est plus poli. Au café ou au magasin, Can I have… ? et Could I have… ? sont très naturels.",
+    "structure": "Can / Could I + base ?",
+    "examples": [
+      { "en": "Can I have the bill, please?", "fr": "Je peux avoir l'addition, s'il vous plaît ?" },
+      { "en": "Could I have a look?", "fr": "Je pourrais jeter un œil ?" },
+      { "en": "Can I pay by card?", "fr": "Je peux payer par carte ?" }
+    ],
+    "mistake": { "wrong": "I want the bill.", "right": "Could I have the bill, please?", "note": "« I want » paraît brusque : on demande avec Can I have / Could I have." },
+    "group": "demandes"
+  },
+  {
+    "id": "rule-modal-must",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "must (obligation)", "fr": "must : obligation" },
+    "meaning": "devoir : obligation forte, souvent ressentie par celui qui parle",
+    "explanation": "Pour une obligation forte, une règle importante, ou ce qu'on juge soi-même nécessaire. must n'existe qu'au présent : au passé, on dit had to. La question avec must est rare : on dit plutôt Do I have to… ?",
+    "structure": "sujet + must + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I must call my mum tonight.", "fr": "Il faut que j'appelle ma mère ce soir." },
+      { "kind": "negative", "en": "You mustn't be late.", "fr": "Tu ne dois pas être en retard." },
+      { "kind": "question", "en": "Must we wear a tie?", "fr": "Faut-il porter une cravate ?" }
+    ],
+    "examples": [
+      { "en": "Passengers must show their tickets.", "fr": "Les passagers doivent présenter leur billet." },
+      { "en": "You must try this cake, it's delicious!", "fr": "Tu dois goûter ce gâteau, il est délicieux !" }
+    ],
+    "mistake": { "wrong": "I must to go.", "right": "I must go.", "note": "Pas de to après must." },
+    "group": "obligation"
+  },
+  {
+    "id": "rule-modal-have-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "have to", "fr": "have to : obligation extérieure" },
+    "meaning": "devoir, être obligé de, à cause d'une règle ou d'une situation",
+    "explanation": "Obligation qui vient de l'extérieur : travail, règlement, horaire. Il se conjugue comme un verbe normal : she has to, I had to, do you have to… ?",
+    "structure": "have / has to + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I have to work on Saturday.", "fr": "Je dois travailler samedi." },
+      { "kind": "negative", "en": "You don't have to come.", "fr": "Tu n'es pas obligé de venir." },
+      { "kind": "question", "en": "Do you have to wear a uniform?", "fr": "Tu dois porter un uniforme ?" }
+    ],
+    "examples": [
+      { "en": "She has to get up at five.", "fr": "Elle doit se lever à cinq heures." },
+      { "en": "We had to wait for an hour.", "fr": "Nous avons dû attendre une heure." }
+    ],
+    "mistake": { "wrong": "She have to work.", "right": "She has to work.", "note": "have to se conjugue : she has to." },
+    "group": "obligation"
+  },
+  {
+    "id": "rule-modal-need-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "need to / needn't", "fr": "need to : nécessité" },
+    "meaning": "avoir besoin de, devoir",
+    "explanation": "need to : c'est nécessaire. Pour dire que ce n'est pas nécessaire : don't need to (le plus courant) ou needn't (plus britannique, un peu formel).",
+    "structure": "need to + base · don't need to / needn't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I need to buy some milk.", "fr": "Il faut que j'achète du lait." },
+      { "kind": "negative", "en": "You needn't bring anything.", "fr": "Tu n'as besoin de rien apporter." },
+      { "kind": "question", "en": "Do I need to book a table?", "fr": "Faut-il réserver une table ?" }
+    ],
+    "examples": [
+      { "en": "We don't need to hurry, the film starts at nine.", "fr": "Pas besoin de se dépêcher, le film commence à neuf heures." },
+      { "en": "You need to see a doctor.", "fr": "Tu dois voir un médecin." }
+    ],
+    "mistake": { "wrong": "You don't need bring anything.", "right": "You don't need to bring anything.", "note": "don't need to, avec to ; needn't, sans to." },
+    "group": "obligation"
+  },
+  {
+    "id": "rule-modal-mustnt-dont-have-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "mustn't or don't have to?", "fr": "mustn't ou don't have to ?" },
+    "meaning": "interdit ≠ pas obligatoire",
+    "explanation": "La différence essentielle : mustn't, c'est interdit, il ne faut pas. don't have to, ce n'est pas obligatoire, on a le choix.",
+    "structure": "mustn't = interdit · don't have to = pas obligé",
+    "examples": [
+      { "en": "You mustn't do it.", "fr": "Tu ne dois pas le faire : c'est interdit." },
+      { "en": "You don't have to do it.", "fr": "Tu n'es pas obligé de le faire." },
+      { "en": "You mustn't touch the paintings.", "fr": "Il ne faut pas toucher les tableaux." },
+      { "en": "You don't have to pay, it's free.", "fr": "Tu n'as pas besoin de payer, c'est gratuit." },
+      { "en": "We mustn't forget the tickets.", "fr": "Il ne faut pas oublier les billets." }
+    ],
+    "mistake": { "wrong": "It's Sunday, you mustn't go to work.", "right": "It's Sunday, you don't have to go to work.", "note": "Pas obligatoire, mais pas interdit : don't have to." },
+    "group": "obligation"
+  },
+  {
+    "id": "rule-modal-should",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "should / shouldn't", "fr": "should : conseil" },
+    "meaning": "devrais, devrait : conseil",
+    "explanation": "Le conseil le plus courant, ou ce qui serait une bonne idée.",
+    "structure": "sujet + should / shouldn't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "You should see a doctor.", "fr": "Tu devrais voir un médecin." },
+      { "kind": "negative", "en": "You shouldn't eat so late.", "fr": "Tu ne devrais pas manger si tard." },
+      { "kind": "question", "en": "Should I bring something?", "fr": "Je devrais apporter quelque chose ?" }
+    ],
+    "examples": [
+      { "en": "We should leave soon.", "fr": "Nous devrions partir bientôt." }
+    ],
+    "mistake": { "wrong": "You should to rest.", "right": "You should rest.", "note": "Pas de to après should." },
+    "group": "conseil"
+  },
+  {
+    "id": "rule-modal-ought-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "ought to", "fr": "ought to : ce qu'il faudrait faire" },
+    "meaning": "devrait (comme should, un peu plus formel)",
+    "explanation": "Même sens que should, un peu plus formel et moins fréquent à l'oral. La négation et la question sont rares : on utilise plutôt should.",
+    "structure": "sujet + ought to + base",
+    "examples": [
+      { "en": "You ought to apologise.", "fr": "Tu devrais t'excuser." },
+      { "en": "We ought to be there by six.", "fr": "Nous devrions y être pour dix-huit heures." },
+      { "en": "She ought to get some rest.", "fr": "Elle devrait se reposer." }
+    ],
+    "mistake": { "wrong": "You ought apologise.", "right": "You ought to apologise.", "note": "ought est toujours suivi de to." },
+    "group": "conseil"
+  },
+  {
+    "id": "rule-modal-had-better",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "had better", "fr": "had better : avertissement" },
+    "meaning": "ferais mieux de, sinon il y aura un problème",
+    "explanation": "Plus fort que should : un conseil urgent, presque un avertissement. À l'oral : You'd better… ; au négatif : You'd better not…",
+    "structure": "sujet + 'd better (not) + base",
+    "forms": [
+      { "kind": "affirmative", "en": "You'd better take an umbrella.", "fr": "Tu ferais mieux de prendre un parapluie." },
+      { "kind": "negative", "en": "We'd better not be late.", "fr": "On a intérêt à ne pas être en retard." }
+    ],
+    "examples": [
+      { "en": "I'd better go, my bus is coming.", "fr": "Je ferais mieux d'y aller, mon bus arrive." },
+      { "en": "You'd better call her before she leaves.", "fr": "Tu ferais mieux de l'appeler avant qu'elle parte." }
+    ],
+    "mistake": { "wrong": "You'd better to hurry.", "right": "You'd better hurry.", "note": "Pas de to après had better." },
+    "group": "conseil"
+  },
+  {
+    "id": "rule-modal-if-i-were-you",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "If I were you, I'd…", "fr": "If I were you : à ta place" },
+    "meaning": "À ta place, je…",
+    "explanation": "Pour conseiller en se mettant à la place de l'autre. Dans cette expression, on dit were, même avec I.",
+    "structure": "If I were you, I'd + base",
+    "examples": [
+      { "en": "If I were you, I'd take the train.", "fr": "À ta place, je prendrais le train." },
+      { "en": "If I were you, I wouldn't buy it.", "fr": "À ta place, je ne l'achèterais pas." },
+      { "en": "What would you do if you were me?", "fr": "Que ferais-tu à ma place ?" }
+    ],
+    "mistake": { "wrong": "If I would be you, I'd go.", "right": "If I were you, I'd go.", "note": "Après if : were, pas would." },
+    "group": "conseil"
+  },
+  {
+    "id": "rule-modal-may-might",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "may / might (possibility)", "fr": "may, might : possibilité" },
+    "meaning": "il se peut que, peut-être",
+    "explanation": "Pour une possibilité, sans certitude. might est un peu plus incertain, et très fréquent à l'oral.",
+    "structure": "sujet + may / might (not) + base",
+    "forms": [
+      { "kind": "affirmative", "en": "It might rain.", "fr": "Il se peut qu'il pleuve." },
+      { "kind": "negative", "en": "She might not come.", "fr": "Elle ne viendra peut-être pas." },
+      { "kind": "question", "en": "Do you think he might be late?", "fr": "Tu crois qu'il pourrait être en retard ?" }
+    ],
+    "examples": [
+      { "en": "I may be a bit late tonight.", "fr": "Je serai peut-être un peu en retard ce soir." },
+      { "en": "Take a jumper, it might get cold.", "fr": "Prends un pull, il pourrait faire froid." }
+    ],
+    "mistake": { "wrong": "It might to rain.", "right": "It might rain.", "note": "Pas de to après might." },
+    "group": "possibilite"
+  },
+  {
+    "id": "rule-modal-could-possibility",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "could (possibility)", "fr": "could : possibilité" },
+    "meaning": "pourrait : c'est possible",
+    "explanation": "Pour une possibilité, ou une idée parmi d'autres.",
+    "structure": "sujet + could + base",
+    "forms": [
+      { "kind": "affirmative", "en": "It could be in the car.", "fr": "Ça pourrait être dans la voiture." },
+      { "kind": "negative", "en": "It couldn't be easier.", "fr": "Ça ne pourrait pas être plus simple." },
+      { "kind": "question", "en": "Could it be a mistake?", "fr": "Ça pourrait être une erreur ?" }
+    ],
+    "examples": [
+      { "en": "We could go to the cinema tonight.", "fr": "On pourrait aller au cinéma ce soir." }
+    ],
+    "mistake": { "wrong": "My keys can be in the car.", "right": "My keys could be in the car.", "note": "Pour une hypothèse précise : could ou might, plutôt que can." },
+    "group": "possibilite"
+  },
+  {
+    "id": "rule-modal-must-deduction",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "must (deduction)", "fr": "must : déduction" },
+    "meaning": "doit, j'en suis presque sûr",
+    "explanation": "must peut aussi exprimer une déduction : à partir de ce qu'on voit ou de ce qu'on sait, on est presque certain.",
+    "structure": "sujet + must + be / base",
+    "examples": [
+      { "en": "She must be tired.", "fr": "Elle doit être fatiguée." },
+      { "en": "You must be Tom's sister.", "fr": "Tu dois être la sœur de Tom." },
+      { "en": "They've got three cars, they must be rich.", "fr": "Ils ont trois voitures, ils doivent être riches." }
+    ],
+    "mistake": { "wrong": "He mustn't be at home, the lights are off.", "right": "He can't be at home, the lights are off.", "note": "Le contraire de must (déduction), c'est can't, pas mustn't." },
+    "group": "possibilite"
+  },
+  {
+    "id": "rule-modal-cant-deduction",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "can't (deduction)", "fr": "can't : déduction négative" },
+    "meaning": "ne peut pas, c'est impossible",
+    "explanation": "can't exprime qu'on est presque sûr que quelque chose n'est pas vrai.",
+    "structure": "sujet + can't + be / base",
+    "examples": [
+      { "en": "He can't be at home.", "fr": "Il ne peut pas être chez lui." },
+      { "en": "That can't be right!", "fr": "Ça ne peut pas être vrai !" },
+      { "en": "She can't be twenty, she looks fifteen.", "fr": "Elle ne peut pas avoir vingt ans, on lui en donnerait quinze." }
+    ],
+    "mistake": { "wrong": "It mustn't be true.", "right": "It can't be true.", "note": "Pour une déduction négative : can't." },
+    "group": "possibilite"
+  },
+  {
+    "id": "rule-modal-will",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "will / won't", "fr": "will : futur, décision, promesse" },
+    "meaning": "futur ; décision prise sur le moment ; promesse",
+    "explanation": "Décision prise sur le moment, promesse, offre, prédiction. À l'oral : I'll, you'll… ; au négatif : won't.",
+    "structure": "sujet + will ('ll) / won't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "I'll have the soup, please.", "fr": "Je vais prendre la soupe, s'il vous plaît." },
+      { "kind": "negative", "en": "I won't tell anyone.", "fr": "Je ne le dirai à personne." },
+      { "kind": "question", "en": "Will you help me?", "fr": "Tu veux bien m'aider ?" }
+    ],
+    "examples": [
+      { "en": "It's cold. I'll close the window.", "fr": "Il fait froid. Je vais fermer la fenêtre." },
+      { "en": "I promise I'll call you.", "fr": "Je te promets que je t'appellerai." },
+      { "en": "I think it'll be sunny tomorrow.", "fr": "Je pense qu'il fera beau demain." }
+    ],
+    "mistake": { "wrong": "I will to call you.", "right": "I'll call you.", "note": "Pas de to après will." },
+    "group": "futur"
+  },
+  {
+    "id": "rule-modal-would",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "would / wouldn't", "fr": "would : politesse et hypothèse" },
+    "meaning": "conditionnel : je voudrais, ce serait, j'aimerais",
+    "explanation": "would sert à être poli (I'd like) et à imaginer une situation. À l'oral : I'd, you'd… ; au négatif : wouldn't.",
+    "structure": "sujet + would ('d) / wouldn't + base",
+    "forms": [
+      { "kind": "affirmative", "en": "It would be nice to live by the sea.", "fr": "Ce serait agréable de vivre au bord de la mer." },
+      { "kind": "negative", "en": "I wouldn't do that.", "fr": "Je ne ferais pas ça." },
+      { "kind": "question", "en": "What would you do with a million pounds?", "fr": "Que ferais-tu avec un million de livres ?" }
+    ],
+    "examples": [
+      { "en": "I'd love to come.", "fr": "J'adorerais venir." }
+    ],
+    "mistake": { "wrong": "I would like that you come.", "right": "I'd like you to come.", "note": "would like + personne + to + base." },
+    "group": "futur"
+  },
+  {
+    "id": "rule-modal-would-past-habit",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "would (past habit)", "fr": "would : habitude passée" },
+    "meaning": "faisait (actions répétées, souvenirs)",
+    "explanation": "Pour raconter des actions répétées dans le passé, souvent dans des souvenirs. Seulement pour des actions, pas pour des états : pour un état, on dit used to.",
+    "structure": "sujet + would + base (action répétée)",
+    "examples": [
+      { "en": "When I was little, my grandfather would tell me stories.", "fr": "Quand j'étais petit, mon grand-père me racontait des histoires." },
+      { "en": "Every summer, we would go to the seaside.", "fr": "Chaque été, nous allions au bord de la mer." }
+    ],
+    "mistake": { "wrong": "I would live in Paris when I was a child.", "right": "I used to live in Paris when I was a child.", "note": "Pour un état (live, have, be) : used to, pas would." },
+    "group": "futur"
+  },
+  {
+    "id": "rule-modal-used-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "used to / didn't use to", "fr": "used to : c'était comme ça avant" },
+    "meaning": "avant, je… (ce n'est plus le cas)",
+    "explanation": "Pour une habitude ou une situation passée qui a changé. Négation : didn't use to ; question : Did you use to… ? (sans d).",
+    "structure": "used to + base · didn't use to + base · Did you use to + base ?",
+    "forms": [
+      { "kind": "affirmative", "en": "I used to smoke.", "fr": "Avant, je fumais." },
+      { "kind": "negative", "en": "She didn't use to like coffee.", "fr": "Avant, elle n'aimait pas le café." },
+      { "kind": "question", "en": "Did you use to play football?", "fr": "Tu jouais au football, avant ?" }
+    ],
+    "examples": [
+      { "en": "We used to live in Manchester.", "fr": "Avant, nous habitions à Manchester." },
+      { "en": "There used to be a cinema here.", "fr": "Avant, il y avait un cinéma ici." }
+    ],
+    "mistake": { "wrong": "I use to smoke.", "right": "I used to smoke.", "note": "À l'affirmatif : used, avec d." },
+    "group": "habitudes"
+  },
+  {
+    "id": "rule-modal-be-used-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "be used to doing", "fr": "be used to : être habitué à" },
+    "meaning": "être habitué à (aujourd'hui)",
+    "explanation": "Ce n'est pas une habitude passée : c'est être habitué, maintenant. Suivi d'un nom ou d'un verbe en -ing.",
+    "structure": "be used to + nom / verbe-ing",
+    "forms": [
+      { "kind": "affirmative", "en": "I'm used to getting up early.", "fr": "J'ai l'habitude de me lever tôt." },
+      { "kind": "negative", "en": "She isn't used to driving on the left.", "fr": "Elle n'a pas l'habitude de conduire à gauche." },
+      { "kind": "question", "en": "Are you used to the cold?", "fr": "Tu es habitué au froid ?" }
+    ],
+    "examples": [
+      { "en": "He's used to working at night.", "fr": "Il a l'habitude de travailler la nuit." }
+    ],
+    "mistake": { "wrong": "I'm used to get up early.", "right": "I'm used to getting up early.", "note": "Après be used to : -ing." },
+    "group": "habitudes"
+  },
+  {
+    "id": "rule-modal-get-used-to",
+    "type": "rule",
+    "kind": "modal",
+    "title": { "en": "get used to doing", "fr": "get used to : s'habituer à" },
+    "meaning": "s'habituer à",
+    "explanation": "Le changement : devenir habitué, peu à peu. Suivi d'un nom ou d'un verbe en -ing.",
+    "structure": "get used to + nom / verbe-ing",
+    "forms": [
+      { "kind": "affirmative", "en": "You'll get used to it.", "fr": "Tu t'y habitueras." },
+      { "kind": "negative", "en": "I can't get used to the noise.", "fr": "Je n'arrive pas à m'habituer au bruit." },
+      { "kind": "question", "en": "Have you got used to your new job?", "fr": "Tu t'es habitué à ton nouveau travail ?" }
+    ],
+    "examples": [
+      { "en": "It took me a month to get used to driving on the left.", "fr": "Il m'a fallu un mois pour m'habituer à conduire à gauche." }
+    ],
+    "mistake": { "wrong": "I'm getting used to work at night.", "right": "I'm getting used to working at night.", "note": "Après get used to : -ing." },
+    "group": "habitudes"
+  }
+]

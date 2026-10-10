@@ -1,0 +1,31 @@
+{
+  "id": "text-buying-and-paying",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Buying something and paying", "fr": "Acheter quelque chose et payer" },
+  "situation": "Un client achète un pull dans un magasin de vêtements.",
+  "theme": "courses",
+  "sentences": [
+    { "speaker": "Shop assistant", "en": "Hello, can I help you?", "fr": "Bonjour, je peux vous aider ?" },
+    { "speaker": "Customer", "en": "Yes, please. Have you got this jumper in a medium?", "fr": "Oui, s'il vous plaît. Vous avez ce pull en taille M ?" },
+    { "speaker": "Shop assistant", "en": "Let me check. Yes, here you are. Would you like to try it on?", "fr": "Je vérifie. Oui, tenez. Vous voulez l'essayer ?" },
+    { "speaker": "Customer", "en": "Yes, where are the changing rooms?", "fr": "Oui, où sont les cabines d'essayage ?" },
+    { "speaker": "Shop assistant", "en": "Just over there, on the left.", "fr": "Juste là-bas, à gauche." },
+    { "speaker": "Customer", "en": "It fits perfectly. How much is it?", "fr": "Il me va parfaitement. Il coûte combien ?" },
+    { "speaker": "Shop assistant", "en": "It's thirty-five pounds, but there's twenty percent off this week.", "fr": "Il est à trente-cinq livres, mais il y a vingt pour cent de réduction cette semaine." },
+    { "speaker": "Customer", "en": "Great, I'll take it. Can I pay by card?", "fr": "Super, je le prends. Je peux payer par carte ?" },
+    { "speaker": "Shop assistant", "en": "Of course. Just tap your card on the machine.", "fr": "Bien sûr. Posez simplement votre carte sur le terminal." },
+    { "speaker": "Customer", "en": "Done. Could I have a receipt, please?", "fr": "Voilà. Je pourrais avoir un ticket de caisse, s'il vous plaît ?" },
+    { "speaker": "Shop assistant", "en": "Here you go. Would you like a bag?", "fr": "Voici. Vous voulez un sac ?" },
+    { "speaker": "Customer", "en": "No thanks, I've got one.", "fr": "Non merci, j'en ai un." },
+    { "speaker": "Shop assistant", "en": "Thank you. Have a nice day!", "fr": "Merci. Bonne journée !" }
+  ],
+  "expressions": [
+    { "en": "Have you got this in a medium?", "fr": "Vous l'avez en taille M ?" },
+    { "en": "Would you like to try it on?", "fr": "Vous voulez l'essayer ?" },
+    { "en": "It fits perfectly.", "fr": "Il me va parfaitement." },
+    { "en": "I'll take it.", "fr": "Je le prends." },
+    { "en": "Can I pay by card?", "fr": "Je peux payer par carte ?" },
+    { "en": "Could I have a receipt, please?", "fr": "Je pourrais avoir un ticket de caisse, s'il vous plaît ?" }
+  ]
+}

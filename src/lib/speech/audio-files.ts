@@ -1,4 +1,4 @@
-import type { Lang } from "@/lib/player/types";
+import type { Lang, Voice } from "@/lib/player/types";
 
 /**
  * Generated audio files are linked to the content automatically: one file per spoken text,
@@ -12,6 +12,16 @@ export const VOICES: Record<Lang, string> = {
   fr: "fr-FR-DeniseNeural",
 };
 
+/** Second voices (second speaker of a dialogue). */
+export const ALT_VOICES: Record<Lang, string> = {
+  en: "en-GB-RyanNeural",
+  fr: "fr-FR-HenriNeural",
+};
+
+export function voiceName(lang: Lang, voice?: Voice): string {
+  return voice === "alt" ? ALT_VOICES[lang] : VOICES[lang];
+}
+
 /** The text as it is actually said: "was / were" would be read "was slash were". */
 export function spokenText(text: string): string {
   return text.replace(/\s*\/\s*/g, ", ").replace(/\s+/g, " ").trim();
@@ -20,10 +30,17 @@ export function spokenText(text: string): string {
 /**
  * Path under /public, e.g. `audio/en/1x2y3z.mp3`.
  * `rate` < 1 is a slower recording (generated slower, which sounds better than slowing down playback).
+ * `voice`: the second voice; the usual voice gives the same names as before it existed.
  */
-export function audioPath(lang: Lang, text: string, rate = 1): string {
+export function audioPath(lang: Lang, text: string, rate = 1, voice?: Voice): string {
   const speed = rate === 1 ? "" : `@${rate}\n`;
-  return `audio/${lang}/${hash(`${VOICES[lang]}\n${speed}${spokenText(text)}`)}.mp3`;
+  return `audio/${lang}/${hash(`${voiceName(lang, voice)}\n${speed}${spokenText(text)}`)}.mp3`;
+}
+
+/** Files to try, best first: second voice (slow, normal), then the usual voice (slow, normal). */
+export function audioCandidates(lang: Lang, text: string, rate = 1, voice?: Voice): string[] {
+  const paths = [audioPath(lang, text, rate, voice), audioPath(lang, text, 1, voice), audioPath(lang, text, rate), audioPath(lang, text)];
+  return [...new Set(paths)];
 }
 
 /** Edge TTS prosody rate, e.g. 0.85 → "-15%". */

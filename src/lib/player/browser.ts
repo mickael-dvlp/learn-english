@@ -1,6 +1,6 @@
 import { SAMPLE_RATE, encodeWav, trimSilence } from "@/lib/audio/pcm";
 import { debugLog } from "@/lib/debug/log";
-import { audioPath } from "@/lib/speech/audio-files";
+import { audioCandidates } from "@/lib/speech/audio-files";
 import { Player, type AudioOutput, type PlayerOptions } from "./player";
 import type { Chunk, ClipLoader } from "./timeline";
 
@@ -15,12 +15,11 @@ const MAX_CACHED_CLIPS = 200;
 const clips = new Map<string, Promise<Float32Array | undefined>>();
 let decoder: OfflineAudioContext | undefined;
 
-/** The slow version of a sentence when it exists, the normal one otherwise. */
+/** The slow version of a sentence when it exists, the normal one otherwise; the usual voice if the second one is missing. */
 const loadClip: ClipLoader = async (step) => {
   const text = step.unit[step.lang];
   if (!text) return undefined;
-  const candidates = [...new Set([audioPath(step.lang, text, step.rate), audioPath(step.lang, text)])];
-  for (const path of candidates) {
+  for (const path of audioCandidates(step.lang, text, step.rate, step.voice)) {
     const clip = await loadFile(`/${path}`);
     if (clip) return clip;
   }

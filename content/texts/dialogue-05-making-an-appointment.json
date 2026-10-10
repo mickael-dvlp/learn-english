@@ -1,0 +1,29 @@
+{
+  "id": "text-making-an-appointment",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Making an appointment", "fr": "Prendre un rendez-vous" },
+  "situation": "Un patient appelle le cabinet médical pour prendre rendez-vous.",
+  "theme": "heure-rendez-vous",
+  "sentences": [
+    { "speaker": "Receptionist", "en": "Good morning, Riverside Surgery. How can I help?", "fr": "Bonjour, cabinet médical Riverside. Que puis-je pour vous ?" },
+    { "speaker": "Mark", "en": "Hello, I'd like to make an appointment with Dr Patel, please.", "fr": "Bonjour, je voudrais prendre rendez-vous avec le docteur Patel, s'il vous plaît." },
+    { "speaker": "Receptionist", "en": "Of course. Is it urgent?", "fr": "Bien sûr. C'est urgent ?" },
+    { "speaker": "Mark", "en": "No, it's just a check-up.", "fr": "Non, c'est juste un contrôle." },
+    { "speaker": "Receptionist", "en": "Let me see. Dr Patel is free on Thursday at half past ten.", "fr": "Voyons. Le docteur Patel est libre jeudi à dix heures et demie." },
+    { "speaker": "Mark", "en": "I'm afraid I'm working on Thursday morning. Is there anything in the afternoon?", "fr": "Malheureusement, je travaille jeudi matin. Y a-t-il quelque chose l'après-midi ?" },
+    { "speaker": "Receptionist", "en": "How about Friday at four o'clock?", "fr": "Que diriez-vous de vendredi à seize heures ?" },
+    { "speaker": "Mark", "en": "That's perfect.", "fr": "C'est parfait." },
+    { "speaker": "Receptionist", "en": "Can I have your name and date of birth, please?", "fr": "Puis-je avoir votre nom et votre date de naissance, s'il vous plaît ?" },
+    { "speaker": "Mark", "en": "Mark Lewis, the twelfth of May, nineteen eighty-five.", "fr": "Mark Lewis, le douze mai mille neuf cent quatre-vingt-cinq." },
+    { "speaker": "Receptionist", "en": "Thank you, Mr Lewis. So that's Friday at four with Dr Patel.", "fr": "Merci, monsieur Lewis. C'est donc vendredi à seize heures avec le docteur Patel." },
+    { "speaker": "Mark", "en": "Great. Thanks very much. Goodbye.", "fr": "Très bien. Merci beaucoup. Au revoir." }
+  ],
+  "expressions": [
+    { "en": "I'd like to make an appointment.", "fr": "Je voudrais prendre rendez-vous." },
+    { "en": "Is it urgent?", "fr": "C'est urgent ?" },
+    { "en": "I'm afraid I'm working on Thursday.", "fr": "Malheureusement, je travaille jeudi." },
+    { "en": "How about Friday at four?", "fr": "Que diriez-vous de vendredi à seize heures ?" },
+    { "en": "Can I have your date of birth?", "fr": "Puis-je avoir votre date de naissance ?" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "text-emergency",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Asking for help in an emergency", "fr": "Demander de l'aide en urgence" },
+  "situation": "Un homme appelle les secours (le 999) après un accident de vélo dans la rue.",
+  "theme": "urgences",
+  "sentences": [
+    { "speaker": "Operator", "en": "Emergency. Which service do you need?", "fr": "Urgences. De quel service avez-vous besoin ?" },
+    { "speaker": "Daniel", "en": "Ambulance, please. There's been an accident.", "fr": "Une ambulance, s'il vous plaît. Il y a eu un accident." },
+    { "speaker": "Operator", "en": "OK. Where are you exactly?", "fr": "D'accord. Où êtes-vous exactement ?" },
+    { "speaker": "Daniel", "en": "On King Street, near the post office.", "fr": "Dans King Street, près de la poste." },
+    { "speaker": "Operator", "en": "What happened?", "fr": "Que s'est-il passé ?" },
+    { "speaker": "Daniel", "en": "A cyclist has fallen off his bike. He's hit his head.", "fr": "Un cycliste est tombé de son vélo. Il s'est cogné la tête." },
+    { "speaker": "Operator", "en": "Is he conscious? Is he breathing?", "fr": "Il est conscient ? Il respire ?" },
+    { "speaker": "Daniel", "en": "Yes, he's awake and breathing, but he's bleeding a little.", "fr": "Oui, il est réveillé et il respire, mais il saigne un peu." },
+    { "speaker": "Operator", "en": "An ambulance is on its way. Don't move him. Stay with him and keep him warm.", "fr": "Une ambulance est en route. Ne le déplacez pas. Restez avec lui et gardez-le au chaud." },
+    { "speaker": "Daniel", "en": "OK. How long will it be?", "fr": "D'accord. Ça va prendre combien de temps ?" },
+    { "speaker": "Operator", "en": "About eight minutes. Can I have your phone number, in case we get cut off?", "fr": "Environ huit minutes. Puis-je avoir votre numéro, au cas où on serait coupés ?" },
+    { "speaker": "Daniel", "en": "Yes, it's oh seven seven double oh, nine double oh, four five six.", "fr": "Oui, c'est le zéro sept sept zéro zéro, neuf zéro zéro, quatre cinq six." },
+    { "speaker": "Operator", "en": "Thank you. Stay calm, help is coming.", "fr": "Merci. Restez calme, les secours arrivent." }
+  ],
+  "expressions": [
+    { "en": "There's been an accident.", "fr": "Il y a eu un accident." },
+    { "en": "Where are you exactly?", "fr": "Où êtes-vous exactement ?" },
+    { "en": "He's hit his head.", "fr": "Il s'est cogné la tête." },
+    { "en": "An ambulance is on its way.", "fr": "Une ambulance est en route." },
+    { "en": "in case we get cut off", "fr": "au cas où on serait coupés" },
+    { "en": "Stay calm, help is coming.", "fr": "Restez calme, les secours arrivent." }
+  ]
+}

@@ -105,6 +105,9 @@ export class Player {
 
   previous = () => this.jump(-1);
 
+  /** Plays the current segment again from its start (a dialogue line, a word…). */
+  replay = () => this.jump(0);
+
   stop = () => {
     if (this.status === "ended") return;
     this.finish();

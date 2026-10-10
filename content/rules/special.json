@@ -1,29 +1,19 @@
 [
   {
-    "id": "rule-there-is-there-are",
-    "type": "rule",
-    "kind": "special",
-    "title": { "en": "There is / there are", "fr": "Il y a" },
-    "explanation": "« Il y a » se dit « there is » devant un nom au singulier, et « there are » devant un nom au pluriel.",
-    "examples": [
-      { "en": "There is a cat on the bed.", "fr": "Il y a un chat sur le lit." },
-      { "en": "There are three cows in the field.", "fr": "Il y a trois vaches dans le champ." }
-    ],
-    "level": "A1"
-  },
-  {
     "id": "rule-questions-do-does-did",
     "type": "rule",
     "kind": "special",
     "title": { "en": "Questions with do, does, did", "fr": "Poser une question avec do, does, did" },
-    "explanation": "Pour poser une question au présent ou au passé simple, on place un auxiliaire devant le sujet : « do » avec I, you, we, they ; « does » avec he, she, it ; « did » au passé, pour tout le monde. Le verbe reste alors à sa forme de base : pas de « s », pas de « ed ».",
+    "explanation": "Pour poser une question au présent ou au passé simple, on place un auxiliaire devant le sujet : « do » avec I, you, we, they ; « does » avec he, she, it ; « did » au passé, pour tout le monde. Le verbe reste alors à sa forme de base : pas de « s », pas de « ed ».",
+    "structure": "(mot interrogatif) + do / does / did + sujet + verbe (base) ?",
     "examples": [
       { "en": "Do you like coffee?", "fr": "Est-ce que tu aimes le café ?" },
       { "en": "Does she work on a farm?", "fr": "Est-ce qu'elle travaille dans une ferme ?" },
       { "en": "Did they cook dinner?", "fr": "Est-ce qu'ils ont préparé le dîner ?" },
       { "en": "Did you sleep well?", "fr": "Est-ce que tu as bien dormi ?" }
     ],
-    "level": "A1",
+    "mistake": { "wrong": "Does she works here?", "right": "Does she work here?", "note": "Après does et did, le verbe reste à la base." },
+    "group": "questions",
     "tags": ["questions"]
   },
   {
@@ -31,7 +21,8 @@
     "type": "rule",
     "kind": "special",
     "title": { "en": "Questions with be, can, will, have", "fr": "Poser une question par inversion" },
-    "explanation": "Avec le verbe « be », et avec les auxiliaires comme « can », « will » ou « have », on n'utilise pas « do » : on inverse simplement le sujet et le verbe, comme en français dans « es-tu » ou « peux-tu ».",
+    "explanation": "Avec le verbe « be », et avec les auxiliaires comme « can », « will » ou « have », on n'utilise pas « do » : on inverse simplement le sujet et le verbe, comme en français dans « es-tu » ou « peux-tu ».",
+    "structure": "be / can / will / have + sujet + … ?",
     "examples": [
       { "en": "Are you tired?", "fr": "Es-tu fatigué ?" },
       { "en": "Is it cold outside?", "fr": "Est-ce qu'il fait froid dehors ?" },
@@ -39,7 +30,8 @@
       { "en": "Will they come tomorrow?", "fr": "Est-ce qu'ils viendront demain ?" },
       { "en": "Have you eaten?", "fr": "As-tu mangé ?" }
     ],
-    "level": "A1",
+    "mistake": { "wrong": "Do you can help me?", "right": "Can you help me?", "note": "Avec be et les modaux, jamais de do." },
+    "group": "questions",
     "tags": ["questions"]
   },
   {
@@ -47,7 +39,8 @@
     "type": "rule",
     "kind": "special",
     "title": { "en": "Question words", "fr": "Les mots interrogatifs" },
-    "explanation": "Le mot interrogatif se met en tête de la question : what (quoi), where (où), when (quand), who (qui), why (pourquoi), how (comment). Ensuite, on suit la règle habituelle : auxiliaire, sujet, verbe. Exception : quand « who » ou « what » est le sujet de la phrase, on n'ajoute pas « do ».",
+    "explanation": "Le mot interrogatif se met en tête de la question : what (quoi), where (où), when (quand), who (qui), why (pourquoi), how (comment). Ensuite, on suit la règle habituelle : auxiliaire, sujet, verbe. Exception : quand « who » ou « what » est le sujet de la phrase, on n'ajoute pas « do ».",
+    "structure": "mot interrogatif + auxiliaire + sujet + verbe ?",
     "examples": [
       { "en": "What is your name?", "fr": "Comment tu t'appelles ?" },
       { "en": "Where do you live?", "fr": "Où est-ce que tu habites ?" },
@@ -56,7 +49,152 @@
       { "en": "How old are you?", "fr": "Quel âge as-tu ?" },
       { "en": "Who wants some tea?", "fr": "Qui veut du thé ?" }
     ],
-    "level": "A1",
+    "mistake": { "wrong": "Where you live?", "right": "Where do you live?", "note": "Le mot interrogatif ne remplace pas l'auxiliaire." },
+    "group": "questions",
     "tags": ["questions"]
+  },
+  {
+    "id": "rule-there-is-there-are",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "There is / there are", "fr": "Il y a" },
+    "explanation": "« Il y a » se dit « there is » devant un nom au singulier, et « there are » devant un nom au pluriel.",
+    "structure": "there is + singulier · there are + pluriel",
+    "forms": [
+      { "kind": "negative", "en": "There isn't any milk.", "fr": "Il n'y a pas de lait." },
+      { "kind": "question", "en": "Is there a bank near here?", "fr": "Y a-t-il une banque près d'ici ?" }
+    ],
+    "examples": [
+      { "en": "There is a cat on the bed.", "fr": "Il y a un chat sur le lit." },
+      { "en": "There are three cows in the field.", "fr": "Il y a trois vaches dans le champ." },
+      { "en": "There are some good restaurants in this street.", "fr": "Il y a de bons restaurants dans cette rue." }
+    ],
+    "mistake": { "wrong": "It has a cat on the bed.", "right": "There is a cat on the bed.", "note": "« Il y a » ne se traduit jamais par « it has »." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-articles",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Articles: a, an, the", "fr": "Les articles : a, an, the" },
+    "explanation": "a devant un son consonne, an devant un son voyelle (an hour, a university) : une chose parmi d'autres. the : une chose précise, déjà connue. Pas d'article pour parler en général (I love music) et dans des expressions comme go to bed, at home, by train. Avec un métier, on garde a / an.",
+    "structure": "a / an + nom singulier · the + chose précise · rien + sens général",
+    "examples": [
+      { "en": "I've got a car and an old bike.", "fr": "J'ai une voiture et un vieux vélo." },
+      { "en": "The car is outside.", "fr": "La voiture est dehors." },
+      { "en": "She's a teacher.", "fr": "Elle est professeure." },
+      { "en": "I love music.", "fr": "J'adore la musique." },
+      { "en": "I'm going to bed.", "fr": "Je vais me coucher." },
+      { "en": "We went by train.", "fr": "Nous y sommes allés en train." }
+    ],
+    "mistake": { "wrong": "She is teacher.", "right": "She's a teacher.", "note": "Avec un métier, on garde a / an." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-countable-uncountable",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Countable and uncountable nouns", "fr": "Noms dénombrables et indénombrables" },
+    "explanation": "Dénombrables : on peut les compter (a chair, two chairs). Indénombrables : ni pluriel ni a (water, money, advice, information). many, a few, fewer avec les dénombrables ; much, a little, less avec les indénombrables ; some et any avec les deux. Le vocabulaire est dans le thème « Quantités et mesures ».",
+    "structure": "many / a few / fewer + pluriel · much / a little / less + indénombrable",
+    "examples": [
+      { "en": "How many eggs do we need?", "fr": "Combien d'œufs nous faut-il ?" },
+      { "en": "How much money have you got?", "fr": "Combien d'argent as-tu ?" },
+      { "en": "There are a few apples left.", "fr": "Il reste quelques pommes." },
+      { "en": "Could I have a little milk?", "fr": "Je pourrais avoir un peu de lait ?" },
+      { "en": "Is there any bread? – Yes, there's some in the kitchen.", "fr": "Il y a du pain ? – Oui, il y en a dans la cuisine." },
+      { "en": "Can you give me some advice?", "fr": "Tu peux me donner des conseils ?" }
+    ],
+    "mistake": { "wrong": "Can you give me an advice?", "right": "Can you give me some advice?", "note": "advice, information, news : jamais de a, jamais de -s." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-comparatives-superlatives",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Comparatives and superlatives", "fr": "Comparatifs et superlatifs" },
+    "explanation": "Adjectif court : -er et the -est (cheap, cheaper, the cheapest). Adjectif long : more et the most (more expensive). Irréguliers : good, better, the best ; bad, worse, the worst. as… as pour l'égalité, too (trop) avant l'adjectif, enough (assez) après.",
+    "structure": "cheaper than · more expensive than · the cheapest · as cheap as",
+    "examples": [
+      { "en": "This hotel is cheaper than the other one.", "fr": "Cet hôtel est moins cher que l'autre." },
+      { "en": "London is more expensive than Leeds.", "fr": "Londres est plus chère que Leeds." },
+      { "en": "It's the best pizza in town.", "fr": "C'est la meilleure pizza de la ville." },
+      { "en": "My brother is as tall as my dad.", "fr": "Mon frère est aussi grand que mon père." },
+      { "en": "This coat is too small.", "fr": "Ce manteau est trop petit." },
+      { "en": "The room isn't big enough.", "fr": "La chambre n'est pas assez grande." }
+    ],
+    "mistake": { "wrong": "It's more cheap.", "right": "It's cheaper.", "note": "Adjectif court : -er, pas more." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-adverb-position",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Where adverbs go", "fr": "La place des adverbes" },
+    "explanation": "Les adverbes de fréquence se placent avant le verbe, mais après be (I often walk, I'm often tired). Les adverbes de manière se mettent après le verbe ou son complément (She speaks English well). already et just entre have et le participe ; yet à la fin des questions et des négations ; still avant le verbe, après be. Les adverbes sont dans le thème « Adverbes utiles ».",
+    "structure": "I often walk · I'm often tired · She speaks English well",
+    "examples": [
+      { "en": "I always drink tea in the morning.", "fr": "Je bois toujours du thé le matin." },
+      { "en": "She's never late.", "fr": "Elle n'est jamais en retard." },
+      { "en": "He drives carefully.", "fr": "Il conduit prudemment." },
+      { "en": "I've already eaten.", "fr": "J'ai déjà mangé." },
+      { "en": "Have you finished yet?", "fr": "Tu as fini ?" },
+      { "en": "He still lives with his parents.", "fr": "Il habite toujours chez ses parents." }
+    ],
+    "mistake": { "wrong": "I drink always tea.", "right": "I always drink tea.", "note": "Avant le verbe, mais après be." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-verb-patterns",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Verb + to do or doing", "fr": "Les structures après les verbes" },
+    "explanation": "Certains verbes sont suivis de to + verbe (want, need, hope, decide), d'autres de -ing (like, enjoy, finish). Avec une personne : ask / tell someone to do. make et let sont suivis de la base, sans to.",
+    "structure": "want to do · enjoy doing · ask someone to do · let someone do",
+    "examples": [
+      { "en": "I want to learn English.", "fr": "Je veux apprendre l'anglais." },
+      { "en": "I enjoy walking by the sea.", "fr": "J'aime me promener au bord de la mer." },
+      { "en": "She asked me to help her.", "fr": "Elle m'a demandé de l'aider." },
+      { "en": "My boss told me to call the client.", "fr": "Mon chef m'a dit d'appeler le client." },
+      { "en": "Let me help you.", "fr": "Laisse-moi t'aider." },
+      { "en": "That film made me cry.", "fr": "Ce film m'a fait pleurer." }
+    ],
+    "mistake": { "wrong": "I enjoy to walk.", "right": "I enjoy walking.", "note": "enjoy, finish, mind : toujours + -ing." },
+    "group": "phrase"
+  },
+  {
+    "id": "rule-first-conditional",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "First conditional", "fr": "Le premier conditionnel" },
+    "explanation": "Pour une situation future possible et sa conséquence. Après if, on met le présent simple, pas will ; will va dans l'autre partie de la phrase.",
+    "structure": "If + présent simple, will + base",
+    "examples": [
+      { "en": "If it rains, we'll stay at home.", "fr": "S'il pleut, nous resterons à la maison." },
+      { "en": "If you're tired, I'll drive.", "fr": "Si tu es fatigué, je conduirai." },
+      { "en": "We'll miss the train if we don't hurry.", "fr": "Nous allons rater le train si nous ne nous dépêchons pas." },
+      { "en": "What will you do if the shop is closed?", "fr": "Que feras-tu si le magasin est fermé ?" },
+      { "en": "If I see her, I'll tell her.", "fr": "Si je la vois, je le lui dirai." }
+    ],
+    "mistake": { "wrong": "If it will rain, we'll stay at home.", "right": "If it rains, we'll stay at home.", "note": "Pas de will juste après if." },
+    "group": "echanges"
+  },
+  {
+    "id": "rule-suggestions-invitations",
+    "type": "rule",
+    "kind": "special",
+    "title": { "en": "Suggestions and invitations", "fr": "Proposer et inviter" },
+    "explanation": "Let's + base ; Why don't we + base ? ; How about / What about + -ing ou un nom ? ; Would you like to + base ? ; Do you fancy + -ing ou un nom ? (très britannique, familier).",
+    "structure": "Let's go · How about going? · Would you like to come? · Do you fancy a coffee?",
+    "examples": [
+      { "en": "Let's get a takeaway tonight.", "fr": "Et si on prenait un plat à emporter ce soir ?" },
+      { "en": "Why don't we go to the beach?", "fr": "Pourquoi on n'irait pas à la plage ?" },
+      { "en": "How about meeting at six?", "fr": "Et si on se retrouvait à six heures ?" },
+      { "en": "What about a walk after lunch?", "fr": "Que dirais-tu d'une promenade après le déjeuner ?" },
+      { "en": "Would you like to come for dinner on Saturday?", "fr": "Veux-tu venir dîner samedi ?" },
+      { "en": "Do you fancy a coffee?", "fr": "Ça te dit, un café ?" }
+    ],
+    "mistake": { "wrong": "Let's to go.", "right": "Let's go.", "note": "Après let's, la base sans to." },
+    "group": "echanges"
   }
 ]

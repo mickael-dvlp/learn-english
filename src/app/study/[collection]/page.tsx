@@ -35,9 +35,10 @@ async function CollectionContent({ params }: Pick<PageProps<"/study/[collection]
   const collection = findCollection((await params).collection);
   if (!collection) notFound();
 
+  // A single text opens its reader; several (all the dialogues) are listed, each with its own page.
   const [first] = collection.items;
-  if (collection.type === "text" && first.type === "text") {
-    return <TextReader text={first} collectionId={collection.id} />;
+  if (collection.items.length === 1 && first.type === "text") {
+    return <TextReader text={first} collectionId={collection.id} familyId={collection.familyId} />;
   }
   return <CollectionView collection={collection} />;
 }

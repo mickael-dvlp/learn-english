@@ -5,12 +5,17 @@ import { plural } from "@/lib/format";
 
 const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl px-6 py-4 text-left";
 
+/** "1 186": thousands separated as in French. */
+const number = (n: number) => n.toLocaleString("fr-FR");
+
 const comingSoon = [
   { label: "Continuer où j'en étais", hint: "Reprendre la dernière session" },
 ];
 
 export default function Home() {
-  const { themes, words, verbs, rules, texts } = getContent();
+  const { themes, words, verbs, rules, texts, pairs } = getContent();
+  const modals = rules.filter((rule) => rule.kind === "modal");
+  const dialogues = texts.filter((text) => text.kind === "dialogue");
 
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-end gap-4 px-5 pb-10 pt-16">
@@ -39,10 +44,15 @@ export default function Home() {
       <p className="mt-4 text-center text-sm text-muted">
         {[
           plural(themes.length, "thème"),
-          plural(words.length, "mot"),
+          // Words, expressions and whole sentences.
+          `${number(words.length)} ${words.length > 1 ? "mots et expressions" : "mot"}`,
           plural(verbs.length, "verbe"),
-          plural(rules.length, "règle"),
-          plural(texts.length, "texte"),
+          `${modals.length} ${modals.length > 1 ? "verbes modaux" : "verbe modal"}`,
+          plural(rules.length - modals.length, "règle"),
+          // Not all of them are strict pairs (-ed endings, word stress…).
+          `${number(pairs.length)} ${pairs.length > 1 ? "exercices" : "exercice"} de prononciation`,
+          plural(texts.length - dialogues.length, "texte"),
+          plural(dialogues.length, "dialogue"),
         ].join(" · ")}
       </p>
     </main>

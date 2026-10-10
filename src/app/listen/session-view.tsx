@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { Page } from "@/components/page";
+import { cardClass, focusRing } from "@/components/ui";
 import { bindMediaSession } from "@/lib/player/media-session";
 import type { Player } from "@/lib/player/player";
 import { debugLog } from "@/lib/debug/log";
@@ -37,33 +39,38 @@ export function SessionView({ player, title, onClose }: Props) {
 
   if (status === "ended") {
     return (
-      <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-8 px-5 text-center">
+      <Page className="items-center justify-center pb-10 text-center">
         <p className="text-5xl">🌙</p>
         <p className="text-2xl font-semibold">Session terminée</p>
         <p className="text-muted">Bonne nuit, et à demain.</p>
-        <button
-          type="button"
-          onClick={onClose}
-          className="min-h-14 w-full rounded-3xl bg-surface text-lg font-semibold"
-        >
+        <button type="button" onClick={onClose} className={`${cardClass} mt-3 w-full items-center justify-center text-lg font-semibold`}>
           Retour
         </button>
-      </main>
+      </Page>
     );
   }
 
   const spoken = step?.kind === "speak" ? step.unit[step.lang] : undefined;
+  // In a dialogue: its title (when several are played) and who is talking.
+  const context = segment?.context && segment.context !== title ? segment.context : undefined;
 
   return (
-    <main className="mx-auto flex w-full max-w-md flex-1 flex-col px-5 pb-10 pt-6">
-      <header className="flex items-center justify-between text-muted">
-        <span className="truncate">{title}</span>
-        <span className="tabular-nums" aria-label="Temps restant">
+    <Page>
+      {/* Same height and alignment as the page headers; the timer stays small. */}
+      <header className="flex min-h-12 items-center justify-between gap-3">
+        <h1 className="truncate text-2xl font-semibold">{title}</h1>
+        <span role="timer" aria-label="Temps restant" className="shrink-0 rounded-full bg-surface px-3 py-1 text-sm text-muted tabular-nums">
           {formatTime(remainingMs)}
         </span>
       </header>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center">
+        {(context || segment?.speaker) && (
+          <div className="flex flex-col items-center gap-1">
+            {context && <p className="text-muted">{context}</p>}
+            {segment?.speaker && <p className="text-lg font-semibold text-accent">{segment.speaker}</p>}
+          </div>
+        )}
         <p className="text-3xl font-semibold leading-snug">{segment?.label}</p>
         <p className="min-h-14 text-lg text-muted" aria-live="polite">
           {spoken !== undefined && spoken !== segment?.label ? spoken : " "}
@@ -82,17 +89,33 @@ export function SessionView({ player, title, onClose }: Props) {
         </RoundButton>
       </div>
 
-      <button
-        type="button"
-        onClick={() => {
-          player.stop();
-          onClose();
-        }}
-        className="mt-8 min-h-12 self-center rounded-2xl px-6 text-muted"
-      >
-        Arrêter
-      </button>
-    </main>
+      <div className="mt-3 flex gap-2">
+        <button
+          type="button"
+          onClick={player.replay}
+          aria-label="Rejouer depuis le début de l'élément en cours"
+          className={`${cardClass} flex-1 items-center justify-center gap-2 text-lg`}
+        >
+          <span aria-hidden className="text-muted">
+            ↺
+          </span>
+          Rejouer
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            player.stop();
+            onClose();
+          }}
+          className={`${cardClass} flex-1 items-center justify-center gap-2 text-lg`}
+        >
+          <span aria-hidden className="text-muted">
+            ■
+          </span>
+          Arrêter
+        </button>
+      </div>
+    </Page>
   );
 }
 
@@ -102,7 +125,7 @@ function RoundButton(props: { label: string; onClick: () => void; big?: boolean;
       type="button"
       aria-label={props.label}
       onClick={props.onClick}
-      className={`flex items-center justify-center rounded-full ${
+      className={`flex items-center justify-center rounded-full ${focusRing} ${
         props.big ? "h-24 w-24 bg-accent text-4xl text-accent-foreground" : "h-16 w-16 bg-surface text-2xl"
       }`}
     >

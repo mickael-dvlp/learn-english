@@ -1,0 +1,30 @@
+{
+  "id": "text-at-work",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "At work", "fr": "Au travail" },
+  "situation": "Une employée demande de l'aide à un collègue pour terminer un rapport urgent.",
+  "theme": "travail",
+  "sentences": [
+    { "speaker": "Priya", "en": "Morning, James. Have you got a minute?", "fr": "Bonjour, James. Tu as une minute ?" },
+    { "speaker": "James", "en": "Sure, what's up?", "fr": "Bien sûr, qu'est-ce qu'il y a ?" },
+    { "speaker": "Priya", "en": "I have to finish the sales report by four o'clock, and I'm a bit stuck.", "fr": "Je dois terminer le rapport des ventes avant seize heures, et je suis un peu bloquée." },
+    { "speaker": "James", "en": "What's the problem?", "fr": "Quel est le problème ?" },
+    { "speaker": "Priya", "en": "I can't work out how to make the chart in this spreadsheet.", "fr": "Je n'arrive pas à comprendre comment faire le graphique dans ce tableur." },
+    { "speaker": "James", "en": "Oh, that's easy. Let me show you. Click here, then choose Insert.", "fr": "Oh, c'est facile. Je vais te montrer. Clique ici, puis choisis Insérer." },
+    { "speaker": "Priya", "en": "Ah, I see. That's much easier than I thought.", "fr": "Ah, je vois. C'est beaucoup plus simple que je ne pensais." },
+    { "speaker": "James", "en": "Do you need help with anything else?", "fr": "Tu as besoin d'aide pour autre chose ?" },
+    { "speaker": "Priya", "en": "Could you check the figures before I send it to the manager?", "fr": "Tu pourrais vérifier les chiffres avant que je l'envoie au responsable ?" },
+    { "speaker": "James", "en": "No problem. Send it to me when it's ready.", "fr": "Pas de problème. Envoie-le-moi quand il est prêt." },
+    { "speaker": "Priya", "en": "Thanks, James. I owe you a coffee!", "fr": "Merci, James. Je te dois un café !" },
+    { "speaker": "James", "en": "I'll hold you to that!", "fr": "Je te prends au mot !" }
+  ],
+  "expressions": [
+    { "en": "Have you got a minute?", "fr": "Tu as une minute ?" },
+    { "en": "What's up?", "fr": "Qu'est-ce qu'il y a ?" },
+    { "en": "I'm a bit stuck.", "fr": "Je suis un peu bloqué." },
+    { "en": "I can't work out how to make the chart.", "fr": "Je n'arrive pas à comprendre comment faire le graphique." },
+    { "en": "Let me show you.", "fr": "Je vais te montrer." },
+    { "en": "I owe you a coffee!", "fr": "Je te dois un café !" }
+  ]
+}

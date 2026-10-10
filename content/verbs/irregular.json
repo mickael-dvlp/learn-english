@@ -8,7 +8,7 @@
     "fr": "être",
     "regular": false,
     "example": { "en": "I was tired yesterday.", "fr": "J'étais fatigué hier." },
-    "level": "A1"
+    "group": "base"
   },
   {
     "id": "verb-have",
@@ -19,7 +19,7 @@
     "fr": "avoir",
     "regular": false,
     "example": { "en": "We had a nice dinner.", "fr": "Nous avons fait un bon dîner." },
-    "level": "A1"
+    "group": "base"
   },
   {
     "id": "verb-go",
@@ -30,7 +30,7 @@
     "fr": "aller",
     "regular": false,
     "example": { "en": "She went to the market.", "fr": "Elle est allée au marché." },
-    "level": "A1"
+    "group": "mouvement"
   },
   {
     "id": "verb-eat",
@@ -41,7 +41,7 @@
     "fr": "manger",
     "regular": false,
     "example": { "en": "I have already eaten.", "fr": "J'ai déjà mangé." },
-    "level": "A1"
+    "group": "quotidien"
   },
   {
     "id": "verb-drink",
@@ -52,7 +52,7 @@
     "fr": "boire",
     "regular": false,
     "example": { "en": "He drank a glass of milk.", "fr": "Il a bu un verre de lait." },
-    "level": "A1"
+    "group": "quotidien"
   },
   {
     "id": "verb-see",
@@ -63,7 +63,7 @@
     "fr": "voir",
     "regular": false,
     "example": { "en": "I saw a fox in the field.", "fr": "J'ai vu un renard dans le champ." },
-    "level": "A1"
+    "group": "perception"
   },
   {
     "id": "verb-sleep",
@@ -74,6 +74,402 @@
     "fr": "dormir",
     "regular": false,
     "example": { "en": "I slept very well last night.", "fr": "J'ai très bien dormi cette nuit." },
-    "level": "A1"
+    "group": "quotidien"
+  },
+  {
+    "id": "verb-do",
+    "type": "verb",
+    "base": "do",
+    "past": "did",
+    "pastParticiple": "done",
+    "fr": "faire",
+    "regular": false,
+    "example": { "en": "What are you doing this weekend?", "fr": "Qu'est-ce que tu fais ce week-end ?" },
+    "group": "base"
+  },
+  {
+    "id": "verb-make",
+    "type": "verb",
+    "base": "make",
+    "past": "made",
+    "pastParticiple": "made",
+    "fr": "faire, fabriquer",
+    "regular": false,
+    "example": { "en": "I made a cake for your birthday.", "fr": "J'ai fait un gâteau pour ton anniversaire." },
+    "group": "base"
+  },
+  {
+    "id": "verb-get",
+    "type": "verb",
+    "base": "get",
+    "past": "got",
+    "pastParticiple": "got",
+    "fr": "obtenir, recevoir, devenir",
+    "regular": false,
+    "example": { "en": "I got a message from Anna.", "fr": "J'ai reçu un message d'Anna." },
+    "group": "base"
+  },
+  {
+    "id": "verb-take",
+    "type": "verb",
+    "base": "take",
+    "past": "took",
+    "pastParticiple": "taken",
+    "fr": "prendre",
+    "regular": false,
+    "example": { "en": "Take an umbrella, it's going to rain.", "fr": "Prends un parapluie, il va pleuvoir." },
+    "group": "base"
+  },
+  {
+    "id": "verb-give",
+    "type": "verb",
+    "base": "give",
+    "past": "gave",
+    "pastParticiple": "given",
+    "fr": "donner",
+    "regular": false,
+    "example": { "en": "She gave me her phone number.", "fr": "Elle m'a donné son numéro de téléphone." },
+    "group": "base"
+  },
+  {
+    "id": "verb-put",
+    "type": "verb",
+    "base": "put",
+    "past": "put",
+    "pastParticiple": "put",
+    "fr": "mettre, poser",
+    "regular": false,
+    "example": { "en": "Put your bag on the chair.", "fr": "Pose ton sac sur la chaise." },
+    "group": "base"
+  },
+  {
+    "id": "verb-keep",
+    "type": "verb",
+    "base": "keep",
+    "past": "kept",
+    "pastParticiple": "kept",
+    "fr": "garder",
+    "regular": false,
+    "example": { "en": "Keep the change.", "fr": "Gardez la monnaie." },
+    "group": "base"
+  },
+  {
+    "id": "verb-bring",
+    "type": "verb",
+    "base": "bring",
+    "past": "brought",
+    "pastParticiple": "brought",
+    "fr": "apporter, amener",
+    "regular": false,
+    "example": { "en": "Can you bring some bread?", "fr": "Tu peux apporter du pain ?" },
+    "group": "base"
+  },
+  {
+    "id": "verb-find",
+    "type": "verb",
+    "base": "find",
+    "past": "found",
+    "pastParticiple": "found",
+    "fr": "trouver",
+    "regular": false,
+    "example": { "en": "I can't find my keys.", "fr": "Je ne trouve pas mes clés." },
+    "group": "base"
+  },
+  {
+    "id": "verb-become",
+    "type": "verb",
+    "base": "become",
+    "past": "became",
+    "pastParticiple": "become",
+    "fr": "devenir",
+    "regular": false,
+    "example": { "en": "She became a nurse after university.", "fr": "Elle est devenue infirmière après l'université." },
+    "group": "base"
+  },
+  {
+    "id": "verb-let",
+    "type": "verb",
+    "base": "let",
+    "past": "let",
+    "pastParticiple": "let",
+    "fr": "laisser",
+    "regular": false,
+    "example": { "en": "Let me help you.", "fr": "Laisse-moi t'aider." },
+    "group": "base"
+  },
+  {
+    "id": "verb-wake-up",
+    "type": "verb",
+    "base": "wake up",
+    "past": "woke up",
+    "pastParticiple": "woken up",
+    "fr": "se réveiller",
+    "regular": false,
+    "example": { "en": "I woke up at six this morning.", "fr": "Je me suis réveillé à six heures ce matin." },
+    "group": "quotidien"
+  },
+  {
+    "id": "verb-get-up",
+    "type": "verb",
+    "base": "get up",
+    "past": "got up",
+    "pastParticiple": "got up",
+    "fr": "se lever",
+    "regular": false,
+    "example": { "en": "What time did you get up?", "fr": "À quelle heure t'es-tu levé ?" },
+    "group": "quotidien"
+  },
+  {
+    "id": "verb-get-dressed",
+    "type": "verb",
+    "base": "get dressed",
+    "past": "got dressed",
+    "pastParticiple": "got dressed",
+    "fr": "s'habiller",
+    "regular": false,
+    "example": { "en": "I got dressed quickly and left.", "fr": "Je me suis habillé vite et je suis parti." },
+    "group": "quotidien"
+  },
+  {
+    "id": "verb-come",
+    "type": "verb",
+    "base": "come",
+    "past": "came",
+    "pastParticiple": "come",
+    "fr": "venir",
+    "regular": false,
+    "example": { "en": "Can you come to my party?", "fr": "Tu peux venir à ma fête ?" },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-run",
+    "type": "verb",
+    "base": "run",
+    "past": "ran",
+    "pastParticiple": "run",
+    "fr": "courir",
+    "regular": false,
+    "example": { "en": "I run in the park every morning.", "fr": "Je cours au parc tous les matins." },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-drive",
+    "type": "verb",
+    "base": "drive",
+    "past": "drove",
+    "pastParticiple": "driven",
+    "fr": "conduire",
+    "regular": false,
+    "example": { "en": "She drove us to the airport.", "fr": "Elle nous a conduits à l'aéroport." },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-ride",
+    "type": "verb",
+    "base": "ride",
+    "past": "rode",
+    "pastParticiple": "ridden",
+    "fr": "faire (du vélo, du cheval)",
+    "regular": false,
+    "example": { "en": "I rode my bike to work.", "fr": "Je suis allé au travail à vélo." },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-fly",
+    "type": "verb",
+    "base": "fly",
+    "past": "flew",
+    "pastParticiple": "flown",
+    "fr": "prendre l'avion, voler",
+    "regular": false,
+    "example": { "en": "We flew to Dublin last week.", "fr": "Nous avons pris l'avion pour Dublin la semaine dernière." },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-leave",
+    "type": "verb",
+    "base": "leave",
+    "past": "left",
+    "pastParticiple": "left",
+    "fr": "partir, quitter, laisser",
+    "regular": false,
+    "example": { "en": "The bus left five minutes ago.", "fr": "Le bus est parti il y a cinq minutes." },
+    "group": "mouvement"
+  },
+  {
+    "id": "verb-say",
+    "type": "verb",
+    "base": "say",
+    "past": "said",
+    "pastParticiple": "said",
+    "fr": "dire",
+    "regular": false,
+    "example": { "en": "What did she say?", "fr": "Qu'est-ce qu'elle a dit ?" },
+    "group": "communication"
+  },
+  {
+    "id": "verb-tell",
+    "type": "verb",
+    "base": "tell",
+    "past": "told",
+    "pastParticiple": "told",
+    "fr": "dire, raconter (à quelqu'un)",
+    "regular": false,
+    "example": { "en": "Can you tell me the way to the station?", "fr": "Pouvez-vous m'indiquer le chemin de la gare ?" },
+    "group": "communication"
+  },
+  {
+    "id": "verb-speak",
+    "type": "verb",
+    "base": "speak",
+    "past": "spoke",
+    "pastParticiple": "spoken",
+    "fr": "parler (une langue, à quelqu'un)",
+    "regular": false,
+    "example": { "en": "Do you speak French?", "fr": "Parlez-vous français ?" },
+    "group": "communication"
+  },
+  {
+    "id": "verb-write",
+    "type": "verb",
+    "base": "write",
+    "past": "wrote",
+    "pastParticiple": "written",
+    "fr": "écrire",
+    "regular": false,
+    "example": { "en": "I wrote a letter to my grandmother.", "fr": "J'ai écrit une lettre à ma grand-mère." },
+    "group": "communication"
+  },
+  {
+    "id": "verb-read",
+    "type": "verb",
+    "base": "read",
+    "past": "read",
+    "pastParticiple": "read",
+    "fr": "lire (prétérit et participe se disent « red »)",
+    "regular": false,
+    "example": { "en": "I read a good book last week.", "fr": "J'ai lu un bon livre la semaine dernière." },
+    "group": "communication"
+  },
+  {
+    "id": "verb-hear",
+    "type": "verb",
+    "base": "hear",
+    "past": "heard",
+    "pastParticiple": "heard",
+    "fr": "entendre",
+    "regular": false,
+    "example": { "en": "Did you hear that noise?", "fr": "Tu as entendu ce bruit ?" },
+    "group": "communication"
+  },
+  {
+    "id": "verb-feel",
+    "type": "verb",
+    "base": "feel",
+    "past": "felt",
+    "pastParticiple": "felt",
+    "fr": "se sentir, ressentir",
+    "regular": false,
+    "example": { "en": "I felt much better after a good sleep.", "fr": "Je me sentais beaucoup mieux après une bonne nuit." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-think",
+    "type": "verb",
+    "base": "think",
+    "past": "thought",
+    "pastParticiple": "thought",
+    "fr": "penser, croire",
+    "regular": false,
+    "example": { "en": "I thought you were at work.", "fr": "Je pensais que tu étais au travail." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-know",
+    "type": "verb",
+    "base": "know",
+    "past": "knew",
+    "pastParticiple": "known",
+    "fr": "savoir, connaître",
+    "regular": false,
+    "example": { "en": "I've known him for ten years.", "fr": "Je le connais depuis dix ans." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-understand",
+    "type": "verb",
+    "base": "understand",
+    "past": "understood",
+    "pastParticiple": "understood",
+    "fr": "comprendre",
+    "regular": false,
+    "example": { "en": "I didn't understand the question.", "fr": "Je n'ai pas compris la question." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-forget",
+    "type": "verb",
+    "base": "forget",
+    "past": "forgot",
+    "pastParticiple": "forgotten",
+    "fr": "oublier",
+    "regular": false,
+    "example": { "en": "I forgot my umbrella at home.", "fr": "J'ai oublié mon parapluie à la maison." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-mean",
+    "type": "verb",
+    "base": "mean",
+    "past": "meant",
+    "pastParticiple": "meant",
+    "fr": "vouloir dire, signifier",
+    "regular": false,
+    "example": { "en": "Sorry, I meant Tuesday, not Thursday.", "fr": "Pardon, je voulais dire mardi, pas jeudi." },
+    "group": "perception"
+  },
+  {
+    "id": "verb-learn",
+    "type": "verb",
+    "base": "learn",
+    "past": "learnt / learned",
+    "pastParticiple": "learnt / learned",
+    "fr": "apprendre",
+    "regular": false,
+    "example": { "en": "I learnt to swim when I was five.", "fr": "J'ai appris à nager à cinq ans." },
+    "group": "travail"
+  },
+  {
+    "id": "verb-teach",
+    "type": "verb",
+    "base": "teach",
+    "past": "taught",
+    "pastParticiple": "taught",
+    "fr": "enseigner, apprendre (à quelqu'un)",
+    "regular": false,
+    "example": { "en": "My mother taught me to cook.", "fr": "Ma mère m'a appris à cuisiner." },
+    "group": "travail"
+  },
+  {
+    "id": "verb-send",
+    "type": "verb",
+    "base": "send",
+    "past": "sent",
+    "pastParticiple": "sent",
+    "fr": "envoyer",
+    "regular": false,
+    "example": { "en": "I sent you an email this morning.", "fr": "Je t'ai envoyé un e-mail ce matin." },
+    "group": "travail"
+  },
+  {
+    "id": "verb-choose",
+    "type": "verb",
+    "base": "choose",
+    "past": "chose",
+    "pastParticiple": "chosen",
+    "fr": "choisir",
+    "regular": false,
+    "example": { "en": "Have you chosen a dessert?", "fr": "Avez-vous choisi un dessert ?" },
+    "group": "besoins"
   }
 ]

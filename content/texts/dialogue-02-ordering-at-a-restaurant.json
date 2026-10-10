@@ -1,0 +1,31 @@
+{
+  "id": "text-ordering-at-a-restaurant",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Ordering at a restaurant", "fr": "Commander au restaurant" },
+  "situation": "Un client dîne seul dans un petit restaurant et passe sa commande.",
+  "theme": "restaurant",
+  "sentences": [
+    { "speaker": "Waiter", "en": "Good evening. Have you booked a table?", "fr": "Bonsoir. Vous avez réservé une table ?" },
+    { "speaker": "Customer", "en": "No, I haven't. Do you have a table for one?", "fr": "Non. Vous avez une table pour une personne ?" },
+    { "speaker": "Waiter", "en": "Of course. Please follow me. Here's the menu.", "fr": "Bien sûr. Suivez-moi, je vous prie. Voici la carte." },
+    { "speaker": "Customer", "en": "Thank you. Could I have some water, please?", "fr": "Merci. Je pourrais avoir de l'eau, s'il vous plaît ?" },
+    { "speaker": "Waiter", "en": "Still or sparkling?", "fr": "Plate ou gazeuse ?" },
+    { "speaker": "Customer", "en": "Tap water is fine, thanks.", "fr": "De l'eau du robinet, ça ira, merci." },
+    { "speaker": "Waiter", "en": "Are you ready to order?", "fr": "Vous avez choisi ?" },
+    { "speaker": "Customer", "en": "Yes. I'd like the chicken soup to start, and then the fish, please.", "fr": "Oui. Je voudrais la soupe au poulet en entrée, puis le poisson, s'il vous plaît." },
+    { "speaker": "Waiter", "en": "Would you like chips or salad with the fish?", "fr": "Vous voulez des frites ou de la salade avec le poisson ?" },
+    { "speaker": "Customer", "en": "Salad, please. Is the fish very spicy?", "fr": "De la salade, s'il vous plaît. Le poisson est très épicé ?" },
+    { "speaker": "Waiter", "en": "Not at all, it's quite mild.", "fr": "Pas du tout, il est plutôt doux." },
+    { "speaker": "Customer", "en": "Perfect. I'll have that, then.", "fr": "Parfait. Je prends ça, alors." },
+    { "speaker": "Waiter", "en": "Lovely. I'll bring your soup in a few minutes.", "fr": "Très bien. Je vous apporte la soupe dans quelques minutes." }
+  ],
+  "expressions": [
+    { "en": "Have you booked a table?", "fr": "Vous avez réservé une table ?" },
+    { "en": "Do you have a table for one?", "fr": "Vous avez une table pour une personne ?" },
+    { "en": "Still or sparkling?", "fr": "Plate ou gazeuse ?" },
+    { "en": "Tap water is fine.", "fr": "De l'eau du robinet, ça ira." },
+    { "en": "Are you ready to order?", "fr": "Vous avez choisi ?" },
+    { "en": "I'd like the soup to start.", "fr": "Je voudrais la soupe en entrée." }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  { "id": "word-shower", "type": "word", "theme": "hygiene", "en": "shower", "fr": "douche", "pos": "noun", "example": { "en": "I have a shower every morning.", "fr": "Je prends une douche tous les matins." } },
+  { "id": "word-bath", "type": "word", "theme": "hygiene", "en": "bath", "fr": "bain, baignoire", "pos": "noun", "example": { "en": "The children have a bath before bed.", "fr": "Les enfants prennent un bain avant de dormir." } },
+  { "id": "word-soap", "type": "word", "theme": "hygiene", "en": "soap", "fr": "savon", "pos": "noun", "example": { "en": "Wash your hands with soap.", "fr": "Lave-toi les mains avec du savon." } },
+  { "id": "word-shampoo", "type": "word", "theme": "hygiene", "en": "shampoo", "fr": "shampooing", "pos": "noun", "example": { "en": "We've run out of shampoo.", "fr": "Il n'y a plus de shampooing." } },
+  { "id": "word-towel", "type": "word", "theme": "hygiene", "en": "towel", "fr": "serviette (de bain)", "pos": "noun", "example": { "en": "Can I have a clean towel, please?", "fr": "Je peux avoir une serviette propre, s'il vous plaît ?" } },
+  { "id": "word-toothbrush", "type": "word", "theme": "hygiene", "en": "toothbrush", "fr": "brosse à dents", "pos": "noun", "example": { "en": "Don't forget your toothbrush.", "fr": "N'oublie pas ta brosse à dents." } },
+  { "id": "word-toothpaste", "type": "word", "theme": "hygiene", "en": "toothpaste", "fr": "dentifrice", "pos": "noun", "example": { "en": "The toothpaste is next to the sink.", "fr": "Le dentifrice est à côté du lavabo." } },
+  { "id": "word-to-brush-your-teeth", "type": "word", "theme": "hygiene", "en": "to brush your teeth", "fr": "se brosser les dents", "pos": "verb", "example": { "en": "I brush my teeth twice a day.", "fr": "Je me brosse les dents deux fois par jour." } },
+  { "id": "word-to-wash", "type": "word", "theme": "hygiene", "en": "to wash", "fr": "laver, se laver", "pos": "verb", "example": { "en": "Wash the apples before you eat them.", "fr": "Lave les pommes avant de les manger." } },
+  { "id": "word-to-dry", "type": "word", "theme": "hygiene", "en": "to dry", "fr": "sécher", "pos": "verb", "example": { "en": "Dry your hair before you go out.", "fr": "Sèche-toi les cheveux avant de sortir." } },
+  { "id": "word-hairdryer", "type": "word", "theme": "hygiene", "en": "hairdryer", "fr": "sèche-cheveux", "pos": "noun", "example": { "en": "Is there a hairdryer in the room?", "fr": "Il y a un sèche-cheveux dans la chambre ?" } },
+  { "id": "word-comb", "type": "word", "theme": "hygiene", "en": "comb", "fr": "peigne", "pos": "noun", "example": { "en": "I always keep a comb in my bag.", "fr": "J'ai toujours un peigne dans mon sac." } },
+  { "id": "word-hairbrush", "type": "word", "theme": "hygiene", "en": "hairbrush", "fr": "brosse à cheveux", "pos": "noun", "example": { "en": "Where's my hairbrush?", "fr": "Où est ma brosse à cheveux ?" } },
+  { "id": "word-razor", "type": "word", "theme": "hygiene", "en": "razor", "fr": "rasoir", "pos": "noun", "example": { "en": "He bought a new razor.", "fr": "Il a acheté un nouveau rasoir." } },
+  { "id": "word-to-shave", "type": "word", "theme": "hygiene", "en": "to shave", "fr": "se raser", "pos": "verb", "example": { "en": "He shaves every morning.", "fr": "Il se rase tous les matins." } },
+  { "id": "word-deodorant", "type": "word", "theme": "hygiene", "en": "deodorant", "fr": "déodorant", "pos": "noun", "example": { "en": "I forgot my deodorant at home.", "fr": "J'ai oublié mon déodorant à la maison." } },
+  { "id": "word-sun-cream", "type": "word", "theme": "hygiene", "en": "sun cream", "fr": "crème solaire", "pos": "noun", "example": { "en": "Don't forget the sun cream at the beach.", "fr": "N'oublie pas la crème solaire à la plage." } },
+  { "id": "word-tissue", "type": "word", "theme": "hygiene", "en": "tissue", "fr": "mouchoir (en papier)", "pos": "noun", "example": { "en": "Have you got a tissue?", "fr": "Tu as un mouchoir ?" } },
+  { "id": "word-nails", "type": "word", "theme": "hygiene", "en": "nails", "fr": "ongles", "pos": "noun", "example": { "en": "Cut your nails, they're too long.", "fr": "Coupe-toi les ongles, ils sont trop longs." } },
+  { "id": "word-clean", "type": "word", "theme": "hygiene", "en": "clean", "fr": "propre", "pos": "adjective", "example": { "en": "Are these towels clean?", "fr": "Ces serviettes sont-elles propres ?" } },
+  { "id": "word-dirty", "type": "word", "theme": "hygiene", "en": "dirty", "fr": "sale", "pos": "adjective", "example": { "en": "Your hands are dirty.", "fr": "Tu as les mains sales." } }
+]

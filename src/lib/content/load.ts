@@ -34,11 +34,15 @@ export function readRawContent(root: string = DEFAULT_ROOT): { raw: RawContent; 
   };
 
   const raw: RawContent = {
+    families: existsSync(resolve("families.json")) ? readJson("families.json") : undefined,
     themes: existsSync(resolve("themes.json")) ? readJson("themes.json") : undefined,
     words: readDir("words"),
     verbs: readDir("verbs"),
     rules: readDir("rules"),
     texts: readDir("texts"),
+    pairs: readDir("pairs"),
+    verbGroups: existsSync(resolve("verb-groups.json")) ? readJson("verb-groups.json") : undefined,
+    ruleGroups: existsSync(resolve("rule-groups.json")) ? readJson("rule-groups.json") : undefined,
   };
   return { raw, errors };
 }

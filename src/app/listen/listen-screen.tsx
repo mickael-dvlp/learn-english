@@ -1,27 +1,47 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import { Accordion } from "@/components/accordion";
+import { FilterChips } from "@/components/filter-chips";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
-import { COLLECTION_GROUPS, type Collection } from "@/lib/content/collections";
+import { SelectCard } from "@/components/select-card";
+import { cardClass, cardShape, focusRing, primaryButtonClass } from "@/components/ui";
+import { familyCountLabel, familyTitle, itemsOf, type Collection, type FamilyHeading } from "@/lib/content/collections";
 import { createBrowserPlayer } from "@/lib/player/browser";
 import { lapFactory } from "@/lib/player/compile";
-import { patternsFor } from "@/lib/player/patterns";
+import { choosePattern, patternsFor } from "@/lib/player/patterns";
 import type { Player } from "@/lib/player/player";
 import { preloadVoices } from "@/lib/speech/speak";
+import { openAccordion, useAccordion } from "@/lib/storage/accordion";
 import { useLocalStore } from "@/lib/storage/local-store";
 import { preferencesStore, setPreferences } from "@/lib/storage/preferences";
-import { markListened } from "@/lib/storage/progress";
+import { markListened, markPartListened } from "@/lib/storage/progress";
 import { SessionView } from "./session-view";
 
 const DURATIONS = [5, 10, 30];
 
 type Session = { player: Player; title: string };
 
-export function ListenScreen({ sources }: { sources: Collection[] }) {
+export function ListenScreen({ families, sources }: { families: FamilyHeading[]; sources: Collection[] }) {
   const prefs = useLocalStore(preferencesStore);
   const [session, setSession] = useState<Session | null>(null);
+  const selectedFamilyId = (sources.find((s) => s.id === prefs.sourceId) ?? sources[0])?.familyId;
+  const [openFamilyId, setOpenFamilyId] = useAccordion("listen", selectedFamilyId ?? null);
 
   useEffect(preloadVoices, []);
+  // Whatever gets focus or is scrolled to stays above the fixed start button.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.scrollPaddingBottom = "10rem";
+    return () => {
+      root.style.scrollPaddingBottom = "";
+    };
+  }, []);
+  // The family of the selected content opens by itself. Closing it never changes the selection.
+  useEffect(() => {
+    if (selectedFamilyId) openAccordion("listen", selectedFamilyId);
+  }, [selectedFamilyId]);
 
   if (session) {
     return <SessionView player={session.player} title={session.title} onClose={() => setSession(null)} />;
@@ -33,153 +53,195 @@ export function ListenScreen({ sources }: { sources: Collection[] }) {
 
   const source = sources.find((s) => s.id === prefs.sourceId) ?? sources[0];
   const patterns = patternsFor(source.type);
-  const pattern = patterns.find((p) => p.id === prefs.patternId) ?? patterns[0];
+  const pattern = choosePattern(source.type, prefs.patternId);
+  const group = source.groups?.find((g) => g.id === prefs.groupId);
+  // Rules (and modals) can be listened to one by one.
+  const ruleChoices = source.type === "rule" ? itemsOf(source, group?.id).flatMap((i) => (i.type === "rule" ? [i] : [])) : [];
+  const rule = ruleChoices.find((r) => r.id === prefs.itemId);
 
   const start = () => {
     const settings = { rate: prefs.rate, pauseFactor: prefs.pauseFactor };
     const player = createBrowserPlayer({
       durationMs: prefs.durationMinutes * 60_000,
       settings,
-      createLap: lapFactory(source.items, pattern, prefs.order),
-      onSegmentEnd: (segment) => markListened(segment.itemId),
+      createLap: lapFactory(rule ? [rule] : itemsOf(source, group?.id), pattern, prefs.order),
+      onSegmentEnd: (segment) => {
+        // A sentence of a text counts on its own; the text is listened to once all of them are.
+        if (segment.part) markPartListened(segment.itemId, segment.part.index, segment.part.needed);
+        else if (!segment.intro) markListened(segment.itemId);
+      },
     });
     // Started from the click itself: browsers only allow audio after a user gesture.
     player.play();
-    setSession({ player, title: source.label });
+    const part = rule?.title.fr ?? group?.label;
+    setSession({ player, title: part ? `${source.label} · ${part}` : source.label });
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-md flex-1 flex-col gap-7 px-5 pb-32 pt-6">
+    // Bottom space: the fixed start button (and its fade) never covers the last settings.
+    <Page className="pb-44">
       <PageHeader title="Écouter" backHref="/" backLabel="Retour à l'accueil" />
 
-      <Section title="Quoi écouter ?">
-        {COLLECTION_GROUPS.map((group) => {
-          const groupSources = sources.filter((s) => s.type === group.type);
-          if (groupSources.length === 0) return null;
-          return (
-            <div key={group.type} className="flex flex-col gap-2">
-              <h3 className="text-sm text-muted">{group.label}</h3>
-              <div className="flex flex-wrap gap-2">
-                {groupSources.map((s) => (
-                  <Chip key={s.id} selected={s.id === source.id} onClick={() => setPreferences({ sourceId: s.id })}>
+      <div className="flex flex-col gap-8">
+        <Section title="Quoi écouter ?">
+          <Accordion
+            idPrefix="listen"
+            headingLevel={3}
+            openId={openFamilyId}
+            onOpenChange={setOpenFamilyId}
+            sections={families
+              .map((family) => ({ family, groupSources: sources.filter((s) => s.familyId === family.id) }))
+              .filter(({ groupSources }) => groupSources.length > 0)
+              .map(({ family, groupSources }) => ({
+                id: family.id,
+                title: familyTitle(family),
+                meta: (
+                  <>
+                    {familyCountLabel(family, groupSources)}
+                    {family.id === source.familyId && (
+                      <>
+                        <br />
+                        <span className="text-xs text-accent">✓ sélectionné</span>
+                      </>
+                    )}
+                  </>
+                ),
+                content: groupSources.map((s) => (
+                  <SelectCard key={s.id} selected={s.id === source.id} onClick={() => s.id !== source.id && setPreferences({ sourceId: s.id, groupId: undefined, itemId: undefined })}>
                     {s.label}
-                  </Chip>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </Section>
+                  </SelectCard>
+                )),
+              }))}
+          />
+        </Section>
 
-      {patterns.length > 1 && (
-        <Section title="Comment ?">
-          <div className="flex flex-wrap gap-2">
+        {source.groups && source.groups.length > 1 && (
+          <Section title="Quelle partie ?">
+            <FilterChips
+              label={`Sous-thèmes de ${source.label}`}
+              options={source.groups}
+              value={group?.id}
+              onChange={(groupId) => setPreferences({ groupId, itemId: undefined })}
+            />
+          </Section>
+        )}
+
+        {ruleChoices.length > 1 && ruleChoices.length <= 15 && (
+          <Section title="Quelle règle ?">
+            <FilterChips
+              label="Règle à écouter"
+              options={ruleChoices.map((r) => ({ id: r.id, label: r.title.fr }))}
+              value={rule?.id}
+              onChange={(itemId) => setPreferences({ itemId })}
+            />
+          </Section>
+        )}
+
+        {patterns.length > 1 && (
+          <Section title="Comment ?">
             {patterns.map((p) => (
-              <Chip key={p.id} selected={p.id === pattern.id} onClick={() => setPreferences({ patternId: p.id })}>
+              <SelectCard
+                key={p.id}
+                selected={p.id === pattern.id}
+                description={p.description}
+                onClick={() => setPreferences({ patternId: p.id })}
+              >
                 {p.name}
-              </Chip>
+              </SelectCard>
+            ))}
+          </Section>
+        )}
+
+        <Section title="Combien de temps ?">
+          <div className="grid grid-cols-3 gap-2">
+            {DURATIONS.map((minutes) => (
+              <SelectCard
+                key={minutes}
+                compact
+                selected={prefs.durationMinutes === minutes}
+                onClick={() => setPreferences({ durationMinutes: minutes })}
+              >
+                {minutes} min
+              </SelectCard>
             ))}
           </div>
-          <p className="text-sm text-muted">{pattern.description}</p>
-        </Section>
-      )}
-
-      <Section title="Combien de temps ?">
-        <div className="flex flex-wrap items-center gap-2">
-          {DURATIONS.map((minutes) => (
-            <Chip
-              key={minutes}
-              selected={prefs.durationMinutes === minutes}
-              onClick={() => setPreferences({ durationMinutes: minutes })}
-            >
-              {minutes} min
-            </Chip>
-          ))}
-          <label className="flex items-center gap-2 text-sm text-muted">
-            Autre
-            <input
-              type="number"
-              inputMode="numeric"
-              min={1}
-              max={600}
-              value={prefs.durationMinutes}
-              onChange={(event) => {
-                const minutes = Number(event.target.value);
-                if (minutes >= 1 && minutes <= 600) setPreferences({ durationMinutes: minutes });
-              }}
-              className="w-20 rounded-2xl bg-surface px-3 py-3 text-base text-foreground"
-            />
-            min
+          <label
+            className={`${cardShape} items-center justify-between gap-3 ${
+              DURATIONS.includes(prefs.durationMinutes) ? "bg-surface" : "bg-accent/15 ring-2 ring-inset ring-accent"
+            }`}
+          >
+            <span className="text-lg">Autre durée</span>
+            <span className="flex items-center gap-2 text-sm text-muted">
+              <input
+                type="number"
+                inputMode="numeric"
+                min={1}
+                max={600}
+                value={prefs.durationMinutes}
+                onChange={(event) => {
+                  const minutes = Number(event.target.value);
+                  if (minutes >= 1 && minutes <= 600) setPreferences({ durationMinutes: minutes });
+                }}
+                className={`w-20 rounded-2xl bg-background px-3 py-2 text-base text-foreground ${focusRing}`}
+              />
+              min
+            </span>
           </label>
-        </div>
-      </Section>
+        </Section>
 
-      <Section title="Ordre">
-        <div className="flex gap-2">
-          <Chip selected={prefs.order === "sequential"} onClick={() => setPreferences({ order: "sequential" })}>
-            Dans l&apos;ordre
-          </Chip>
-          <Chip selected={prefs.order === "random"} onClick={() => setPreferences({ order: "random" })}>
-            Aléatoire
-          </Chip>
-        </div>
-      </Section>
+        <Section title="Ordre">
+          <div className="grid grid-cols-2 gap-2">
+            <SelectCard compact selected={prefs.order === "sequential"} onClick={() => setPreferences({ order: "sequential" })}>
+              Dans l&apos;ordre
+            </SelectCard>
+            <SelectCard compact selected={prefs.order === "random"} onClick={() => setPreferences({ order: "random" })}>
+              Aléatoire
+            </SelectCard>
+          </div>
+        </Section>
 
-      <Section title="Réglages">
-        <Slider
-          label="Vitesse de la voix"
-          value={prefs.rate}
-          min={0.6}
-          max={1.2}
-          step={0.05}
-          display={`×${prefs.rate.toFixed(2).replace(".", ",")}`}
-          onChange={(rate) => setPreferences({ rate })}
-        />
-        <Slider
-          label="Longueur des pauses"
-          value={prefs.pauseFactor}
-          min={0.5}
-          max={2.5}
-          step={0.25}
-          display={`×${prefs.pauseFactor.toFixed(2).replace(".", ",")}`}
-          onChange={(pauseFactor) => setPreferences({ pauseFactor })}
-        />
-      </Section>
-
-      <div className="fixed inset-x-0 bottom-0 bg-gradient-to-t from-background via-background to-transparent px-5 pb-6 pt-8">
-        <button
-          type="button"
-          onClick={start}
-          className="mx-auto flex min-h-16 w-full max-w-md items-center justify-center rounded-3xl bg-accent text-xl font-semibold text-accent-foreground"
-        >
-          Lancer l&apos;écoute
-        </button>
+        <Section title="Réglages">
+          <div className={`${cardClass} flex-col gap-4 py-4`}>
+            <Slider
+              label="Vitesse de la voix"
+              value={prefs.rate}
+              min={0.6}
+              max={1.2}
+              step={0.05}
+              display={`×${prefs.rate.toFixed(2).replace(".", ",")}`}
+              onChange={(rate) => setPreferences({ rate })}
+            />
+            <Slider
+              label="Longueur des pauses"
+              value={prefs.pauseFactor}
+              min={0.5}
+              max={2.5}
+              step={0.25}
+              display={`×${prefs.pauseFactor.toFixed(2).replace(".", ",")}`}
+              onChange={(pauseFactor) => setPreferences({ pauseFactor })}
+            />
+          </div>
+        </Section>
       </div>
-    </main>
+
+      {/* Same width as the page column; the fade lets clicks through, only the button catches them. */}
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 bg-linear-to-t from-background via-background to-transparent pb-6 pt-8">
+        <div className="mx-auto w-full max-w-md px-5">
+          <button type="button" onClick={start} className={`${primaryButtonClass} pointer-events-auto`}>
+            Lancer l&apos;écoute
+          </button>
+        </div>
+      </div>
+    </Page>
   );
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-lg font-semibold">{title}</h2>
+      <h2 className="text-xl font-semibold">{title}</h2>
       {children}
     </section>
-  );
-}
-
-function Chip({ selected, onClick, children }: { selected: boolean; onClick: () => void; children: ReactNode }) {
-  return (
-    <button
-      type="button"
-      aria-pressed={selected}
-      onClick={onClick}
-      className={`min-h-12 rounded-2xl px-4 py-2 text-base ${
-        selected ? "bg-accent text-accent-foreground" : "bg-surface text-foreground"
-      }`}
-    >
-      {children}
-    </button>
   );
 }
 
@@ -194,9 +256,9 @@ function Slider(props: {
 }) {
   return (
     <label className="flex flex-col gap-2">
-      <span className="flex justify-between text-sm">
+      <span className="flex justify-between gap-3">
         <span>{props.label}</span>
-        <span className="text-muted">{props.display}</span>
+        <span className="text-sm text-muted tabular-nums">{props.display}</span>
       </span>
       <input
         type="range"
@@ -205,7 +267,7 @@ function Slider(props: {
         step={props.step}
         value={props.value}
         onChange={(event) => props.onChange(Number(event.target.value))}
-        className="h-10 accent-accent"
+        className={`h-10 rounded-full accent-accent ${focusRing}`}
       />
     </label>
   );

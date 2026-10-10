@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { loadContent } from "@/lib/content/load";
-import type { Rule, TextItem, Word } from "@/lib/content/schema";
+import type { Pair, Rule, TextItem, Word } from "@/lib/content/schema";
 import { compileItem, fillTemplate, lapFactory, shuffleAfter } from "./compile";
-import { PATTERNS, findPattern, patternsFor, type Pattern } from "./patterns";
+import { PATTERNS, choosePattern, findPattern, patternsFor, type Pattern } from "./patterns";
 import { DEFAULT_SETTINGS, pauseMs } from "./pause";
 import type { Step } from "./types";
 
@@ -22,7 +22,6 @@ const word: Word = {
   theme: "agriculture",
   en: "tractor",
   fr: "tracteur",
-  level: "A1",
 };
 
 test("fillTemplate resolves paths and fallbacks, fails on missing fields", () => {
@@ -67,7 +66,6 @@ test("text: a title segment, then one slow segment per sentence", () => {
       { en: "I am home.", fr: "Je suis à la maison." },
       { en: "It is late.", fr: "Il est tard." },
     ],
-    level: "A1",
   };
   const segments = compileItem(text, pattern("text"));
   assert.deepEqual(
@@ -79,29 +77,44 @@ test("text: a title segment, then one slow segment per sentence", () => {
   assert.equal(sentence.rate, 0.85);
 });
 
-test("rule: title, explanation and every example in a single segment", () => {
-  const rule: Rule = {
-    id: "rule-x",
-    type: "rule",
-    kind: "special",
-    title: { en: "X", fr: "Titre" },
-    explanation: "Explication.",
-    examples: [
-      { en: "A.", fr: "Un." },
-      { en: "B.", fr: "Deux." },
-    ],
-    level: "A1",
-  };
-  const segments = compileItem(rule, pattern("rule"));
-  assert.equal(segments.length, 1);
-  assert.deepEqual(said(segments[0].steps).filter((s) => !s.startsWith("pause")), [
-    "fr:Titre",
-    "fr:Explication.",
-    "en:A.",
-    "fr:Un.",
-    "en:B.",
-    "fr:Deux.",
-  ]);
+const modal: Rule = {
+  id: "rule-x",
+  type: "rule",
+  kind: "modal",
+  title: { en: "can", fr: "can : capacité" },
+  explanation: "Une longue explication en français.",
+  forms: [
+    { kind: "affirmative", en: "I can swim.", fr: "Je sais nager." },
+    { kind: "negative", en: "I can't swim.", fr: "Je ne sais pas nager." },
+    { kind: "question", en: "Can you swim?", fr: "Tu sais nager ?" },
+  ],
+  examples: [
+    { en: "She can drive.", fr: "Elle sait conduire." },
+    { en: "We can't come.", fr: "Nous ne pouvons pas venir." },
+  ],
+};
+
+test("rule: its name, then each form and example as a segment, never the explanation", () => {
+  const segments = compileItem(modal, pattern("rule"));
+  assert.equal(segments[0].intro, true);
+  assert.deepEqual(said(segments[0].steps), ["fr:can : capacité", "pause×1"]);
+  const parts = segments.slice(1);
+  assert.deepEqual(parts.map((s) => s.label), ["I can swim.", "I can't swim.", "Can you swim?", "She can drive.", "We can't come."]);
+  assert.deepEqual(parts.map((s) => s.part?.index), [0, 1, 2, 3, 4], "numbered across forms and examples");
+  assert.ok(parts.every((s) => s.part?.count === 5 && s.part.needed === 3 && s.context === "can : capacité"));
+  assert.deepEqual(said(parts[3].steps), ["en:She can drive.", "pause×1", "fr:Elle sait conduire.", "pause×1", "en:She can drive.", "pause×1.5"]);
+  const all = segments.flatMap((s) => s.steps);
+  assert.ok(all.every((step) => step.kind !== "speak" || step.unit[step.lang] !== modal.explanation));
+});
+
+test("rule in English only: no French", () => {
+  const steps = compileItem(modal, pattern("rule-en-only")).flatMap((s) => s.steps);
+  assert.ok(steps.every((step) => step.kind !== "speak" || step.lang === "en"));
+});
+
+test("a text needs every sentence, a rule most of its sentences", () => {
+  const [, ...lines] = compileItem(dialogue, pattern("text"));
+  assert.ok(lines.every((s) => s.part?.needed === 3));
 });
 
 test("pauses grow with the number of words and the user factor", () => {
@@ -139,13 +152,95 @@ test("random laps: every item once per lap, and never back soon after the lap ch
 
 test("every pattern produces something for every applicable item of /content", () => {
   const { library } = loadContent();
-  const items = [...library.words, ...library.verbs, ...library.rules, ...library.texts];
+  const items = [...library.words, ...library.verbs, ...library.rules, ...library.texts, ...library.pairs];
   for (const p of PATTERNS) {
     for (const item of items.filter((i) => p.appliesTo.includes(i.type))) {
       assert.ok(compileItem(item, p).length > 0, `${p.id} × ${item.id}`);
     }
   }
-  for (const type of ["word", "verb", "rule", "text"] as const) {
+  for (const type of ["word", "verb", "rule", "text", "pair"] as const) {
     assert.ok(patternsFor(type).length > 0, `no pattern for ${type}`);
   }
+});
+
+const dialogue: TextItem = {
+  id: "text-hi",
+  type: "text",
+  kind: "dialogue",
+  title: { en: "Hi", fr: "Salut" },
+  sentences: [
+    { en: "Hi!", fr: "Salut !", speaker: "Anna" },
+    { en: "Hello!", fr: "Bonjour !", speaker: "Ben" },
+    { en: "How are you?", fr: "Ça va ?", speaker: "Anna" },
+  ],
+};
+
+test("dialogue: lines in order, numbered, with their speaker; the second speaker has the second voice", () => {
+  const segments = compileItem(dialogue, pattern("text-en-fr-en"));
+  assert.equal(segments[0].intro, true, "the title alone does not count as listened");
+  const lines = segments.slice(1);
+  assert.deepEqual(
+    lines.map((s) => [s.speaker, s.part?.index, s.part?.count, s.context]),
+    [
+      ["Anna", 0, 3, "Hi"],
+      ["Ben", 1, 3, "Hi"],
+      ["Anna", 2, 3, "Hi"],
+    ],
+  );
+  const voices = lines.map((s) =>
+    s.steps.flatMap((step) => (step.kind === "speak" && step.lang === "en" ? [step.voice ?? "usual"] : [])),
+  );
+  assert.deepEqual(voices, [
+    ["usual", "usual"],
+    ["alt", "alt"],
+    ["usual", "usual"],
+  ]);
+  assert.deepEqual(said(lines[1].steps), ["en:Hello!", "pause×1", "fr:Bonjour !", "pause×1", "en:Hello!", "pause×1.5"]);
+});
+
+test("dialogue in English only: no French at all", () => {
+  const steps = compileItem(dialogue, pattern("text-en-only")).flatMap((s) => s.steps);
+  assert.ok(steps.every((step) => step.kind !== "speak" || step.lang === "en"));
+});
+
+test("random order shuffles dialogues, never their lines", () => {
+  const other = { ...dialogue, id: "text-other", title: { en: "Other", fr: "Autre" } };
+  for (const seed of [0, 0.5, 0.99]) {
+    const lap = lapFactory([dialogue, other], pattern("text"), "random", () => seed)();
+    for (const id of [dialogue.id, other.id]) {
+      const parts = lap.filter((s) => s.itemId === id && s.part).map((s) => s.part?.index);
+      assert.deepEqual(parts, [0, 1, 2]);
+    }
+  }
+});
+
+test("pair: the words one after the other, a longer pause at the end, one segment", () => {
+  const pair: Pair = {
+    id: "pair-ship-sheep",
+    type: "pair",
+    theme: "prononciation",
+    words: [
+      { en: "ship", fr: "bateau" },
+      { en: "sheep", fr: "mouton" },
+    ],
+    explanation: "…",
+  };
+  const [once, ...rest] = compileItem(pair, pattern("pair-once"));
+  assert.equal(rest.length, 0);
+  assert.equal(once.label, "ship / sheep");
+  assert.equal(once.intro, undefined);
+  assert.deepEqual(said(once.steps), ["en:ship", "pause×0.6", "en:sheep", "pause×0.6", "pause×2"]);
+  const [twice] = compileItem(pair, pattern("pair-twice"));
+  assert.deepEqual(
+    said(twice.steps).filter((s) => s.startsWith("en")),
+    ["en:ship", "en:sheep", "en:ship", "en:sheep"],
+  );
+});
+
+test("choosePattern keeps the chosen mode across types when it exists (same name)", () => {
+  assert.equal(choosePattern("text", "en-only-loop").id, "text-en-only");
+  assert.equal(choosePattern("text", "en-fr-en").id, "text-en-fr-en");
+  assert.equal(choosePattern("word", "text-en-only").id, "en-only-loop");
+  assert.equal(choosePattern("pair", "en-fr-en").id, "pair-once");
+  assert.equal(choosePattern("verb", undefined).id, "verb-forms");
 });

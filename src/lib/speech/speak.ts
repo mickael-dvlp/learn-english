@@ -1,17 +1,22 @@
-import type { Lang, PlayableUnit } from "@/lib/player/types";
-import { audioPath, spokenText } from "./audio-files";
+import type { Lang, PlayableUnit, Voice } from "@/lib/player/types";
+import { audioCandidates, spokenText } from "./audio-files";
 
 /**
  * Says one text on demand (study mode buttons). Nothing calls the Web Speech API directly:
  * the generated audio file for this text is played when it exists, the native voice otherwise.
  * Listening sessions do not use this: they play assembled tracks (see player/timeline.ts).
  * Always resolves (end, error or `cancelSpeech()`), never rejects.
+ * `voice`: the second voice (second speaker of a dialogue), the usual one when its file is missing.
  */
-export function speak(unit: PlayableUnit, lang: Lang, rate = 1): Promise<void> {
+export function speak(unit: PlayableUnit, lang: Lang, rate = 1, voice?: Voice): Promise<void> {
   stopCurrent?.();
   const text = unit[lang];
   if (!text) return Promise.resolve();
-  return playFile(`/${audioPath(lang, text)}`, rate, () => speakNative(text, lang, rate));
+  // Normal speed recordings: study mode plays them at the chosen rate.
+  const files = audioCandidates(lang, text, 1, voice);
+  const tryFrom = (index: number): Promise<void> =>
+    index < files.length ? playFile(`/${files[index]}`, rate, () => tryFrom(index + 1)) : speakNative(text, lang, rate);
+  return tryFrom(0);
 }
 
 /** Interrupts whatever is being said; the pending `speak()` promise resolves. */

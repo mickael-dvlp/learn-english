@@ -1,0 +1,9 @@
+[
+  { "id": "fondations", "name": { "en": "Foundations", "fr": "Fondations" }, "emoji": "🧱" },
+  { "id": "vie-quotidienne", "name": { "en": "Everyday life", "fr": "Vie quotidienne" }, "emoji": "🏡" },
+  { "id": "personnes", "name": { "en": "People, work and leisure", "fr": "Personnes, travail et loisirs" }, "emoji": "👥" },
+  { "id": "deplacements", "name": { "en": "Getting around, travel and services", "fr": "Déplacements, voyages et services" }, "emoji": "🧭" },
+  { "id": "nature-technologie", "name": { "en": "Nature and technology", "fr": "Nature et technologie" }, "emoji": "🌿" },
+  { "id": "phrases", "name": { "en": "Building sentences", "fr": "Construire ses phrases" }, "emoji": "🧩", "includes": ["verbs", "modals", "rules"] },
+  { "id": "textes", "name": { "en": "Texts and dialogues", "fr": "Textes et dialogues" }, "emoji": "📖", "includes": ["texts"] }
+]

@@ -1,0 +1,15 @@
+[
+  { "id": "temps", "name": { "en": "Tenses", "fr": "Les temps" } },
+  { "id": "questions", "name": { "en": "Asking questions", "fr": "Poser des questions" } },
+  { "id": "phrase", "name": { "en": "Building sentences", "fr": "Construire la phrase" } },
+  { "id": "echanges", "name": { "en": "Conditions and suggestions", "fr": "Conditions et suggestions" } },
+  { "id": "rappel", "name": { "en": "How modals work", "fr": "Comment marchent les modaux" } },
+  { "id": "capacite", "name": { "en": "Ability", "fr": "Capacité" } },
+  { "id": "permission", "name": { "en": "Permission", "fr": "Permission" } },
+  { "id": "demandes", "name": { "en": "Polite requests and offers", "fr": "Demandes et propositions polies" } },
+  { "id": "obligation", "name": { "en": "Obligation and necessity", "fr": "Obligation et nécessité" } },
+  { "id": "conseil", "name": { "en": "Advice", "fr": "Conseil" } },
+  { "id": "possibilite", "name": { "en": "Possibility and probability", "fr": "Possibilité et probabilité" } },
+  { "id": "futur", "name": { "en": "Future, willingness and hypothesis", "fr": "Futur, volonté et hypothèse" } },
+  { "id": "habitudes", "name": { "en": "Past habits", "fr": "Habitudes passées" } }
+]

@@ -1,0 +1,30 @@
+{
+  "id": "text-arriving-at-the-hotel",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Arriving at the hotel", "fr": "Arriver à l'hôtel" },
+  "situation": "Un voyageur arrive à l'hôtel et s'enregistre à la réception.",
+  "theme": "hotel",
+  "sentences": [
+    { "speaker": "Receptionist", "en": "Good evening. Welcome to the Harbour Hotel.", "fr": "Bonsoir. Bienvenue à l'hôtel Harbour." },
+    { "speaker": "Guest", "en": "Good evening. I've got a reservation under the name Martin.", "fr": "Bonsoir. J'ai une réservation au nom de Martin." },
+    { "speaker": "Receptionist", "en": "Let me see. Yes, a double room for three nights. Could I see your passport, please?", "fr": "Voyons. Oui, une chambre double pour trois nuits. Pourrais-je voir votre passeport, s'il vous plaît ?" },
+    { "speaker": "Guest", "en": "Here you are.", "fr": "Le voici." },
+    { "speaker": "Receptionist", "en": "Thank you. You're in room two fourteen, on the second floor. Here's your key card.", "fr": "Merci. Vous êtes dans la chambre deux cent quatorze, au deuxième étage. Voici votre carte-clé." },
+    { "speaker": "Guest", "en": "Thanks. What time is breakfast?", "fr": "Merci. À quelle heure est le petit-déjeuner ?" },
+    { "speaker": "Receptionist", "en": "From seven to ten, in the restaurant next to the lift.", "fr": "De sept à dix heures, au restaurant à côté de l'ascenseur." },
+    { "speaker": "Guest", "en": "Is there Wi-Fi in the room?", "fr": "Il y a du wifi dans la chambre ?" },
+    { "speaker": "Receptionist", "en": "Yes, it's free. The password is on the back of your card.", "fr": "Oui, c'est gratuit. Le mot de passe est au dos de votre carte." },
+    { "speaker": "Guest", "en": "Great. And what time do I have to check out?", "fr": "Super. Et à quelle heure dois-je libérer la chambre ?" },
+    { "speaker": "Receptionist", "en": "By eleven o'clock. If you need anything, just call reception.", "fr": "Avant onze heures. Si vous avez besoin de quoi que ce soit, appelez la réception." },
+    { "speaker": "Guest", "en": "Perfect, thank you very much.", "fr": "Parfait, merci beaucoup." },
+    { "speaker": "Receptionist", "en": "Enjoy your stay!", "fr": "Bon séjour !" }
+  ],
+  "expressions": [
+    { "en": "I've got a reservation under the name Martin.", "fr": "J'ai une réservation au nom de Martin." },
+    { "en": "Here's your key card.", "fr": "Voici votre carte-clé." },
+    { "en": "What time is breakfast?", "fr": "À quelle heure est le petit-déjeuner ?" },
+    { "en": "What time do I have to check out?", "fr": "À quelle heure dois-je libérer la chambre ?" },
+    { "en": "Enjoy your stay!", "fr": "Bon séjour !" }
+  ]
+}

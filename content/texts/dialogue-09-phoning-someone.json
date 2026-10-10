@@ -1,0 +1,31 @@
+{
+  "id": "text-phoning-someone",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Phoning someone", "fr": "Téléphoner à quelqu'un" },
+  "situation": "Jack appelle une entreprise pour parler à une collègue, qui est en réunion.",
+  "theme": "telephone-internet",
+  "sentences": [
+    { "speaker": "Lucy", "en": "Hello, Greenway Design, Lucy speaking.", "fr": "Allô, Greenway Design, Lucy à l'appareil." },
+    { "speaker": "Jack", "en": "Hello, this is Jack Wilson. Could I speak to Sarah Jones, please?", "fr": "Bonjour, ici Jack Wilson. Pourrais-je parler à Sarah Jones, s'il vous plaît ?" },
+    { "speaker": "Lucy", "en": "I'm sorry, she's in a meeting at the moment. Can I take a message?", "fr": "Je suis désolée, elle est en réunion pour le moment. Puis-je prendre un message ?" },
+    { "speaker": "Jack", "en": "Yes, please. Could you ask her to call me back?", "fr": "Oui, s'il vous plaît. Pourriez-vous lui demander de me rappeler ?" },
+    { "speaker": "Lucy", "en": "Of course. Does she have your number?", "fr": "Bien sûr. A-t-elle votre numéro ?" },
+    { "speaker": "Jack", "en": "I'm not sure. It's oh seven seven double oh, nine double oh, one two three.", "fr": "Je ne suis pas sûr. C'est le zéro sept sept zéro zéro, neuf zéro zéro, un deux trois." },
+    { "speaker": "Lucy", "en": "Sorry, could you say that again more slowly?", "fr": "Pardon, pourriez-vous répéter plus lentement ?" },
+    { "speaker": "Jack", "en": "Sure. Oh seven seven double oh. Nine double oh. One two three.", "fr": "Bien sûr. Zéro sept sept zéro zéro. Neuf zéro zéro. Un deux trois." },
+    { "speaker": "Lucy", "en": "Thank you. And what's it about?", "fr": "Merci. Et c'est à quel sujet ?" },
+    { "speaker": "Jack", "en": "It's about the meeting next Tuesday.", "fr": "C'est au sujet de la réunion de mardi prochain." },
+    { "speaker": "Lucy", "en": "OK, I'll give her the message as soon as she's free.", "fr": "D'accord, je lui transmets le message dès qu'elle est libre." },
+    { "speaker": "Jack", "en": "Thanks a lot. Bye!", "fr": "Merci beaucoup. Au revoir !" },
+    { "speaker": "Lucy", "en": "Goodbye!", "fr": "Au revoir !" }
+  ],
+  "expressions": [
+    { "en": "Lucy speaking.", "fr": "Lucy à l'appareil." },
+    { "en": "Could I speak to Sarah Jones, please?", "fr": "Pourrais-je parler à Sarah Jones, s'il vous plaît ?" },
+    { "en": "Can I take a message?", "fr": "Puis-je prendre un message ?" },
+    { "en": "Could you ask her to call me back?", "fr": "Pourriez-vous lui demander de me rappeler ?" },
+    { "en": "What's it about?", "fr": "C'est à quel sujet ?" },
+    { "en": "I'll give her the message.", "fr": "Je lui transmettrai le message." }
+  ]
+}

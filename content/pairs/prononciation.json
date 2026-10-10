@@ -1,0 +1,501 @@
+[
+  {
+    "id": "pair-thirteen-thirty",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "thirteen", "fr": "treize", "ipa": "/ˌθɜːˈtiːn/", "example": { "en": "My son is thirteen.", "fr": "Mon fils a treize ans." } },
+      { "en": "thirty", "fr": "trente", "ipa": "/ˈθɜːti/", "example": { "en": "The bus comes every thirty minutes.", "fr": "Le bus passe toutes les trente minutes." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti ». En cas de doute, on peut demander : « One-three or three-zero? »"
+  },
+  {
+    "id": "pair-fourteen-forty",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "fourteen", "fr": "quatorze", "ipa": "/ˌfɔːˈtiːn/", "example": { "en": "The shop is at number fourteen.", "fr": "Le magasin est au numéro quatorze." } },
+      { "en": "forty", "fr": "quarante", "ipa": "/ˈfɔːti/", "example": { "en": "It takes about forty minutes.", "fr": "Ça prend environ quarante minutes." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-fifteen-fifty",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "fifteen", "fr": "quinze", "ipa": "/ˌfɪfˈtiːn/", "example": { "en": "I'll be ready in fifteen minutes.", "fr": "Je serai prêt dans quinze minutes." } },
+      { "en": "fifty", "fr": "cinquante", "ipa": "/ˈfɪfti/", "example": { "en": "That's fifty pounds, please.", "fr": "Ça fait cinquante livres, s'il vous plaît." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-sixteen-sixty",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "sixteen", "fr": "seize", "ipa": "/ˌsɪkˈstiːn/", "example": { "en": "The train leaves from platform sixteen.", "fr": "Le train part du quai seize." } },
+      { "en": "sixty", "fr": "soixante", "ipa": "/ˈsɪksti/", "example": { "en": "My father is sixty.", "fr": "Mon père a soixante ans." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-seventeen-seventy",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "seventeen", "fr": "dix-sept", "ipa": "/ˌsevnˈtiːn/", "example": { "en": "She was seventeen when she left school.", "fr": "Elle avait dix-sept ans quand elle a quitté l'école." } },
+      { "en": "seventy", "fr": "soixante-dix", "ipa": "/ˈsevnti/", "example": { "en": "The speed limit on the motorway is seventy.", "fr": "Sur l'autoroute, la vitesse est limitée à soixante-dix (miles à l'heure)." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-eighteen-eighty",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "eighteen", "fr": "dix-huit", "ipa": "/ˌeɪˈtiːn/", "example": { "en": "You have to be eighteen to vote.", "fr": "Il faut avoir dix-huit ans pour voter." } },
+      { "en": "eighty", "fr": "quatre-vingts", "ipa": "/ˈeɪti/", "example": { "en": "My grandmother is eighty.", "fr": "Ma grand-mère a quatre-vingts ans." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-nineteen-ninety",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "nombres",
+    "words": [
+      { "en": "nineteen", "fr": "dix-neuf", "ipa": "/ˌnaɪnˈtiːn/", "example": { "en": "Room nineteen is on the first floor.", "fr": "La chambre dix-neuf est au premier étage." } },
+      { "en": "ninety", "fr": "quatre-vingt-dix", "ipa": "/ˈnaɪnti/", "example": { "en": "The ticket costs ninety pounds.", "fr": "Le billet coûte quatre-vingt-dix livres." } }
+    ],
+    "explanation": "Dans le nombre en -teen, l'accent tombe sur la fin, longue et nette (-TEEN), et on entend le « n ». Dans le nombre en -ty, l'accent est sur le début et la fin est courte : « -ti »."
+  },
+  {
+    "id": "pair-ship-sheep",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "ship", "fr": "bateau", "ipa": "/ʃɪp/", "example": { "en": "The ship leaves at noon.", "fr": "Le bateau part à midi." } },
+      { "en": "sheep", "fr": "mouton", "ipa": "/ʃiːp/", "example": { "en": "There are sheep in the field.", "fr": "Il y a des moutons dans le pré." } }
+    ],
+    "explanation": "Le « i » de ship est court et relâché, entre « i » et « é ». Le « ee » de sheep est long et tendu, comme un « i » français prolongé."
+  },
+  {
+    "id": "pair-live-leave",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "live", "fr": "habiter, vivre", "ipa": "/lɪv/", "example": { "en": "I live in Manchester.", "fr": "J'habite à Manchester." } },
+      { "en": "leave", "fr": "partir, quitter", "ipa": "/liːv/", "example": { "en": "I leave work at five.", "fr": "Je quitte le travail à cinq heures." } }
+    ],
+    "explanation": "live : « i » court et relâché. leave : « i » long. Confondre les deux change le sens : « I live here » (j'habite ici) ou « I leave here » (je pars d'ici)."
+  },
+  {
+    "id": "pair-sit-seat",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "sit", "fr": "s'asseoir", "ipa": "/sɪt/", "example": { "en": "Please sit down.", "fr": "Asseyez-vous, je vous prie." } },
+      { "en": "seat", "fr": "siège, place", "ipa": "/siːt/", "example": { "en": "Is this seat free?", "fr": "Cette place est libre ?" } }
+    ],
+    "explanation": "sit : voyelle courte, le « t » arrive vite. seat : voyelle longue, on la tient avant le « t »."
+  },
+  {
+    "id": "pair-fill-feel",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "fill", "fr": "remplir", "ipa": "/fɪl/", "example": { "en": "Fill the glass with water.", "fr": "Remplis le verre d'eau." } },
+      { "en": "feel", "fr": "se sentir, sentir", "ipa": "/fiːl/", "example": { "en": "I feel tired today.", "fr": "Je me sens fatigué aujourd'hui." } }
+    ],
+    "explanation": "fill : « i » court, presque « é ». feel : « i » long et tendu."
+  },
+  {
+    "id": "pair-chip-cheap",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "chip", "fr": "frite", "ipa": "/tʃɪp/", "example": { "en": "Fish and chips, please.", "fr": "Un poisson-frites, s'il vous plaît." } },
+      { "en": "cheap", "fr": "pas cher", "ipa": "/tʃiːp/", "example": { "en": "This hotel is very cheap.", "fr": "Cet hôtel est très bon marché." } }
+    ],
+    "explanation": "chip : « i » court. cheap : « i » long. On entend souvent les deux au même endroit : « cheap chips » (des frites pas chères)."
+  },
+  {
+    "id": "pair-full-fool",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "voyelles",
+    "words": [
+      { "en": "full", "fr": "plein", "ipa": "/fʊl/", "example": { "en": "The bus is full.", "fr": "Le bus est plein." } },
+      { "en": "fool", "fr": "idiot", "ipa": "/fuːl/", "example": { "en": "Don't be a fool!", "fr": "Ne fais pas l'idiot !" } }
+    ],
+    "explanation": "full : « ou » court, lèvres peu arrondies. fool : « ou » long, lèvres bien arrondies."
+  },
+  {
+    "id": "pair-cat-cut",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "sons",
+    "words": [
+      { "en": "cat", "fr": "chat", "ipa": "/kæt/", "example": { "en": "The cat is sleeping on the sofa.", "fr": "Le chat dort sur le canapé." } },
+      { "en": "cut", "fr": "couper", "ipa": "/kʌt/", "example": { "en": "Can you cut the bread?", "fr": "Tu peux couper le pain ?" } }
+    ],
+    "explanation": "cat : bouche grande ouverte, son entre « a » et « è ». cut : son court et neutre, proche d'un « a » rapide et sans effort."
+  },
+  {
+    "id": "pair-hat-hot",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "sons",
+    "words": [
+      { "en": "hat", "fr": "chapeau", "ipa": "/hæt/", "example": { "en": "Wear a hat in the sun.", "fr": "Mets un chapeau au soleil." } },
+      { "en": "hot", "fr": "chaud", "ipa": "/hɒt/", "example": { "en": "It's very hot today.", "fr": "Il fait très chaud aujourd'hui." } }
+    ],
+    "explanation": "hat : « a » ouvert, lèvres étirées. hot : « o » court, bouche arrondie et ouverte."
+  },
+  {
+    "id": "pair-bed-bad",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "sons",
+    "words": [
+      { "en": "bed", "fr": "lit", "ipa": "/bed/", "example": { "en": "I'm going to bed.", "fr": "Je vais me coucher." } },
+      { "en": "bad", "fr": "mauvais", "ipa": "/bæd/", "example": { "en": "The weather is bad today.", "fr": "Il fait mauvais aujourd'hui." } }
+    ],
+    "explanation": "bed : « è » court. bad : bouche plus ouverte, son entre « a » et « è », un peu plus long."
+  },
+  {
+    "id": "pair-pull-pool",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "sons",
+    "words": [
+      { "en": "pull", "fr": "tirer", "ipa": "/pʊl/", "example": { "en": "Pull the door, don't push it.", "fr": "Tire la porte, ne la pousse pas." } },
+      { "en": "pool", "fr": "piscine", "ipa": "/puːl/", "example": { "en": "The hotel has a pool.", "fr": "L'hôtel a une piscine." } }
+    ],
+    "explanation": "pull : « ou » court et relâché. pool : « ou » long."
+  },
+  {
+    "id": "pair-walk-work",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "sons",
+    "words": [
+      { "en": "walk", "fr": "marcher", "ipa": "/wɔːk/", "example": { "en": "Let's walk to the park.", "fr": "Allons au parc à pied." } },
+      { "en": "work", "fr": "travailler", "ipa": "/wɜːk/", "example": { "en": "I work in an office.", "fr": "Je travaille dans un bureau." } }
+    ],
+    "explanation": "walk : « o » long et arrondi, le « l » ne se prononce pas. work : son neutre, comme dans « heure », lèvres peu arrondies."
+  },
+  {
+    "id": "pair-three-tree",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "three", "fr": "trois", "ipa": "/θriː/", "example": { "en": "I've got three brothers.", "fr": "J'ai trois frères." } },
+      { "en": "tree", "fr": "arbre", "ipa": "/triː/", "example": { "en": "There's a big tree in the garden.", "fr": "Il y a un grand arbre dans le jardin." } }
+    ],
+    "explanation": "Pour th (/θ/), le bout de la langue touche légèrement les dents du haut et l'air passe. Pour tree, c'est un « t » normal."
+  },
+  {
+    "id": "pair-think-sink",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "think", "fr": "penser", "ipa": "/θɪŋk/", "example": { "en": "I think it's going to rain.", "fr": "Je pense qu'il va pleuvoir." } },
+      { "en": "sink", "fr": "évier", "ipa": "/sɪŋk/", "example": { "en": "The plates are in the sink.", "fr": "Les assiettes sont dans l'évier." } }
+    ],
+    "explanation": "think : langue entre les dents, sans siffler. sink : un vrai sifflement, langue derrière les dents."
+  },
+  {
+    "id": "pair-they-day",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "they", "fr": "ils, elles", "ipa": "/ðeɪ/", "example": { "en": "They live next door.", "fr": "Ils habitent à côté." } },
+      { "en": "day", "fr": "jour", "ipa": "/deɪ/", "example": { "en": "Have a nice day!", "fr": "Bonne journée !" } }
+    ],
+    "explanation": "they : langue contre les dents, avec vibration (/ð/). day : langue derrière les dents, son bref."
+  },
+  {
+    "id": "pair-vest-west",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "vest", "fr": "maillot de corps", "ipa": "/vest/", "example": { "en": "He's wearing a white vest.", "fr": "Il porte un maillot de corps blanc." } },
+      { "en": "west", "fr": "ouest", "ipa": "/west/", "example": { "en": "Cardiff is in the west.", "fr": "Cardiff est à l'ouest." } }
+    ],
+    "explanation": "v : les dents du haut touchent la lèvre du bas, et ça vibre. w : les lèvres s'arrondissent comme pour « ou », sans toucher les dents."
+  },
+  {
+    "id": "pair-very-ferry",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "very", "fr": "très", "ipa": "/ˈveri/", "example": { "en": "Thank you very much.", "fr": "Merci beaucoup." } },
+      { "en": "ferry", "fr": "ferry", "ipa": "/ˈferi/", "example": { "en": "We took the ferry to France.", "fr": "Nous avons pris le ferry pour la France." } }
+    ],
+    "explanation": "Même position : dents du haut sur la lèvre du bas. v vibre (la gorge vibre), f est un simple souffle."
+  },
+  {
+    "id": "pair-hair-air",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "consonnes",
+    "words": [
+      { "en": "hair", "fr": "cheveux", "ipa": "/heə/", "example": { "en": "She has long hair.", "fr": "Elle a les cheveux longs." } },
+      { "en": "air", "fr": "air", "ipa": "/eə/", "example": { "en": "I need some fresh air.", "fr": "J'ai besoin de prendre l'air." } }
+    ],
+    "explanation": "Le h anglais se prononce : un petit souffle, comme pour embuer une vitre. air commence directement par la voyelle."
+  },
+  {
+    "id": "pair-cap-cab",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "finales",
+    "words": [
+      { "en": "cap", "fr": "casquette", "ipa": "/kæp/", "example": { "en": "He always wears a cap.", "fr": "Il porte toujours une casquette." } },
+      { "en": "cab", "fr": "taxi", "ipa": "/kæb/", "example": { "en": "Let's take a cab.", "fr": "Prenons un taxi." } }
+    ],
+    "explanation": "La dernière consonne change le sens. p : coupure sèche. b : plus doux, et la voyelle juste avant est un peu plus longue."
+  },
+  {
+    "id": "pair-back-bag",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "finales",
+    "words": [
+      { "en": "back", "fr": "dos", "ipa": "/bæk/", "example": { "en": "My back hurts.", "fr": "J'ai mal au dos." } },
+      { "en": "bag", "fr": "sac", "ipa": "/bæɡ/", "example": { "en": "Where's my bag?", "fr": "Où est mon sac ?" } }
+    ],
+    "explanation": "k final : arrêt sec, voyelle courte. g final : son voisé, voyelle un peu plus longue."
+  },
+  {
+    "id": "pair-pick-pig",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "finales",
+    "words": [
+      { "en": "pick", "fr": "choisir, cueillir", "ipa": "/pɪk/", "example": { "en": "Pick a card.", "fr": "Choisis une carte." } },
+      { "en": "pig", "fr": "cochon", "ipa": "/pɪɡ/", "example": { "en": "There's a pig on the farm.", "fr": "Il y a un cochon à la ferme." } }
+    ],
+    "explanation": "pick : « k » sec et sans vibration. pig : « g » voisé, la voyelle s'allonge légèrement."
+  },
+  {
+    "id": "pair-safe-save",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "finales",
+    "words": [
+      { "en": "safe", "fr": "en sécurité", "ipa": "/seɪf/", "example": { "en": "You're safe here.", "fr": "Tu es en sécurité ici." } },
+      { "en": "save", "fr": "économiser, sauver", "ipa": "/seɪv/", "example": { "en": "I'm saving money for a car.", "fr": "J'économise pour une voiture." } }
+    ],
+    "explanation": "f final : souffle sans vibration. v final : vibration, et la voyelle est plus longue juste avant."
+  },
+  {
+    "id": "pair-rice-rise",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "finales",
+    "words": [
+      { "en": "rice", "fr": "riz", "ipa": "/raɪs/", "example": { "en": "Would you like rice or chips?", "fr": "Tu veux du riz ou des frites ?" } },
+      { "en": "rise", "fr": "se lever (soleil), augmenter", "ipa": "/raɪz/", "example": { "en": "Prices always rise in summer.", "fr": "Les prix augmentent toujours en été." } }
+    ],
+    "explanation": "s final : sifflement sans vibration. z final : bourdonnement, comme une abeille, avec une voyelle plus longue."
+  },
+  {
+    "id": "pair-ed-three-sounds",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "ed",
+    "words": [
+      { "en": "worked", "fr": "a travaillé", "ipa": "/wɜːkt/", "example": { "en": "I worked late yesterday.", "fr": "J'ai travaillé tard hier." } },
+      { "en": "played", "fr": "a joué", "ipa": "/pleɪd/", "example": { "en": "We played tennis on Sunday.", "fr": "Nous avons joué au tennis dimanche." } },
+      { "en": "wanted", "fr": "a voulu", "ipa": "/ˈwɒntɪd/", "example": { "en": "She wanted to see the sea.", "fr": "Elle voulait voir la mer." } }
+    ],
+    "explanation": "-ed se prononce /t/ après un son sourd (k, p, s, sh, ch, f), /d/ après un son voisé (voyelle, l, n, r, v…), et /ɪd/, avec une syllabe en plus, seulement après t ou d."
+  },
+  {
+    "id": "pair-ed-one-or-two-syllables",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "ed",
+    "words": [
+      { "en": "watched", "fr": "a regardé", "ipa": "/wɒtʃt/", "example": { "en": "We watched the match on TV.", "fr": "Nous avons regardé le match à la télé." } },
+      { "en": "waited", "fr": "a attendu", "ipa": "/ˈweɪtɪd/", "example": { "en": "I waited for the bus for twenty minutes.", "fr": "J'ai attendu le bus pendant vingt minutes." } }
+    ],
+    "explanation": "watched garde une seule syllabe (« watcht »). waited en a deux, car le verbe finit par t : « wai-tid »."
+  },
+  {
+    "id": "pair-ed-liked-lived-needed",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "ed",
+    "words": [
+      { "en": "liked", "fr": "a aimé", "ipa": "/laɪkt/", "example": { "en": "I really liked the film.", "fr": "J'ai vraiment aimé le film." } },
+      { "en": "lived", "fr": "a vécu, a habité", "ipa": "/lɪvd/", "example": { "en": "They lived in Spain for ten years.", "fr": "Ils ont vécu en Espagne pendant dix ans." } },
+      { "en": "needed", "fr": "a eu besoin", "ipa": "/ˈniːdɪd/", "example": { "en": "We needed a bigger car.", "fr": "Nous avions besoin d'une voiture plus grande." } }
+    ],
+    "explanation": "liked /t/ (après k), lived /d/ (après v), needed /ɪd/ (après d). Le « e » de -ed ne s'entend que dans le dernier."
+  },
+  {
+    "id": "pair-s-plurals",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "s",
+    "words": [
+      { "en": "cats", "fr": "des chats", "ipa": "/kæts/", "example": { "en": "Our cats sleep all day.", "fr": "Nos chats dorment toute la journée." } },
+      { "en": "dogs", "fr": "des chiens", "ipa": "/dɒɡz/", "example": { "en": "The dogs are barking.", "fr": "Les chiens aboient." } },
+      { "en": "buses", "fr": "des bus", "ipa": "/ˈbʌsɪz/", "example": { "en": "The buses are late today.", "fr": "Les bus sont en retard aujourd'hui." } }
+    ],
+    "explanation": "-s se prononce /s/ après un son sourd (p, t, k, f), /z/ après un son voisé (voyelles, b, d, g, l, m, n…), et /ɪz/, avec une syllabe en plus, après s, z, sh, ch ou j."
+  },
+  {
+    "id": "pair-s-third-person",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "s",
+    "words": [
+      { "en": "works", "fr": "travaille", "ipa": "/wɜːks/", "example": { "en": "He works in a bank.", "fr": "Il travaille dans une banque." } },
+      { "en": "plays", "fr": "joue", "ipa": "/pleɪz/", "example": { "en": "She plays the piano.", "fr": "Elle joue du piano." } },
+      { "en": "watches", "fr": "regarde", "ipa": "/ˈwɒtʃɪz/", "example": { "en": "He watches TV every evening.", "fr": "Il regarde la télé tous les soirs." } }
+    ],
+    "explanation": "Même règle pour la troisième personne du présent : works /s/, plays /z/, watches /ɪz/."
+  },
+  {
+    "id": "pair-s-price-prices",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "s",
+    "words": [
+      { "en": "price", "fr": "prix", "ipa": "/praɪs/", "example": { "en": "What's the price of this jacket?", "fr": "Quel est le prix de cette veste ?" } },
+      { "en": "prices", "fr": "les prix", "ipa": "/ˈpraɪsɪz/", "example": { "en": "Prices are high in London.", "fr": "Les prix sont élevés à Londres." } }
+    ],
+    "explanation": "price a une syllabe ; prices en a deux, car le mot finit déjà par un son « s »."
+  },
+  {
+    "id": "pair-record-noun-verb",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "accent",
+    "words": [
+      { "en": "a record", "fr": "un record, un disque", "ipa": "/ə ˈrekɔːd/", "example": { "en": "She broke the world record.", "fr": "Elle a battu le record du monde." } },
+      { "en": "to record", "fr": "enregistrer", "ipa": "/tə rɪˈkɔːd/", "example": { "en": "We recorded the concert.", "fr": "Nous avons enregistré le concert." } }
+    ],
+    "explanation": "Même orthographe, accent différent. Le nom met l'accent au début (REcord), le verbe à la fin (reCORD). La syllabe non accentuée s'affaiblit."
+  },
+  {
+    "id": "pair-present-noun-verb",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "accent",
+    "words": [
+      { "en": "a present", "fr": "un cadeau", "ipa": "/ə ˈpreznt/", "example": { "en": "I bought you a present.", "fr": "Je t'ai acheté un cadeau." } },
+      { "en": "to present", "fr": "présenter", "ipa": "/tə prɪˈzent/", "example": { "en": "She presents the news on TV.", "fr": "Elle présente le journal à la télé." } }
+    ],
+    "explanation": "Le nom (un cadeau) : PREsent. Le verbe (présenter) : preSENT."
+  },
+  {
+    "id": "pair-desert-dessert",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "accent",
+    "words": [
+      { "en": "desert", "fr": "désert", "ipa": "/ˈdezət/", "example": { "en": "The Sahara is a huge desert.", "fr": "Le Sahara est un immense désert." } },
+      { "en": "dessert", "fr": "dessert", "ipa": "/dɪˈzɜːt/", "example": { "en": "What's for dessert?", "fr": "Qu'est-ce qu'il y a comme dessert ?" } }
+    ],
+    "explanation": "desert (désert) : accent sur la première syllabe, DEZ-ert. dessert : accent sur la seconde, di-ZERT."
+  },
+  {
+    "id": "pair-photograph-photographer",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "accent",
+    "words": [
+      { "en": "photograph", "fr": "photo", "ipa": "/ˈfəʊtəɡrɑːf/", "example": { "en": "Can I take a photograph?", "fr": "Je peux prendre une photo ?" } },
+      { "en": "photographer", "fr": "photographe", "ipa": "/fəˈtɒɡrəfə/", "example": { "en": "He's a wedding photographer.", "fr": "Il est photographe de mariage." } }
+    ],
+    "explanation": "L'accent se déplace : PHO-to-graph, mais pho-TO-gra-pher. La syllabe accentuée est plus forte et plus longue, les autres s'affaiblissent."
+  },
+  {
+    "id": "pair-hotel-hostel",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "accent",
+    "words": [
+      { "en": "hotel", "fr": "hôtel", "ipa": "/həʊˈtel/", "example": { "en": "Our hotel is near the beach.", "fr": "Notre hôtel est près de la plage." } },
+      { "en": "hostel", "fr": "auberge de jeunesse", "ipa": "/ˈhɒstl/", "example": { "en": "We stayed in a youth hostel.", "fr": "Nous avons logé dans une auberge de jeunesse." } }
+    ],
+    "explanation": "hotel : accent à la fin (ho-TEL). hostel : accent au début (HOS-tel)."
+  },
+  {
+    "id": "pair-can-weak-strong",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "faibles",
+    "words": [
+      { "en": "Can you swim?", "fr": "Tu sais nager ?", "ipa": "/kən juː swɪm/" },
+      { "en": "Yes, I can.", "fr": "Oui.", "ipa": "/jes aɪ kæn/" }
+    ],
+    "explanation": "Dans la question, can est faible et rapide : /kən/. Seul à la fin de la réponse, il est fort : /kæn/."
+  },
+  {
+    "id": "pair-was-weak-strong",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "faibles",
+    "words": [
+      { "en": "Was she at home?", "fr": "Était-elle à la maison ?", "ipa": "/wəz ʃi ət həʊm/" },
+      { "en": "Yes, she was.", "fr": "Oui.", "ipa": "/jes ʃi wɒz/" }
+    ],
+    "explanation": "Dans la question, was est faible (/wəz/) ; à la fin de la réponse courte, il est fort (/wɒz/)."
+  },
+  {
+    "id": "pair-of-weak-strong",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "faibles",
+    "words": [
+      { "en": "It's made of wood.", "fr": "C'est en bois.", "ipa": "/ɪts ˈmeɪd əv wʊd/" },
+      { "en": "What's it made of?", "fr": "C'est fait en quoi ?", "ipa": "/wɒts ɪt ˈmeɪd ɒv/" }
+    ],
+    "explanation": "Dans la phrase, of devient un simple « əv », presque « ə ». À la fin de la question, il garde sa forme pleine."
+  },
+  {
+    "id": "pair-to-weak-strong",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "faibles",
+    "words": [
+      { "en": "Do you want to go?", "fr": "Tu veux y aller ?", "ipa": "/də jə ˈwɒnt tə ɡəʊ/" },
+      { "en": "No, I don't want to.", "fr": "Non, je n'en ai pas envie.", "ipa": "/nəʊ aɪ dəʊnt ˈwɒnt tuː/" }
+    ],
+    "explanation": "to est faible devant un verbe (/tə/), fort à la fin de la réponse (/tuː/)."
+  },
+  {
+    "id": "pair-for-weak-strong",
+    "type": "pair",
+    "theme": "prononciation",
+    "group": "faibles",
+    "words": [
+      { "en": "It's for you.", "fr": "C'est pour toi.", "ipa": "/ɪts fə juː/" },
+      { "en": "Who's it for?", "fr": "C'est pour qui ?", "ipa": "/huːz ɪt fɔː/" }
+    ],
+    "explanation": "for est faible dans la réponse (/fə/), fort à la fin de la question (/fɔː/)."
+  }
+]

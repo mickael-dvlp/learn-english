@@ -1,0 +1,32 @@
+{
+  "id": "text-talking-about-plans",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Talking about plans", "fr": "Discuter de ses projets" },
+  "situation": "Deux amis parlent de leurs projets pour le week-end et pour l'été.",
+  "theme": "loisirs",
+  "sentences": [
+    { "speaker": "Ben", "en": "Have you got any plans for the weekend?", "fr": "Tu as des projets pour le week-end ?" },
+    { "speaker": "Chloe", "en": "Not really. I might go for a walk if the weather's nice. What about you?", "fr": "Pas vraiment. J'irai peut-être me promener s'il fait beau. Et toi ?" },
+    { "speaker": "Ben", "en": "I'm going to visit my parents in Cornwall.", "fr": "Je vais rendre visite à mes parents en Cornouailles." },
+    { "speaker": "Chloe", "en": "Lovely! Are you driving?", "fr": "Super ! Tu y vas en voiture ?" },
+    { "speaker": "Ben", "en": "No, I'm taking the train on Saturday morning. It's more relaxing.", "fr": "Non, je prends le train samedi matin. C'est plus reposant." },
+    { "speaker": "Chloe", "en": "Good idea. And what are you doing this summer?", "fr": "Bonne idée. Et qu'est-ce que tu fais cet été ?" },
+    { "speaker": "Ben", "en": "I'm hoping to go to Italy for two weeks, but I haven't booked anything yet.", "fr": "J'espère aller en Italie pendant deux semaines, mais je n'ai encore rien réservé." },
+    { "speaker": "Chloe", "en": "You should book soon, it gets expensive.", "fr": "Tu devrais réserver vite, ça devient cher." },
+    { "speaker": "Ben", "en": "I know. What about you? Are you going away?", "fr": "Je sais. Et toi ? Tu pars ?" },
+    { "speaker": "Chloe", "en": "I'm planning to learn to surf in Wales.", "fr": "Je compte apprendre à surfer au pays de Galles." },
+    { "speaker": "Ben", "en": "Really? That sounds great!", "fr": "C'est vrai ? Ça a l'air génial !" },
+    { "speaker": "Chloe", "en": "Why don't you come with me for a few days?", "fr": "Pourquoi tu ne viendrais pas avec moi quelques jours ?" },
+    { "speaker": "Ben", "en": "Maybe! Let's talk about it next week.", "fr": "Peut-être ! On en reparle la semaine prochaine." }
+  ],
+  "expressions": [
+    { "en": "Have you got any plans for the weekend?", "fr": "Tu as des projets pour le week-end ?" },
+    { "en": "I might go for a walk.", "fr": "J'irai peut-être me promener." },
+    { "en": "I'm going to visit my parents.", "fr": "Je vais rendre visite à mes parents." },
+    { "en": "I'm hoping to go to Italy.", "fr": "J'espère aller en Italie." },
+    { "en": "I'm planning to learn to surf.", "fr": "Je compte apprendre à surfer." },
+    { "en": "Why don't you come with me?", "fr": "Pourquoi tu ne viendrais pas avec moi ?" },
+    { "en": "Let's talk about it next week.", "fr": "On en reparle la semaine prochaine." }
+  ]
+}

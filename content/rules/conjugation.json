@@ -1,16 +1,127 @@
 [
   {
+    "id": "rule-present-simple",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "present",
+    "title": { "en": "Present simple", "fr": "Le présent simple" },
+    "explanation": "Pour les habitudes, les faits et ce qui est toujours vrai. Avec he, she, it, on ajoute -s au verbe. Questions avec do / does, négations avec don't / doesn't : le verbe reste alors à la base. On l'entend souvent avec always, usually, never…",
+    "structure": "sujet + verbe (+ -s avec he / she / it)",
+    "forms": [
+      { "kind": "affirmative", "en": "She works in a hospital.", "fr": "Elle travaille dans un hôpital." },
+      { "kind": "negative", "en": "He doesn't eat meat.", "fr": "Il ne mange pas de viande." },
+      { "kind": "question", "en": "Do you live near here?", "fr": "Tu habites près d'ici ?" }
+    ],
+    "examples": [
+      { "en": "I usually get up at seven.", "fr": "En général, je me lève à sept heures." },
+      { "en": "Water boils at a hundred degrees.", "fr": "L'eau bout à cent degrés." },
+      { "en": "My brother lives in Leeds.", "fr": "Mon frère habite à Leeds." },
+      { "en": "Does the shop open on Sundays?", "fr": "Le magasin ouvre-t-il le dimanche ?" }
+    ],
+    "mistake": { "wrong": "She work in a hospital.", "right": "She works in a hospital.", "note": "N'oublie pas le -s avec he, she, it." },
+    "group": "temps"
+  },
+  {
     "id": "rule-present-continuous",
     "type": "rule",
     "kind": "conjugation",
     "tense": "present",
     "title": { "en": "Present continuous", "fr": "Le présent continu" },
-    "explanation": "On l'utilise pour une action en train de se passer maintenant. On le forme avec le verbe « be » conjugué, suivi du verbe avec « -ing ».",
+    "explanation": "On l'utilise pour une action en train de se passer maintenant. On le forme avec le verbe « be » conjugué, suivi du verbe avec « -ing ».",
+    "structure": "sujet + be (am / is / are) + verbe-ing",
+    "forms": [
+      { "kind": "affirmative", "en": "We're having dinner.", "fr": "Nous sommes en train de dîner." },
+      { "kind": "negative", "en": "She isn't working today.", "fr": "Elle ne travaille pas aujourd'hui." },
+      { "kind": "question", "en": "Are you listening?", "fr": "Tu m'écoutes ?" }
+    ],
     "examples": [
       { "en": "I am reading a book.", "fr": "Je suis en train de lire un livre." },
       { "en": "She is cooking dinner.", "fr": "Elle prépare le dîner." },
       { "en": "They are working in the field.", "fr": "Ils travaillent dans le champ." }
     ],
-    "level": "A1"
+    "mistake": { "wrong": "I reading a book.", "right": "I'm reading a book.", "note": "Ne pas oublier be : I'm, you're, she's…" },
+    "group": "temps"
+  },
+  {
+    "id": "rule-present-simple-or-continuous",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "present",
+    "title": { "en": "Present simple or present continuous?", "fr": "Présent simple ou présent continu ?" },
+    "explanation": "Le présent simple parle de ce qui est habituel ou permanent ; le présent continu, de ce qui se passe maintenant ou en ce moment, pour un temps. Des verbes comme know, like, want ou understand restent presque toujours au présent simple.",
+    "structure": "d'habitude : I work · en ce moment : I'm working",
+    "examples": [
+      { "en": "I work from home.", "fr": "Je travaille depuis chez moi (d'habitude)." },
+      { "en": "I'm working from home today.", "fr": "Je travaille depuis chez moi aujourd'hui." },
+      { "en": "She usually drives to work, but this week she's taking the train.", "fr": "D'habitude, elle va au travail en voiture, mais cette semaine elle prend le train." },
+      { "en": "What do you do? – I'm a nurse.", "fr": "Qu'est-ce que tu fais dans la vie ? – Je suis infirmière." },
+      { "en": "What are you doing? – I'm making dinner.", "fr": "Qu'est-ce que tu fais ? – Je prépare le dîner." },
+      { "en": "Sorry, I don't understand this word.", "fr": "Désolé, je ne comprends pas ce mot." }
+    ],
+    "mistake": { "wrong": "I'm knowing the answer.", "right": "I know the answer.", "note": "know, like, want, understand ne se mettent normalement pas en -ing." },
+    "group": "temps"
+  },
+  {
+    "id": "rule-past-simple",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "past",
+    "title": { "en": "Past simple", "fr": "Le passé simple (prétérit)" },
+    "explanation": "Pour une action terminée, à un moment passé précis : yesterday, last week, two days ago, in 2019. Verbes réguliers en -ed, verbes irréguliers à apprendre (go → went). Questions avec did, négations avec didn't : le verbe revient à la base.",
+    "structure": "sujet + verbe au prétérit (worked, went) · did + sujet + base ?",
+    "forms": [
+      { "kind": "affirmative", "en": "We visited Edinburgh last summer.", "fr": "Nous avons visité Édimbourg l'été dernier." },
+      { "kind": "negative", "en": "I didn't sleep well last night.", "fr": "Je n'ai pas bien dormi cette nuit." },
+      { "kind": "question", "en": "Did you see the match yesterday?", "fr": "Tu as vu le match hier ?" }
+    ],
+    "examples": [
+      { "en": "She went to the doctor's two days ago.", "fr": "Elle est allée chez le médecin il y a deux jours." },
+      { "en": "They moved to Bristol in 2019.", "fr": "Ils ont déménagé à Bristol en 2019." },
+      { "en": "What did you do at the weekend?", "fr": "Qu'est-ce que tu as fait ce week-end ?" },
+      { "en": "I lost my keys this morning.", "fr": "J'ai perdu mes clés ce matin." }
+    ],
+    "mistake": { "wrong": "Did you went out?", "right": "Did you go out?", "note": "Après did, le verbe revient à la base." },
+    "group": "temps"
+  },
+  {
+    "id": "rule-talking-about-the-future",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "future",
+    "title": { "en": "Talking about the future", "fr": "Parler du futur" },
+    "explanation": "will : décision prise sur le moment, promesse, prédiction. be going to : projet déjà décidé, ou ce qu'on voit arriver. Présent continu : rendez-vous ou arrangement prévu. Présent simple : horaires (trains, films, cours).",
+    "structure": "will + base · be going to + base · be + -ing · présent simple (horaires)",
+    "examples": [
+      { "en": "I'll call you later.", "fr": "Je t'appellerai plus tard." },
+      { "en": "I'm going to change jobs.", "fr": "Je vais changer de travail." },
+      { "en": "I'm meeting Sarah tomorrow.", "fr": "Je vois Sarah demain." },
+      { "en": "The train leaves at seven.", "fr": "Le train part à sept heures." },
+      { "en": "Look at those clouds! It's going to rain.", "fr": "Regarde ces nuages ! Il va pleuvoir." },
+      { "en": "I won't tell anyone, I promise.", "fr": "Je ne le dirai à personne, promis." }
+    ],
+    "mistake": { "wrong": "I call you later.", "right": "I'll call you later.", "note": "Pour une décision prise sur le moment, will, pas le présent." },
+    "group": "temps"
+  },
+  {
+    "id": "rule-present-perfect",
+    "type": "rule",
+    "kind": "conjugation",
+    "tense": "other",
+    "title": { "en": "Present perfect", "fr": "Le present perfect" },
+    "explanation": "Il relie le passé au présent : une expérience (ever, never), un résultat visible maintenant (already, yet, just), une situation commencée dans le passé et toujours vraie (since, for). Avec un moment passé précis (yesterday, in 2010), on utilise le passé simple.",
+    "structure": "sujet + have / has + participe passé",
+    "forms": [
+      { "kind": "affirmative", "en": "I've just finished my lunch.", "fr": "Je viens de finir mon déjeuner." },
+      { "kind": "negative", "en": "She hasn't called yet.", "fr": "Elle n'a pas encore appelé." },
+      { "kind": "question", "en": "Have you ever been to Ireland?", "fr": "Es-tu déjà allé en Irlande ?" }
+    ],
+    "examples": [
+      { "en": "I've lost my phone. I can't find it anywhere.", "fr": "J'ai perdu mon téléphone. Je ne le trouve nulle part." },
+      { "en": "We've lived here since 2015.", "fr": "Nous habitons ici depuis 2015." },
+      { "en": "He's worked here for ten years.", "fr": "Il travaille ici depuis dix ans." },
+      { "en": "I've already seen this film. I saw it last week.", "fr": "J'ai déjà vu ce film. Je l'ai vu la semaine dernière." }
+    ],
+    "mistake": { "wrong": "I live here since 2015.", "right": "I've lived here since 2015.", "note": "« Depuis » + situation toujours vraie : present perfect, pas présent." },
+    "group": "temps"
   }
 ]

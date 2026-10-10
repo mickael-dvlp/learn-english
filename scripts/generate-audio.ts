@@ -11,8 +11,7 @@ import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:
 import path from "node:path";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 import { loadContent } from "../src/lib/content/load";
-import type { Lang } from "../src/lib/player/types";
-import { VOICES, prosodyRate, spokenText } from "../src/lib/speech/audio-files";
+import { VOICES, prosodyRate, spokenText, voiceName } from "../src/lib/speech/audio-files";
 import { listSpokenTexts, type SpokenText } from "../src/lib/speech/spoken-texts";
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
@@ -45,16 +44,16 @@ main().catch((error: unknown) => {
 async function main() {
   let done = 0;
   try {
-    for (const lang of Object.keys(VOICES) as Lang[]) {
-      const batch = missing.filter((entry) => entry.lang === lang);
-      if (batch.length === 0) continue;
+    const voices = [...new Set(missing.map((entry) => voiceName(entry.lang, entry.voice)))];
+    for (const voice of voices) {
+      const batch = missing.filter((entry) => voiceName(entry.lang, entry.voice) === voice);
       // The third argument works around a msedge-tts bug when switching voices.
-      await tts.setMetadata(VOICES[lang], OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3, {});
+      await tts.setMetadata(voice, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3, {});
       for (const entry of batch) {
         await generate(entry);
         done++;
         const speed = entry.rate === 1 ? "" : ` (${prosodyRate(entry.rate)})`;
-        console.log(`[${done}/${missing.length}] ${entry.lang}${speed} · ${entry.text}`);
+        console.log(`[${done}/${missing.length}] ${voice}${speed} · ${entry.text}`);
       }
     }
   } finally {

@@ -1,0 +1,9 @@
+[
+  { "id": "base", "name": { "en": "Basic verbs", "fr": "Verbes de base" } },
+  { "id": "quotidien", "name": { "en": "Daily actions", "fr": "Actions quotidiennes" } },
+  { "id": "mouvement", "name": { "en": "Movement", "fr": "Mouvement" } },
+  { "id": "communication", "name": { "en": "Communication", "fr": "Communication" } },
+  { "id": "perception", "name": { "en": "Perception and thinking", "fr": "Perception et réflexion" } },
+  { "id": "travail", "name": { "en": "Work and study", "fr": "Travail et études" } },
+  { "id": "besoins", "name": { "en": "Needs and preferences", "fr": "Besoins et préférences" } }
+]

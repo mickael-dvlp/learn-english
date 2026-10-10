@@ -1,0 +1,30 @@
+{
+  "id": "text-health-problem",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Explaining a health problem", "fr": "Expliquer un problème de santé" },
+  "situation": "Une patiente explique ses symptômes à son médecin.",
+  "theme": "sante",
+  "sentences": [
+    { "speaker": "Doctor", "en": "Come in and take a seat. What seems to be the problem?", "fr": "Entrez et asseyez-vous. Qu'est-ce qui ne va pas ?" },
+    { "speaker": "Sophie", "en": "I've had a sore throat and a headache for three days.", "fr": "J'ai mal à la gorge et à la tête depuis trois jours." },
+    { "speaker": "Doctor", "en": "I see. Have you got a temperature?", "fr": "Je vois. Vous avez de la fièvre ?" },
+    { "speaker": "Sophie", "en": "Yes, a little. It was thirty-eight degrees last night.", "fr": "Oui, un peu. J'avais 38 degrés de fièvre hier soir." },
+    { "speaker": "Doctor", "en": "Are you coughing?", "fr": "Vous toussez ?" },
+    { "speaker": "Sophie", "en": "A bit, especially at night. And I feel very tired.", "fr": "Un peu, surtout la nuit. Et je me sens très fatiguée." },
+    { "speaker": "Doctor", "en": "Let me have a look. Open your mouth, please.", "fr": "Je vais regarder. Ouvrez la bouche, s'il vous plaît." },
+    { "speaker": "Doctor", "en": "Your throat is quite red. It's probably a virus.", "fr": "Votre gorge est assez rouge. C'est probablement un virus." },
+    { "speaker": "Sophie", "en": "Do I need antibiotics?", "fr": "J'ai besoin d'antibiotiques ?" },
+    { "speaker": "Doctor", "en": "No, but rest, drink plenty of water and take paracetamol if you need it.", "fr": "Non, mais reposez-vous, buvez beaucoup d'eau et prenez du paracétamol si besoin." },
+    { "speaker": "Sophie", "en": "How long will it take to get better?", "fr": "Combien de temps faudra-t-il pour aller mieux ?" },
+    { "speaker": "Doctor", "en": "About a week. Come back if you don't feel better by then.", "fr": "Environ une semaine. Revenez si ça ne va pas mieux d'ici là." },
+    { "speaker": "Sophie", "en": "Thank you, doctor.", "fr": "Merci, docteur." }
+  ],
+  "expressions": [
+    { "en": "What seems to be the problem?", "fr": "Qu'est-ce qui ne va pas ?" },
+    { "en": "I've had a sore throat for three days.", "fr": "J'ai mal à la gorge depuis trois jours." },
+    { "en": "Have you got a temperature?", "fr": "Avez-vous de la fièvre ?" },
+    { "en": "Drink plenty of water.", "fr": "Buvez beaucoup d'eau." },
+    { "en": "Come back if you don't feel better.", "fr": "Revenez si ça ne va pas mieux." }
+  ]
+}

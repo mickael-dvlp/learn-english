@@ -1,0 +1,22 @@
+[
+  { "id": "word-emergency", "type": "word", "theme": "urgences", "en": "emergency", "fr": "urgence", "pos": "noun", "example": { "en": "Call me if there's an emergency.", "fr": "Appelle-moi en cas d'urgence." } },
+  { "id": "word-help", "type": "word", "theme": "urgences", "en": "Help!", "fr": "Au secours !", "pos": "other", "example": { "en": "Help! Someone has fallen in the water!", "fr": "Au secours ! Quelqu'un est tombé à l'eau !" } },
+  { "id": "word-call-an-ambulance", "type": "word", "theme": "urgences", "en": "Call an ambulance!", "fr": "Appelez une ambulance !", "pos": "other", "example": { "en": "He's not breathing. Call an ambulance!", "fr": "Il ne respire pas. Appelez une ambulance !" } },
+  { "id": "word-ambulance", "type": "word", "theme": "urgences", "en": "ambulance", "fr": "ambulance", "pos": "noun", "example": { "en": "The ambulance arrived in five minutes.", "fr": "L'ambulance est arrivée en cinq minutes." } },
+  { "id": "word-police", "type": "word", "theme": "urgences", "en": "police", "fr": "police", "pos": "noun", "example": { "en": "We called the police.", "fr": "Nous avons appelé la police." } },
+  { "id": "word-police-officer", "type": "word", "theme": "urgences", "en": "police officer", "fr": "policier", "pos": "noun", "example": { "en": "Ask that police officer for help.", "fr": "Demande de l'aide à ce policier." } },
+  { "id": "word-police-station", "type": "word", "theme": "urgences", "en": "police station", "fr": "commissariat", "pos": "noun", "example": { "en": "Where's the nearest police station?", "fr": "Où est le commissariat le plus proche ?" } },
+  { "id": "word-fire", "type": "word", "theme": "urgences", "en": "fire", "fr": "feu, incendie", "pos": "noun", "example": { "en": "There's a fire in the building!", "fr": "Il y a un incendie dans l'immeuble !" } },
+  { "id": "word-fire-brigade", "type": "word", "theme": "urgences", "en": "fire brigade", "fr": "pompiers", "pos": "noun", "example": { "en": "The fire brigade arrived very quickly.", "fr": "Les pompiers sont arrivés très vite." } },
+  { "id": "word-emergency-number", "type": "word", "theme": "urgences", "en": "emergency number", "fr": "numéro d'urgence", "pos": "noun", "example": { "en": "The emergency number in Europe is 112.", "fr": "Le numéro d'urgence en Europe est le 112." } },
+  { "id": "word-accident", "type": "word", "theme": "urgences", "en": "accident", "fr": "accident", "pos": "noun", "example": { "en": "There's been an accident on the motorway.", "fr": "Il y a eu un accident sur l'autoroute." } },
+  { "id": "word-injured", "type": "word", "theme": "urgences", "en": "injured", "fr": "blessé", "pos": "adjective", "example": { "en": "Two people were injured.", "fr": "Deux personnes ont été blessées." } },
+  { "id": "word-is-anyone-hurt", "type": "word", "theme": "urgences", "en": "Is anyone hurt?", "fr": "Il y a des blessés ?", "pos": "other", "example": { "en": "Is anyone hurt? Can everyone walk?", "fr": "Il y a des blessés ? Tout le monde peut marcher ?" } },
+  { "id": "word-first-aid", "type": "word", "theme": "urgences", "en": "first aid", "fr": "premiers secours", "pos": "noun", "example": { "en": "Do you know first aid?", "fr": "Tu connais les gestes de premiers secours ?" } },
+  { "id": "word-danger", "type": "word", "theme": "urgences", "en": "danger", "fr": "danger", "pos": "noun", "example": { "en": "Danger! Keep out!", "fr": "Danger ! Entrée interdite !" } },
+  { "id": "word-dangerous", "type": "word", "theme": "urgences", "en": "dangerous", "fr": "dangereux", "pos": "adjective", "example": { "en": "This road is dangerous at night.", "fr": "Cette route est dangereuse la nuit." } },
+  { "id": "word-be-careful", "type": "word", "theme": "urgences", "en": "Be careful!", "fr": "Attention ! (fais attention)", "pos": "other", "example": { "en": "Be careful, the floor is wet!", "fr": "Attention, le sol est mouillé !" } },
+  { "id": "word-thief", "type": "word", "theme": "urgences", "en": "thief", "fr": "voleur", "pos": "noun", "example": { "en": "A thief took my bag.", "fr": "Un voleur a pris mon sac." } },
+  { "id": "word-to-steal", "type": "word", "theme": "urgences", "en": "to steal", "fr": "voler (dérober)", "pos": "verb", "example": { "en": "Someone stole my bike.", "fr": "Quelqu'un m'a volé mon vélo." } },
+  { "id": "word-to-lose", "type": "word", "theme": "urgences", "en": "to lose", "fr": "perdre (un objet)", "pos": "verb", "example": { "en": "I've lost my passport.", "fr": "J'ai perdu mon passeport." } }
+]

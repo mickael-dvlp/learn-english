@@ -1,0 +1,29 @@
+{
+  "id": "text-asking-for-directions",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "Asking for directions", "fr": "Demander son chemin" },
+  "situation": "Une touriste cherche la gare et demande son chemin à un passant.",
+  "theme": "directions",
+  "sentences": [
+    { "speaker": "Anna", "en": "Excuse me, sorry to bother you. Could you tell me the way to the station?", "fr": "Excusez-moi de vous déranger. Pourriez-vous m'indiquer le chemin de la gare ?" },
+    { "speaker": "Passer-by", "en": "The train station? Sure. Go straight on until you reach the traffic lights.", "fr": "La gare ? Bien sûr. Allez tout droit jusqu'aux feux." },
+    { "speaker": "Anna", "en": "Straight on to the traffic lights. OK.", "fr": "Tout droit jusqu'aux feux. D'accord." },
+    { "speaker": "Passer-by", "en": "Then turn left and walk past the church.", "fr": "Ensuite, tournez à gauche et passez devant l'église." },
+    { "speaker": "Anna", "en": "Sorry, I didn't catch that. Turn left, and then?", "fr": "Pardon, je n'ai pas saisi. À gauche, et ensuite ?" },
+    { "speaker": "Passer-by", "en": "Walk past the church. The station is on your right, opposite the park.", "fr": "Passez devant l'église. La gare est sur votre droite, en face du parc." },
+    { "speaker": "Anna", "en": "Is it far?", "fr": "C'est loin ?" },
+    { "speaker": "Passer-by", "en": "Not really. It's about ten minutes on foot.", "fr": "Pas vraiment. C'est à environ dix minutes à pied." },
+    { "speaker": "Anna", "en": "Great. Is there a bus, just in case?", "fr": "Super. Il y a un bus, au cas où ?" },
+    { "speaker": "Passer-by", "en": "Yes, the number twelve stops just over there.", "fr": "Oui, le douze s'arrête juste là-bas." },
+    { "speaker": "Anna", "en": "Thank you so much for your help.", "fr": "Merci beaucoup pour votre aide." },
+    { "speaker": "Passer-by", "en": "You're welcome. Have a good trip!", "fr": "Je vous en prie. Bon voyage !" }
+  ],
+  "expressions": [
+    { "en": "Sorry to bother you.", "fr": "Désolé de vous déranger." },
+    { "en": "Could you tell me the way to the station?", "fr": "Pourriez-vous m'indiquer le chemin de la gare ?" },
+    { "en": "Go straight on until you reach the traffic lights.", "fr": "Allez tout droit jusqu'aux feux." },
+    { "en": "Walk past the church.", "fr": "Passez devant l'église." },
+    { "en": "It's about ten minutes on foot.", "fr": "C'est à environ dix minutes à pied." }
+  ]
+}

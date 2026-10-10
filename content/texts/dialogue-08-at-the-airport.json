@@ -1,0 +1,31 @@
+{
+  "id": "text-at-the-airport",
+  "type": "text",
+  "kind": "dialogue",
+  "title": { "en": "At the airport", "fr": "À l'aéroport" },
+  "situation": "Une passagère enregistre sa valise au comptoir de la compagnie aérienne.",
+  "theme": "aeroport",
+  "sentences": [
+    { "speaker": "Check-in agent", "en": "Good morning. Where are you flying to today?", "fr": "Bonjour. Où partez-vous aujourd'hui ?" },
+    { "speaker": "Claire", "en": "To Edinburgh.", "fr": "À Édimbourg." },
+    { "speaker": "Check-in agent", "en": "Can I see your passport and boarding pass, please?", "fr": "Puis-je voir votre passeport et votre carte d'embarquement, s'il vous plaît ?" },
+    { "speaker": "Claire", "en": "Here you are.", "fr": "Les voici." },
+    { "speaker": "Check-in agent", "en": "Thank you. Are you checking in any bags?", "fr": "Merci. Vous enregistrez des bagages ?" },
+    { "speaker": "Claire", "en": "Just this suitcase.", "fr": "Juste cette valise." },
+    { "speaker": "Check-in agent", "en": "Could you put it on the scales, please? That's fine, nineteen kilos.", "fr": "Pourriez-vous la poser sur la balance ? C'est bon, dix-neuf kilos." },
+    { "speaker": "Claire", "en": "Can I take this bag on the plane?", "fr": "Je peux prendre ce sac dans l'avion ?" },
+    { "speaker": "Check-in agent", "en": "Yes, that's your hand luggage. But no liquids over a hundred millilitres.", "fr": "Oui, c'est votre bagage à main. Mais pas de liquides de plus de cent millilitres." },
+    { "speaker": "Claire", "en": "OK. Would it be possible to have a window seat?", "fr": "D'accord. Serait-il possible d'avoir une place côté hublot ?" },
+    { "speaker": "Check-in agent", "en": "Let me check. Yes, seat twelve A. Boarding starts at ten fifteen, at gate twenty-two.", "fr": "Je regarde. Oui, place douze A. L'embarquement commence à dix heures quinze, porte vingt-deux." },
+    { "speaker": "Claire", "en": "Is the flight on time?", "fr": "Le vol est à l'heure ?" },
+    { "speaker": "Check-in agent", "en": "Yes, it is. Have a good flight!", "fr": "Oui. Bon vol !" }
+  ],
+  "expressions": [
+    { "en": "Where are you flying to?", "fr": "Où partez-vous ?" },
+    { "en": "Are you checking in any bags?", "fr": "Vous enregistrez des bagages ?" },
+    { "en": "hand luggage", "fr": "bagage à main" },
+    { "en": "Would it be possible to have a window seat?", "fr": "Serait-il possible d'avoir une place côté hublot ?" },
+    { "en": "Boarding starts at ten fifteen.", "fr": "L'embarquement commence à dix heures quinze." },
+    { "en": "Have a good flight!", "fr": "Bon vol !" }
+  ]
+}

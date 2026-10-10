@@ -1,0 +1,22 @@
+[
+  { "id": "word-city", "type": "word", "theme": "ville", "en": "city", "fr": "grande ville", "pos": "noun", "example": { "en": "London is a huge city.", "fr": "Londres est une immense ville." } },
+  { "id": "word-town", "type": "word", "theme": "ville", "en": "town", "fr": "ville", "pos": "noun", "example": { "en": "I live in a small town near the sea.", "fr": "J'habite dans une petite ville près de la mer." } },
+  { "id": "word-village", "type": "word", "theme": "ville", "en": "village", "fr": "village", "pos": "noun", "example": { "en": "My grandparents live in a quiet village.", "fr": "Mes grands-parents vivent dans un village tranquille." } },
+  { "id": "word-city-centre", "type": "word", "theme": "ville", "en": "city centre", "fr": "centre-ville", "pos": "noun", "example": { "en": "The hotel is in the city centre.", "fr": "L'hôtel est dans le centre-ville." } },
+  { "id": "word-neighbourhood", "type": "word", "theme": "ville", "en": "neighbourhood", "fr": "quartier", "pos": "noun", "example": { "en": "It's a nice neighbourhood with lots of shops.", "fr": "C'est un quartier agréable avec beaucoup de magasins." } },
+  { "id": "word-square", "type": "word", "theme": "ville", "en": "square", "fr": "place", "pos": "noun", "example": { "en": "Let's meet in the main square.", "fr": "Retrouvons-nous sur la place principale." } },
+  { "id": "word-park", "type": "word", "theme": "ville", "en": "park", "fr": "parc", "pos": "noun", "example": { "en": "We have a picnic in the park.", "fr": "Nous pique-niquons dans le parc." } },
+  { "id": "word-building", "type": "word", "theme": "ville", "en": "building", "fr": "bâtiment, immeuble", "pos": "noun", "example": { "en": "They live in a tall building.", "fr": "Ils habitent dans un grand immeuble." } },
+  { "id": "word-bridge", "type": "word", "theme": "ville", "en": "bridge", "fr": "pont", "pos": "noun", "example": { "en": "Cross the bridge and turn left.", "fr": "Traverse le pont et tourne à gauche." } },
+  { "id": "word-church", "type": "word", "theme": "ville", "en": "church", "fr": "église", "pos": "noun", "example": { "en": "The church is very old.", "fr": "L'église est très ancienne." } },
+  { "id": "word-museum", "type": "word", "theme": "ville", "en": "museum", "fr": "musée", "pos": "noun", "example": { "en": "The museum is free on Sundays.", "fr": "Le musée est gratuit le dimanche." } },
+  { "id": "word-library", "type": "word", "theme": "ville", "en": "library", "fr": "bibliothèque", "pos": "noun", "example": { "en": "I borrow books from the library.", "fr": "J'emprunte des livres à la bibliothèque." } },
+  { "id": "word-theatre", "type": "word", "theme": "ville", "en": "theatre", "fr": "théâtre", "pos": "noun", "example": { "en": "We're going to the theatre tonight.", "fr": "Nous allons au théâtre ce soir." } },
+  { "id": "word-cafe", "type": "word", "theme": "ville", "en": "café", "fr": "café (lieu)", "pos": "noun", "example": { "en": "There's a nice café on the corner.", "fr": "Il y a un café sympa au coin de la rue." } },
+  { "id": "word-shopping-centre", "type": "word", "theme": "ville", "en": "shopping centre", "fr": "centre commercial", "pos": "noun", "example": { "en": "The shopping centre is open on Sundays.", "fr": "Le centre commercial est ouvert le dimanche." } },
+  { "id": "word-swimming-pool", "type": "word", "theme": "ville", "en": "swimming pool", "fr": "piscine", "pos": "noun", "example": { "en": "The swimming pool is closed today.", "fr": "La piscine est fermée aujourd'hui." } },
+  { "id": "word-bus-stop", "type": "word", "theme": "ville", "en": "bus stop", "fr": "arrêt de bus", "pos": "noun", "example": { "en": "Wait for me at the bus stop.", "fr": "Attends-moi à l'arrêt de bus." } },
+  { "id": "word-car-park", "type": "word", "theme": "ville", "en": "car park", "fr": "parking", "pos": "noun", "example": { "en": "The car park is full.", "fr": "Le parking est complet." } },
+  { "id": "word-pavement", "type": "word", "theme": "ville", "en": "pavement", "fr": "trottoir", "pos": "noun", "example": { "en": "Walk on the pavement, not on the road.", "fr": "Marche sur le trottoir, pas sur la route." } },
+  { "id": "word-noisy", "type": "word", "theme": "ville", "en": "noisy", "fr": "bruyant", "pos": "adjective", "example": { "en": "Our street is very noisy at night.", "fr": "Notre rue est très bruyante la nuit." } }
+]
