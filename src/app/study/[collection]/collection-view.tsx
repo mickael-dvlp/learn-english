@@ -73,12 +73,18 @@ export function CollectionView({ collection }: { collection: Collection }) {
 
 function ItemRow({ item, entry }: { item: ContentItem; entry: Progress[string] | undefined }) {
   const { primary, secondary } = itemSummary(item);
+  // English first, except for a rule (its French title first).
+  const rule = item.type === "rule";
   const className = `flex min-h-16 w-full items-center gap-3 rounded-2xl bg-surface px-4 py-3 text-left ${focusRing}`;
   const content = (
     <>
       <span className="flex flex-1 flex-col">
-        <span className="text-lg">{primary}</span>
-        <span className="text-sm text-muted">{secondary}</span>
+        <span lang={rule ? undefined : "en"} className="text-lg">
+          {primary}
+        </span>
+        <span lang={rule ? "en" : undefined} className="text-sm text-muted">
+          {secondary}
+        </span>
       </span>
       <Status item={item} entry={entry} />
     </>

@@ -223,3 +223,25 @@ test("player: an empty playlist ends immediately", () => {
   player.play();
   assert.equal(player.getSnapshot().status, "ended");
 });
+
+test("player: content played once (a quiz) ends with its last segment, and « next » on it ends the session", async () => {
+  let laps = 0;
+  const once = () => (laps++ === 0 ? [segment("q1"), segment("q2")] : []);
+  const { player, fake } = setup({ lap: once });
+  player.play();
+  await flush();
+  assert.deepEqual(spoken(fake.loaded[0]), ["q1", "…", "q2", "…"]);
+  assert.equal(fake.loaded[0].endsSession, true, "nothing comes after the last question");
+  fake.endTrack();
+  await flush();
+  assert.equal(player.getSnapshot().status, "ended");
+
+  laps = 0;
+  const second = setup({ lap: once });
+  second.player.play();
+  await flush();
+  second.player.next();
+  second.player.next();
+  await flush();
+  assert.equal(second.player.getSnapshot().status, "ended");
+});

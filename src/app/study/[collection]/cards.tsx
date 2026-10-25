@@ -47,7 +47,7 @@ function PairCard({ pair }: { pair: Pair }) {
               playingWord === index ? "bg-accent/15 ring-2 ring-inset ring-accent" : "bg-surface"
             }`}
           >
-            <span className="text-2xl font-semibold break-words">{word.en}</span>
+            <span lang="en" className="text-2xl font-semibold wrap-break-word">{word.en}</span>
             {word.ipa && <span className="text-sm text-muted">{word.ipa}</span>}
             <span className="text-muted">{word.fr}</span>
             <SpeakButton text={word.en} label={`Écouter « ${word.en} »`} className="mt-2 bg-background" />
@@ -78,7 +78,7 @@ function WordCard({ word }: { word: Word }) {
         ))}
       </Badges>
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-4xl font-semibold">{word.en}</h2>
+        <h2 lang="en" className="text-4xl font-semibold">{word.en}</h2>
         <SpeakButton text={word.speakEn ?? word.en} />
       </div>
       <p className="text-2xl text-muted">{word.fr}</p>
@@ -104,7 +104,7 @@ function VerbCard({ verb }: { verb: Verb }) {
           {forms.map((form) => (
             <div key={form.label} className="flex flex-col gap-1">
               <dt className="text-xs text-muted">{form.label}</dt>
-              <dd className="text-2xl font-semibold">{form.value}</dd>
+              <dd lang="en" className="text-2xl font-semibold">{form.value}</dd>
             </div>
           ))}
         </dl>
@@ -132,7 +132,7 @@ function RuleCard({ rule, collectionId }: { rule: Rule; collectionId?: string })
       </Badges>
       <div>
         <h2 className="text-3xl font-semibold">{rule.title.fr}</h2>
-        <p className="text-muted">{rule.title.en}</p>
+        <p lang="en" className="text-muted">{rule.title.en}</p>
       </div>
       {rule.meaning && <p className="text-lg font-semibold text-accent">{rule.meaning}</p>}
       <p className="text-lg leading-relaxed">{rule.explanation}</p>
@@ -159,7 +159,7 @@ function RuleCard({ rule, collectionId }: { rule: Rule; collectionId?: string })
             <p className="text-muted">
               <span aria-hidden>✗ </span>
               <span className="sr-only">Incorrect : </span>
-              <s>{rule.mistake.wrong}</s>
+              <s lang="en">{rule.mistake.wrong}</s>
             </p>
             <div className="flex items-center gap-3">
               <p className="flex-1 text-lg">
@@ -167,7 +167,7 @@ function RuleCard({ rule, collectionId }: { rule: Rule; collectionId?: string })
                   ✓{" "}
                 </span>
                 <span className="sr-only">Correct : </span>
-                {rule.mistake.right}
+                <span lang="en">{rule.mistake.right}</span>
               </p>
               <SpeakButton text={rule.mistake.right} className="bg-background" />
             </div>
@@ -203,7 +203,7 @@ function Example({ example, label }: { example: Bilingual; label?: string }) {
     <div className="flex items-center gap-3 rounded-2xl bg-surface p-4">
       <div className="flex flex-1 flex-col gap-1">
         {label && <p className="text-xs font-semibold uppercase tracking-wide text-accent">{label}</p>}
-        <p className="text-lg">{example.en}</p>
+        <p lang="en" className="text-lg">{example.en}</p>
         <p className="text-muted">{example.fr}</p>
       </div>
       <SpeakButton text={example.en} className="bg-background" />

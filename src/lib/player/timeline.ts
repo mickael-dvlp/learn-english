@@ -68,6 +68,8 @@ export async function buildChunk(options: BuildChunkOptions): Promise<Chunk> {
   for (;;) {
     const { lap, segmentIndex } = position;
     const segment = lap[segmentIndex];
+    // Nothing left to play (a quiz has a set number of questions): the session ends here.
+    if (!segment) return { samples: concat(parts), entries, durationMs: mediaMs, next: position, endsSession: true };
     const segmentEntries: ChunkEntry[] = [];
 
     for (const step of segment.steps) {

@@ -21,11 +21,14 @@ import { SessionView } from "./session-view";
 
 const DURATIONS = [5, 10, 30];
 
+const SESSION_HASH = "#ecoute";
+
 type Session = { player: Player; title: string };
 
 export function ListenScreen({ families, sources }: { families: FamilyHeading[]; sources: Collection[] }) {
   const prefs = useLocalStore(preferencesStore);
   const [session, setSession] = useState<Session | null>(null);
+  const [durationDraft, setDurationDraft] = useState<string | null>(null);
   const selectedFamilyId = (sources.find((s) => s.id === prefs.sourceId) ?? sources[0])?.familyId;
   const [openFamilyId, setOpenFamilyId] = useAccordion("listen", selectedFamilyId ?? null);
 
@@ -43,8 +46,33 @@ export function ListenScreen({ families, sources }: { families: FamilyHeading[];
     if (selectedFamilyId) openAccordion("listen", selectedFamilyId);
   }, [selectedFamilyId]);
 
+  // While listening, the address ends with #ecoute: the phone's back button closes the session
+  // and comes back to these settings, instead of leaving the page.
+  useEffect(() => {
+    if (!session) {
+      // Reloaded during a session: the session is gone, so is its history entry.
+      if (window.location.hash === SESSION_HASH) {
+        window.history.replaceState(window.history.state, "", window.location.pathname + window.location.search);
+      }
+      return;
+    }
+    if (window.location.hash !== SESSION_HASH) window.location.hash = SESSION_HASH;
+    const onHashChange = () => {
+      if (window.location.hash === SESSION_HASH) return;
+      session.player.stop();
+      setSession(null);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [session]);
+
   if (session) {
-    return <SessionView player={session.player} title={session.title} onClose={() => setSession(null)} />;
+    const close = () => {
+      // Going back removes the history entry; the hashchange above closes the session.
+      if (window.location.hash === SESSION_HASH) window.history.back();
+      else setSession(null);
+    };
+    return <SessionView player={session.player} title={session.title} onClose={close} />;
   }
 
   if (sources.length === 0) {
@@ -177,11 +205,14 @@ export function ListenScreen({ families, sources }: { families: FamilyHeading[];
                 inputMode="numeric"
                 min={1}
                 max={600}
-                value={prefs.durationMinutes}
+                // What is being typed (possibly empty) until the field is left; only valid values are kept.
+                value={durationDraft ?? prefs.durationMinutes}
                 onChange={(event) => {
+                  setDurationDraft(event.target.value);
                   const minutes = Number(event.target.value);
-                  if (minutes >= 1 && minutes <= 600) setPreferences({ durationMinutes: minutes });
+                  if (Number.isInteger(minutes) && minutes >= 1 && minutes <= 600) setPreferences({ durationMinutes: minutes });
                 }}
+                onBlur={() => setDurationDraft(null)}
                 className={`w-20 rounded-2xl bg-background px-3 py-2 text-base text-foreground ${focusRing}`}
               />
               min

@@ -27,10 +27,18 @@ const loadClip: ClipLoader = async (step) => {
   return undefined;
 };
 
+/** A download that failed (network cut for a moment): not remembered, tried again next time. */
+const FAILED = Symbol("failed");
+
 function loadFile(src: string): Promise<Float32Array | undefined> {
   let clip = clips.get(src);
   if (!clip) {
-    clip = fetchAndDecode(src);
+    const loading: Promise<Float32Array | undefined> = fetchAndDecode(src).then((result) => {
+      if (result !== FAILED) return result;
+      if (clips.get(src) === loading) clips.delete(src);
+      return undefined;
+    });
+    clip = loading;
     clips.set(src, clip);
     const oldest = clips.keys().next().value;
     if (clips.size > MAX_CACHED_CLIPS && oldest !== undefined) clips.delete(oldest);
@@ -38,17 +46,19 @@ function loadFile(src: string): Promise<Float32Array | undefined> {
   return clip;
 }
 
-async function fetchAndDecode(src: string): Promise<Float32Array | undefined> {
+/** The decoded clip; undefined when the file does not exist (remembered); FAILED otherwise. */
+async function fetchAndDecode(src: string): Promise<Float32Array | undefined | typeof FAILED> {
   try {
     const response = await fetch(src);
-    if (!response.ok) return undefined;
+    if (response.status === 404) return undefined;
+    if (!response.ok) return FAILED;
     // Decoding resamples to the context rate: every clip ends up at SAMPLE_RATE.
     decoder ??= new OfflineAudioContext(1, 1, SAMPLE_RATE);
     const buffer = await decoder.decodeAudioData(await response.arrayBuffer());
     return trimSilence(buffer.getChannelData(0));
   } catch (error) {
     debugLog(`✗ ${src} : ${(error as Error).message}`);
-    return undefined;
+    return FAILED;
   }
 }
 

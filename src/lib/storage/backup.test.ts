@@ -19,6 +19,8 @@ test("anything that is not a backup is refused, with a clear message", () => {
   assert.equal(parseBackup(JSON.stringify({ hello: "world" })).ok, false);
   const wrongEntry = { format: "learn-english-backup", version: 1, exportedAt: "x", progress: { "word-a": { seen: "yesterday" } } };
   assert.equal(parseBackup(JSON.stringify(wrongEntry)).ok, false);
+  const wrongDate = { ...wrongEntry, exportedAt: "not a date", progress: { "word-a": { seen: 1 } } };
+  assert.equal(parseBackup(JSON.stringify(wrongDate)).ok, false, "never shown as « Invalid Date »");
   assert.equal(parseBackup("x".repeat(5_000_001)).ok, false);
   const result = parseBackup("{");
   assert.ok(!result.ok && result.error.length > 0);

@@ -56,9 +56,11 @@ function playFile(src: string, rate: number, fallback: () => Promise<void>): Pro
     };
 
     audio.onended = () => settle() && resolve();
-    // Missing or unreadable file: remember it and fall back to the native voice.
+    // Missing or unreadable file: remember it and fall back to the native voice. A network
+    // problem (offline for a moment) is not remembered: the file is tried again next time.
     audio.onerror = () => {
-      missingFiles.add(src);
+      const network = audio.error?.code === MediaError.MEDIA_ERR_NETWORK || !navigator.onLine;
+      if (!network) missingFiles.add(src);
       fallBack();
     };
     stopCurrent = stop;

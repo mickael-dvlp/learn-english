@@ -72,7 +72,7 @@ export function SessionView({ player, title, onClose }: Props) {
           </div>
         )}
         <p className="text-3xl font-semibold leading-snug">{segment?.label}</p>
-        <p className="min-h-14 text-lg text-muted" aria-live="polite">
+        <p lang={step?.kind === "speak" ? step.lang : undefined} className="min-h-14 text-lg text-muted" aria-live="polite">
           {spoken !== undefined && spoken !== segment?.label ? spoken : " "}
         </p>
       </div>

@@ -206,6 +206,8 @@ export class Player {
     let target: Position;
     if (segmentIndex + delta >= lap.length) target = { lap: this.options.createLap(), segmentIndex: 0 };
     else target = { lap, segmentIndex: Math.max(0, segmentIndex + delta) };
+    // "Next" after the last question of a quiz: nothing comes after it.
+    if (target.lap.length === 0) return this.finish();
 
     this.buildId++;
     this.deps.output.pause();

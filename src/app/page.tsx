@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getContent } from "@/lib/content/load";
 import { focusRing } from "@/components/ui";
 import { plural } from "@/lib/format";
+import { Greeting } from "./greeting";
 
 const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl px-6 py-4 text-left";
 
@@ -22,7 +23,9 @@ export default function Home() {
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-end gap-4 px-5 pb-10 pt-16">
       <header className="mb-auto flex items-center gap-4">
         <Image src="/image/logo-mouton.svg" alt="" width={64} height={64} priority className="rounded-2xl" />
-        <h1 className="text-3xl font-semibold">Bonsoir 👋</h1>
+        <h1 className="text-3xl font-semibold">
+          <Greeting />
+        </h1>
       </header>
 
       <Link href="/listen" className={`${cardClass} bg-accent text-accent-foreground`}>

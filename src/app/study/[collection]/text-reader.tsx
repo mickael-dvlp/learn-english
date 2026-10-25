@@ -103,7 +103,7 @@ export function TextReader({ text, collectionId, familyId }: Props) {
                 {line.speaker && (
                   <p className={`text-sm font-semibold ${second ? "text-foreground" : "text-accent"}`}>{line.speaker}</p>
                 )}
-                <p className="text-lg">{line.en}</p>
+                <p lang="en" className="text-lg">{line.en}</p>
                 {showTranslation && <p className="text-muted">{line.fr}</p>}
               </div>
               <SpeakButton
@@ -124,7 +124,7 @@ export function TextReader({ text, collectionId, familyId }: Props) {
             {text.expressions.map((expression) => (
               <li key={expression.en} className="flex items-center gap-3 rounded-2xl bg-surface p-4">
                 <div className="flex flex-1 flex-col gap-1">
-                  <p className="text-lg">{expression.en}</p>
+                  <p lang="en" className="text-lg">{expression.en}</p>
                   <p className="text-muted">{expression.fr}</p>
                 </div>
                 <SpeakButton text={expression.en} className="bg-background" />

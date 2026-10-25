@@ -4,6 +4,8 @@ import type { z } from "zod";
 /**
  * A value persisted in localStorage, validated on read, exposed as an external store.
  * Falls back to memory when storage is unavailable (private mode, server rendering).
+ * Another tab or window of the app (installed app and a Chrome tab) writing the same key
+ * refreshes the value here: a write never puts back an older copy.
  */
 export type LocalStore<T> = {
   get: () => T;
@@ -26,6 +28,18 @@ export function createLocalStore<T>(key: string, schema: z.ZodType<T>, fallback:
       return fallback;
     }
   };
+  const notify = () => {
+    for (const listener of listeners) listener();
+  };
+
+  // Only fired by the other tabs: the next read takes their value.
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", (event) => {
+      if (event.key !== null && event.key !== key) return;
+      cache = undefined;
+      notify();
+    });
+  }
 
   return {
     get: () => (cache ??= read()),
@@ -37,7 +51,7 @@ export function createLocalStore<T>(key: string, schema: z.ZodType<T>, fallback:
       } catch {
         // Storage unavailable: the value only lasts for this visit.
       }
-      for (const listener of listeners) listener();
+      notify();
     },
     subscribe: (listener) => {
       listeners.add(listener);

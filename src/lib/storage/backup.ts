@@ -15,7 +15,7 @@ const MAX_BYTES = 5_000_000;
 const BackupSchema = z.object({
   format: z.literal(BACKUP_FORMAT),
   version: z.literal(1),
-  exportedAt: z.string(),
+  exportedAt: z.string().refine((date) => !Number.isNaN(Date.parse(date))),
   progress: ProgressSchema,
   preferences: z.unknown().optional(),
 });
@@ -68,7 +68,8 @@ export function mergeProgress(current: Progress, incoming: Progress): Progress {
   return merged;
 }
 
-/** "anglais-progression-2026-10-10.json" */
+/** "anglais-progression-2026-10-10.json", with the date of the phone (not UTC: after midnight, the new day). */
 export function backupFileName(now: Date): string {
-  return `anglais-progression-${now.toISOString().slice(0, 10)}.json`;
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `anglais-progression-${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}.json`;
 }
