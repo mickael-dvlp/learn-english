@@ -6,7 +6,7 @@ import { SpeakButton } from "@/components/speak-button";
 import { focusRing } from "@/components/ui";
 import type { Bilingual, ContentItem, Pair, Rule, RuleForm, Verb, Word } from "@/lib/content/schema";
 import { useSpeakSequence } from "@/lib/speech/sequence";
-import { setPreferences } from "@/lib/storage/preferences";
+import { listenTo } from "@/lib/storage/preferences";
 import { markListened } from "@/lib/storage/progress";
 import { wordBadges } from "../labels";
 
@@ -22,7 +22,8 @@ export function ItemCard({ item, collectionId }: { item: ContentItem; collection
     case "pair":
       return <PairCard pair={item} />;
     case "text":
-      return null; // Texts have their own reader.
+    case "book":
+      return null; // Texts and books have their own reader.
   }
 }
 
@@ -178,7 +179,7 @@ function RuleCard({ rule, collectionId }: { rule: Rule; collectionId?: string })
       {collectionId && (
         <Link
           href="/listen"
-          onClick={() => setPreferences({ sourceId: collectionId, groupId: rule.group, itemId: rule.id })}
+          onClick={() => listenTo(collectionId, { groupId: rule.group, itemId: rule.id })}
           className={`flex min-h-12 items-center justify-center rounded-2xl bg-surface px-4 font-semibold ${focusRing}`}
         >
           🎧 Écouter cette règle

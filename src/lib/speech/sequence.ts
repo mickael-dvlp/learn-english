@@ -5,8 +5,8 @@ import type { Voice } from "@/lib/player/types";
 import { preferencesStore } from "@/lib/storage/preferences";
 import { cancelSpeech, speak } from "./speak";
 
-/** A line said in a sequence (study mode): a dialogue line, a word of a pair. */
-export type SequenceLine = { text: string; voice?: Voice };
+/** A line said in a sequence (study mode): a dialogue line, a word of a pair, a sentence of a book (`recording`: its slow recording). */
+export type SequenceLine = { text: string; voice?: Voice; recording?: number };
 
 type Options = {
   gapMs?: number;
@@ -45,8 +45,8 @@ export function speakSequence(lines: SequenceLine[], { gapMs = 500, onLine, onLi
     for (let index = 0; index < lines.length; index++) {
       if (stopped) return;
       onLine?.(index);
-      const { text, voice } = lines[index];
-      await speak({ id: "study", en: text }, "en", preferencesStore.get().rate, voice);
+      const { text, voice, recording } = lines[index];
+      await speak({ id: "study", en: text }, "en", preferencesStore.get().rate, voice, recording);
       if (stopped) return;
       onLineEnd?.(index);
       if (index < lines.length - 1) await new Promise((resolve) => setTimeout(resolve, gapMs));

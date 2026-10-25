@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { listCollections } from "@/lib/content/collections";
 import { getContent } from "@/lib/content/load";
+import { BookReader } from "./book-reader";
 import { CollectionView } from "./collection-view";
 import { TextReader } from "./text-reader";
 
@@ -40,5 +41,6 @@ async function CollectionContent({ params }: Pick<PageProps<"/study/[collection]
   if (collection.items.length === 1 && first.type === "text") {
     return <TextReader text={first} collectionId={collection.id} familyId={collection.familyId} />;
   }
+  if (first.type === "book") return <BookReader book={first} collectionId={collection.id} familyId={collection.familyId} />;
   return <CollectionView collection={collection} />;
 }

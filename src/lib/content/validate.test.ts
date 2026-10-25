@@ -6,7 +6,7 @@ import { validateContent, type RawContent } from "./validate";
 const family = {
   id: "daily",
   name: { en: "Daily life", fr: "Vie quotidienne" },
-  includes: ["verbs", "modals", "rules", "texts"],
+  includes: ["verbs", "modals", "rules", "texts", "books"],
 };
 const theme = { id: "cuisine", name: { en: "Cooking", fr: "Cuisine" }, family: "daily" };
 const word = { id: "word-pan", type: "word", theme: "cuisine", en: "pan", fr: "poêle" };
@@ -26,6 +26,7 @@ function raw(overrides: Partial<RawContent> = {}): RawContent {
     rules: [],
     texts: [{ path: "texts/dinner.json", data: text }],
     pairs: [],
+    books: [],
     verbGroups: undefined,
     ruleGroups: undefined,
     ...overrides,
@@ -157,7 +158,7 @@ test("rejects duplicate family ids", () => {
 
 test("verbs, rules and texts must each be in exactly one family", () => {
   const stories = { id: "stories", name: { en: "Stories", fr: "Histoires" }, includes: ["texts"] };
-  const withoutRules = { ...family, includes: ["verbs", "modals", "texts"] };
+  const withoutRules = { ...family, includes: ["verbs", "modals", "texts", "books"] };
   const { errors } = validateContent(raw({ families: { path: "families.json", data: [withoutRules, stories] } }));
   assert.deepEqual(errors, [
     `families.json : la section "rules" doit être incluse dans une seule famille (trouvée 0 fois)`,
@@ -310,4 +311,23 @@ test("a usage note on a word or a verb is shown, a verb can say its forms differ
   assert.deepEqual(errors, []);
   assert.equal(library.words[0].note, "familier");
   assert.equal(library.verbs[0].speak, "read, red, red");
+});
+
+test("a book: chapters of sentences, translation optional; an empty chapter is refused", () => {
+  const book = {
+    id: "book-lighthouse",
+    type: "book",
+    title: { en: "The Lighthouse", fr: "Le phare" },
+    chapters: [
+      {
+        title: { en: "Chapter one", fr: "Chapitre un" },
+        sentences: [{ en: "The sea is calm.", fr: "La mer est calme." }, { en: "No translation here." }],
+      },
+    ],
+  };
+  const { library, errors } = validateContent(raw({ books: [{ path: "books/lighthouse.json", data: book }] }));
+  assert.deepEqual(errors, []);
+  assert.equal(library.books[0].chapters[0].sentences.length, 2);
+  const empty = { ...book, chapters: [{ title: { en: "Empty" }, sentences: [] }] };
+  assert.equal(validateContent(raw({ books: [{ path: "books/lighthouse.json", data: empty }] })).errors.length, 1);
 });

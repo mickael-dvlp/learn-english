@@ -10,7 +10,7 @@ import type { TextItem } from "@/lib/content/schema";
 import { voicePicker } from "@/lib/player/compile";
 import { useSpeakSequence } from "@/lib/speech/sequence";
 import { useLocalStore } from "@/lib/storage/local-store";
-import { setPreferences } from "@/lib/storage/preferences";
+import { listenTo } from "@/lib/storage/preferences";
 import { openAccordion } from "@/lib/storage/accordion";
 import { markPartListened, markSeen, progressStore, textListening } from "@/lib/storage/progress";
 
@@ -80,7 +80,7 @@ export function TextReader({ text, collectionId, familyId }: Props) {
         </button>
         <Link
           href="/listen"
-          onClick={() => setPreferences({ sourceId: collectionId, groupId: undefined, itemId: undefined })}
+          onClick={() => listenTo(collectionId)}
           className={`flex min-h-12 items-center rounded-2xl bg-surface px-4 font-semibold ${focusRing}`}
         >
           🎧 Mode Écouter

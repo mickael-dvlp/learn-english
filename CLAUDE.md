@@ -40,7 +40,7 @@ Un élément ajouté dans les données apparaît automatiquement dans les deux m
 
 ## 4. Types de contenu
 
-Cinq types (mot, verbe, règle, texte, paire de prononciation). Champs communs à tous :
+Six types (mot, verbe, règle, texte, paire de prononciation, livre). Champs communs à tous :
 
 - `id` : string stable, jamais modifié après création (sert aussi au suivi de progression). Format `<type>-<slug>` ex. `word-tractor`, `verb-go`.
 - **Pas de niveau** (A1, A2…) : appli personnelle, le champ a été retiré du modèle et des données (10 octobre). Un champ `level` dans un JSON est refusé par la validation.
@@ -145,6 +145,27 @@ type Pair = {
 
 `en` est ce qui est dit : un mot, ou une courte phrase pour les formes faibles (« I can swim. » / « Yes, I can. ») et l’accent tonique (« a record » / « to record », pour que la voix place l’accent). Transcription britannique dans `ipa`. Un thème ne mélange pas mots et paires.
 
+### 4.4 ter Livre (`book`)
+
+Un livre à lire (Étudier) et à écouter (Écouter), chapitre par chapitre, avec **un seul marque-page** partagé par les deux modes. Un fichier par livre : `content/books/<slug>.json`. Le texte est fourni par l'utilisateur ; `the-lighthouse-keeper.json` est un court exemple à remplacer.
+
+```ts
+type Book = {
+  id: string;            // "book-the-lighthouse-keeper"
+  type: "book";
+  title: { en: string; fr?: string };
+  author?: string;
+  description?: string;  // quelques mots, en français
+  chapters: {
+    title: { en: string; fr?: string };
+    sentences: { en: string; fr?: string }[]; // traduction facultative : sans elle, la phrase est dite en anglais seulement
+  }[];
+  tags?: string[];
+};
+```
+
+Le marque-page (`src/lib/content/book.ts`, `src/lib/storage/bookmarks.ts`, clé `book-bookmarks`) est une position `{ chapter, sentence }` (depuis 0) ; au-delà du dernier chapitre, le livre est terminé. Il avance quand une phrase est entendue jusqu'au bout (Écouter, ou « Écouter le chapitre » dans Étudier), quand on fait défiler un chapitre (la phrase en haut de l'écran, seulement après un défilement par l'utilisateur) et au « Chapitre suivant ». Corriger le livre plus tard ne casse pas le marque-page (`clampPosition`). Positions repérées par numéro : insérer des phrases au début d'un chapitre décale le marque-page de ce chapitre.
+
 ### 4.5 Thème
 
 ```ts
@@ -164,11 +185,11 @@ type Family = {          // content/families.json : regroupement affiché dans �
   id: string;            // "fondations"
   name: { en: string; fr: string };
   emoji?: string;
-  includes?: ("verbs" | "rules" | "texts")[]; // sections non thématiques rattachées à la famille
+  includes?: ("verbs" | "modals" | "rules" | "texts" | "books")[]; // sections non thématiques (chacune dans une seule famille)
 };
 ```
 
-Familles et thèmes en place (46 thèmes, ordre d'affichage = ordre des fichiers) :
+Familles et thèmes en place (47 thèmes, ordre d'affichage = ordre des fichiers) :
 1. **Fondations** `fondations` : salutations, nombres (de zéro à vingt, dizaines, ordinaux, prix / dates / années / téléphone), alphabet (lettres, épeler), quantites, jours-mois-saisons, heure-rendez-vous, couleurs, questions-frequentes
 2. **Vie quotidienne** `vie-quotidienne` : vetements, maison, fruits, legumes, alimentation, cuisine, courses, restaurant, routine, hygiene
 3. **Personnes, travail et loisirs** `personnes` : famille, corps, emotions, sante, description, travail, ecole, loisirs
@@ -176,6 +197,7 @@ Familles et thèmes en place (46 thèmes, ordre d'affichage = ordre des fichiers
 5. **Nature et technologie** `nature-technologie` : animaux, agriculture, nature, telephone-internet
 6. **Construire ses phrases** `phrases` : sections verbes et règles (`includes`), puis connecteurs, prepositions, expressions, conversation, adverbes, verbes-particule, prononciation (paires)
 7. **Textes et dialogues** `textes` : section textes (`includes`) : les histoires (« À la ferme » et 5 histoires calmes du soir, `story-NN-<slug>.json`), « Tous les dialogues » (`dialogues-all`) puis chaque dialogue
+8. **Livres** `livres` : section livres (`includes: ["books"]`), une collection par livre (son `id` sert d'URL : `/study/book-…`)
 
 **Sous-thèmes** (`groups`) : conversation (commencer, réagir, opinion, accord, hésiter, préciser, clarification, terminer), quantites (générales, petites, questions, unités, contenants), adverbes (fréquence, intensité, manière, probabilité, temps, lieu), verbes-particule (quotidien, recherche, objets, relations, travail, déplacement), prononciation (nombres, voyelles, sons, consonnes, finales, -ed, -s, accent, faibles), verbes (`content/verb-groups.json` : base, quotidien, mouvement, communication, perception, travail, besoins). Jamais un troisième niveau d'accordéon : ce sont des filtres dans la collection. Un élément qui existe déjà ailleurs est repris par `also` (ex. always, usually… de routine dans les adverbes de fréquence) plutôt que recopié.
 
@@ -210,6 +232,8 @@ En ajouter librement : une entrée dans `themes.json` (avec sa `family`) + un fi
   /texts
     at-the-farm.json          // un fichier par texte
     dialogue-01-meeting-someone-new.json
+  /books
+    the-lighthouse-keeper.json // un fichier par livre
 /public
   /audio/<lang>/<hash>.mp3    // audio généré, voir section 6
 /src
@@ -232,6 +256,7 @@ Mise en œuvre :
 - `npm run validate` vérifie le contenu ; il est lancé automatiquement par `prebuild`.
 - `getContent()` garde le contenu en mémoire en production ; en développement il relit les JSON à chaque requête (modifications visibles sans redémarrer `npm run dev`).
 - Tests : `npm test` (runner natif `node:test` via `tsx`, pas de framework de test). Fichiers `*.test.ts` à côté du code.
+- Tests dans le navigateur : `npm run test:browser` (`tests/browser/run.mjs`, scénarios à la taille d'un téléphone : plusieurs thèmes, quiz, livre et marque-page, bouton retour pendant l'écoute, sauvegarde, deux onglets). Demande l'appli lancée : sur le serveur de l'utilisateur (`http://localhost:3000`), ou `npm run build` puis `npx next start -p 3001` et `npm run test:browser -- http://localhost:3001` (ne jamais lancer un second `next dev`). Utilise le Chrome installé via `puppeteer-core` (dépendance de développement, sans téléchargement de navigateur ; chemin modifiable par `CHROME_PATH`).
 - Autres commandes : `npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`.
 
 ## 6. Voix et audio : abstraction obligatoire
@@ -253,6 +278,10 @@ Logique interne :
 **Génération** : `npm run audio` (`scripts/generate-audio.ts`, Edge TTS via `msedge-tts`, voix `en-GB-SoniaNeural` et `fr-FR-DeniseNeural`). Le script liste tous les textes prononcés (motifs du lecteur + exemples lus en mode Étudier) et ne génère que les fichiers manquants. `--dry-run` compte, `--prune` supprime les fichiers devenus inutiles. Les fichiers sont commités ; Vercel les sert tels quels. **Après tout ajout de contenu : `npm run audio`, puis commit.**
 
 Conséquence : un contenu sans audio généré reste utilisable en mode Étudier (voix native), mais il est muet en mode Écouter.
+
+**Livres** : les phrases d'un livre n'ont que leurs enregistrements lents (EN, `SLOW_RATE` 0,85) et la traduction ; la lecture dans Étudier (🔊, « Écouter le chapitre ») joue ces enregistrements lents à la vitesse choisie (`speak(…, recording)`), sans troisième fichier par phrase. Un long livre ajoute environ deux fichiers par phrase au dépôt.
+
+**État d'Edge TTS (25 octobre)** : le service refuse les connexions (403 avec `msedge-tts` 2.0.9, réponse 200 sans ouverture de la connexion avec 2.1.0, la dernière version). Ce n'est pas l'appli : réessayer plus tard `npm run audio` (ou mettre à jour `msedge-tts`). L'audio du livre d'exemple (28 fichiers) n'a pas pu être généré : il est muet dans Écouter et lu par la voix du téléphone dans Étudier en attendant.
 
 **Écran verrouillé (Android, testé sur le téléphone)** :
 - La voix native se met en pause dès le verrouillage : inutilisable pour l'écoute du soir.
@@ -282,7 +311,9 @@ Motifs initiaux :
 | `pair-once` (prononciation) | mot 1 → courte pause → mot 2 (→ mot 3…) → pause longue |
 | `pair-twice` (prononciation) | la même chose deux fois de suite |
 
-Le motif choisi est retrouvé par son nom d'un type à l'autre (`choosePattern`) : « Anglais seulement » choisi pour des mots s'applique aussi aux dialogues.
+Le motif choisi est retrouvé par son nom d'un type à l'autre (`choosePattern`) : « Anglais seulement » choisi pour des mots s'applique aussi aux dialogues. Un livre utilise les trois motifs des textes, chapitre par chapitre (`src/lib/player/book.ts`).
+
+**Quiz** (mots et verbes, choisi dans « Comment ? » comme un motif, `patternId: "quiz"`) : le mot, un **temps pour répondre** à voix haute (réglable de 2 à 8 s, 4 s par défaut), la réponse, puis la question suivante toute seule. Une question depuis l'anglais, la suivante depuis le français. « Combien de questions ? » (10 à 100) remplace la durée, et l'ordre est toujours mélangé ; la séance s'arrête après la dernière question. Tirage commun avec Étudier : `src/lib/quiz/quiz.ts` (chaque mot une fois avant qu'un mot revienne, jamais deux fois de suite) ; segments : `src/lib/player/quiz.ts`. Pause de durée fixe : étape `pause` avec `ms` (non touchée par « Longueur des pauses »). Aucun nouvel audio : ce sont les fichiers du motif `en-fr-en` et `verb-forms`.
 
 Les motifs sont des **données/configurations**, pas du code dispersé : en ajouter un ne doit pas obliger à toucher le lecteur.
 
@@ -319,7 +350,11 @@ Pause **proportionnelle à la longueur du texte** (durée de base + durée par m
 - **Règles** : chaque forme et chaque exemple est un segment (nom de la règle affiché, `part` numéroté sur l'ensemble des phrases). Une règle est écoutée quand 60 % de ses phrases l'ont été (`listenedRatio` du motif ; textes : 100 %). Dans Écouter, « Quelle règle ? » permet d'en choisir une seule (préférence `itemId`), comme le bouton « 🎧 Écouter cette règle » de la fiche.
 - **Rejouer** (`player.replay`) : reprend l'élément en cours depuis son début (une réplique, un mot).
 - **Sous-thème** : choisi dans « Quelle partie ? » (filtres), la séance ne joue que ses éléments ; changer de contenu revient à « Tous ».
-- Préférences d'écoute (contenu, sous-thème, motif, durée, ordre, vitesse, pauses) mémorisées en localStorage.
+- **Plusieurs thèmes ensemble** (`src/lib/content/selection.ts`) : toucher une carte la coche ou la décoche (au moins une reste cochée). On ne mélange que des contenus du même type (mots avec mots, verbes avec verbes…) ; un autre type remplace la sélection, un livre s'écoute seul. Éléments communs joués une fois (tous les verbes et irréguliers). « Quelle partie ? » et « Quelle règle ? » seulement avec un seul contenu. Préférence `sourceIds` ; l'ancienne `sourceId` (et les sauvegardes qui la contiennent) devient la sélection. Les pages d'Étudier passent par `listenTo(id)`.
+- **Livre** : « Où commencer ? » propose « Reprendre là où j'en étais » (le marque-page ; au début une fois le livre terminé) ou le début d'un chapitre (préférence `bookChapter`, valable pour une séance). Lecture dans l'ordre, jusqu'à la fin du livre ou du minuteur ; chaque phrase entendue fait avancer le marque-page.
+- **Bouton retour du téléphone** pendant une écoute : l'adresse se termine par `#ecoute`, le retour arrête la séance et revient aux réglages au lieu de quitter la page.
+- Fin de contenu : un `createLap` qui ne rejoue pas (`playOnce` : quiz, livre) termine la séance proprement ; « suivant » sur le dernier élément aussi.
+- Préférences d'écoute (contenus, sous-thème, motif, durée, ordre, vitesse, pauses, quiz) mémorisées en localStorage.
 - Route : `/listen`.
 
 ## 8. Mode Étudier
@@ -344,11 +379,13 @@ Mise en œuvre (étape 3) :
 - **Compteurs** : « Tous les dialogues » est une collection `aggregate`, jamais comptée ; Textes et dialogues affiche « 1 texte · 12 dialogues ». L'accueil dit « mots et expressions », « exercices de prononciation », et sépare règles, verbes modaux, textes et dialogues. « ⚡ Tous les verbes simples » (les verbes à particule ont leur thème).
 - **Fiche de prononciation** : mots côte à côte (phonétique, traduction, 🔊 chacun), « Écouter en alternance » (A, B, A, B), explication, puis exemples.
 - **Dialogue** (`text-reader.tsx`) : situation, « Écouter le dialogue complet » (lecture enchaînée avec les deux voix, réplique en cours soulignée), traduction masquable, répliques décalées selon l'interlocuteur, 🔊 par réplique, expressions importantes à la fin. Lecture enchaînée : `src/lib/speech/sequence.ts` (une seule à la fois, un bouton 🔊 l'arrête).
-- `createLocalStore` (`src/lib/storage/local-store.ts`) : valeur localStorage validée par Zod, exposée à React via `useSyncExternalStore`.
+- **Quiz** (`/study/[collection]/quiz`, une page par thème de mots et par collection de verbes) : lien « 🎯 Quiz sur ce thème » en bas de la liste, sur tous les mots du thème (mots repris par `also` compris, quel que soit le filtre). Choix du nombre de questions (10 à 100, préférence `quizCount` partagée avec Écouter), puis un mot à la fois, écrit : « Traduis en français » / « Traduis en anglais » en alternance, « Réponse » laisse place à la traduction et à « Suivant » (« Terminer » à la dernière). 🔊 sur le côté anglais, à la demande ; la remarque d'usage (`note`) accompagne le côté français (much / many). Une réponse affichée compte le mot comme vu. Fin : « Recommencer » (nouveau tirage) ou retour au thème.
+- **Livre** (`book-reader.tsx`, `/study/book-…`) : marque-page avec la progression, « Reprendre la lecture » (ouvre le chapitre sur la phrase du marque-page), « 🎧 Reprendre en écoutant », liste des chapitres (lu, en cours). Un chapitre s'ouvre par l'adresse (`#chapitre-3`, `#chapitre-3-phrase-12`) : le retour du téléphone revient aux chapitres. Phrases avec traduction masquable, 🔊 chacune, « Écouter le chapitre » (depuis le marque-page s'il est dans ce chapitre), précédent / chapitre suivant, « Terminer le livre ».
+- `createLocalStore` (`src/lib/storage/local-store.ts`) : valeur localStorage validée par Zod, exposée à React via `useSyncExternalStore`. Une écriture d'un autre onglet (appli installée et onglet Chrome) remplace la copie en mémoire (événement `storage`) : un onglet ne remet jamais une copie plus ancienne.
 
 ## 8 bis. Sauvegarde et sécurité
 
-- **Sauvegarde** (`/backup`, lien discret sous les chiffres de l'accueil) : export de la progression et des préférences d'écoute dans un fichier JSON (`anglais-progression-AAAA-MM-JJ.json`), import qui **fusionne** sans rien effacer (dates les plus anciennes, toutes les répliques entendues). Fichier relu et validé champ par champ (Zod), taille limitée. Date de la dernière sauvegarde affichée (`backup-last-export`).
+- **Sauvegarde** (`/backup`, lien discret sous les chiffres de l'accueil) : export de la progression, des préférences d'écoute et des marque-pages des livres dans un fichier JSON (`anglais-progression-AAAA-MM-JJ.json`, date du téléphone), import qui **fusionne** sans rien effacer (dates les plus anciennes, toutes les répliques entendues, pour chaque livre le marque-page déplacé en dernier). Fichier relu et validé champ par champ (Zod), taille limitée, date refusée si invalide ; les anciennes sauvegardes (sans marque-pages) restent lisibles. Date de la dernière sauvegarde affichée (`backup-last-export`).
 - **Stockage persistant** : `navigator.storage.persist()` demandé à chaque visite (`PersistStorage` dans le layout) ; état affiché sur `/backup`. Chrome l'accorde plus volontiers à l'appli installée.
 - **En-têtes** (`next.config.ts`) : Content-Security-Policy (tout vient de l'origine ; `unsafe-inline` requis par Next.js pour les pages statiques ; `blob:` pour les pistes du lecteur ; `unsafe-eval` et websocket en développement seulement), `X-Content-Type-Options`, `X-Frame-Options: DENY`, `frame-ancestors 'none'`, `Referrer-Policy: no-referrer`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`. Appli personnelle : `noindex` (en-tête et métadonnées).
 - **Cache de l'audio** : `/audio/*` en `max-age` d'un an, `immutable` (le nom d'un fichier change avec son texte ou sa voix).
@@ -364,7 +401,7 @@ Mise en œuvre (étape 3) :
 
 - Mobile first, utilisable **à une main**, gros boutons.
 - **Thème sombre doux** (tons chauds, jamais de blanc agressif) pour le mode nuit ; thème clair en journée.
-- Écran d'accueil à trois actions seulement : **Écouter**, **Étudier**, **Continuer où j'en étais**.
+- Écran d'accueil à trois actions seulement : **Écouter**, **Étudier**, **Continuer où j'en étais** (le livre lu ou écouté en dernier, à son marque-page ; « Commencer un livre » tant qu'aucun n'est commencé). Salut selon l'heure du téléphone (« Bonjour », « Bonsoir » à partir de 18 h).
 - Pendant une écoute : écran minimal (élément en cours, lecture/pause, temps restant). Possibilité de laisser l'écran allumé en faible luminosité ou de le verrouiller sans interrompre l'audio.
 - Interface en **français**.
 
@@ -394,7 +431,18 @@ Avancer **une étape à la fois**, la valider avant de passer à la suivante.
 8. ✅ **Corrections éditoriales, modaux et règles orales** (10 octobre) : 30 fiches de modaux et semi-modaux, 12 nouvelles règles (17 au total), compteurs corrigés.
 9. ✅ **Analyse, points 1 à 5** (10 octobre) : sauvegarde et stockage persistant, traductions propres à l'écoute (`note`), nombres complets et alphabet, en-têtes de sécurité et cache de l'audio, 5 histoires du soir, Cuisine et Agriculture enrichies.
 
-Pistes restantes de l'analyse (10 octobre) : catégories (`tags`) sur plus de mots pour le futur quiz ; deux exemples en double (tea / a cup of, take off / shoes) ; balisage `lang="en"` des phrases anglaises ; surveiller la taille du dépôt (audio) et `msedge-tts` (service non officiel) ; vulnérabilités `npm audit` limitées à l'outillage de lint.
+10. ✅ **Analyse du code et nouvelles fonctions** (25 octobre) :
+    - corrections : Next.js 16.4.3 et Zod 4.6.7 (failles critique et élevée), progression partagée entre onglets, sons ratés réessayés (réseau), bouton retour pendant l'écoute, champ « Autre durée » qu'on peut vider, fin propre d'un contenu fini, nom de sauvegarde à la date locale, salut selon l'heure, `lang="en"` sur les phrases anglaises ;
+    - plusieurs thèmes écoutés ensemble ; quiz dans Étudier et dans Écouter ; livre avec marque-page commun et « Continuer où j'en étais » ;
+    - tests navigateur rangés dans le dépôt (`tests/browser`).
+
+Reste à faire (dans l'ordre proposé) :
+- **Le livre de l'utilisateur** : il fournit le texte, on le met au format de la section 4.4 ter (remplace l'exemple), puis `npm run audio`.
+- **Audio** : relancer `npm run audio` quand Edge TTS répond de nouveau (livre d'exemple, 28 fichiers).
+- **PWA et hors-ligne** (section 9) : manifest, service worker. Sans manifest, l'appli n'est qu'un raccourci sur l'écran d'accueil.
+- **Alléger la page Écouter** : elle reçoit tout le contenu (environ 480 Ko de données, verbes en triple, dialogues en double, et bientôt un livre entier). Envoyer seulement les noms et charger le contenu choisi au lancement.
+
+Pistes restantes de l'analyse (10 octobre) : catégories (`tags`) sur plus de mots (quiz par catégorie) ; deux exemples en double (tea / a cup of, take off / shoes) ; surveiller la taille du dépôt (audio) et `msedge-tts` (service non officiel, en panne le 25 octobre).
 5. ✅ **Mots de coordination** (9 octobre) : thème `connecteurs` (71 entrées, catégories en `tags`), sans changement de schéma.
 6. ✅ **Phrases interrogatives** (9 octobre) : trois règles dans `content/rules/special.json`, tag `questions` (do/does/did, inversion avec be/can/will/have, mots interrogatifs).
 
@@ -407,7 +455,7 @@ Pour tout ajout de contenu : `npm run validate`, puis `npm run audio`, puis comm
 - Logique métier (lecteur, motifs, minuteur) séparée de l'UI et testable sans navigateur.
 - Noms de code en anglais, textes de l'interface en français.
 - Petits commits, message clair.
-- Ne pas ajouter de dépendance sans la justifier.
+- Ne pas ajouter de dépendance sans la justifier. Dépendances de développement actuelles : `msedge-tts` (génération audio), `puppeteer-core` (tests navigateur avec le Chrome installé), `tsx`, outillage Next, ESLint, Tailwind et TypeScript.
 - Ne jamais coder en dur du contenu pédagogique : tout vient de `/content`.
 
 ## 13. Hors périmètre (ne pas faire sans demande explicite)

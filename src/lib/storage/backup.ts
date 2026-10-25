@@ -1,10 +1,12 @@
 import { z } from "zod";
+import { BookmarksSchema, type Bookmarks } from "./bookmarks";
 import { PreferencesSchema, type ListenPreferences } from "./preferences";
 import { ProgressSchema, type Progress } from "./progress";
 
 /**
- * Backup of what only lives in this browser: progress and listening preferences, as a JSON file.
- * Importing merges into the current progress: nothing is ever lost (earliest dates are kept).
+ * Backup of what only lives in this browser: progress, listening preferences and book bookmarks,
+ * as a JSON file. Importing merges into the current progress: nothing is ever lost (earliest dates
+ * are kept). Files saved before bookmarks existed are still read.
  */
 
 export const BACKUP_FORMAT = "learn-english-backup";
@@ -18,16 +20,17 @@ const BackupSchema = z.object({
   exportedAt: z.string().refine((date) => !Number.isNaN(Date.parse(date))),
   progress: ProgressSchema,
   preferences: z.unknown().optional(),
+  bookmarks: z.unknown().optional(),
 });
 
 export type Backup = z.infer<typeof BackupSchema>;
 
-export function createBackup(progress: Progress, preferences: ListenPreferences, now: Date): Backup {
-  return { format: BACKUP_FORMAT, version: 1, exportedAt: now.toISOString(), progress, preferences };
+export function createBackup(progress: Progress, preferences: ListenPreferences, bookmarks: Bookmarks, now: Date): Backup {
+  return { format: BACKUP_FORMAT, version: 1, exportedAt: now.toISOString(), progress, preferences, bookmarks };
 }
 
 export type ParsedBackup =
-  | { ok: true; exportedAt: Date; progress: Progress; preferences: ListenPreferences | undefined }
+  | { ok: true; exportedAt: Date; progress: Progress; preferences: ListenPreferences | undefined; bookmarks: Bookmarks }
   | { ok: false; error: string };
 
 /** Reads a backup file. Validated field by field: a file from elsewhere cannot inject anything. */
@@ -41,12 +44,15 @@ export function parseBackup(text: string): ParsedBackup {
   }
   const result = BackupSchema.safeParse(data);
   if (!result.success) return { ok: false, error: "Ce fichier n'est pas une sauvegarde de l'appli." };
+  // Invalid preferences or bookmarks are left out: the progress is still imported.
   const preferences = PreferencesSchema.safeParse(result.data.preferences);
+  const bookmarks = BookmarksSchema.safeParse(result.data.bookmarks ?? {});
   return {
     ok: true,
     exportedAt: new Date(result.data.exportedAt),
     progress: result.data.progress,
     preferences: preferences.success ? preferences.data : undefined,
+    bookmarks: bookmarks.success ? bookmarks.data : {},
   };
 }
 

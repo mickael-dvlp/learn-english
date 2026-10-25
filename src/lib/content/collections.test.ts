@@ -23,6 +23,7 @@ const library: ContentLibrary = {
   rules: [],
   texts: [],
   pairs: [],
+  books: [],
   verbGroups: [],
   ruleGroups: [],
 };
@@ -128,6 +129,16 @@ test("family counts: all the dialogues is not counted, texts and dialogues are t
   assert.equal(familyCountLabel(texts, collections.filter((c) => c.familyId === "textes")), "6 textes · 12 dialogues");
   assert.equal(familyCountLabel(phrases, [{}, {}, {}]), "3 rubriques");
   assert.equal(familyCountLabel(real.families[0], [{}]), "1 thème");
+});
+
+test("books have their own family, one collection per book", () => {
+  const { library: real } = loadContent();
+  const collections = listCollections(real);
+  const books = real.families.find((f) => f.id === "livres");
+  assert.ok(books);
+  const shelf = collections.filter((c) => c.familyId === "livres");
+  assert.ok(shelf.length >= 1 && shelf.every((c) => c.type === "book" && c.items.length === 1 && c.id === c.items[0].id));
+  assert.equal(familyCountLabel(books, shelf), shelf.length > 1 ? `${shelf.length} livres` : "1 livre");
 });
 
 test("numbers and alphabet by sub-theme, the evening stories with the texts", () => {

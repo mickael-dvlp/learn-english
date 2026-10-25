@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getContent } from "@/lib/content/load";
 import { focusRing } from "@/components/ui";
 import { plural } from "@/lib/format";
+import { ContinueCard } from "./continue-card";
 import { Greeting } from "./greeting";
 
 const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl px-6 py-4 text-left";
@@ -10,12 +11,8 @@ const cardClass = "flex min-h-20 flex-col items-start justify-center rounded-3xl
 /** "1 186": thousands separated as in French. */
 const number = (n: number) => n.toLocaleString("fr-FR");
 
-const comingSoon = [
-  { label: "Continuer où j'en étais", hint: "Reprendre la dernière session" },
-];
-
 export default function Home() {
-  const { themes, words, verbs, rules, texts, pairs } = getContent();
+  const { themes, words, verbs, rules, texts, pairs, books } = getContent();
   const modals = rules.filter((rule) => rule.kind === "modal");
   const dialogues = texts.filter((text) => text.kind === "dialogue");
 
@@ -38,12 +35,10 @@ export default function Home() {
         <span className="text-sm opacity-80">Fiches, verbes, règles et textes</span>
       </Link>
 
-      {comingSoon.map((action) => (
-        <button key={action.label} type="button" disabled className={`${cardClass} bg-surface opacity-60`}>
-          <span className="text-xl font-semibold">{action.label}</span>
-          <span className="text-sm opacity-80">{action.hint} · bientôt</span>
-        </button>
-      ))}
+      <ContinueCard
+        books={books.map((book) => ({ id: book.id, title: book.title.fr ?? book.title.en, chapters: book.chapters.length }))}
+        className={cardClass}
+      />
 
       <p className="mt-4 text-center text-sm text-muted">
         {[
@@ -57,6 +52,7 @@ export default function Home() {
           `${number(pairs.length)} ${pairs.length > 1 ? "exercices" : "exercice"} de prononciation`,
           plural(texts.length - dialogues.length, "texte"),
           plural(dialogues.length, "dialogue"),
+          ...(books.length > 0 ? [plural(books.length, "livre")] : []),
         ].join(" · ")}
       </p>
       <Link href="/backup" className={`self-center rounded-xl px-3 py-2 text-sm text-accent ${focusRing}`}>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { z } from "zod";
 import { cardClass, focusRing, primaryButtonClass } from "@/components/ui";
 import { backupFileName, createBackup, mergeProgress, parseBackup } from "@/lib/storage/backup";
+import { bookmarksStore, mergeBookmarks } from "@/lib/storage/bookmarks";
 import { createLocalStore, useLocalStore } from "@/lib/storage/local-store";
 import { persistState, requestPersistence, type PersistState } from "@/lib/storage/persist";
 import { preferencesStore } from "@/lib/storage/preferences";
@@ -28,7 +29,7 @@ export function BackupScreen() {
 
   const exportFile = () => {
     const now = new Date();
-    const backup = createBackup(progressStore.get(), preferencesStore.get(), now);
+    const backup = createBackup(progressStore.get(), preferencesStore.get(), bookmarksStore.get(), now);
     const url = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 1)], { type: "application/json" }));
     const link = document.createElement("a");
     link.href = url;
@@ -44,6 +45,7 @@ export function BackupScreen() {
     if (!parsed.ok) return setMessage({ kind: "error", text: parsed.error });
     const before = counts(progressStore.get());
     progressStore.set(mergeProgress(progressStore.get(), parsed.progress));
+    bookmarksStore.set(mergeBookmarks(bookmarksStore.get(), parsed.bookmarks));
     if (parsed.preferences) preferencesStore.set(parsed.preferences);
     const after = counts(progressStore.get());
     setMessage({

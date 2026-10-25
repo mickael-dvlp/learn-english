@@ -47,8 +47,8 @@ export function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
-/** Turns one content item into playable segments, following a pattern. */
-export function compileItem(item: ContentItem, pattern: Pattern): Segment[] {
+/** Turns one content item (or a chapter of a book, read like a text) into playable segments, following a pattern. */
+export function compileItem(item: { id: string; [field: string]: unknown }, pattern: Pattern): Segment[] {
   const root = item as Scope;
   const title = fillTemplate(pattern.display, root) ?? item.id;
   let current: Segment = { itemId: item.id, label: title, steps: [] };

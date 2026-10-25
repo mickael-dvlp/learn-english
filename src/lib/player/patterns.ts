@@ -47,6 +47,12 @@ export type Pattern = {
   listenedRatio?: number;
 };
 
+/**
+ * Sentences of texts and books are recorded slower (generated slower, which sounds better than
+ * slowing down playback). Reading a book in Study plays these recordings too.
+ */
+export const SLOW_RATE = 0.85;
+
 /** English, French, English again: one sentence of a list. */
 const EN_FR_EN: StepTemplate[] = [
   { say: "{en}", lang: "en" },
@@ -101,7 +107,7 @@ export const PATTERNS: Pattern[] = [
     id: "text",
     name: "Phrase par phrase",
     description: "Chaque phrase lentement en anglais, puis sa traduction.",
-    appliesTo: ["text"],
+    appliesTo: ["text", "book"],
     display: "{title.en}",
     steps: [
       { say: "{title.en}", lang: "en" },
@@ -112,7 +118,7 @@ export const PATTERNS: Pattern[] = [
         each: "sentences",
         segment: { label: "{en}" },
         steps: [
-          { say: "{en}", lang: "en", rate: 0.85, voiceFrom: "speaker" },
+          { say: "{en}", lang: "en", rate: SLOW_RATE, voiceFrom: "speaker" },
           { pause: 1 },
           { say: "{fr}", lang: "fr" },
           { pause: 1.5 },
@@ -124,7 +130,7 @@ export const PATTERNS: Pattern[] = [
     id: "text-en-fr-en",
     name: "Anglais → français → anglais",
     description: "Chaque phrase ou réplique en anglais, sa traduction, puis encore l'anglais.",
-    appliesTo: ["text"],
+    appliesTo: ["text", "book"],
     display: "{title.en}",
     steps: [
       { say: "{title.en}", lang: "en" },
@@ -135,11 +141,11 @@ export const PATTERNS: Pattern[] = [
         each: "sentences",
         segment: { label: "{en}" },
         steps: [
-          { say: "{en}", lang: "en", rate: 0.85, voiceFrom: "speaker" },
+          { say: "{en}", lang: "en", rate: SLOW_RATE, voiceFrom: "speaker" },
           { pause: 1 },
           { say: "{fr}", lang: "fr" },
           { pause: 1 },
-          { say: "{en}", lang: "en", rate: 0.85, voiceFrom: "speaker" },
+          { say: "{en}", lang: "en", rate: SLOW_RATE, voiceFrom: "speaker" },
           { pause: 1.5 },
         ],
       },
@@ -149,7 +155,7 @@ export const PATTERNS: Pattern[] = [
     id: "text-en-only",
     name: "Anglais seulement",
     description: "Uniquement l'anglais, phrase après phrase, sans traduction.",
-    appliesTo: ["text"],
+    appliesTo: ["text", "book"],
     display: "{title.en}",
     steps: [
       { say: "{title.en}", lang: "en" },
@@ -158,7 +164,7 @@ export const PATTERNS: Pattern[] = [
         each: "sentences",
         segment: { label: "{en}" },
         steps: [
-          { say: "{en}", lang: "en", rate: 0.85, voiceFrom: "speaker" },
+          { say: "{en}", lang: "en", rate: SLOW_RATE, voiceFrom: "speaker" },
           { pause: 1.5 },
         ],
       },

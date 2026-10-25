@@ -6,11 +6,13 @@ import { FilterChips } from "@/components/filter-chips";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { ProgressLine } from "@/components/progress-line";
-import { focusRing } from "@/components/ui";
+import { cardShape, focusRing } from "@/components/ui";
 import { itemsOf, type Collection } from "@/lib/content/collections";
 import type { ContentItem } from "@/lib/content/schema";
+import { plural } from "@/lib/format";
+import { isQuizItem, QUIZ_MAX_QUESTIONS, QUIZ_MIN_QUESTIONS } from "@/lib/quiz/quiz";
 import { useLocalStore } from "@/lib/storage/local-store";
-import { setPreferences } from "@/lib/storage/preferences";
+import { listenTo } from "@/lib/storage/preferences";
 import { openAccordion } from "@/lib/storage/accordion";
 import { markSeen, progressStore, summarize, textListening, type Progress } from "@/lib/storage/progress";
 import { itemSummary } from "../labels";
@@ -32,6 +34,7 @@ export function CollectionView({ collection }: { collection: Collection }) {
   if (index >= 0) return <CardScreen items={visible} index={index} collectionId={collection.id} />;
 
   const groups = collection.groups ?? [];
+  const quizCount = collection.items.filter(isQuizItem).length;
   // With "Tous", one titled section per sub-theme; with a filter, that sub-theme only.
   const sections =
     groups.length > 1 && groupId === undefined
@@ -46,7 +49,7 @@ export function CollectionView({ collection }: { collection: Collection }) {
         <ProgressLine {...summarize(progress, visible.map((item) => item.id))} />
         <Link
           href="/listen"
-          onClick={() => setPreferences({ sourceId: collection.id, groupId, itemId: undefined })}
+          onClick={() => listenTo(collection.id, { groupId })}
           className={`shrink-0 rounded-2xl bg-accent px-4 py-3 font-semibold text-accent-foreground ${focusRing}`}
         >
           🎧 Écouter
@@ -67,6 +70,21 @@ export function CollectionView({ collection }: { collection: Collection }) {
           </ul>
         </section>
       ))}
+
+      {/* At the end of the theme: a quiz on all of its words, whatever the filter. */}
+      {quizCount > 0 && (
+        <Link href={`/study/${collection.id}/quiz`} className={`${cardShape} mt-4 items-center gap-4 bg-accent/15`}>
+          <span aria-hidden className="text-3xl">
+            🎯
+          </span>
+          <span className="flex flex-1 flex-col gap-1">
+            <span className="text-lg font-semibold">Quiz sur {collection.type === "verb" ? "ces verbes" : "ce thème"}</span>
+            <span className="text-sm text-muted">
+              {plural(quizCount, collection.type === "verb" ? "verbe" : "mot")} · de {QUIZ_MIN_QUESTIONS} à {QUIZ_MAX_QUESTIONS} questions
+            </span>
+          </span>
+        </Link>
+      )}
     </Page>
   );
 }

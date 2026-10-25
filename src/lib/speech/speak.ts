@@ -7,13 +7,14 @@ import { audioCandidates, spokenText } from "./audio-files";
  * Listening sessions do not use this: they play assembled tracks (see player/timeline.ts).
  * Always resolves (end, error or `cancelSpeech()`), never rejects.
  * `voice`: the second voice (second speaker of a dialogue), the usual one when its file is missing.
+ * `recording`: the speed of the recording to prefer (the slow one of a book sentence), played at `rate`.
  */
-export function speak(unit: PlayableUnit, lang: Lang, rate = 1, voice?: Voice): Promise<void> {
+export function speak(unit: PlayableUnit, lang: Lang, rate = 1, voice?: Voice, recording = 1): Promise<void> {
   stopCurrent?.();
   const text = unit[lang];
   if (!text) return Promise.resolve();
-  // Normal speed recordings: study mode plays them at the chosen rate.
-  const files = audioCandidates(lang, text, 1, voice);
+  // Normal speed recordings (unless told otherwise): study mode plays them at the chosen rate.
+  const files = audioCandidates(lang, text, recording, voice);
   const tryFrom = (index: number): Promise<void> =>
     index < files.length ? playFile(`/${files[index]}`, rate, () => tryFrom(index + 1)) : speakNative(text, lang, rate);
   return tryFrom(0);

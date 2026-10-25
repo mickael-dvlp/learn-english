@@ -87,6 +87,8 @@ export function listCollections(library: ContentLibrary): Collection[] {
         : []),
       ...dialogues.map((text) => textCollection(text, familyId)),
     ],
+    books: (familyId) =>
+      library.books.map((book) => ({ id: book.id, type: "book", label: book.title.fr ?? book.title.en, familyId, items: [book] })),
   };
 
   const byId = new Map<string, ContentItem>(library.words.map((word) => [word.id, word]));
@@ -154,12 +156,13 @@ export function familyTitle(family: FamilyHeading): string {
 }
 
 /**
- * "6 thèmes", "7 rubriques" (a family mixing themes and sections), "1 texte · 12 dialogues".
+ * "6 thèmes", "7 rubriques" (a family mixing themes and sections), "1 texte · 12 dialogues", "1 livre".
  * Aggregates (all the dialogues) are not counted: their items are already counted one by one.
  */
 export function familyCountLabel(family: FamilyHeading, collections: CountedCollection[]): string {
   const counted = collections.filter((collection) => !collection.aggregate);
   const sections = family.includes ?? [];
+  if (sections.length === 1 && sections[0] === "books") return count(counted.length, "livre");
   if (sections.length === 1 && sections[0] === "texts") {
     const dialogues = counted.filter((collection) => collection.textKind === "dialogue").length;
     const texts = counted.length - dialogues;

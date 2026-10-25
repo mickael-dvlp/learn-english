@@ -7,10 +7,10 @@ import { bindMediaSession } from "@/lib/player/media-session";
 import type { Player } from "@/lib/player/player";
 import { debugLog } from "@/lib/debug/log";
 
-type Props = { player: Player; title: string; onClose: () => void };
+type Props = { player: Player; title: string; onClose: () => void; quiz?: boolean };
 
-/** Minimal screen while listening: current item, play/pause, time left. */
-export function SessionView({ player, title, onClose }: Props) {
+/** Minimal screen while listening: current item, play/pause, time left (a quiz shows its question number instead). */
+export function SessionView({ player, title, onClose, quiz = false }: Props) {
   const { status, segment, step } = useSyncExternalStore(player.subscribe, player.getSnapshot, player.getSnapshot);
   const [remainingMs, setRemainingMs] = useState(player.remainingMs);
   const pendingStop = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -40,9 +40,9 @@ export function SessionView({ player, title, onClose }: Props) {
   if (status === "ended") {
     return (
       <Page className="items-center justify-center pb-10 text-center">
-        <p className="text-5xl">🌙</p>
-        <p className="text-2xl font-semibold">Session terminée</p>
-        <p className="text-muted">Bonne nuit, et à demain.</p>
+        <p className="text-5xl">{quiz ? "🎯" : "🌙"}</p>
+        <p className="text-2xl font-semibold">{quiz ? "Quiz terminé" : "Session terminée"}</p>
+        <p className="text-muted">{quiz ? "Bravo, et à la prochaine." : "Bonne nuit, et à demain."}</p>
         <button type="button" onClick={onClose} className={`${cardClass} mt-3 w-full items-center justify-center text-lg font-semibold`}>
           Retour
         </button>
@@ -59,9 +59,11 @@ export function SessionView({ player, title, onClose }: Props) {
       {/* Same height and alignment as the page headers; the timer stays small. */}
       <header className="flex min-h-12 items-center justify-between gap-3">
         <h1 className="truncate text-2xl font-semibold">{title}</h1>
-        <span role="timer" aria-label="Temps restant" className="shrink-0 rounded-full bg-surface px-3 py-1 text-sm text-muted tabular-nums">
-          {formatTime(remainingMs)}
-        </span>
+        {!quiz && (
+          <span role="timer" aria-label="Temps restant" className="shrink-0 rounded-full bg-surface px-3 py-1 text-sm text-muted tabular-nums">
+            {formatTime(remainingMs)}
+          </span>
+        )}
       </header>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center">

@@ -34,5 +34,7 @@ export function itemSummary(item: ContentItem): { primary: string; secondary: st
       return { primary: item.title.en, secondary: item.title.fr };
     case "pair":
       return { primary: item.words.map((word) => word.en).join(" / "), secondary: item.words.map((word) => word.fr).join(" / ") };
+    case "book":
+      return { primary: item.title.en, secondary: item.title.fr ?? item.author ?? "" };
   }
 }

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  BookSchema,
   FAMILY_SECTIONS,
   FamilySchema,
   PairSchema,
@@ -9,6 +10,7 @@ import {
   VerbGroupSchema,
   VerbSchema,
   WordSchema,
+  type Book,
   type Family,
   type Pair,
   type Rule,
@@ -34,6 +36,8 @@ export type RawContent = {
   texts: RawFile[];
   /** pairs/<theme>.json: pronunciation pairs of a theme. */
   pairs: RawFile[];
+  /** One book per file. */
+  books: RawFile[];
   /** verb-groups.json (optional): sub-themes of the verbs. */
   verbGroups: RawFile | undefined;
   /** rule-groups.json (optional): sub-themes of the rules and modals. */
@@ -48,6 +52,7 @@ export type ContentLibrary = {
   rules: Rule[];
   texts: TextItem[];
   pairs: Pair[];
+  books: Book[];
   verbGroups: VerbGroup[];
   ruleGroups: VerbGroup[];
 };
@@ -105,11 +110,12 @@ export function validateContent(raw: RawContent): ValidationResult {
   const verbs = raw.verbs.flatMap((file) => parseArray(file, VerbSchema, errors));
   const rules = raw.rules.flatMap((file) => parseArray(file, RuleSchema, errors));
   const texts = raw.texts.flatMap((file) => parseOne(file, TextItemSchema, errors));
+  const books = raw.books.flatMap((file) => parseOne(file, BookSchema, errors));
   const verbGroups = raw.verbGroups ? parseArray(raw.verbGroups, VerbGroupSchema, errors) : [];
   const ruleGroups = raw.ruleGroups ? parseArray(raw.ruleGroups, VerbGroupSchema, errors) : [];
 
   checkUniqueIds("de thème", themes, errors);
-  checkUniqueIds("d'élément", [...words, ...verbs, ...rules, ...texts, ...pairs], errors);
+  checkUniqueIds("d'élément", [...words, ...verbs, ...rules, ...texts, ...pairs, ...books], errors);
 
   for (const item of [...words, ...texts]) {
     if (item.theme !== undefined && !themeIds.has(item.theme)) {
@@ -136,7 +142,7 @@ export function validateContent(raw: RawContent): ValidationResult {
   checkGroups("verbes", verbGroups.length > 0 ? verbGroups : undefined, verbs, errors);
   checkGroups("règles", ruleGroups.length > 0 ? ruleGroups : undefined, rules, errors);
 
-  return { library: { families, themes, words, verbs, rules, texts, pairs, verbGroups, ruleGroups }, errors };
+  return { library: { families, themes, words, verbs, rules, texts, pairs, books, verbGroups, ruleGroups }, errors };
 }
 
 /** With sub-themes, every item has an existing one; without, none has one. */

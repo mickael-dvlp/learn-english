@@ -12,8 +12,8 @@ export type PlayableUnit = {
 
 export type Step =
   | { kind: "speak"; unit: PlayableUnit; lang: Lang; rate: number; voice?: Voice }
-  /** Pause proportional to the length of the text just spoken. */
-  | { kind: "pause"; words: number; scale: number };
+  /** Pause proportional to the length of the text just spoken; `ms`: a set length instead (time to answer a quiz question). */
+  | { kind: "pause"; words: number; scale: number; ms?: number };
 
 /**
  * Smallest unit for navigation (next / previous) and for the end of the session timer:
@@ -34,6 +34,8 @@ export type Segment = {
   part?: { index: number; count: number; needed: number };
   /** Title segment of an item made of parts: hearing it alone does not count as listening. */
   intro?: boolean;
+  /** A sentence of a book: once heard, the bookmark moves past it. */
+  bookmark?: { chapter: number; sentence: number };
 };
 
 export type ListenSettings = {

@@ -1,0 +1,30 @@
+{
+  "id": "book-the-lighthouse-keeper",
+  "type": "book",
+  "title": { "en": "The Lighthouse Keeper", "fr": "Le gardien du phare" },
+  "description": "Un court exemple pour essayer la lecture, l'écoute et le marque-page. À remplacer par ton livre.",
+  "chapters": [
+    {
+      "title": { "en": "A light by the sea", "fr": "Une lumière au bord de la mer" },
+      "sentences": [
+        { "en": "Tom lives in a small white lighthouse by the sea.", "fr": "Tom vit dans un petit phare blanc au bord de la mer." },
+        { "en": "Every evening, he climbs the stairs to the top.", "fr": "Chaque soir, il monte l'escalier jusqu'en haut." },
+        { "en": "There are one hundred and twelve steps.", "fr": "Il y a cent douze marches." },
+        { "en": "At the top, he turns on the big lamp.", "fr": "En haut, il allume la grande lampe." },
+        { "en": "Its light helps the boats to find their way home.", "fr": "Sa lumière aide les bateaux à rentrer au port." },
+        { "en": "Then he makes a cup of tea and watches the waves.", "fr": "Puis il se prépare une tasse de thé et regarde les vagues." }
+      ]
+    },
+    {
+      "title": { "en": "A visitor", "fr": "Un visiteur" },
+      "sentences": [
+        { "en": "One night, someone knocks at the door.", "fr": "Un soir, quelqu'un frappe à la porte." },
+        { "en": "It is a young girl in a wet coat.", "fr": "C'est une jeune fille dans un manteau mouillé." },
+        { "en": "‘My boat is broken,’ she says. ‘Can I stay here tonight?’", "fr": "« Mon bateau est cassé, dit-elle. Je peux rester ici cette nuit ? »" },
+        { "en": "Tom smiles and gives her a warm blanket.", "fr": "Tom sourit et lui donne une couverture chaude." },
+        { "en": "They sit by the window and talk until midnight.", "fr": "Ils s'assoient près de la fenêtre et parlent jusqu'à minuit." },
+        { "en": "Outside, the light keeps turning, slowly and quietly.", "fr": "Dehors, la lumière continue de tourner, lentement et en silence." }
+      ]
+    }
+  ]
+}

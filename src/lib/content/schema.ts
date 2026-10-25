@@ -26,7 +26,7 @@ const common = {
 };
 
 /** Sections that are not word themes, placed in a family by `includes`. */
-export const FAMILY_SECTIONS = ["verbs", "modals", "rules", "texts"] as const;
+export const FAMILY_SECTIONS = ["verbs", "modals", "rules", "texts", "books"] as const;
 
 /** A family groups themes (and sections) on the study and listen screens. */
 export const FamilySchema = z.strictObject({
@@ -175,6 +175,30 @@ export const PairSchema = z.strictObject({
   ...common,
 });
 
+/** English, and its translation when there is one (a book may come without). */
+const EnglishFirstSchema = z.strictObject({ en: nonEmpty, fr: nonEmpty.optional() });
+
+/** A chapter of a book: its title and its sentences, in order. */
+export const ChapterSchema = z.strictObject({
+  title: EnglishFirstSchema,
+  sentences: z.array(EnglishFirstSchema).min(1),
+});
+
+/**
+ * A book to read (Study) and listen to (Listen), chapter by chapter, with one bookmark shared by
+ * both modes. One file per book: content/books/<id>.json.
+ */
+export const BookSchema = z.strictObject({
+  id: itemId("book"),
+  type: z.literal("book"),
+  title: EnglishFirstSchema,
+  author: nonEmpty.optional(),
+  /** A few words about the book, in French. */
+  description: nonEmpty.optional(),
+  chapters: z.array(ChapterSchema).min(1),
+  ...common,
+});
+
 export type Bilingual = z.infer<typeof BilingualSchema>;
 export type Family = z.infer<typeof FamilySchema>;
 export type FamilySection = (typeof FAMILY_SECTIONS)[number];
@@ -188,5 +212,7 @@ export type RuleForm = z.infer<typeof RuleFormSchema>;
 export type TextItem = z.infer<typeof TextItemSchema>;
 export type Pair = z.infer<typeof PairSchema>;
 export type PairWord = z.infer<typeof PairWordSchema>;
-export type ContentItem = Word | Verb | Rule | TextItem | Pair;
+export type Chapter = z.infer<typeof ChapterSchema>;
+export type Book = z.infer<typeof BookSchema>;
+export type ContentItem = Word | Verb | Rule | TextItem | Pair | Book;
 export type ContentType = ContentItem["type"];

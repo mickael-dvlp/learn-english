@@ -41,6 +41,7 @@ export function readRawContent(root: string = DEFAULT_ROOT): { raw: RawContent; 
     rules: readDir("rules"),
     texts: readDir("texts"),
     pairs: readDir("pairs"),
+    books: readDir("books"),
     verbGroups: existsSync(resolve("verb-groups.json")) ? readJson("verb-groups.json") : undefined,
     ruleGroups: existsSync(resolve("rule-groups.json")) ? readJson("rule-groups.json") : undefined,
   };

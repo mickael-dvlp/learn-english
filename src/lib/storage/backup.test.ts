@@ -3,13 +3,15 @@ import { test } from "node:test";
 import { backupFileName, createBackup, mergeProgress, parseBackup } from "./backup";
 import { DEFAULT_PREFERENCES } from "./preferences";
 
-test("a backup survives the round trip, preferences included", () => {
+test("a backup survives the round trip, preferences and bookmarks included", () => {
   const now = new Date("2026-10-10T08:00:00Z");
-  const backup = createBackup({ "word-a": { seen: 1, listened: 2 } }, { ...DEFAULT_PREFERENCES, rate: 1.2 }, now);
+  const bookmarks = { "book-a": { chapter: 2, sentence: 5, at: 3 } };
+  const backup = createBackup({ "word-a": { seen: 1, listened: 2 } }, { ...DEFAULT_PREFERENCES, rate: 1.2 }, bookmarks, now);
   const parsed = parseBackup(JSON.stringify(backup));
   assert.ok(parsed.ok);
   assert.deepEqual(parsed.progress, { "word-a": { seen: 1, listened: 2 } });
   assert.equal(parsed.preferences?.rate, 1.2);
+  assert.deepEqual(parsed.bookmarks, bookmarks);
   assert.equal(parsed.exportedAt.toISOString(), now.toISOString());
   assert.equal(backupFileName(now), "anglais-progression-2026-10-10.json");
 });
@@ -31,6 +33,14 @@ test("invalid preferences are ignored, the progress is still imported", () => {
   const parsed = parseBackup(JSON.stringify(backup));
   assert.ok(parsed.ok);
   assert.equal(parsed.preferences?.rate, DEFAULT_PREFERENCES.rate, "invalid rate falls back to the default");
+  assert.deepEqual(parsed.bookmarks, {}, "a backup saved before bookmarks existed");
+});
+
+test("listening preferences saved with a single content become the selection", () => {
+  const backup = { format: "learn-english-backup", version: 1, exportedAt: "2026-10-10", progress: {}, preferences: { sourceId: "theme-fruits", rate: 1 } };
+  const parsed = parseBackup(JSON.stringify(backup));
+  assert.ok(parsed.ok);
+  assert.deepEqual(parsed.preferences?.sourceIds, ["theme-fruits"]);
 });
 
 test("merging never loses anything: earliest dates, every part heard", () => {
